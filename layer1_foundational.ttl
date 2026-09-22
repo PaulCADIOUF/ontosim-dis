@@ -1,0 +1,299 @@
+@prefix : <http://www.ontosim-dis.org/ontology/layer1#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://www.ontosim-dis.org/ontology/layer1#> .
+
+<http://www.ontosim-dis.org/ontology/layer1> rdf:type owl:Ontology ;
+                                              owl:versionIRI <http://www.ontosim-dis.org/ontology/layer1/1.0> ;
+                                              dc:description "Couche 1 de l'ontologie OntoSim-Dis. les concepts fondateurs indépendants de tout domaine applicatif. Les termes nécessaires de BFO, RO et IAO ont été extraits selon une approche MIREOT."@fr ,
+                                                             "Layer 1 of the OntoSim-Dis ontology: foundational concepts independent of any application domain. The necessary terms from BFO, RO, and IAO were extracted using a MIREOT approach."@en ;
+                                              dcterms:created "2026" ;
+                                              dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                              dcterms:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+                                              dcterms:source "BFO / RO  /  IAO (Je rappelle que les termes sont extraits par MIREOT)"@fr ;
+                                              rdfs:label "OntoSim-Dis Layer 1 - Foundational Ontologies"@en ;
+                                              owl:versionInfo "1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000116
+obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
+                rdfs:label "editor note"@en .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0002131 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:comment "a core relation that holds between a part and its whole"@en ;
+                rdfs:label "part of"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000054
+obo:BFO_0000054 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000055 ;
+                rdfs:domain obo:BFO_0000017 ;
+                rdfs:range obo:BFO_0000015 ;
+                rdfs:comment "Paraphrase of elucidation: a relation between a realizable entity and a process, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"@en ;
+                rdfs:label "realized in"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000055
+obo:BFO_0000055 rdf:type owl:ObjectProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000017 ;
+                rdfs:comment "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"@en ;
+                rdfs:label "realizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000136
+obo:IAO_0000136 rdf:type owl:ObjectProperty ;
+                rdfs:domain obo:IAO_0000030 ;
+                rdfs:comment "A (currently) primitive relation that relates an information artifact to an entity."@en ,
+                             "Un modèle de simulation est à propos d'une maladie et d'un contexte"@fr ;
+                rdfs:label "is about"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000052
+obo:RO_0000052 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002314 ;
+               owl:inverseOf obo:RO_0000053 ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:comment "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en ;
+               rdfs:label "characteristic of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000053
+obo:RO_0000053 rdf:type owl:ObjectProperty ,
+                        owl:InverseFunctionalProperty ;
+               rdfs:range obo:BFO_0000020 ;
+               rdfs:comment "Inverse of characteristic_of"@en ;
+               rdfs:label "has characteristic"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000056
+obo:RO_0000056 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000057 ;
+               rdfs:domain obo:BFO_0000002 ;
+               rdfs:range obo:BFO_0000003 ;
+               rdfs:comment "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+               rdfs:label "participates in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000057
+obo:RO_0000057 rdf:type owl:ObjectProperty ;
+               rdfs:domain obo:BFO_0000003 ;
+               rdfs:range obo:BFO_0000002 ;
+               rdfs:comment "a relation between a process and a continuant, in which the continuant is somehow involved in the process."@en ;
+               rdfs:label "has participant"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000091
+obo:RO_0000091 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000016 ;
+               rdfs:comment "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence"@en ;
+               rdfs:label "has disposition"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty ,
+                        owl:TransitiveProperty ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000004 ;
+               rdfs:comment "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
+               rdfs:label "located in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002131
+obo:RO_0002131 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002323 ;
+               rdf:type owl:SymmetricProperty ;
+               rdfs:comment """A overlaps B if they share some part in common.
+x overlaps y if and only if there exists some z such that x has part z and z part of y"""@en ;
+               rdfs:label "overlaps"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002233
+obo:RO_0002233 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               rdfs:domain obo:BFO_0000015 ;
+               obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
+RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
+Peut etre que je vais l'enlever."""@fr ;
+               rdfs:comment "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p."@en ;
+               rdfs:label "has input"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002234
+obo:RO_0002234 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
+RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
+Peut etre que je vais l'enlever."""@fr ;
+               rdfs:comment "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p."@en ;
+               rdfs:label "has output"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002314
+obo:RO_0002314 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002502 ;
+               rdfs:label "characteristic of part of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002323
+obo:RO_0002323 rdf:type owl:ObjectProperty ;
+               rdfs:comment "A mereological relationship or a topological relationship"@en ;
+               rdfs:label "mereotopologically related to"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002502
+obo:RO_0002502 rdf:type owl:ObjectProperty ;
+               rdfs:label "depends on"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+obo:BFO_0000001 rdf:type owl:Class ;
+                rdfs:comment "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy."@en ,
+                             "BFO:0000001 - importé via MIREOT. Racine de toute la hierarchie BFO."@fr ;
+                rdfs:label "entity"@en ;
+                rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000002
+obo:BFO_0000002 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ;
+                owl:disjointWith obo:BFO_0000003 ;
+                rdfs:comment "Entities persisting over time: models, diseases, populations."@en ,
+                             "Entités persistant dans le temps : modèles, maladies, populations."@fr ;
+                rdfs:label "continuant"@en ;
+                rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000003
+obo:BFO_0000003 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ;
+                rdfs:comment "BFO:0000003 - imported via MIREOT. Superclass of all processes in OntoSim-Dis."@en ,
+                             "BFO:0000003 - importé via MIREOT. Superclasse de tous les processus dans OntoSim-Dis."@fr ;
+                rdfs:label "occurrent"@en ;
+                rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000004
+obo:BFO_0000004 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000002 ;
+                owl:disjointWith obo:BFO_0000020 ,
+                                 obo:BFO_0000031 ;
+                rdfs:comment "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t."@en ;
+                rdfs:label "independent continuant"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+obo:BFO_0000015 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000003 ;
+                rdfs:comment "An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t."@en ,
+                             "SimulationWorkflow, RecompositionProcess, SimulationExecution, SemanticSearch"@en ;
+                rdfs:label "process"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000016
+obo:BFO_0000016 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000017 ;
+                rdfs:comment "Dire que « b est une disposition » signifie que : b est une entité réalisable ; le porteur de b est une entité matérielle ; b est telle que, si elle cesse d'exister, son porteur subit une modification physique ; la réalisation de b survient lorsque, et parce que, ce porteur se trouve dans certaines circonstances physiques particulières, et cette réalisation se produit en vertu de la constitution physique du porteur."@fr ,
+                             "b is a disposition means: b is a realizable entity & b’s bearer is some material entity & b is such that if it ceases to exist, then its bearer is physically changed, & b’s realization occurs when and because this bearer is in some special physical circumstances, & this realization occurs in virtue of the bearer’s physical make-up."@en ;
+                rdfs:label "disposition"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000017
+obo:BFO_0000017 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000020 ;
+                owl:disjointWith obo:BFO_0000019 ;
+                rdfs:comment "Dire que b est une entité réalisable revient à dire que b est un continuant spécifiquement dépendant qui inhère dans un continuant indépendant, autre qu'une région spatiale, et qui est d'un type dont les instances sont réalisées au cours de processus d'un type corrélé."@fr ,
+                             "To say that b is a realizable entity is to say that b is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region and is of a type instances of which are realized in processes of a correlated type."@en ;
+                rdfs:label "realizable entity"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000019
+obo:BFO_0000019 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000020 ;
+                rdfs:comment "a quality is a specifically dependent continuant that, in contrast to roles and dispositions, does not require any further process in order to be realized."@en ;
+                rdfs:label "quality"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000020
+obo:BFO_0000020 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000002 ;
+                owl:disjointWith obo:BFO_0000031 ;
+                rdfs:comment "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence."@en ;
+                rdfs:label "specifically dependent continuant"@en ;
+                rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000031
+obo:BFO_0000031 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000002 ;
+                rdfs:comment "b is a generically dependent continuant = Def. b is a continuant that g-depends_on one or more other entities."@en ;
+                rdfs:label "generically dependent continuant"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000040
+obo:BFO_0000040 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000004 ;
+                owl:disjointWith obo:BFO_0000141 ;
+                rdfs:comment "A material entity is an independent continuant that has some portion of matter as proper or improper continuant part."@en ;
+                rdfs:label "material entity"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000141
+obo:BFO_0000141 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000004 ;
+                rdfs:label "immaterial entity"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000030
+obo:IAO_0000030 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000031 ;
+                rdfs:comment "A generically dependent continuant that is about some thing."@en ,
+                             "Direct superclass of epi:SimulationKnowledgeArtifact (Layer 2). Groups all informational artifacts of the ontology."@en ,
+                             "Superclasse directe de epi:SimulationKnowledgeArtifact (Couche 2). Regroupe tous les artefacts informationnels de l'ontologie"@fr ;
+                rdfs:label "information content entity"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
