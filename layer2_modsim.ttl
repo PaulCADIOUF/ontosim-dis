@@ -1,0 +1,804 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix osd: <https://w3id.org/ontosim-dis#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer2> rdf:type owl:Ontology ;
+                                       owl:versionIRI <https://w3id.org/ontosim-dis/layer2/1.0> ;
+                                       owl:imports <https://w3id.org/ontosim-dis/layer1/1.0> ;
+                                       dcterms:created "\"2026\"" ;
+                                       dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                       dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                       dcterms:source "Couche 1"@fr ;
+                                       rdfs:comment """Capa 2: Esta capa responde a la pregunta: ¿Cómo modelamos?
+Aquí encontramos los conceptos genéricos de simulación; estos conceptos son comunes a todos los paradigmas de modelado e independientes de cualquier campo médico."""@es ,
+                                                    """Couche 2 :Cette couche repond à la question comment modeliser ?
+Nous yi avons les concepts generique de simulation, ces concepts sont communs a tous les paradigmes de modelisation et independants de tout domaine medical."""@fr ,
+                                                    """Layer 2: This layer addresses the question of how to model.
+It contains generic simulation concepts, concepts that are common to all modeling paradigms and independent of any specific medical field."""@en ;
+                                       rdfs:label "OntoSim-Dis Capa 2 - Ontología de simulación"@es ,
+                                                  "OntoSim-Dis Couche 2 - Ontologie de modelisation et simulation"@fr ,
+                                                  "OntoSim-Dis Layer 2 - Simulation Ontology"@en ;
+                                       owl:versionInfo "\"1.0\"" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000116 """j'y ajoute des notes 
+Sens : Indique que deux concepts sont suffisamment proches sur le plan sémantique pour être utilisés de manière interchangeable dans certaines applications de recherche d'information, sans pour autant être rigoureusement identiques.
+
+Non-transitivité : Contrairement à skos:exactMatch, la propriété skos:closeMatch n'est pas transitive pour éviter les erreurs cumulatives lors de chaînages de correspondances multiples.
+
+
+cette transitivite sera laisse a l'appreciation de IVAN"""@fr ;
+                rdfs:comment "skos:closeMatch est une propriété de liaison dans le standard Simple Knowledge Organization System qui permet d'associer un concept à un autre concept provenant d'un schéma de vocabulaire différent"@fr ;
+                rdfs:label "closeMatch"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+skos:exactMatch rdf:type owl:AnnotationProperty ;
+                rdfs:comment "skos:exactMatch est une propriété SKOS du W3C utilisée pour relier deux concepts issus de schémas différents, indiquant une forte certitude qu'ils possèdent des significations équivalentes et peuvent être utilisés de manière interchangeable."@fr ;
+                rdfs:label "exactMatch"@en .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#executesModel
+osd:executesModel rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain osd:SimulationExecution ;
+                  rdfs:range osd:SimulationModel ;
+                  rdfs:comment "Lie une execution au modele qu'elle fait tourner."@fr ,
+                               "Links an execution to the model it runs."@en ;
+                  rdfs:label "executesModel"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasComponent
+osd:hasComponent rdf:type owl:ObjectProperty ;
+                 rdfs:domain osd:ModelStructureKnowledge ;
+                 rdfs:range osd:ModelComponent ;
+                 rdfs:comment "Lie une structure de modele aux composants qu'elle contient."@fr ,
+                              "Links a model structure to the components it contains."@en ;
+                 rdfs:label "hasComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasGranularityLevel
+osd:hasGranularityLevel rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain osd:ModelStructureKnowledge ;
+                        rdfs:range osd:GranularityLevel ;
+                        rdfs:comment "Lie une structure de modele a son niveau de detail."@fr ,
+                                     "Links a model structure to its level of detail."@en ;
+                        rdfs:label "hasGranularityLevel"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasParadigm
+osd:hasParadigm rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain osd:ModelStructureKnowledge ;
+                rdfs:range osd:ParadigmType ;
+                rdfs:comment "Lie une structure de modele a sa nature deterministe ou stochastique."@fr ,
+                             "Links a model structure to its deterministic or stochastic nature."@en ;
+                rdfs:label "hasParadigm"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasParameter
+osd:hasParameter rdf:type owl:ObjectProperty ;
+                 rdfs:domain osd:SimulationModel ;
+                 rdfs:range osd:ModelParameter ;
+                 rdfs:comment "Lie un modele a ses parametres."@fr ,
+                              "Links a model to its parameters."@en ;
+                 rdfs:label "hasParameter"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasSourceState
+osd:hasSourceState rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain osd:TransitionComponent ;
+                   rdfs:range osd:StateComponent ;
+                   rdfs:comment "Etat de depart d'une transition."@fr ,
+                                "Start state of a transition."@en ;
+                   rdfs:label "hasSourceState"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasSpatialType
+osd:hasSpatialType rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain osd:ModelStructureKnowledge ;
+                   rdfs:range osd:SpatialType ;
+                   rdfs:comment "Lie une structure de modele a son traitement de l'espace."@fr ,
+                                "Links a model structure to its handling of space."@en ;
+                   rdfs:label "hasSpatialType"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasStructureKnowledge
+osd:hasStructureKnowledge rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain osd:SimulationModel ;
+                          rdfs:range osd:ModelStructureKnowledge ;
+                          rdfs:comment "Lie un modele a la connaissance decrivant sa structure interne."@fr ,
+                                       "Links a model to the knowledge describing its internal structure."@en ;
+                          rdfs:label "hasStructureKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasTargetState
+osd:hasTargetState rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain osd:TransitionComponent ;
+                   rdfs:range osd:StateComponent ;
+                   rdfs:comment "End state of a transition."@en ,
+                                "Etat d'arrivee d'une transition."@fr ;
+                   rdfs:label "hasTargetState"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasTemporalType
+osd:hasTemporalType rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain osd:ModelStructureKnowledge ;
+                    rdfs:range osd:TemporalType ;
+                    rdfs:comment "Lie une structure de modele a son traitement du temps."@fr ,
+                                 "Links a model structure to its handling of time."@en ;
+                    rdfs:label "hasTemporalType"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasValidationMethod
+osd:hasValidationMethod rdf:type owl:ObjectProperty ;
+                        rdfs:domain osd:SimulationModel ;
+                        rdfs:range osd:ValidationMethod ;
+                        rdfs:comment "Lie un modele aux methodes par lesquelles il a ete valide."@fr ,
+                                     "Links a model to the methods by which it was validated."@en ;
+                        rdfs:label "hasValidationMethod"@en .
+
+
+###  https://w3id.org/ontosim-dis#producesResult
+osd:producesResult rdf:type owl:ObjectProperty ;
+                   rdfs:domain osd:SimulationExecution ;
+                   rdfs:range osd:SimulationResult ;
+                   rdfs:comment "Lie une execution aux donnees qu'elle produit."@fr ,
+                                "Links an execution to the data it produces."@en ;
+                   rdfs:label "producesResult"@en .
+
+
+###  https://w3id.org/ontosim-dis#usesScenario
+osd:usesScenario rdf:type owl:ObjectProperty ;
+                 rdfs:domain osd:SimulationModel ;
+                 rdfs:range osd:SimulationScenario ;
+                 rdfs:comment "Lie un modele aux scenarios sous lesquels il est execute."@fr ,
+                              "Links a model to the scenarios under which it is run."@en ;
+                 rdfs:label "usesScenario"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#creationDate
+osd:creationDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain osd:SimulationModel ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "Date de creation du modele."@fr ,
+                              "Date the model was created."@en ;
+                 rdfs:label "creationDate"@en .
+
+
+###  https://w3id.org/ontosim-dis#defaultValue
+osd:defaultValue rdf:type owl:DatatypeProperty ;
+                 rdfs:domain osd:ModelParameter ;
+                 rdfs:range xsd:double ;
+                 rdfs:comment "Valeur utilisée lorsqu'aucune n'est fournie."@fr ,
+                              "Value used when none is supplied."@en ;
+                 rdfs:label "defaultValue"@en .
+
+
+###  https://w3id.org/ontosim-dis#endDate
+osd:endDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain osd:SimulationScenario ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Date de fin du scenario."@fr ,
+                         "End date of the scenario."@en ;
+            rdfs:label "endDate"@en .
+
+
+###  https://w3id.org/ontosim-dis#executionStatus
+osd:executionStatus rdf:type owl:DatatypeProperty ;
+                    rdfs:domain osd:SimulationExecution ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Etat de l'execution : en attente, en cours, terminee, echouee."@fr ,
+                                 "State of the execution: pending, running, completed, failed."@en ;
+                    rdfs:label "executionStatus"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasAuthor
+osd:hasAuthor rdf:type owl:DatatypeProperty ;
+              rdfs:domain osd:SimulationModel ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Le nom de l'auteur du modele est sous forme de texte et non en classe. Nous nous somme basé sur OSDI pour changer notre maniere de faire car sur notre ancienne version l'auteur etait un artefact d'information."@fr ,
+                           "The model author's name is stored as text rather than as a class. We based our change in approach on OSDI, as the author was treated as an information artifact in our previous version."@en ;
+              rdfs:label "hasAuthor"@en ;
+              skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#hasAuthor> .
+
+
+###  https://w3id.org/ontosim-dis#modelDescription
+osd:modelDescription rdf:type owl:DatatypeProperty ;
+                     rdfs:domain osd:SimulationModel ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Free-text description of the model."@en ;
+                     rdfs:label "Description libre du modele."@fr ,
+                                "modelDescription"@en .
+
+
+###  https://w3id.org/ontosim-dis#modelName
+osd:modelName rdf:type owl:DatatypeProperty ;
+              rdfs:domain osd:SimulationModel ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Name of the model."@en ,
+                           "Nom du modele"@fr ;
+              rdfs:label "modelName"@en .
+
+
+###  https://w3id.org/ontosim-dis#modelVersion
+osd:modelVersion rdf:type owl:DatatypeProperty ;
+                 rdfs:domain osd:SimulationModel ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Version du modele."@fr ,
+                              "Version of the model."@en ;
+                 rdfs:label "modelVersion"@en .
+
+
+###  https://w3id.org/ontosim-dis#numberOfRuns
+osd:numberOfRuns rdf:type owl:DatatypeProperty ;
+                 rdfs:domain osd:SimulationExecution ;
+                 rdfs:range xsd:integer ;
+                 rdfs:comment "Nombre de repetitions de l'execution, utile pour les modeles stochastiques."@fr ,
+                              "Number of repetitions of the execution, useful for stochastic models."@en ;
+                 rdfs:label "numberOfRuns"@en .
+
+
+###  https://w3id.org/ontosim-dis#parameterName
+osd:parameterName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain osd:ModelParameter ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Name of the parameter, for instance beta."@en ,
+                               "Nom du parametre, par exemple beta."@fr ;
+                  rdfs:label "parameterName"@en .
+
+
+###  https://w3id.org/ontosim-dis#parameterUnit
+osd:parameterUnit rdf:type owl:DatatypeProperty ;
+                  rdfs:domain osd:ModelParameter ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Unit of the parameter, for instance day^-1."@en ,
+                               "Unite du parametre, par exemple jour^-1."@fr ;
+                  rdfs:label "parameterUnit"@en .
+
+
+###  https://w3id.org/ontosim-dis#parameterValue
+osd:parameterValue rdf:type owl:DatatypeProperty ;
+                   rdfs:domain osd:ModelParameter ;
+                   rdfs:range xsd:double ;
+                   rdfs:comment "Numeric value of the parameter."@en ,
+                                "Valeur numerique du parametre."@fr ;
+                   rdfs:label "parameterValue"@en .
+
+
+###  https://w3id.org/ontosim-dis#randomSeed
+osd:randomSeed rdf:type owl:DatatypeProperty ;
+               rdfs:domain osd:SimulationExecution ;
+               rdfs:range xsd:integer ;
+               rdfs:comment "Graine du generateur aleatoire, necessaire pour reproduire une execution stochastique."@fr ,
+                            "Seed of the random generator, needed to reproduce a stochastic run."@en ;
+               rdfs:label "randomSeed"@en .
+
+
+###  https://w3id.org/ontosim-dis#scenarioDurationInDays
+osd:scenarioDurationInDays rdf:type owl:DatatypeProperty ;
+                           rdfs:domain osd:SimulationScenario ;
+                           rdfs:range xsd:double ;
+                           rdfs:comment "Duration covered by the scenario in days"@en ,
+                                        "Duree couverte par le scenario en jours"@fr ;
+                           rdfs:label "scenarioDurationInDays"@en .
+
+
+###  https://w3id.org/ontosim-dis#simulationDurationInDays
+osd:simulationDurationInDays rdf:type owl:DatatypeProperty ;
+                             rdfs:domain osd:ModelStructureKnowledge ;
+                             rdfs:range xsd:double ;
+                             rdfs:comment "Duree totale simulee en jours"@fr ,
+                                          "Total simulated duration in days"@en ;
+                             rdfs:label "simulationDurationInDays"@en .
+
+
+###  https://w3id.org/ontosim-dis#simulatorName
+osd:simulatorName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain osd:SimulationExecution ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Name of the simulator used, for instance JaDES, GAMA, NetLogo."@en ,
+                               "Nom du simulateur employe, par exemple JaDES, GAMA, NetLogo."@fr ;
+                  rdfs:label "simulatorName"@en .
+
+
+###  https://w3id.org/ontosim-dis#simulatorVersion
+osd:simulatorVersion rdf:type owl:DatatypeProperty ;
+                     rdfs:domain osd:SimulationExecution ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Version du simulateur employe."@fr ,
+                                  "Version of the simulator used."@en ;
+                     rdfs:label "simulatorVersion"@en .
+
+
+###  https://w3id.org/ontosim-dis#startDate
+osd:startDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain osd:SimulationScenario ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment "Date de debut du scenario."@fr ,
+                           "Start date of the scenario."@en ;
+              rdfs:label "startDate"@en .
+
+
+###  https://w3id.org/ontosim-dis#timeStepInDays
+osd:timeStepInDays rdf:type owl:DatatypeProperty ;
+                   rdfs:domain osd:ModelStructureKnowledge ;
+                   rdfs:range xsd:double ;
+                   rdfs:comment "Duration of one simulation step in days"@en ,
+                                "Duree d'un pas de simulation en jours"@fr ;
+                   rdfs:label "timeStepInDays"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/ontosim-dis#DynamicParameter
+osd:DynamicParameter rdf:type owl:Class ;
+                     rdfs:subClassOf osd:ModelParameter ;
+                     owl:disjointWith osd:StaticParameter ;
+                     rdfs:comment "A parameter whose value varies with time, for instance a time-dependent transmission rate."@en ,
+                                  "Parametre dont la valeur varie dans le temps, par exemple un taux de transmission dependant du temps."@fr ;
+                     rdfs:label "DynamicParameter"@en .
+
+
+###  https://w3id.org/ontosim-dis#EnvironmentComponent
+osd:EnvironmentComponent rdf:type owl:Class ;
+                         rdfs:subClassOf osd:ModelComponent ;
+                         rdfs:comment "An external or contextual factor influencing the modelled system: weather, terrain, infrastructure."@en ,
+                                      "Facteur externe ou contextuel influencant le systeme modelise : meteo, relief, infrastructure."@fr ;
+                         rdfs:label "EnvironmentComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#GranularityLevel
+osd:GranularityLevel rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Class ;
+                                           owl:oneOf ( osd:GROUP
+                                                       osd:INDIVIDUAL
+                                                       osd:MULTISCALE
+                                                       osd:REGIONAL
+                                                     )
+                                         ] ;
+                     rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                     rdfs:comment "Level of detail at which the modelled entities are described. Closed list."@en ,
+                                  "Niveau de detail auquel les entites modelisees sont decrites. Liste fermee."@fr ;
+                     rdfs:label "GranularityLevel"@en .
+
+
+###  https://w3id.org/ontosim-dis#InitialCondition
+osd:InitialCondition rdf:type owl:Class ;
+                     rdfs:subClassOf osd:ModelParameter ;
+                     rdfs:comment "A parameter giving the value of a quantity at the start of the simulation."@en ,
+                                  "Parametre donnant la valeur d'une grandeur au debut de la simulation."@fr ;
+                     rdfs:label "InitialCondition"@en .
+
+
+###  https://w3id.org/ontosim-dis#InterventionScenario
+osd:InterventionScenario rdf:type owl:Class ;
+                         rdfs:subClassOf osd:SimulationScenario ;
+                         rdfs:comment "A scenario in which one or more interventions are applied: vaccination, treatment, control measure."@en ,
+                                      "Scenario dans lequel une ou plusieurs interventions sont appliquees : vaccination, traitement, mesure de controle."@fr ;
+                         rdfs:label "InterventionScenario"@en ;
+                         skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
+
+
+###  https://w3id.org/ontosim-dis#ModelComponent
+osd:ModelComponent rdf:type owl:Class ;
+                   rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                   rdfs:comment "A constituent part of the structure of a model."@fr ,
+                                "Partie constitutive de la structure d'un modele."@fr ;
+                   rdfs:label "ModelComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#ModelParameter
+osd:ModelParameter rdf:type owl:Class ;
+                   rdfs:subClassOf osd:ModelComponent ;
+                   rdfs:comment "A named quantity whose value settles part of the behaviour of the model. Merges the former ParameterComponent and ModelParameter."@en ,
+                                "Grandeur nommee dont la valeur fixe une partie du comportement du modele. Fusionne les anciennes classes ParameterComponent et ModelParameter."@fr ;
+                   rdfs:label "ModelParameter"@en ;
+                   skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
+
+
+###  https://w3id.org/ontosim-dis#ModelStructureKnowledge
+osd:ModelStructureKnowledge rdf:type owl:Class ;
+                            rdfs:subClassOf osd:SimulationKnowledgeArtifact ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty osd:hasComponent ;
+                                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass osd:ModelComponent
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty osd:hasGranularityLevel ;
+                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass osd:GranularityLevel
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty osd:hasParadigm ;
+                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass osd:ParadigmType
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty osd:hasSpatialType ;
+                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass osd:SpatialType
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty osd:hasTemporalType ;
+                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass osd:TemporalType
+                                            ] ;
+                            rdfs:comment "Connaissance decrivant la structure interne d'un modele : ses composants et ses choix de paradigme, de temps, d'espace et de granularite. Composant MSK du Quadruplet de recomposition."@fr ,
+                                         "Knowledge describing the internal structure of a model: its components and its paradigmatic, temporal, spatial and granularity choices. MSK component of the recomposition Quadruplet."@en ;
+                            rdfs:label "ModelStructureKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#ParadigmType
+osd:ParadigmType rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( osd:DETERMINISTIC
+                                                   osd:STOCHASTIC
+                                                 )
+                                     ] ;
+                 rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                 rdfs:comment "Nature du traitement du hasard par le modele. Liste fermee."@fr ,
+                              "Nature of the model's handling of chance. Closed list."@en ;
+                 rdfs:label "ParadigmType"@en .
+
+
+###  https://w3id.org/ontosim-dis#RuleComponent
+osd:RuleComponent rdf:type owl:Class ;
+                  rdfs:subClassOf osd:ModelComponent ;
+                  rdfs:comment "A rule governing the behaviour of the model: decision rule, behaviour rule, interaction rule."@en ,
+                               "Regle gouvernant le comportement du modele : regle de decision, de comportement, d'interaction."@fr ;
+                  rdfs:label "RuleComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#SimulationExecution
+osd:SimulationExecution rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000015 ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty osd:executesModel ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass osd:SimulationModel
+                                        ] ;
+                        rdfs:comment """Ceci represente le processus d'execution d'un modele de simulation sur un simulateur.
+Ce n'est pas un artefact d'information mais un processus car il se deroule dans le temps."""@fr ,
+                                     """This represents the process of executing a simulation model on a simulator.
+It is not an information artifact but a process, because it unfolds over time."""@en ;
+                        rdfs:label "SimulationExecution"@en .
+
+
+###  https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact
+osd:SimulationKnowledgeArtifact rdf:type owl:Class ;
+                                rdfs:subClassOf obo:IAO_0000030 ;
+                                rdfs:comment "Artefact d'information portant une connaissance utilisee pour construire, decrire ou executer un modele de simulation."@en ,
+                                             "Artefact d'information portant une connaissance utilisee pour construire, decrire ou executer un modele de simulation."@fr ;
+                                rdfs:label "SimulationKnowledgeArtifact"@en .
+
+
+###  https://w3id.org/ontosim-dis#SimulationModel
+osd:SimulationModel rdf:type owl:Class ;
+                    rdfs:subClassOf osd:SimulationKnowledgeArtifact ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty osd:hasParameter ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass osd:ModelParameter
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty osd:hasValidationMethod ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass osd:ValidationMethod
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty osd:usesScenario ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass osd:SimulationScenario
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty osd:hasStructureKnowledge ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass osd:ModelStructureKnowledge
+                                    ] ;
+                    rdfs:comment "A representation of a system whose behaviour is studied by simulation, independently of the paradigm used."@en ,
+                                 "Representation d'un systeme dont on etudie le comportement par simulation, independamment du paradigme employe."@fr ;
+                    rdfs:label "SimulationModel"@en ;
+                    skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Model> .
+
+
+###  https://w3id.org/ontosim-dis#SimulationObservation
+osd:SimulationObservation rdf:type owl:Class ;
+                          rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                          rdfs:comment "Donnees reelles observees, servant a valider un modele par comparaison avec ses resultats."@fr ,
+                                       "Real observed data, used to validate a model by comparison with its results."@en ;
+                          rdfs:label "SimulationObservation"@en .
+
+
+###  https://w3id.org/ontosim-dis#SimulationResult
+osd:SimulationResult rdf:type owl:Class ;
+                     rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                     rdfs:comment "Data produced by a simulation execution."@en ,
+                                  "Donnees produites par une execution de simulation."@fr ;
+                     rdfs:label "SimulationResult"@en .
+
+
+###  https://w3id.org/ontosim-dis#SimulationScenario
+osd:SimulationScenario rdf:type owl:Class ;
+                       rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                       rdfs:comment "A set of hypotheses and settings under which a model is run."@en ,
+                                    "Ensemble d'hypotheses et de reglages sous lesquels un modele est execute."@fr ;
+                       rdfs:label "SimulationScenario"@en .
+
+
+###  https://w3id.org/ontosim-dis#SpatialType
+osd:SpatialType rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( osd:GIS
+                                                  osd:GRID
+                                                  osd:NETWORK
+                                                  osd:NON_SPATIAL
+                                                )
+                                    ] ;
+                rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                rdfs:comment "Facon dont l'espace est represente dans le modele. Liste fermee."@fr ,
+                             "Way space is represented in the model. Closed list."@en ;
+                rdfs:label "SpatialType"@en .
+
+
+###  https://w3id.org/ontosim-dis#StateComponent
+osd:StateComponent rdf:type owl:Class ;
+                   rdfs:subClassOf osd:ModelComponent ;
+                   rdfs:comment "A state that an entity of the model can occupy at a given time. Specialised as a compartment in compartmental models [C3B] and as an agent state in agent-based models [C3A]."@en ,
+                                "Etat qu'une entite du modele peut occuper a un instant donne. Se specialise en compartiment pour les modeles compartimentaux [C3B] et en etat d'agent pour les modeles a agents [C3A]."@fr ;
+                   rdfs:label "StateComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#StaticParameter
+osd:StaticParameter rdf:type owl:Class ;
+                    rdfs:subClassOf osd:ModelParameter ;
+                    rdfs:comment "A parameter whose value does not change during the simulation."@en ,
+                                 "Parametre dont la valeur ne change pas au cours de la simulation."@fr ;
+                    rdfs:label "StaticParameter"@en .
+
+
+###  https://w3id.org/ontosim-dis#TemporalType
+osd:TemporalType rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( osd:CONTINUOUS
+                                                   osd:DISCRETE
+                                                 )
+                                     ] ;
+                 rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                 rdfs:comment "Nature du temps dans le modele. Liste fermee."@en ,
+                              "Nature of time in the model. Closed list."@en ;
+                 rdfs:label "TemporalType"@en .
+
+
+###  https://w3id.org/ontosim-dis#TransitionComponent
+osd:TransitionComponent rdf:type owl:Class ;
+                        rdfs:subClassOf osd:ModelComponent ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty osd:hasSourceState ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass osd:StateComponent
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty osd:hasTargetState ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass osd:StateComponent
+                                        ] ;
+                        rdfs:comment "A passage from one state to another. Has exactly one source state and one target state, whatever the paradigm. A transition to several states is represented by several transitions."@en ,
+                                     "Passage d'un etat a un autre. Possede exactement un etat de depart et un etat d'arrivee, quel que soit le paradigme. Une transition vers plusieurs etats se represente par plusieurs transitions."@fr ;
+                        rdfs:label "TransitionComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#ValidationMethod
+osd:ValidationMethod rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Class ;
+                                           owl:oneOf ( osd:ADEQUACY
+                                                       osd:CROSS_MODEL
+                                                       osd:HISTORICAL_DATA
+                                                       osd:STATISTICAL
+                                                     )
+                                         ] ;
+                     rdfs:subClassOf osd:SimulationKnowledgeArtifact ;
+                     rdfs:comment "Method by which the model is shown to be fit for its purpose. Closed list."@en ,
+                                  "Methode par laquelle on montre que le modele convient a son objectif. Liste fermee."@fr ;
+                     rdfs:label "ValidationMethod"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/ontosim-dis#ADEQUACY
+osd:ADEQUACY rdf:type owl:NamedIndividual ,
+                      osd:ValidationMethod ;
+             rdfs:comment "Evaluation qualitative de la logique et des hypotheses du modele."@fr ,
+                          "Qualitative assessment of the model's logic and assumptions."@en ;
+             rdfs:label "Adequacy validation"@en .
+
+
+###  https://w3id.org/ontosim-dis#CONTINUOUS
+osd:CONTINUOUS rdf:type owl:NamedIndividual ,
+                        osd:TemporalType ;
+               rdfs:comment "Le temps s'ecoule continument, exemple les equations differentielles."@fr ,
+                            """Time flows continuously
+ as in differential equations."""@en ;
+               rdfs:label "Continuous time"@en .
+
+
+###  https://w3id.org/ontosim-dis#CROSS_MODEL
+osd:CROSS_MODEL rdf:type owl:NamedIndividual ,
+                         osd:ValidationMethod ;
+                rdfs:comment "Comparaison avec un modele etabli du meme phenomene."@fr ,
+                             "Comparison with an established model of the same phenomenon."@en ;
+                rdfs:label "Cross-model validation"@en .
+
+
+###  https://w3id.org/ontosim-dis#DETERMINISTIC
+osd:DETERMINISTIC rdf:type owl:NamedIndividual ,
+                           osd:ParadigmType ;
+                  rdfs:comment "Les memes entrees donnent toujours les memes sorties."@fr ,
+                               "Same inputs always give the same outputs."@en ;
+                  rdfs:label "Deterministic"@en .
+
+
+###  https://w3id.org/ontosim-dis#DISCRETE
+osd:DISCRETE rdf:type owl:NamedIndividual ,
+                      osd:TemporalType ;
+             rdfs:comment "Le temps avance par pas ou par evenements."@fr ,
+                          "Time advances by steps or by events."@en ;
+             rdfs:label "Discrete time"@en .
+
+
+###  https://w3id.org/ontosim-dis#GIS
+osd:GIS rdf:type owl:NamedIndividual ,
+                 osd:SpatialType ;
+        rdfs:comment "L'espace est represente par des donnees geographiques reelles."@fr ,
+                     "Space is represented by real geographic data."@en ;
+        rdfs:label "Geographic information system"@en .
+
+
+###  https://w3id.org/ontosim-dis#GRID
+osd:GRID rdf:type owl:NamedIndividual ,
+                  osd:SpatialType ;
+         rdfs:comment "L'espace est represente par une grille reguliere de cellules."@fr ,
+                      "Space is represented by a regular grid of cells."@en ;
+         rdfs:label "grid"@en .
+
+
+###  https://w3id.org/ontosim-dis#GROUP
+osd:GROUP rdf:type owl:NamedIndividual ,
+                   osd:GranularityLevel ;
+          rdfs:comment "Individuals are gathered into homogeneous groups."@en ,
+                       "Les individus sont regroupes en groupes homogenes."@fr ;
+          rdfs:label "Group"@en .
+
+
+###  https://w3id.org/ontosim-dis#HISTORICAL_DATA
+osd:HISTORICAL_DATA rdf:type owl:NamedIndividual ,
+                             osd:ValidationMethod ;
+                    rdfs:comment "Comparaison des resultats avec des donnees reelles observees."@fr ,
+                                 "Comparison of the results with real observed data."@en ;
+                    rdfs:label "Historical data validation"@en .
+
+
+###  https://w3id.org/ontosim-dis#INDIVIDUAL
+osd:INDIVIDUAL rdf:type owl:NamedIndividual ,
+                        osd:GranularityLevel ;
+               rdfs:comment "Chaque individu est represente separement."@fr ,
+                            "Each individual is represented separately."@en ;
+               rdfs:label "Individual"@en .
+
+
+###  https://w3id.org/ontosim-dis#MULTISCALE
+osd:MULTISCALE rdf:type owl:NamedIndividual ,
+                        osd:GranularityLevel ;
+               rdfs:comment "Plusieurs niveaux de detail coexistent dans le meme modele."@fr ,
+                            "Several levels of detail coexist in the same model."@fr ;
+               rdfs:label "Multiscale"@en .
+
+
+###  https://w3id.org/ontosim-dis#NETWORK
+osd:NETWORK rdf:type owl:NamedIndividual ,
+                     osd:SpatialType ;
+            rdfs:comment "L'espace est represente par un reseau de contacts ou de connexions."@fr ,
+                         "Space is represented by a network of contacts or connections."@en ;
+            rdfs:label "Network"@en .
+
+
+###  https://w3id.org/ontosim-dis#NON_SPATIAL
+osd:NON_SPATIAL rdf:type owl:NamedIndividual ,
+                         osd:SpatialType ;
+                rdfs:comment "L'espace n'est pas represente, la population est supposee bien melangee."@fr ,
+                             "Space is not represented, the population is assumed well mixed."@en ;
+                rdfs:label "Non spatial"@en .
+
+
+###  https://w3id.org/ontosim-dis#REGIONAL
+osd:REGIONAL rdf:type owl:NamedIndividual ,
+                      osd:GranularityLevel ;
+             rdfs:comment "L'unite decrite est un territoire."@fr ,
+                          "The unit described is a territory."@en ;
+             rdfs:label "Regional"@en .
+
+
+###  https://w3id.org/ontosim-dis#STATISTICAL
+osd:STATISTICAL rdf:type owl:NamedIndividual ,
+                         osd:ValidationMethod ;
+                rdfs:comment "Statistical test of the agreement between results and reference data."@en ,
+                             "Test statistique de l'accord entre les resultats et des donnees de reference."@fr ;
+                rdfs:label "Statistical Validation"@en .
+
+
+###  https://w3id.org/ontosim-dis#STOCHASTIC
+osd:STOCHASTIC rdf:type owl:NamedIndividual ,
+                        osd:ParadigmType ;
+               rdfs:comment "Chance takes part and results vary from one run to another."@en ,
+                            "Le hasard intervient et les resultats varient d'une execution a l'autre."@fr ;
+               rdfs:label "Stochastic"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( osd:EnvironmentComponent
+                osd:ModelParameter
+                osd:RuleComponent
+                osd:StateComponent
+                osd:TransitionComponent
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( osd:ADEQUACY
+                        osd:CONTINUOUS
+                        osd:CROSS_MODEL
+                        osd:DETERMINISTIC
+                        osd:DISCRETE
+                        osd:GIS
+                        osd:GRID
+                        osd:GROUP
+                        osd:HISTORICAL_DATA
+                        osd:INDIVIDUAL
+                        osd:MULTISCALE
+                        osd:NETWORK
+                        osd:NON_SPATIAL
+                        osd:REGIONAL
+                        osd:STATISTICAL
+                        osd:STOCHASTIC
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
