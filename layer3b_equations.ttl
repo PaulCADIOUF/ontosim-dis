@@ -1,0 +1,269 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix osd: <https://w3id.org/ontosim-dis#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer3b> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer3b/1.0> ;
+                                        owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ;
+                                        dcterms:created "\"2026\"" ;
+                                        dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                        rdfs:comment """For this type of model, we divide the population into compartments, and the flows between these compartments are governed by rates.
+They are usually expressed as differential equations.
+Reminder: This layer contains no medical content."""@en ,
+                                                     """Pour ce type de modele, nous divisons la population en compartiments et les flux entre ces compartiments sont gouvernes par des taux.
+Pour la plupart du temps ils sont exprime en exquations differentielles.
+Rappel : Cette couche ne contient aucun contenu medical"""@fr ;
+                                        rdfs:label "OntoSim-Dis Couche 3B - Paradigme compartimental et a equations"@fr ,
+                                                   "OntoSim-Dis Layer 3B - Compartmental and equation-based paradigm"@en ;
+                                        owl:versionInfo "\"1.0\"" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#dependsOnCompartment
+osd:dependsOnCompartment rdf:type owl:ObjectProperty ;
+                         rdfs:domain osd:CompartmentDependentRate ;
+                         rdfs:range osd:Compartment ;
+                         rdfs:comment "Lie un taux aux compartiments dont il lit le contenu courant. Signature du couplage populationnel dans le paradigme compartimental."@fr ,
+                                      "Links a rate to the compartments whose current content it reads. Signature of population coupling in the compartmental paradigm."@en ;
+                         rdfs:label "dependsOnCompartment"@en .
+
+
+###  https://w3id.org/ontosim-dis#governsCompartment
+osd:governsCompartment rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain osd:DifferentialEquation ;
+                       rdfs:range osd:Compartment ;
+                       rdfs:comment "Lie une equation au compartiment dont elle donne la variation."@fr ,
+                                    "Links an equation to the compartment whose variation it gives."@en ;
+                       rdfs:label "governsCompartment"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasCompartment
+osd:hasCompartment rdf:type owl:ObjectProperty ;
+                   rdfs:domain osd:CompartmentalModel ;
+                   rdfs:range osd:Compartment ;
+                   rdfs:comment "Lie un modele compartimental a ses compartiments."@fr ,
+                                "Links a compartmental model to its compartments."@en ;
+                   rdfs:label "hasCompartment"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasEquation
+osd:hasEquation rdf:type owl:ObjectProperty ;
+                rdfs:domain osd:CompartmentalModel ;
+                rdfs:range osd:DifferentialEquation ;
+                rdfs:comment "Lie un modele compartimental a ses equations differentielles."@fr ,
+                             "Links a compartmental model to its differential equations."@en ;
+                rdfs:label "hasEquation"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasFlow
+osd:hasFlow rdf:type owl:ObjectProperty ;
+            rdfs:domain osd:CompartmentalModel ;
+            rdfs:range osd:TransitionFlow ;
+            rdfs:comment "Lie un modele compartimental a ses flux."@fr ,
+                         "Links a compartmental model to its flows."@en ;
+            rdfs:label "hasFlow"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasRate
+osd:hasRate rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain osd:TransitionFlow ;
+            rdfs:range osd:RateSpecification ;
+            rdfs:comment "Lie un flux a la facon dont son taux est determine."@fr ,
+                         "Links a flow to the way its rate is determined."@en ;
+            rdfs:label "hasRate"@en .
+
+
+###  https://w3id.org/ontosim-dis#involvesFlow
+osd:involvesFlow rdf:type owl:ObjectProperty ;
+                 rdfs:domain osd:DifferentialEquation ;
+                 rdfs:range osd:TransitionFlow ;
+                 rdfs:comment "Lie une equation aux flux qui y figurent."@fr ,
+                              "Links an equation to the flows appearing in it."@en ;
+                 rdfs:label "involvesFlow"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#compartmentInitialSize
+osd:compartmentInitialSize rdf:type owl:DatatypeProperty ;
+                           rdfs:domain osd:Compartment ;
+                           rdfs:range xsd:double ;
+                           rdfs:comment "Nombre d'individus dans le compartiment au debut de la simulation."@fr ,
+                                        "Number of individuals in the compartment at the start of the simulation."@en ;
+                           rdfs:label "compartmentInitialSize"@en .
+
+
+###  https://w3id.org/ontosim-dis#compartmentSymbol
+osd:compartmentSymbol rdf:type owl:DatatypeProperty ;
+                      rdfs:domain osd:Compartment ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Symbol of the compartment in the equations, for instance S or I."@en ,
+                                   "Symbole du compartiment dans les equations, par exemple S ou I."@fr ;
+                      rdfs:label "compartmentSymbol"@en .
+
+
+###  https://w3id.org/ontosim-dis#equationExpression
+osd:equationExpression rdf:type owl:DatatypeProperty ;
+                       rdfs:domain osd:DifferentialEquation ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Expression textuelle de l'equation, par exemple dS/dt = -beta * S * I / N."@fr ,
+                                    "Textual expression of the equation, for instance dS/dt = -beta * S * I / N."@en ;
+                       rdfs:label "equationExpression"@en .
+
+
+###  https://w3id.org/ontosim-dis#rateConstantValue
+osd:rateConstantValue rdf:type owl:DatatypeProperty ;
+                      rdfs:domain osd:ConstantRate ;
+                      rdfs:range xsd:double ;
+                      rdfs:comment "Valeur d'un taux constant, par jour."@fr ,
+                                   "Value of a constant rate, per day."@en ;
+                      rdfs:label "rateConstantValue"@en .
+
+
+###  https://w3id.org/ontosim-dis#rateExpression
+osd:rateExpression rdf:type owl:DatatypeProperty ;
+                   rdfs:domain osd:RateSpecification ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Expression textuelle du taux, par exemple beta * I / N."@fr ,
+                                "Textual expression of the rate, for instance beta * I / N."@en ;
+                   rdfs:label "rateExpression"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/ontosim-dis#Compartment
+osd:Compartment rdf:type owl:Class ;
+                rdfs:subClassOf osd:StateComponent ;
+                rdfs:comment "A group of individuals sharing the same situation, counted together. Compartmental form of a state component."@en ,
+                             "Groupe d'individus partageant la meme situation, comptes ensemble. Forme compartimentale d'un composant d'etat."@fr ;
+                rdfs:label "Compartment"@en .
+
+
+###  https://w3id.org/ontosim-dis#CompartmentDependentRate
+osd:CompartmentDependentRate rdf:type owl:Class ;
+                             rdfs:subClassOf osd:RateSpecification ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty osd:dependsOnCompartment ;
+                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass osd:Compartment
+                                             ] ;
+                             owl:disjointWith osd:ConstantRate ;
+                             rdfs:comment "A rate whose value depends on the current content of one or more compartments, which makes the system non-linear and coupled. Compartmental form of population coupling."@en ,
+                                          "Taux dont la valeur depend du contenu courant d'un ou plusieurs compartiments, ce qui rend le systeme non lineaire et couple. Forme compartimentale du couplage populationnel."@fr ;
+                             rdfs:label "CompartmentDependentRate"@en .
+
+
+###  https://w3id.org/ontosim-dis#CompartmentalModel
+osd:CompartmentalModel rdf:type owl:Class ;
+                       rdfs:subClassOf osd:SimulationModel ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osd:hasCompartment ;
+                                         owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                         owl:onClass osd:Compartment
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty osd:hasFlow ;
+                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass osd:TransitionFlow
+                                       ] ;
+                       rdfs:comment "A model dividing the population into compartments, between which flows carry individuals at rates."@en ,
+                                    "Modele divisant la population en compartiments, entre lesquels des flux font passer les individus a certains taux."@fr ;
+                       rdfs:label "CompartmentalModel"@en .
+
+
+###  https://w3id.org/ontosim-dis#ConstantRate
+osd:ConstantRate rdf:type owl:Class ;
+                 rdfs:subClassOf osd:RateSpecification ;
+                 rdfs:comment "A rate that does not depend on the current content of any compartment. Individual determinant."@en ,
+                              "Taux qui ne depend du contenu courant d'aucun compartiment. Determinant individuel."@fr ;
+                 rdfs:label "ConstantRate"@en .
+
+
+###  https://w3id.org/ontosim-dis#CoupledCompartmentalModel
+osd:CoupledCompartmentalModel rdf:type owl:Class ;
+                              owl:equivalentClass [ owl:intersectionOf ( osd:CompartmentalModel
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty osd:hasFlow ;
+                                                                           owl:someValuesFrom osd:CoupledFlow
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] ;
+                              rdfs:subClassOf osd:CompartmentalModel ;
+                              rdfs:comment "A compartmental model containing at least one coupled flow. Inferred by the reasoner without anyone declaring the model infectious."@en ,
+                                           "Modele compartimental comportant au moins un flux couple. Infere par le raisonneur sans que personne ait declare le modele infectieux."@fr ;
+                              rdfs:label "CoupledCompartmentalModel"@en .
+
+
+###  https://w3id.org/ontosim-dis#CoupledFlow
+osd:CoupledFlow rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( osd:TransitionFlow
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty osd:hasRate ;
+                                                             owl:someValuesFrom osd:CompartmentDependentRate
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf osd:TransitionFlow ;
+                rdfs:comment "A flow whose rate depends on the content of a compartment."@en ,
+                             "Flux dont le taux depend du contenu d'un compartiment."@fr ;
+                rdfs:label "CoupledFlow"@en .
+
+
+###  https://w3id.org/ontosim-dis#DifferentialEquation
+osd:DifferentialEquation rdf:type owl:Class ;
+                         rdfs:subClassOf osd:ModelComponent ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty osd:involvesFlow ;
+                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass osd:TransitionFlow
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty osd:governsCompartment ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass osd:Compartment
+                                         ] ;
+                         rdfs:comment "Equation donnant la variation dans le temps du contenu d'un compartiment, comme bilan des flux qui y entrent et en sortent."@fr ,
+                                      "The equation giving the variation over time of the content of one compartment, as the balance of the flows entering and leaving it."@en ;
+                         rdfs:label "DifferentialEquation"@en .
+
+
+###  https://w3id.org/ontosim-dis#RateSpecification
+osd:RateSpecification rdf:type owl:Class ;
+                      rdfs:subClassOf osd:ModelParameter ;
+                      rdfs:comment "Facon dont le taux d'un flux est determine."@fr ,
+                                   "The way the rate of a flow is determined."@en ;
+                      rdfs:label "RateSpecification"@en .
+
+
+###  https://w3id.org/ontosim-dis#TransitionFlow
+osd:TransitionFlow rdf:type owl:Class ;
+                   rdfs:subClassOf osd:TransitionComponent ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty osd:hasRate ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass osd:RateSpecification
+                                   ] ;
+                   rdfs:comment "A passage of individuals from one compartment to another, governed by a rate. Inherits from the layer 2 transition its source and target states."@en ,
+                                "Passage d'individus d'un compartiment a un autre, gouverne par un taux. Herite de la transition de couche 2 ses etats de depart et d'arrivee."@fr ;
+                   rdfs:label "TransitionFlow"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
