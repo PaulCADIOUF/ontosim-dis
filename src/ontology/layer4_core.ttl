@@ -15,7 +15,7 @@
                                             dcterms:created "2026" ;
                                             dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                             dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                                            <http://purl.org/dc/terms/source> "OGMS" ;
+                                            dcterms:source "OGMS" ;
                                             rdfs:comment "Noyau de la couche 4, independant du type de maladie. Fournit la theorie de la maladie d'OGMS, les etats de sante, les transitions entre eux, le determinant qui gouverne chaque transition et les ponts par lesquels tout paradigme de modelisation declare ce que ses composants representent."@fr ,
                                                          "The core of layer 4, independent of the type of disease. Provides the OGMS theory of disease, health states, transitions between them, the determinant that governs each transition, and the bridges by which any modelling paradigm states what its components represent."@en ;
                                             rdfs:label "OntoSim-Dis Couche 4-Core - Noyau commun a toutes les maladies"@fr ,
@@ -723,8 +723,7 @@ dsim:TransitionDeterminant rdf:type owl:Class ;
                                            ] ;
                            rdfs:comment "Ce qui gouverne le taux ou la probabilite d'une transition. La distinction entre ses deux sous-classes N'EST PAS medicale mais structurelle : elle dit si le risque d'un individu depend des autres. C'est elle, et non la taxonomie des maladies, qui determine la famille de modeles utilisable."@fr ,
                                         "What governs the rate or the probability of a transition. The distinction between its two subclasses is NOT medical but structural: it says whether the risk of one individual depends on the others. It is this distinction, and not the taxonomy of diseases, that determines the family of usable models."@en ;
-                           rdfs:label "TransitionDeterminant"@en ;
-                           <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization> .
+                           rdfs:label "TransitionDeterminant"@en .
 
 
 ###  https://w3id.org/ontosim-dis#Treatment
