@@ -1,0 +1,50 @@
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix test: <https://w3id.org/ontosim-dis/test-env#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://w3id.org/ontosim-dis/test-env> rdf:type owl:Ontology ;
+    rdfs:label "Test fonctionnel - transmission directe contre transmission environnementale"@fr ;
+    owl:imports <https://w3id.org/ontosim-dis/layer4-infectious/1.0> ;
+    owl:versionInfo "1.0" .
+
+#################################################################
+#    Les agents pathogenes
+#################################################################
+
+test:tSchistosoma rdf:type owl:NamedIndividual , dsim:Parasite ;
+    dsim:pathogenName "Schistosoma mansoni" .
+
+test:tSarsCov2 rdf:type owl:NamedIndividual , dsim:Virus ;
+    dsim:pathogenName "SARS-CoV-2" .
+
+#################################################################
+#    Le reservoir : des cercaires dans un point d'eau
+#################################################################
+
+test:tWaterReservoir rdf:type owl:NamedIndividual , dsim:ReservoirRole .
+
+test:tCercariae rdf:type owl:NamedIndividual , dsim:FreeLivingStageState ;
+    dsim:isStateOfRole test:tWaterReservoir .
+
+
+#################################################################
+#    Les deux maladies : memes proprietes, a une pres
+#################################################################
+
+test:tSchisto rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
+    dsim:diseaseName "Schistosomiasis" ;
+    dsim:hasPathogen test:tSchistosoma ;
+    dsim:hasTransmissionRoute dsim:WATERBORNE ;
+    dsim:hasReservoirState test:tCercariae .
+
+test:tCovid rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
+    dsim:diseaseName "COVID-19" ;
+    dsim:hasPathogen test:tSarsCov2 ;
+    dsim:hasTransmissionRoute dsim:DROPLET .
+
+#
+# C'est la demonstration : deux maladies decrites de la meme facon, a une propriete pres,
+# et le raisonneur separe seul la transmission directe de la transmission environnementale.
+# Personne n'a ecrit que la schistosomiase etait environnementale.

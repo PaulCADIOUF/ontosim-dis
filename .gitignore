@@ -1,0 +1,15 @@
+# Dossiers gardés hors de git
+archive/
+prive/
+
+# Fichiers temporaires de Windows et d'Office
+desktop.ini
+Thumbs.db
+~$*
+
+# Python
+__pycache__/
+*.pyc
+
+# Sauvegardes
+*.bak

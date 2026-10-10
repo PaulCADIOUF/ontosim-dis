@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Dit à Protégé où trouver les couches sur le disque : dans ../src/ontology/, et non sur w3id.org. -->
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri name="https://w3id.org/ontosim-dis/layer1" uri="../src/ontology/layer1_foundational.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer1/1.0" uri="../src/ontology/layer1_foundational.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer2" uri="../src/ontology/layer2_modsim.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer2/1.0" uri="../src/ontology/layer2_modsim.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3a" uri="../src/ontology/layer3a_mas.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3a/1.0" uri="../src/ontology/layer3a_mas.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3b" uri="../src/ontology/layer3b_equations.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3b/1.0" uri="../src/ontology/layer3b_equations.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-ogms" uri="../src/ontology/layer4-ogms.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-ogms/1.0" uri="../src/ontology/layer4-ogms.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-core" uri="../src/ontology/layer4_core.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-core/1.0" uri="../src/ontology/layer4_core.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-infectious" uri="../src/ontology/layer4_infectious.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-infectious/1.0" uri="../src/ontology/layer4_infectious.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-context" uri="../src/ontology/layer4-context.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-context/1.0" uri="../src/ontology/layer4-context.ttl"/>
+</catalog>

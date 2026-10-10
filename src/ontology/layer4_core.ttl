@@ -1,0 +1,759 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer4-core> rdf:type owl:Ontology ;
+                                            owl:versionIRI <https://w3id.org/ontosim-dis/layer4-core/1.0> ;
+                                            owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ,
+                                                        <https://w3id.org/ontosim-dis/layer4-ogms/1.0> ;
+                                            <http://purl.org/dc/terms/created> "2026" ;
+                                            <http://purl.org/dc/terms/creator> "Paul Cheikh Anta DIOUF" ;
+                                            <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                            <http://purl.org/dc/terms/source> "OGMS" ;
+                                            rdfs:comment "Noyau de la couche 4, independant du type de maladie. Fournit la theorie de la maladie d'OGMS, les etats de sante, les transitions entre eux, le determinant qui gouverne chaque transition et les ponts par lesquels tout paradigme de modelisation declare ce que ses composants representent."@fr ,
+                                                         "The core of layer 4, independent of the type of disease. Provides the OGMS theory of disease, health states, transitions between them, the determinant that governs each transition, and the bridges by which any modelling paradigm states what its components represent."@en ;
+                                            rdfs:label "OntoSim-Dis Couche 4-Core - Noyau commun a toutes les maladies"@fr ,
+                                                       "OntoSim-Dis Layer 4-Core - Disease-agnostic core"@en ;
+                                            owl:versionInfo "1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#relatedMatch
+<http://www.w3.org/2004/02/skos/core#relatedMatch> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#dependsOnAttribute
+dsim:dependsOnAttribute rdf:type owl:ObjectProperty ;
+                        rdfs:domain dsim:IndividualDeterminant ;
+                        rdfs:range dsim:IndividualAttribute ;
+                        rdfs:comment "Lie un determinant aux attributs individuels qu'il lit."@fr ,
+                                     "Links a determinant to the individual attributes it reads."@en ;
+                        rdfs:label "dependsOnAttribute"@en .
+
+
+###  https://w3id.org/ontosim-dis#dependsOnCountIn
+dsim:dependsOnCountIn rdf:type owl:ObjectProperty ;
+                      rdfs:domain dsim:PopulationCoupledDeterminant ;
+                      rdfs:range dsim:CouplingSource ;
+                      rdfs:comment "Lie un determinant aux categories dont il lit l'effectif courant. Signature du couplage populationnel. La categorie lue est un etat de sante lorsque le risque depend des humains infectes, un etat de reservoir lorsqu'il depend d'un milieu ou d'un hote non humain. Pendant exact de dependsOnCompartment [3B] et de triggeredBy sur une interaction [3A]."@fr ,
+                                   "Links a determinant to the categories whose current head count it reads. Signature of population coupling. The category read is a health state when the risk depends on infected humans, a reservoir state when it depends on an environment or a non-human host. Exact counterpart of dependsOnCompartment [3B] and triggeredBy an interaction [3A]."@en ;
+                      rdfs:label "dependsOnCountIn"@en .
+
+
+###  https://w3id.org/ontosim-dis#detects
+dsim:detects rdf:type owl:ObjectProperty ;
+             rdfs:domain dsim:DetectionIntervention ;
+             rdfs:range dsim:DiseaseKnowledgeTemplate ;
+             rdfs:comment "Lie une intervention de detection a la connaissance de maladie qu'elle recherche."@fr ,
+                          "Links a detection intervention to the disease knowledge it looks for."@en ;
+             rdfs:label "detects"@en ;
+             <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#detects> .
+
+
+###  https://w3id.org/ontosim-dis#hasDiseaseCourseShape
+dsim:hasDiseaseCourseShape rdf:type owl:ObjectProperty ;
+                           rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                           rdfs:range <http://purl.obolibrary.org/obo/OGMS_0000063> ;
+                           rdfs:comment "Lie une connaissance de maladie a la forme dynamique de son cours, telle que classifiee par OGMS. Cette forme contraint la structure du modele independamment du determinant : elle dit si un retour a l'etat sain est possible, si un etat absorbant est requis ou si la progression est monotone."@fr ,
+                                        "Links a disease knowledge artifact to the dynamic shape of its course, as classified by OGMS. This shape constrains the structure of the model independently of the determinant: it says whether a return to health is possible, whether an absorbing state is required or whether progression is monotone."@en ;
+                           rdfs:label "hasDiseaseCourseShape"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasEndAge
+dsim:hasEndAge rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain dsim:HealthState ;
+               rdfs:range dsim:ModelParameter ;
+               rdfs:comment "Lie un etat de sante au parametre donnant l'age au-dela duquel un individu n'y est plus."@fr ,
+                            "Links a health state to the parameter giving the age beyond which an individual is no longer in it."@en ;
+               rdfs:label "hasEndAge"@en ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasEndAge> .
+
+
+###  https://w3id.org/ontosim-dis#hasHealthState
+dsim:hasHealthState rdf:type owl:ObjectProperty ;
+                    rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                    rdfs:range dsim:HealthState ;
+                    rdfs:comment "Lie une connaissance de maladie aux etats de sante qu'elle definit."@fr ,
+                                 "Links a disease knowledge artifact to the health states it defines."@en ;
+                    rdfs:label "hasHealthState"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasMaterialBasisIn
+dsim:hasMaterialBasisIn rdf:type owl:ObjectProperty ;
+                        rdfs:domain <http://purl.obolibrary.org/obo/OGMS_0000031> ;
+                        rdfs:range <http://purl.obolibrary.org/obo/OGMS_0000045> ;
+                        rdfs:comment "Lie une maladie au desordre qui en est la base physique. OGMS enonce cette relation dans la definition textuelle de la maladie mais ne la formalise pas. IDO la formalise sous son propre IRI. nous la declarons ici pour ne pas dependre d'IDO."@fr ,
+                                     "Links a disease to the disorder that is its physical basis. OGMS states this in the textual definition of disease but does not formalise it. IDO formalises it under its own IRI; we declare it here so as not to depend on IDO."@en ;
+                        rdfs:label "hasMaterialBasisIn"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasOnsetAge
+dsim:hasOnsetAge rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain dsim:HealthState ;
+                 rdfs:range dsim:ModelParameter ;
+                 rdfs:comment "Lie un etat de sante au parametre donnant l'age a partir duquel un individu peut y entrer."@fr ,
+                              "Links a health state to the parameter giving the age from which an individual may enter it."@en ;
+                 rdfs:label "hasOnsetAge"@en ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasOnsetAge> .
+
+
+###  https://w3id.org/ontosim-dis#hasRiskFactor
+dsim:hasRiskFactor rdf:type owl:ObjectProperty ;
+                   rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                   rdfs:range dsim:RiskFactor ;
+                   rdfs:comment "Lie une connaissance de maladie a ses facteurs de risque."@fr ,
+                                "Links a disease knowledge artifact to its risk factors."@en ;
+                   rdfs:label "hasRiskFactor"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasSensitivity
+dsim:hasSensitivity rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain dsim:DetectionIntervention ;
+                    rdfs:range dsim:ModelParameter ;
+                    rdfs:comment "Lie une intervention de detection au parametre qui en donne la sensibilite : la part des individus atteints que le test trouve effectivement. Passer par un parametre plutot que par un nombre en clair permet a la sensibilite de porter sa propre incertitude."@fr ,
+                                 "Links a detection intervention to the parameter giving its sensitivity: the share of affected individuals the test does find. Going through a parameter rather than a plain number allows the sensitivity to carry its own uncertainty."@en ;
+                    rdfs:label "hasSensitivity"@en ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasSensitivity> .
+
+
+###  https://w3id.org/ontosim-dis#hasSourceHealthState
+dsim:hasSourceHealthState rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain dsim:HealthStateTransition ;
+                          rdfs:range dsim:HealthState ;
+                          rdfs:comment "Etat de sante de depart d'une transition. Distincte de hasSourceState de la couche 2, qui relie des composants de modele et non des connaissances."@fr ,
+                                       "Start health state of a transition. Distinct from hasSourceState of layer 2, which links model components, not knowledge."@en ;
+                          rdfs:label "hasSourceHealthState"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasSpecificity
+dsim:hasSpecificity rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain dsim:DetectionIntervention ;
+                    rdfs:range dsim:ModelParameter ;
+                    rdfs:comment "Lie une intervention de detection au parametre qui en donne la specificite : la part des individus indemnes que le test ecarte correctement."@fr ,
+                                 "Links a detection intervention to the parameter giving its specificity: the share of unaffected individuals the test correctly leaves aside."@en ;
+                    rdfs:label "hasSpecificity"@en ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasSpecificity> .
+
+
+###  https://w3id.org/ontosim-dis#hasStateTransition
+dsim:hasStateTransition rdf:type owl:ObjectProperty ;
+                        rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                        rdfs:range dsim:HealthStateTransition ;
+                        rdfs:comment "Lie une connaissance de maladie aux transitions qu'elle autorise."@fr ,
+                                     "Links a disease knowledge artifact to the transitions it allows."@en ;
+                        rdfs:label "hasStateTransition"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasTargetHealthState
+dsim:hasTargetHealthState rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain dsim:HealthStateTransition ;
+                          rdfs:range dsim:HealthState ;
+                          rdfs:comment "End health state of a transition."@en ,
+                                       "Etat de sante d'arrivee d'une transition."@fr ;
+                          rdfs:label "hasTargetHealthState"@en .
+
+
+###  https://w3id.org/ontosim-dis#isGovernedBy
+dsim:isGovernedBy rdf:type owl:ObjectProperty ;
+                  rdfs:domain dsim:HealthStateTransition ;
+                  rdfs:range dsim:TransitionDeterminant ;
+                  rdfs:comment "Lie une transition aux determinants qui en fixent le taux ou la probabilite."@fr ,
+                               "Links a transition to the determinants that set its rate or probability."@en ;
+                  rdfs:label "isGovernedBy"@en .
+
+
+###  https://w3id.org/ontosim-dis#modifiesDeterminant
+dsim:modifiesDeterminant rdf:type owl:ObjectProperty ;
+                         rdfs:domain dsim:Intervention ;
+                         rdfs:range dsim:TransitionDeterminant ;
+                         rdfs:comment "Lie une intervention aux determinants dont elle modifie la valeur. C'est ce qui donne un sens formel a une intervention : sans cela, c'est une etiquette."@fr ,
+                                      "Links an intervention to the determinants whose value it changes. This is what gives an intervention a formal meaning: without it, an intervention is a label."@en ;
+                         rdfs:label "modifiesDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#quantifiedBy
+dsim:quantifiedBy rdf:type owl:ObjectProperty ;
+                  rdfs:domain dsim:TransitionDeterminant ;
+                  rdfs:range dsim:ModelParameter ;
+                  rdfs:comment "Lie un determinant au parametre qui lui donne sa valeur : beta, gamma, un rapport de risque."@fr ,
+                               "Links a determinant to the parameter that gives it its value: beta, gamma, a hazard ratio."@en ;
+                  rdfs:label "quantifiedBy"@en .
+
+
+###  https://w3id.org/ontosim-dis#realisesDeterminant
+dsim:realisesDeterminant rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                         rdfs:domain dsim:ModelComponent ;
+                         rdfs:range dsim:TransitionDeterminant ;
+                         rdfs:comment "Declare quel determinant un composant de modele realise : un taux dependant d'un compartiment [3B] ou une transition declenchee par une interaction [3A] realisent tous deux un determinant couple a la population."@fr ,
+                                      "States which determinant a model component realises: a compartment-dependent rate [3B] or an interaction-triggered transition [3A] both realise a population-coupled determinant."@en ;
+                         rdfs:label "realisesDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#representsDisease
+dsim:representsDisease rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                       rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                       rdfs:range <http://purl.obolibrary.org/obo/OGMS_0000031> ;
+                       rdfs:comment "Lie un artefact de connaissance de maladie a la maladie reelle dont il parle, c'est-a-dire une disposition portee par un organisme. Unique point de contact entre la couche informationnelle d'OntoSim-Dis et l'ontologie realiste OGMS."@fr ,
+                                    "Links a disease knowledge artifact to the real disease it is about, a disposition borne by an organism. Only point of contact between the informational layer of OntoSim-Dis and the realist ontology OGMS."@en ;
+                       rdfs:label "representsDisease"@en .
+
+
+###  https://w3id.org/ontosim-dis#representsHealthState
+dsim:representsHealthState rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                           rdfs:domain dsim:StateComponent ;
+                           rdfs:range dsim:HealthState ;
+                           rdfs:comment "Declare quel etat de sante un composant d'etat de modele represente. Un compartiment S et un etat d'agent susceptible utilisent tous deux cette meme propriete."@fr ,
+                                        "States which health state a model state component stands for. A compartment S and an agent state 'susceptible' both use this same property."@en ;
+                           rdfs:label "representsHealthState"@en .
+
+
+###  https://w3id.org/ontosim-dis#representsPhaseOf
+dsim:representsPhaseOf rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                       rdfs:domain dsim:HealthState ;
+                       rdfs:range <http://purl.obolibrary.org/obo/OGMS_0000063> ;
+                       rdfs:comment "Lie un etat de sante a la phase du cours de maladie qu'il represente. Un etat de sante n'est pas une phase reelle : c'est une abstraction de modelisation qui en tient lieu."@fr ,
+                                    "Links a health state to the phase of the disease course it stands for. A health state is not a real phase: it is a modelling abstraction standing in for one."@en ;
+                       rdfs:label "representsPhaseOf"@en .
+
+
+###  https://w3id.org/ontosim-dis#representsStateTransition
+dsim:representsStateTransition rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                               rdfs:domain dsim:TransitionComponent ;
+                               rdfs:range dsim:HealthStateTransition ;
+                               rdfs:comment "Declare quelle transition d'etat de sante un composant de transition de modele represente."@fr ,
+                                            "States which health state transition a model transition component stands for."@en ;
+                               rdfs:label "representsStateTransition"@en .
+
+
+###  https://w3id.org/ontosim-dis#supersedesHealthState
+dsim:supersedesHealthState rdf:type owl:ObjectProperty ;
+                           rdfs:domain dsim:HealthState ;
+                           rdfs:range dsim:HealthState ;
+                           rdfs:comment "Order of progression between health states, where one exists."@en ,
+                                        "Ordre de progression entre etats de sante, lorsqu'il en existe un."@fr ;
+                           rdfs:label "supersedesHealthState"@en ;
+                           <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#supersedesClinicalProgression> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#caseFatalityRate
+dsim:caseFatalityRate rdf:type owl:DatatypeProperty ;
+                      rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                      rdfs:range xsd:double ;
+                      rdfs:comment "Fraction des cas symptomatiques se terminant par un deces, entre 0 et 1. Generique : vaut pour toute maladie letale."@fr ,
+                                   "Fraction of symptomatic cases that end in death, between 0 and 1. Generic: applies to any lethal disease."@en ;
+                      rdfs:label "caseFatalityRate"@en .
+
+
+###  https://w3id.org/ontosim-dis#coverageRate
+dsim:coverageRate rdf:type owl:DatatypeProperty ;
+                  rdfs:domain dsim:Intervention ;
+                  rdfs:range xsd:double ;
+                  rdfs:comment "Fraction de la population visee effectivement atteinte par l'intervention, entre 0 et 1. Pour une vaccination, c'est le taux de vaccination."@fr ,
+                               "Fraction of the target population actually reached by the intervention, between 0 and 1. For a vaccination, this is the vaccination rate."@en ;
+                  rdfs:label "coverageRate"@en .
+
+
+###  https://w3id.org/ontosim-dis#determinantExpression
+dsim:determinantExpression rdf:type owl:DatatypeProperty ;
+                           rdfs:domain dsim:TransitionDeterminant ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Expression textuelle du determinant, par exemple beta * I / N."@fr ,
+                                        "Textual expression of the determinant, for instance beta * I / N."@en ;
+                           rdfs:label "determinantExpression"@en .
+
+
+###  https://w3id.org/ontosim-dis#diseaseName
+dsim:diseaseName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Nom officiel de la maladie."@fr ,
+                              "Official name of the disease."@en ;
+                 rdfs:label "diseaseName"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasRefToDO
+dsim:hasRefToDO rdf:type owl:DatatypeProperty ;
+                rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Disease Ontology identifier. Attaches the medical taxonomy, deliberately kept OUTSIDE the structure of the ontology."@en ,
+                             "Identifiant Disease Ontology. Rattache la taxonomie medicale, deliberement tenue HORS de la structure de l'ontologie."@fr ;
+                rdfs:label "hasRefToDO"@en ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasRefToDO> .
+
+
+###  https://w3id.org/ontosim-dis#hasRefToICD
+dsim:hasRefToICD rdf:type owl:DatatypeProperty ;
+                 rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Code CIM de la maladie. Reprend la convention d'OSDi pour faciliter l'alignement."@fr ,
+                              "ICD code of the disease. Follows the OSDi convention to ease alignment."@en ;
+                 rdfs:label "hasRefToICD"@en ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasRefToICD> .
+
+
+###  https://w3id.org/ontosim-dis#hasRefToSNOMED
+dsim:hasRefToSNOMED rdf:type owl:DatatypeProperty ;
+                    rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Identifiant SNOMED CT de la maladie. Reprend la convention d'OSDi."@fr ,
+                                 "SNOMED CT identifier of the disease. Follows the OSDi convention."@en ;
+                    rdfs:label "hasRefToSNOMED"@en ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#hasRefToSNOMED> .
+
+
+###  https://w3id.org/ontosim-dis#healthStateName
+dsim:healthStateName rdf:type owl:DatatypeProperty ;
+                     rdfs:domain dsim:HealthState ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Name of the health state."@en ,
+                                  "Nom de l'etat de sante."@fr ;
+                     rdfs:label "healthStateName"@en .
+
+
+###  https://w3id.org/ontosim-dis#interventionEndDate
+dsim:interventionEndDate rdf:type owl:DatatypeProperty ;
+                         rdfs:domain dsim:Intervention ;
+                         rdfs:range xsd:dateTime ;
+                         rdfs:comment "Date de fin de l'intervention, ce qui permet de modeliser les interventions intermittentes."@fr ,
+                                      "Date the intervention stops, which allows intermittent interventions to be modelled."@en ;
+                         rdfs:label "interventionEndDate"@en .
+
+
+###  https://w3id.org/ontosim-dis#interventionIntensity
+dsim:interventionIntensity rdf:type owl:DatatypeProperty ;
+                           rdfs:domain dsim:Intervention ;
+                           rdfs:range xsd:double ;
+                           rdfs:comment "Intensite de l'intervention, entre 0 et 1. 0 signifie aucun effet, 1 un effet maximal."@fr ,
+                                        "Intensity of the intervention, between 0 and 1. 0 means no effect, 1 means maximal effect."@en ;
+                           rdfs:label "interventionIntensity"@en .
+
+
+###  https://w3id.org/ontosim-dis#interventionStartDate
+dsim:interventionStartDate rdf:type owl:DatatypeProperty ;
+                           rdfs:domain dsim:Intervention ;
+                           rdfs:range xsd:dateTime ;
+                           rdfs:comment "Date de debut d'application de l'intervention."@fr ,
+                                        "Date the intervention starts being applied."@en ;
+                           rdfs:label "interventionStartDate"@en .
+
+
+###  https://w3id.org/ontosim-dis#isAbsorbingState
+dsim:isAbsorbingState rdf:type owl:DatatypeProperty ;
+                      rdfs:domain dsim:HealthState ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment "True when no transition leaves this state, for instance death."@en ,
+                                   "Vrai lorsqu'aucune transition ne quitte cet etat, par exemple le deces."@fr ;
+                      rdfs:label "isAbsorbingState"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/OGMS_0000031
+<http://purl.obolibrary.org/obo/OGMS_0000031> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                owl:onProperty dsim:hasMaterialBasisIn ;
+                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000045>
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                                                owl:allValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000063>
+                                                              ] .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000045
+<http://purl.obolibrary.org/obo/OGMS_0000045> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
+                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000087>
+                                                              ] .
+
+
+###  https://w3id.org/ontosim-dis#AcuteCourseDiseaseKnowledge
+dsim:AcuteCourseDiseaseKnowledge rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty dsim:hasDiseaseCourseShape ;
+                                                                              owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000094>
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] ;
+                                 rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                                 rdfs:comment "A disease with an abrupt onset. Fourth course shape recognised by OGMS, alongside the chronic, progressive and transient forms. Constrains the structure of the model little, but qualifies the dynamics of entry."@en ,
+                                              "Maladie a debut brutal. Quatrieme forme de cours reconnue par OGMS, aux cotes des formes chronique, progressive et transitoire. Contraint peu la structure du modele mais qualifie la dynamique d'entree."@fr ;
+                                 rdfs:label "AcuteCourseDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#ChronicCourseDiseaseKnowledge
+dsim:ChronicCourseDiseaseKnowledge rdf:type owl:Class ;
+                                   owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty dsim:hasDiseaseCourseShape ;
+                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000064>
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ] ;
+                                   rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                                   rdfs:comment "A disease whose course does not return to normal homeostasis. Requires at least one absorbing state."@en ,
+                                                "Maladie dont le cours ne revient pas a l'homeostasie normale. Impose au moins un etat absorbant."@fr ;
+                                   rdfs:label "ChronicCourseDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#CoupledDiseaseKnowledge
+dsim:CoupledDiseaseKnowledge rdf:type owl:Class ;
+                             owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty dsim:hasStateTransition ;
+                                                                          owl:someValuesFrom dsim:CoupledTransition
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ] ;
+                             rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                             rdfs:comment "Connaissance de maladie comportant au moins une transition couplee. Le raisonneur classe ici toute maladie dont une transition depend de l'etat de la population, SANS qu'on ait declare qu'elle est infectieuse."@fr ,
+                                          "Disease knowledge containing at least one coupled transition. The reasoner classifies here any disease one of whose transitions depends on the state of the population WITHOUT anyone having declared it infectious."@en ;
+                             rdfs:label "CoupledDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#CoupledTransition
+dsim:CoupledTransition rdf:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( dsim:HealthStateTransition
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty dsim:isGovernedBy ;
+                                                                    owl:someValuesFrom dsim:PopulationCoupledDeterminant
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] ;
+                       rdfs:subClassOf dsim:HealthStateTransition ;
+                       rdfs:comment "A health state transition governed by at least one population-coupled determinant."@en ,
+                                    "Transition d'etat de sante gouvernee par au moins un determinant couple a la population."@fr ;
+                       rdfs:label "CoupledTransition"@en .
+
+
+###  https://w3id.org/ontosim-dis#CouplingSource
+dsim:CouplingSource rdf:type owl:Class ;
+                    rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                    rdfs:comment "A category whose current head count can be read, and whose reading may make a risk vary. Abstract class: never instantiated directly, only subclassed. A human health state in the core, a reservoir state in the infectious extension."@en ,
+                                 "Categorie dont on peut lire l'effectif courant et dont la lecture peut faire varier un risque. Classe abstraite : on n'en cree jamais d'instance directe, seulement des sous-classes. Un etat de sante humain dans le noyau, un etat de reservoir dans l'extension infectieuse."@fr ;
+                    rdfs:label "CouplingSource"@en .
+
+
+###  https://w3id.org/ontosim-dis#DetectionIntervention
+dsim:DetectionIntervention rdf:type owl:Class ;
+                           rdfs:subClassOf dsim:Intervention ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:hasSensitivity ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:ModelParameter
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:hasSpecificity ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:ModelParameter
+                                           ] ;
+                           rdfs:comment "An intervention whose purpose is to find out whether an individual has the disease, rather than to treat it. It changes a determinant through what it triggers: a detected individual is treated, followed up or isolated."@en ,
+                                        "Intervention dont le but est de savoir si un individu a la maladie, et non de la soigner. Elle modifie un determinant par l'intermediaire de ce qu'elle declenche : un individu detecte est traite, suivi ou isole."@fr ;
+                           rdfs:label "DetectionIntervention"@en ;
+                           <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention> .
+
+
+###  https://w3id.org/ontosim-dis#DiagnosisIntervention
+dsim:DiagnosisIntervention rdf:type owl:Class ;
+                           rdfs:subClassOf dsim:DetectionIntervention ;
+                           owl:disjointWith dsim:ScreeningIntervention ;
+                           rdfs:comment "Detection applied to an individual who already shows signs of the disease. This is what clinical practice does in the absence of screening."@en ,
+                                        "Detection appliquee a un individu presentant deja des signes de la maladie. C'est ce que fait la pratique clinique en l'absence de depistage."@fr ;
+                           rdfs:label "DiagnosisIntervention"@en ;
+                           <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#DiagnosisIntervention> .
+
+
+###  https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate
+dsim:DiseaseKnowledgeTemplate rdf:type owl:Class ;
+                              rdfs:subClassOf dsim:SimulationKnowledgeArtifact ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty dsim:representsDisease ;
+                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000031>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty dsim:hasDiseaseCourseShape ;
+                                                owl:allValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000063>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty dsim:hasRiskFactor ;
+                                                owl:allValuesFrom dsim:RiskFactor
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty dsim:hasHealthState ;
+                                                owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                owl:onClass dsim:HealthState
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty dsim:hasStateTransition ;
+                                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                owl:onClass dsim:HealthStateTransition
+                                              ] ;
+                              rdfs:comment "First component of the recomposition Quadruplet (DK). Structured knowledge about a disease, independent of its type, of the modelling paradigm and of the geographical context. It is an information artifact: it is ABOUT a disease, it is not the disease."@en ,
+                                           "Premier composant du Quadruplet de recomposition (DK). Connaissance structuree sur une maladie, independante de son type, du paradigme de modelisation et du contexte geographique. C'est un artefact d'information : il est A PROPOS d'une maladie, il n'est pas la maladie."@fr ;
+                              rdfs:label "DiseaseKnowledgeTemplate"@en ;
+                              <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#Disease> .
+
+
+###  https://w3id.org/ontosim-dis#HealthState
+dsim:HealthState rdf:type owl:Class ;
+                 rdfs:subClassOf dsim:CouplingSource ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dsim:representsPhaseOf ;
+                                   owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000063>
+                                 ] ;
+                 rdfs:comment "A state an individual can occupy with respect to a disease. It is knowledge about a phase of the disease course, NOT a component of a model: a compartment or an agent state represents it, through the bridge representsHealthState."@en ,
+                              "Etat qu'un individu peut occuper vis-a-vis d'une maladie. C'est une connaissance sur une phase du cours de la maladie et NON un composant de modele : un compartiment ou un etat d'agent le represente, par le pont representsHealthState."@fr ;
+                 rdfs:label "HealthState"@en ;
+                 <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#ClinicalProgressionElement> .
+
+
+###  https://w3id.org/ontosim-dis#HealthStateTransition
+dsim:HealthStateTransition rdf:type owl:Class ;
+                           rdfs:subClassOf dsim:SimulationKnowledgeArtifact ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:isGovernedBy ;
+                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:TransitionDeterminant
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:hasSourceHealthState ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:HealthState
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:hasTargetHealthState ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:HealthState
+                                           ] ;
+                           rdfs:comment "Passage d'un individu d'un etat de sante a un autre. Classe pivot du noyau : c'est le seul endroit ou la structure du modele est decidee, parce que c'est le determinant de la transition qui impose sa forme mathematique."@fr ,
+                                        "The passage of an individual from one health state to another. Pivot class of the core: it is the only place where the structure of the model is decided, because it is the determinant of the transition that imposes its mathematical form."@en ;
+                           rdfs:label "HealthStateTransition"@en ;
+                           <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#Pathway> .
+
+
+###  https://w3id.org/ontosim-dis#IndividualAttribute
+dsim:IndividualAttribute rdf:type owl:Class ;
+                         rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                         rdfs:comment "A clinical or demographic characteristic of an individual whose value can change the course of the disease: age, sex, comorbidity, biomarker, vaccination status."@en ,
+                                      "Caracteristique clinique ou demographique d'un individu dont la valeur peut modifier l'evolution de la maladie : age, sexe, comorbidite, biomarqueur, statut vaccinal."@fr ;
+                         rdfs:label "IndividualAttribute"@en ;
+                         <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#Attribute> .
+
+
+###  https://w3id.org/ontosim-dis#IndividualDeterminant
+dsim:IndividualDeterminant rdf:type owl:Class ;
+                           rdfs:subClassOf dsim:TransitionDeterminant ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:dependsOnAttribute ;
+                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass dsim:IndividualAttribute
+                                           ] ;
+                           owl:disjointWith dsim:PopulationCoupledDeterminant ;
+                           rdfs:comment "A determinant whose value depends only on the attributes of the individual concerned: age, sex, comorbidity, biomarker. Structural consequence: individual trajectories are independent, which allows microsimulation and multi-state models."@en ,
+                                        "Determinant dont la valeur depend uniquement des attributs de l'individu concerne : age, sexe, comorbidite, biomarqueur. Consequence structurelle : les trajectoires individuelles sont independantes, ce qui autorise la microsimulation et les modeles multi-etats. Pleinement couvert par OSDi."@fr ;
+                           rdfs:label "IndividualDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#IndividualProgressionDiseaseKnowledge
+dsim:IndividualProgressionDiseaseKnowledge rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty dsim:hasStateTransition ;
+                                                                                        owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty dsim:isGovernedBy ;
+                                                                                                            owl:allValuesFrom dsim:IndividualDeterminant
+                                                                                                          ]
+                                                                                      ]
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                                           rdfs:comment "Connaissance de maladie dont toutes les transitions sont individuelles. Modelisable par microsimulation, modele multi-etats ou arbre de decision."@fr ,
+                                                        "Disease knowledge all of whose transitions are individual. Modellable by microsimulation, multi-state model or decision tree."@en ;
+                                           rdfs:label "IndividualProgressionDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#Intervention
+dsim:Intervention rdf:type owl:Class ;
+                  rdfs:subClassOf dsim:SimulationKnowledgeArtifact ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty dsim:modifiesDeterminant ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass dsim:TransitionDeterminant
+                                  ] ;
+                  rdfs:comment "A control measure applied during the simulation, which changes the course of the disease by modifying at least one determinant."@en ,
+                               "Mesure de controle appliquee pendant la simulation, qui modifie le cours de la maladie en agissant sur au moins un determinant."@fr ;
+                  rdfs:label "Intervention"@en ;
+                  <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
+
+
+###  https://w3id.org/ontosim-dis#NonPharmaceuticalIntervention
+dsim:NonPharmaceuticalIntervention rdf:type owl:Class ;
+                                   rdfs:subClassOf dsim:Intervention ;
+                                   owl:disjointWith dsim:PharmaceuticalIntervention ;
+                                   rdfs:comment "An intervention acting on behaviour or on regulation without any medical product."@en ,
+                                                "Intervention agissant sur le comportement ou la reglementation sans produit medical."@fr ;
+                                   rdfs:label "NonPharmaceuticalIntervention"@en .
+
+
+###  https://w3id.org/ontosim-dis#PharmaceuticalIntervention
+dsim:PharmaceuticalIntervention rdf:type owl:Class ;
+                                rdfs:subClassOf dsim:Intervention ;
+                                rdfs:comment "An intervention using a medical product: vaccine, antiviral, antibiotic."@en ,
+                                             "Intervention reposant sur un produit medical : vaccin, antiviral, antibiotique."@fr ;
+                                rdfs:label "PharmaceuticalIntervention"@en ;
+                                <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#TherapeuticIntervention> .
+
+
+###  https://w3id.org/ontosim-dis#PopulationCoupledDeterminant
+dsim:PopulationCoupledDeterminant rdf:type owl:Class ;
+                                  rdfs:subClassOf dsim:TransitionDeterminant ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty dsim:dependsOnCountIn ;
+                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass dsim:CouplingSource
+                                                  ] ;
+                                  rdfs:comment "A determinant whose value depends on how many individuals are currently in some category, human or not. Canonical example: the force of infection. Structural consequence: the system is non-linear and coupled, individual trajectories are not independent."@en ,
+                                               "Determinant dont la valeur depend du nombre d'individus se trouvant actuellement dans une categorie donnee, humaine ou non. Exemple canonique : la force d'infection. Consequence structurelle : le systeme est non lineaire et couple, les trajectoires individuelles ne sont pas independantes."@fr ;
+                                  rdfs:label "PopulationCoupledDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge
+dsim:ProgressiveCourseDiseaseKnowledge rdf:type owl:Class ;
+                                       owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty dsim:hasDiseaseCourseShape ;
+                                                                                    owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000065>
+                                                                                  ]
+                                                                                ) ;
+                                                             rdf:type owl:Class
+                                                           ] ;
+                                       rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                                       rdfs:comment "A disease with an increasing deviation from homeostasis. Requires an ordered progression through stages, without return."@en ,
+                                                    "Maladie a deviation croissante. Impose une progression ordonnee par stades, sans retour."@fr ;
+                                       rdfs:label "ProgressiveCourseDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#RiskFactor
+dsim:RiskFactor rdf:type owl:Class ;
+                rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                rdfs:comment "An element increasing the probability of a transition. May be an individual attribute, a contextual element or an exposure."@en ,
+                             "Element augmentant la probabilite d'une transition. Peut etre un attribut individuel, un element de contexte ou une exposition."@fr ;
+                rdfs:label "RiskFactor"@en ;
+                <http://www.w3.org/2004/02/skos/core#closeMatch> <http://purl.obolibrary.org/obo/OGMS_0000030> .
+
+
+###  https://w3id.org/ontosim-dis#ScreeningIntervention
+dsim:ScreeningIntervention rdf:type owl:Class ;
+                           rdfs:subClassOf dsim:DetectionIntervention ;
+                           rdfs:comment "Detection applied to a whole population, including individuals showing no sign of the disease. Newborn screening is the typical case."@en ,
+                                        "Detection appliquee a une population entiere, y compris aux individus ne presentant aucun signe de la maladie. Le depistage neonatal en est le cas type."@fr ;
+                           rdfs:label "ScreeningIntervention"@en ;
+                           <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/ontologies-ULL/OSDi#ScreeningIntervention> .
+
+
+###  https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge
+dsim:TransientCourseDiseaseKnowledge rdf:type owl:Class ;
+                                     owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty dsim:hasDiseaseCourseShape ;
+                                                                                  owl:someValuesFrom <http://purl.obolibrary.org/obo/OGMS_0000066>
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ] ;
+                                     rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ;
+                                     rdfs:comment "A disease whose course can end in a return to normal homeostasis. Allows a transition back to a healthy state."@en ,
+                                                  "Maladie dont le cours peut se terminer par un retour a l'homeostasie normale. Autorise une transition de retour vers un etat sain."@fr ;
+                                     rdfs:label "TransientCourseDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#TransitionDeterminant
+dsim:TransitionDeterminant rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                 owl:unionOf ( dsim:IndividualDeterminant
+                                                               dsim:PopulationCoupledDeterminant
+                                                             )
+                                               ] ;
+                           rdfs:subClassOf dsim:SimulationKnowledgeArtifact ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty dsim:quantifiedBy ;
+                                             owl:allValuesFrom dsim:ModelParameter
+                                           ] ;
+                           rdfs:comment "Ce qui gouverne le taux ou la probabilite d'une transition. La distinction entre ses deux sous-classes N'EST PAS medicale mais structurelle : elle dit si le risque d'un individu depend des autres. C'est elle, et non la taxonomie des maladies, qui determine la famille de modeles utilisable."@fr ,
+                                        "What governs the rate or the probability of a transition. The distinction between its two subclasses is NOT medical but structural: it says whether the risk of one individual depends on the others. It is this distinction, and not the taxonomy of diseases, that determines the family of usable models."@en ;
+                           rdfs:label "TransitionDeterminant"@en ;
+                           <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://w3id.org/ontologies-ULL/OSDi#hasRiskCharacterization> .
+
+
+###  https://w3id.org/ontosim-dis#Treatment
+dsim:Treatment rdf:type owl:Class ;
+               rdfs:subClassOf dsim:PharmaceuticalIntervention ;
+               rdfs:comment "A drug treatment of affected individuals. Usually acts on an individual determinant: it changes the recovery or the progression of the treated individual."@en ,
+                            "Traitement medicamenteux des individus atteints. Agit en general sur un determinant individuel : il modifie la guerison ou la progression de l'individu traite."@fr ;
+               rdfs:label "Treatment"@en .
+
+
+###  https://w3id.org/ontosim-dis#Vaccination
+dsim:Vaccination rdf:type owl:Class ;
+                 rdfs:subClassOf dsim:PharmaceuticalIntervention ;
+                 rdfs:comment "A campaign moving individuals from a susceptible state to a protected state."@en ,
+                              "Campagne faisant passer des individus d'un etat susceptible a un etat protege."@fr ;
+                 rdfs:label "Vaccination"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dsim:HealthState
+                dsim:HealthStateTransition
+                dsim:IndividualAttribute
+                dsim:RiskFactor
+                dsim:TransitionDeterminant
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

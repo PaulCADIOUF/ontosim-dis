@@ -1,0 +1,112 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer4-ogms> rdf:type owl:Ontology ;
+                                            owl:versionIRI <https://w3id.org/ontosim-dis/layer4-ogms/1.0> ;
+                                            owl:imports <https://w3id.org/ontosim-dis/layer1/1.0> ;
+                                            dcterms:created "\"2026\"" ;
+                                            dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                            dcterms:source "OGMS  / OBI pour OBI_0000278" ;
+                                            rdfs:comment """Termes reutilises de l'Ontology for General Medical Science, extraits par MIREOT. 
+OGMS est une ontologie generale du domaine medicale donc elle n'est pas dans la couche 1 car OGMS est dans le domaine medical et que la couche 1 doit etre generale.
+Je l'ai mis dans un fichier séparé pour separer ce qui est de notre travail et ce que l'on a importé/réutilisé."""@fr ,
+                                                         """Terms reused from the Ontology for General Medical Science, extracted via MIREOT.
+OGMS is a general ontology for the medical domain; therefore, it is not included in Layer 1, as Layer 1 must be general in nature.
+I placed it in a separate file to distinguish our own work from the material we imported or reused."""@en ,
+                                                         """Términos reutilizados de la Ontología para la Ciencia Médica General (OGMS), extraídos por MIREOT.
+
+OGMS es una ontología general para el dominio médico, por lo que no se encuentra en la capa 1, ya que pertenece al dominio médico y la capa 1 debe ser general.
+
+La coloqué en un archivo aparte para diferenciar nuestro trabajo del que importamos o reutilizamos."""@es ;
+                                            rdfs:label "OntoSim-Dis - Module d'import OGMS"@fr ,
+                                                       "OntoSim-Dis - OGMS import module"@en ;
+                                            owl:versionInfo "\"1.0\"" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/OGMS_0000030
+obo:OGMS_0000030 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000016 ;
+                 rdfs:comment "A disposition in an organism that constitutes an increased risk of the organism's subsequently developing the disease X."@en ,
+                              "Une prédisposition chez un organisme qui constitue un risque accru pour cet organisme de développer ultérieurement la maladie X."@fr ;
+                 rdfs:label "predisposition to disease of type X"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000031
+obo:OGMS_0000031 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000016 ;
+                 rdfs:comment "A disposition (i) to undergo pathological processes that (ii) exists in an organism because of one or more disorders in that organism."@en ,
+                              "Une prédisposition (i) à subir des processus pathologiques qui (ii) existe chez un organisme en raison d'un ou plusieurs troubles affectant cet organisme."@fr ;
+                 rdfs:label "disease"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000045
+obo:OGMS_0000045 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000040 ;
+                 rdfs:comment "A material entity which is clinically abnormal and part of an extended organism. Disorders are the physical basis of disease."@en ,
+                              "Une entité matérielle cliniquement anormale et faisant partie d'un organisme étendu. Les troubles constituent le fondement physique de la maladie."@fr ;
+                 rdfs:label "disorder"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000063
+obo:OGMS_0000063 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000015 ;
+                 rdfs:comment "The totality of all processes through which a given disease instance is realized."@en ;
+                 rdfs:label "disease course"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000064
+obo:OGMS_0000064 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:OGMS_0000063 ;
+                 rdfs:comment "A disease course that (a) does not terminate in a return to normal homeostasis and (b) would, absent intervention, fall within abnormal homeostatic range."@en ;
+                 rdfs:label "chronic disease course"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000065
+obo:OGMS_0000065 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:OGMS_0000063 ;
+                 rdfs:comment "A disease course that (a) does not terminate in a return to normal homeostasis and (b) would, absent intervention, involve an increasing deviation from homeostasis."@en ;
+                 rdfs:label "progressive disease course"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000066
+obo:OGMS_0000066 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:OGMS_0000063 ;
+                 rdfs:comment "A disease course that terminates in a return to normal homeostasis."@en ;
+                 rdfs:label "transient disease course"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000084
+obo:OGMS_0000084 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000040 ;
+                 rdfs:comment "An aggregate of organisms of the same type."@en ,
+                              "Un regroupement d'organismes du même type."@fr ;
+                 rdfs:label "organism population"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000087
+obo:OGMS_0000087 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000040 ;
+                 rdfs:comment "An object aggregate consisting of an organism and all material entities located within the organism, overlapping the organism, or occupying sites formed in part by the organism."@en ,
+                              "Un agrégat d'objets constitué d'un organisme et de toutes les entités matérielles situées à l'intérieur de l'organisme, chevauchant l'organisme ou occupant des sites formés en partie par l'organisme."@fr ;
+                 rdfs:label "extended organism"@en .
+
+
+###  http://purl.obolibrary.org/obo/OGMS_0000094
+obo:OGMS_0000094 rdf:type owl:Class ;
+                 rdfs:subClassOf obo:OGMS_0000063 ;
+                 rdfs:comment "A disease course with an acute onset."@en ;
+                 rdfs:label "acute disease course"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
