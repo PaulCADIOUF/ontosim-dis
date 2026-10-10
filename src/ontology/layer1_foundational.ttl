@@ -86,56 +86,12 @@ obo:IAO_0000136 rdf:type owl:ObjectProperty ;
                 rdfs:label "is about"@en .
 
 
-###  http://purl.obolibrary.org/obo/RO_0000052
-obo:RO_0000052 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0002314 ;
-               owl:inverseOf obo:RO_0000053 ;
-               rdf:type owl:FunctionalProperty ;
-               rdfs:comment "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en ;
-               rdfs:label "characteristic of"@en .
-
-
-###  http://purl.obolibrary.org/obo/RO_0000053
-obo:RO_0000053 rdf:type owl:ObjectProperty ,
-                        owl:InverseFunctionalProperty ;
-               rdfs:range obo:BFO_0000020 ;
-               rdfs:comment "Inverse of characteristic_of"@en ;
-               rdfs:label "has characteristic"@en .
-
-
-###  http://purl.obolibrary.org/obo/RO_0000056
-obo:RO_0000056 rdf:type owl:ObjectProperty ;
-               owl:inverseOf obo:RO_0000057 ;
-               rdfs:domain obo:BFO_0000002 ;
-               rdfs:range obo:BFO_0000003 ;
-               rdfs:comment "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
-               rdfs:label "participates in"@en .
-
-
 ###  http://purl.obolibrary.org/obo/RO_0000057
 obo:RO_0000057 rdf:type owl:ObjectProperty ;
                rdfs:domain obo:BFO_0000003 ;
                rdfs:range obo:BFO_0000002 ;
                rdfs:comment "a relation between a process and a continuant, in which the continuant is somehow involved in the process."@en ;
                rdfs:label "has participant"@en .
-
-
-###  http://purl.obolibrary.org/obo/RO_0000091
-obo:RO_0000091 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000053 ;
-               rdfs:domain obo:BFO_0000004 ;
-               rdfs:range obo:BFO_0000016 ;
-               rdfs:comment "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence"@en ;
-               rdfs:label "has disposition"@en .
-
-
-###  http://purl.obolibrary.org/obo/RO_0001025
-obo:RO_0001025 rdf:type owl:ObjectProperty ,
-                        owl:TransitiveProperty ;
-               rdfs:domain obo:BFO_0000004 ;
-               rdfs:range obo:BFO_0000004 ;
-               rdfs:comment "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
-               rdfs:label "located in"@en .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0002131
@@ -168,21 +124,10 @@ Peut etre que je vais l'enlever."""@fr ;
                rdfs:label "has output"@en .
 
 
-###  http://purl.obolibrary.org/obo/RO_0002314
-obo:RO_0002314 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0002502 ;
-               rdfs:label "characteristic of part of"@en .
-
-
 ###  http://purl.obolibrary.org/obo/RO_0002323
 obo:RO_0002323 rdf:type owl:ObjectProperty ;
                rdfs:comment "A mereological relationship or a topological relationship"@en ;
                rdfs:label "mereotopologically related to"@en .
-
-
-###  http://purl.obolibrary.org/obo/RO_0002502
-obo:RO_0002502 rdf:type owl:ObjectProperty ;
-               rdfs:label "depends on"@en .
 
 
 #################################################################
