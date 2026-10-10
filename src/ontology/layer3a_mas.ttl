@@ -12,7 +12,7 @@
 <https://w3id.org/ontosim-dis/layer3a> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://w3id.org/ontosim-dis/layer3a/1.0> ;
                                         owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ;
-                                        dcterms:created "\"2026\"" ;
+                                        dcterms:created "2026" ;
                                         dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                         dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                         rdfs:comment """A key characteristic of a multi-agent system is the absence of centralized control, meaning each agent makes decisions and acts independently. Agents also communicate and react to the actions of others and their environment.
@@ -23,7 +23,7 @@ D'ou la possibilité de voir emerger un comportement collectif inattendu.
 Cette couche est générale donc ne contient aucun contenu medical."""@fr ;
                                         rdfs:label "OntoSim-Dis Couche 3A - Paradigme multi-agents"@fr ,
                                                    "OntoSim-Dis Layer 3A - Agent-based paradigm"@en ;
-                                        owl:versionInfo "\"1.0\"" .
+                                        owl:versionInfo "1.0" .
 
 #################################################################
 #    Object Properties

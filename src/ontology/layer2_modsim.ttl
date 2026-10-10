@@ -13,7 +13,7 @@
 <https://w3id.org/ontosim-dis/layer2> rdf:type owl:Ontology ;
                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer2/1.0> ;
                                        owl:imports <https://w3id.org/ontosim-dis/layer1/1.0> ;
-                                       dcterms:created "\"2026\"" ;
+                                       dcterms:created "2026" ;
                                        dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                        dcterms:source "Couche 1"@fr ;
@@ -26,7 +26,7 @@ It contains generic simulation concepts, concepts that are common to all modelin
                                        rdfs:label "OntoSim-Dis Capa 2 - Ontología de simulación"@es ,
                                                   "OntoSim-Dis Couche 2 - Ontologie de modelisation et simulation"@fr ,
                                                   "OntoSim-Dis Layer 2 - Simulation Ontology"@en ;
-                                       owl:versionInfo "\"1.0\"" .
+                                       owl:versionInfo "1.0" .
 
 #################################################################
 #    Annotation properties
@@ -34,13 +34,12 @@ It contains generic simulation concepts, concepts that are common to all modelin
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
 skos:closeMatch rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000116 """j'y ajoute des notes 
+                obo:IAO_0000116 """
 Sens : Indique que deux concepts sont suffisamment proches sur le plan sémantique pour être utilisés de manière interchangeable dans certaines applications de recherche d'information, sans pour autant être rigoureusement identiques.
 
 Non-transitivité : Contrairement à skos:exactMatch, la propriété skos:closeMatch n'est pas transitive pour éviter les erreurs cumulatives lors de chaînages de correspondances multiples.
 
-
-cette transitivite sera laisse a l'appreciation de IVAN"""@fr ;
+"""@fr ;
                 rdfs:comment "skos:closeMatch est une propriété de liaison dans le standard Simple Knowledge Organization System qui permet d'associer un concept à un autre concept provenant d'un schéma de vocabulaire différent"@fr ;
                 rdfs:label "closeMatch"@en .
 
@@ -252,8 +251,8 @@ dsim:executionStatus rdf:type owl:DatatypeProperty ;
 dsim:hasAuthor rdf:type owl:DatatypeProperty ;
                rdfs:domain dsim:SimulationModel ;
                rdfs:range xsd:string ;
-               rdfs:comment "Le nom de l'auteur du modele est sous forme de texte et non en classe. Nous nous somme basé sur OSDI pour changer notre maniere de faire car sur notre ancienne version l'auteur etait un artefact d'information."@fr ,
-                            "The model author's name is stored as text rather than as a class. We based our change in approach on OSDI, as the author was treated as an information artifact in our previous version."@en ;
+               rdfs:comment "Le nom de l'auteur du modele est sous forme de texte et non en classe. "@fr ,
+                            "The model author's name is stored as text rather than as a class."@en ;
                rdfs:label "hasAuthor"@en ;
                skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#hasAuthor> .
 
@@ -620,8 +619,8 @@ dsim:NormalDistribution rdf:type owl:Class ;
                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                           owl:onDataRange xsd:double
                                         ] ;
-                        rdfs:comment "Loi symetrique caracterisee par une moyenne et un ecart type. NB : OSDi ne declare aucun parametre pour cette loi, les deux ci-dessous sont de nous."@fr ,
-                                     "Symmetric law characterised by a mean and a standard deviation. NB: OSDi declares no parameter for this law; the two below are ours."@en ;
+                        rdfs:comment "Loi symetrique caracterisee par une moyenne et un ecart type."@fr ,
+                                     "Symmetric law characterised by a mean and a standard deviation."@en ;
                         rdfs:label "NormalDistribution"@en ;
                         skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#NormalDistributionExpression> .
 

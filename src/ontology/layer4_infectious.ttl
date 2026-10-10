@@ -11,14 +11,14 @@
 <https://w3id.org/ontosim-dis/layer4-infectious> rdf:type owl:Ontology ;
                                                   owl:versionIRI <https://w3id.org/ontosim-dis/layer4-infectious/1.0> ;
                                                   owl:imports <https://w3id.org/ontosim-dis/layer4-core/1.0> ;
-                                                  dcterms:created 2026 ;
+                                                  dcterms:created "2026" ;
                                                   dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                                   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                                   rdfs:comment "First extension of the disease-agnostic core: pathogen, transmission route, epidemiological roles, and the periods that only make sense for an infection."@en ,
                                                                "Premiere extension du noyau commun : agent pathogene, voie de transmission, roles epidemiologiques, et les periodes qui n'ont de sens que pour une infection."@fr ;
                                                   rdfs:label "OntoSim-Dis Couche 4-Infectious - Extension aux maladies transmissibles"@fr ,
                                                              "OntoSim-Dis Layer 4-Infectious - Communicable disease extension"@en ;
-                                                  owl:versionInfo 1.0 .
+                                                  owl:versionInfo "1.0" .
 
 #################################################################
 #    Object Properties

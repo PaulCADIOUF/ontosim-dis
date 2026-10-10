@@ -12,14 +12,14 @@
 <https://w3id.org/ontosim-dis/layer4-context> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/ontosim-dis/layer4-context/1.0> ;
                                                owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ;
-                                               dcterms:created "\"2026\"" ;
+                                               dcterms:created "2026" ;
                                                dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                                dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                                rdfs:comment "Ou, pour qui et dans quelles conditions un modele s'applique : population, region geographique, climat, infrastructure de sante. Deuxieme composant du Quadruplet de recomposition."@fr ,
                                                             "Where, for whom and under which conditions a model applies: population, geographic region, climate, health infrastructure. Second component of the recomposition Quadruplet."@en ;
                                                rdfs:label "OntoSim-Dis Couche 4-Context - Connaissance de contexte"@fr ,
                                                           "OntoSim-Dis Layer 4-Context - Context knowledge"@en ;
-                                               owl:versionInfo "\"1.0\"" .
+                                               owl:versionInfo "1.0" .
 
 #################################################################
 #    Annotation properties

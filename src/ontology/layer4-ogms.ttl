@@ -14,7 +14,7 @@
                                             owl:imports <https://w3id.org/ontosim-dis/layer1/1.0> ;
                                             dcterms:created "\"2026\"" ;
                                             dcterms:creator "Paul Cheikh Anta DIOUF" ;
-                                            dcterms:source "OGMS  / OBI pour OBI_0000278" ;
+                                            dcterms:source "OGMS " ;
                                             rdfs:comment """Termes reutilises de l'Ontology for General Medical Science, extraits par MIREOT. 
 OGMS est une ontologie generale du domaine medicale donc elle n'est pas dans la couche 1 car OGMS est dans le domaine medical et que la couche 1 doit etre generale.
 Je l'ai mis dans un fichier séparé pour separer ce qui est de notre travail et ce que l'on a importé/réutilisé."""@fr ,
