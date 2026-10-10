@@ -81,8 +81,7 @@ obo:BFO_0000055 rdf:type owl:ObjectProperty ;
 ###  http://purl.obolibrary.org/obo/IAO_0000136
 obo:IAO_0000136 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:IAO_0000030 ;
-                rdfs:comment "A (currently) primitive relation that relates an information artifact to an entity."@en ,
-                             "Un modèle de simulation est à propos d'une maladie et d'un contexte"@fr ;
+                rdfs:comment "A (currently) primitive relation that relates an information artifact to an entity."@en ;
                 rdfs:label "is about"@en .
 
 
@@ -136,8 +135,9 @@ obo:RO_0002323 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000001
 obo:BFO_0000001 rdf:type owl:Class ;
-                rdfs:comment "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy."@en ,
-                             "BFO:0000001 - importé via MIREOT. Racine de toute la hierarchie BFO."@fr ;
+                obo:IAO_0000116 "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy."@en ,
+                                "BFO:0000001 - importé via MIREOT. Racine de toute la hierarchie BFO."@fr ;
+                rdfs:comment "An entity is anything that exists or has existed or will exist."@en ;
                 rdfs:label "entity"@en ;
                 rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
 
@@ -146,8 +146,9 @@ obo:BFO_0000001 rdf:type owl:Class ;
 obo:BFO_0000002 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000001 ;
                 owl:disjointWith obo:BFO_0000003 ;
-                rdfs:comment "Entities persisting over time: models, diseases, populations."@en ,
-                             "Entités persistant dans le temps : modèles, maladies, populations."@fr ;
+                obo:IAO_0000116 "Entities persisting over time: models, diseases, populations."@en ,
+                                "Entités persistant dans le temps : modèles, maladies, populations."@fr ;
+                rdfs:comment "A continuant is an entity that persists, endures, or continues to exist through time while maintaining its identity."@en ;
                 rdfs:label "continuant"@en ;
                 rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
 
@@ -155,8 +156,9 @@ obo:BFO_0000002 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/BFO_0000003
 obo:BFO_0000003 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000001 ;
-                rdfs:comment "BFO:0000003 - imported via MIREOT. Superclass of all processes in OntoSim-Dis."@en ,
-                             "BFO:0000003 - importé via MIREOT. Superclasse de tous les processus dans OntoSim-Dis."@fr ;
+                obo:IAO_0000116 "BFO:0000003 - imported via MIREOT. Superclass of all processes in OntoSim-Dis."@en ,
+                                "BFO:0000003 - importé via MIREOT. Superclasse de tous les processus dans OntoSim-Dis."@fr ;
+                rdfs:comment "An occurrent is an entity that unfolds itself in time or it is the instantaneous boundary of such an entity (for example a beginning or an ending) or it is a temporal or spatiotemporal region which such an entity occupies_temporal_region or occupies_spatiotemporal_region."@en ;
                 rdfs:label "occurrent"@en ;
                 rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .
 
@@ -234,9 +236,9 @@ obo:BFO_0000141 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/IAO_0000030
 obo:IAO_0000030 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000031 ;
-                rdfs:comment "A generically dependent continuant that is about some thing."@en ,
-                             "Direct superclass of dsim:SimulationKnowledgeArtifact (Layer 2). Groups all informational artifacts of the ontology."@en ,
-                             "Superclasse directe de dsim:SimulationKnowledgeArtifact (Couche 2). Regroupe tous les artefacts informationnels de l'ontologie"@fr ;
+                obo:IAO_0000116 "Direct superclass of dsim:SimulationKnowledgeArtifact (Layer 2). Groups all informational artifacts of the ontology."@en ,
+                                "Superclasse directe de dsim:SimulationKnowledgeArtifact (Couche 2). Regroupe tous les artefacts informationnels de l'ontologie"@fr ;
+                rdfs:comment "A generically dependent continuant that is about some thing."@en ;
                 rdfs:label "information content entity"@en .
 
 
