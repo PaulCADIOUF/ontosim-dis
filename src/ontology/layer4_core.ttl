@@ -750,6 +750,14 @@ dsim:Vaccination rdf:type owl:Class ;
   owl:members ( dsim:HealthState
                 dsim:HealthStateTransition
                 dsim:IndividualAttribute
+                dsim:TransitionDeterminant
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dsim:HealthState
+                dsim:HealthStateTransition
                 dsim:RiskFactor
                 dsim:TransitionDeterminant
               )
