@@ -1,4 +1,4 @@
-\# OntoSim-Dis
+# OntoSim-Dis
 
 
 
@@ -19,7 +19,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 
 
 
-\## Contenu
+## Contenu
 
 
 
@@ -37,7 +37,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 
 
 
-\## Les modules
+## Les modules
 
 
 
@@ -63,7 +63,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 
 
 
-\## Ouvrir l'ontologie
+## Ouvrir l'ontologie
 
 
 
@@ -71,11 +71,11 @@ Ouvrir un module dans Protégé (version 5.6 ou plus récente), directement depu
 
 
 
-\## Licence
+## Licence
 
 
 
-\[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) : réutilisation libre, à condition de citer l'auteur.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) : réutilisation libre, à condition de citer l'auteur.
 
 
 
