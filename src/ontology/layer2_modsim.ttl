@@ -54,6 +54,14 @@ skos:exactMatch rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
+###  https://w3id.org/ontosim-dis#appliesExecutionKnowledge
+dsim:appliesExecutionKnowledge rdf:type owl:ObjectProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:comment "Lie un processus d'execution a la configuration qu'il realise. Fonctionnelle : une execution applique une configuration et une seule."@fr ,
+                                            "Links an execution process to the configuration it realises. Functional: one execution applies exactly one configuration."@en ;
+                               rdfs:label "appliesExecutionKnowledge"@fr .
+
+
 ###  https://w3id.org/ontosim-dis#executesModel
 dsim:executesModel rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
@@ -71,6 +79,13 @@ dsim:hasComponent rdf:type owl:ObjectProperty ;
                   rdfs:comment "Lie une structure de modele aux composants qu'elle contient."@fr ,
                                "Links a model structure to the components it contains."@en ;
                   rdfs:label "hasComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasExecutionKnowledge
+dsim:hasExecutionKnowledge rdf:type owl:ObjectProperty ;
+                           rdfs:comment "Lie un modele aux configurations d'execution definies pour lui. Non fonctionnelle : un meme modele peut etre execute sous plusieurs configurations, simulateurs differents ou nombres de repetitions differents."@fr ,
+                                        "Links a model to the execution configurations defined for it. Not functional: the same model may be run under several configurations, with different simulators or different run counts."@en ;
+                           rdfs:label "hasExecutionKnowledge"@en .
 
 
 ###  https://w3id.org/ontosim-dis#hasGranularityLevel
@@ -313,7 +328,7 @@ dsim:modelVersion rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ontosim-dis#numberOfRuns
 dsim:numberOfRuns rdf:type owl:DatatypeProperty ;
-                  rdfs:domain dsim:SimulationExecution ;
+                  rdfs:domain dsim:ExecutionKnowledge ;
                   rdfs:range xsd:integer ;
                   rdfs:comment "Nombre de repetitions de l'execution, utile pour les modeles stochastiques."@fr ,
                                "Number of repetitions of the execution, useful for stochastic models."@en ;
@@ -358,7 +373,7 @@ dsim:probabilityParameter rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ontosim-dis#randomSeed
 dsim:randomSeed rdf:type owl:DatatypeProperty ;
-                rdfs:domain dsim:SimulationExecution ;
+                rdfs:domain dsim:ExecutionKnowledge ;
                 rdfs:range xsd:integer ;
                 rdfs:comment "Graine du generateur aleatoire, necessaire pour reproduire une execution stochastique."@fr ,
                              "Seed of the random generator, needed to reproduce a stochastic run."@en ;
@@ -385,7 +400,7 @@ dsim:simulationDurationInDays rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ontosim-dis#simulatorName
 dsim:simulatorName rdf:type owl:DatatypeProperty ;
-                   rdfs:domain dsim:SimulationExecution ;
+                   rdfs:domain dsim:ExecutionKnowledge ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Name of the simulator used, for instance JaDES, GAMA, NetLogo."@en ,
                                 "Nom du simulateur employe, par exemple JaDES, GAMA, NetLogo."@fr ;
@@ -394,7 +409,7 @@ dsim:simulatorName rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ontosim-dis#simulatorVersion
 dsim:simulatorVersion rdf:type owl:DatatypeProperty ;
-                      rdfs:domain dsim:SimulationExecution ;
+                      rdfs:domain dsim:ExecutionKnowledge ;
                       rdfs:range xsd:string ;
                       rdfs:comment "Version du simulateur employe."@fr ,
                                    "Version of the simulator used."@en ;
@@ -489,6 +504,14 @@ dsim:EnvironmentComponent rdf:type owl:Class ;
                           rdfs:comment "An external or contextual factor influencing the modelled system: weather, terrain, infrastructure."@en ,
                                        "Facteur externe ou contextuel influencant le systeme modelise : meteo, relief, infrastructure."@fr ;
                           rdfs:label "EnvironmentComponent"@en .
+
+
+###  https://w3id.org/ontosim-dis#ExecutionKnowledge
+dsim:ExecutionKnowledge rdf:type owl:Class ;
+                        rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                        rdfs:comment "Comment executer le modele : quel simulateur, combien de repetitions, avec quelle graine aleatoire. Quatrieme composant du Quadruplet, a cote de la connaissance de la maladie, du contexte et de la structure. Ce n'est pas l'execution elle-meme, qui est un processus, mais la configuration que cette execution realise."@fr ,
+                                     "How to run the model: which simulator, how many runs, with which random seed. Fourth component of the Quadruplet, alongside disease, context and structure knowledge. It is not the execution itself, which is a process, but the configuration that execution realises."@en ;
+                        rdfs:label "ExecutionKnowledge"@en .
 
 
 ###  https://w3id.org/ontosim-dis#ExponentialDistribution
@@ -672,6 +695,11 @@ dsim:RuleComponent rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#SimulationExecution
 dsim:SimulationExecution rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000015 ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty dsim:appliesExecutionKnowledge ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass dsim:ExecutionKnowledge
+                                         ] ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty dsim:executesModel ;
                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
