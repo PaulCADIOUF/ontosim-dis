@@ -166,6 +166,20 @@ def main():
             if not any(True for _ in allg.triples((None, p, None))):
                 warn.append(f"[3] propriete jamais utilisee : {short(p)}")
 
+    # 3b. nos propres proprietes doivent declarer domaine ET portee.
+    # Une propriete sans l'un des deux ne dit pas ce qu'elle relie : le raisonneur
+    # n'en tire rien et OOPS! la signale (P11). Le controle 4b ne couvrait que les
+    # proprietes importees — celles d'ici passaient en silence.
+    for t in (OWL.ObjectProperty, OWL.DatatypeProperty):
+        for p in sorted(focus.subjects(RDF.type, t), key=short):
+            if not str(p).startswith(EPI):
+                continue
+            manque = [n for n, pred in (("domaine", RDFS.domain), ("portee", RDFS.range))
+                      if not list(focus.objects(p, pred))]
+            if manque:
+                err.append(f"[3b] {short(p)} : {' et '.join(manque)} absent"
+                           f"{'s' if len(manque) > 1 else ''}")
+
     # 4. conformite MIREOT
     if a.ref:
         ref = Graph()
