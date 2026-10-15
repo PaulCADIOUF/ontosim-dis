@@ -583,15 +583,10 @@ dsim:IndividualAttribute rdf:type owl:Class ;
 
 ###  https://w3id.org/ontosim-dis#IndividualDeterminant
 dsim:IndividualDeterminant rdf:type owl:Class ;
-                           rdfs:subClassOf dsim:TransitionDeterminant ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty dsim:dependsOnAttribute ;
-                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onClass dsim:IndividualAttribute
-                                           ] ;
+                           rdfs:subClassOf dsim:TransitionDeterminant ;
                            owl:disjointWith dsim:PopulationCoupledDeterminant ;
-                           rdfs:comment "A determinant whose value depends only on the attributes of the individual concerned: age, sex, comorbidity, biomarker. Structural consequence: individual trajectories are independent, which allows microsimulation and multi-state models."@en ,
-                                        "Determinant dont la valeur depend uniquement des attributs de l'individu concerne : age, sexe, comorbidite, biomarqueur. Consequence structurelle : les trajectoires individuelles sont independantes, ce qui autorise la microsimulation et les modeles multi-etats. Pleinement couvert par OSDi."@fr ;
+                           rdfs:comment "A determinant whose value does not depend on the other individuals. It may read attributes of the individual concerned (age, sex, comorbidity, biomarker), or none, like the recovery rate γ of the SIR model. Structural consequence: individual trajectories are independent, which allows microsimulation and multi-state models."@en ,
+                                        "Déterminant dont la valeur ne dépend pas des autres individus. Il peut lire des attributs de l'individu concerné (âge, sexe, comorbidité, biomarqueur), ou aucun, comme le taux de guérison γ du modèle SIR. Conséquence structurelle : les trajectoires individuelles sont indépendantes, ce qui autorise la microsimulation et les modèles multi-états. Pleinement couvert par OSDi."@fr ;
                            rdfs:label "IndividualDeterminant"@en .
 
 
