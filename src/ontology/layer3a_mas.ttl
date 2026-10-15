@@ -234,14 +234,17 @@ dsim:EnvironmentModel rdf:type owl:Class ;
 
 ###  https://w3id.org/ontosim-dis#InteractionTriggeredTransition
 dsim:InteractionTriggeredTransition rdf:type owl:Class ;
-                                    rdfs:subClassOf dsim:AgentTransition ,
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty dsim:triggeredBy ;
-                                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                      owl:onClass dsim:InteractionType
-                                                    ] ;
-                                    rdfs:comment "A transition triggered by an interaction with other agents, hence depending on their state. Agent-based form of population coupling."@en ,
-                                                 "Transition declenchee par une interaction avec d'autres agents, donc dependant de leur etat. Forme multi-agents du couplage populationnel."@fr ;
+                                    owl:equivalentClass [ owl:intersectionOf ( dsim:AgentTransition
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty dsim:triggeredBy ;
+                                                                                 owl:someValuesFrom dsim:InteractionType
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ] ;
+                                    rdfs:subClassOf dsim:AgentTransition ;
+                                    rdfs:comment "A transition triggered by an interaction with other agents, hence depending on their state. Agent-based form of population coupling. Defined class: the reasoner classifies here any agent transition triggered by an interaction."@en ,
+                                                 "Transition déclenchée par une interaction avec d'autres agents, donc dépendant de leur état. Forme multi-agents du couplage populationnel. Classe définie : le raisonneur classe ici toute transition d'agent déclenchée par une interaction."@fr ;
                                     rdfs:label "InteractionTriggeredTransition"@en .
 
 
