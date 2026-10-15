@@ -691,8 +691,8 @@ dsim:ModelStructureKnowledge rdf:type owl:Class ;
                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                owl:onClass dsim:TemporalType
                                              ] ;
-                             rdfs:comment "Connaissance decrivant la structure interne d'un modele : ses composants et ses choix de paradigme, de temps, d'espace et de granularite. Composant MSK du Quadruplet de recomposition."@fr ,
-                                          "Knowledge describing the internal structure of a model: its components and its paradigmatic, temporal, spatial and granularity choices. MSK component of the recomposition Quadruplet."@en ;
+                             rdfs:comment "Connaissance décrivant la structure interne d'un modèle : ses composants, et ses choix de traitement du hasard (déterministe ou stochastique), de temps, d'espace et de granularité. Composant MSK du Quadruplet de recomposition."@fr ,
+                                          "Knowledge describing the internal structure of a model: its components, and its choices of handling of chance (deterministic or stochastic), time, space and granularity. MSK component of the recomposition Quadruplet."@en ;
                              rdfs:label "ModelStructureKnowledge"@en .
 
 
@@ -723,8 +723,8 @@ dsim:ParadigmType rdf:type owl:Class ;
                                                   )
                                       ] ;
                   rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                  rdfs:comment "Nature du traitement du hasard par le modele. Liste fermee."@fr ,
-                               "Nature of the model's handling of chance. Closed list."@en ;
+                  rdfs:comment "Nature du traitement du hasard par le modèle : déterministe ou stochastique. Liste fermée. Malgré son nom, cette classe ne désigne pas le paradigme de modélisation au sens des couches 3A et 3B (agents, compartiments) : un modèle à compartiments peut être déterministe ou stochastique."@fr ,
+                               "Nature of the model's handling of chance: deterministic or stochastic. Closed list. Despite its name, this class does not denote the modelling paradigm in the sense of layers 3A and 3B (agents, compartments): a compartmental model may be deterministic or stochastic."@en ;
                   rdfs:label "ParadigmType"@en .
 
 

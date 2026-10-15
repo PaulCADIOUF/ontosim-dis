@@ -190,8 +190,8 @@ dsim:CompartmentalModel rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#ConstantRate
 dsim:ConstantRate rdf:type owl:Class ;
                   rdfs:subClassOf dsim:RateSpecification ;
-                  rdfs:comment "A rate that does not depend on the current content of any compartment. Individual determinant."@en ,
-                               "Taux qui ne depend du contenu courant d'aucun compartiment. Determinant individuel."@fr ;
+                  rdfs:comment "A rate that does not depend on the current content of any compartment. Individual determinant. 'Constant' means here independent of the compartments, not fixed in time: a seasonal rate that reads no compartment is also a ConstantRate. It is then declared as such, and its value is written with rateExpression, since rateConstantValue only gives a fixed value."@en ,
+                               "Taux qui ne dépend du contenu courant d'aucun compartiment. Déterminant individuel. « Constant » veut dire ici indépendant des compartiments, et non fixe dans le temps : un taux saisonnier qui ne lit aucun compartiment est aussi un ConstantRate. On le déclare alors comme tel, et sa valeur s'écrit avec rateExpression, car rateConstantValue ne donne qu'une valeur fixe."@fr ;
                   rdfs:label "ConstantRate"@en .
 
 
