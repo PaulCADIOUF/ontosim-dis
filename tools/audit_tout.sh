@@ -1,15 +1,7 @@
-#!/usr/bin/env bash
-# Audite les 8 modules d'OntoSim-Dis, chacun avec les modules qu'il importe.
-#
-# A lancer depuis Git Bash, a la racine du depot :
-#     bash tools/audit_tout.sh
-#
-# Le script cherche lui-meme la commande Python. Pour en imposer une :
-#     PYTHON=py bash tools/audit_tout.sh
+
 
 cd "$(dirname "$0")/.." || exit 1
 
-# Une commande Python qui sait importer rdflib et owlready2
 PY="$PYTHON"
 if [ -z "$PY" ]; then
     for cand in python py python3; do
@@ -42,12 +34,10 @@ I=$O/layer4_infectious.ttl
 X=$O/layer4-context.ttl
 REF="tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl"
 
-# Options passees au script (par exemple --no-reasoner), transmises a chaque audit
 OPTS="$*"
 
 echecs=0
 audit() {
-    # $1 = le module audite ; la suite = ce module et tous ceux qu'il importe
     "$PY" tools/audit_ontosim.py --focus "$1" --load "${@:2}" --ref $REF $OPTS || echecs=$((echecs + 1))
     echo
 }
