@@ -19,12 +19,12 @@
                                        dcterms:source "Couche 1"@fr ;
                                        rdfs:comment """Capa 2: Esta capa responde a la pregunta: ¿Cómo modelamos?
 Aquí encontramos los conceptos genéricos de simulación; estos conceptos son comunes a todos los paradigmas de modelado e independientes de cualquier campo médico."""@es ,
-                                                    """Couche 2 :Cette couche repond à la question comment modeliser ?
-Nous yi avons les concepts generique de simulation, ces concepts sont communs a tous les paradigmes de modelisation et independants de tout domaine medical."""@fr ,
+                                                    """Couche 2 : cette couche répond à la question « comment modéliser ? ».
+Elle rassemble les concepts génériques de simulation, communs à tous les paradigmes de modélisation et indépendants de tout domaine médical."""@fr ,
                                                     """Layer 2: This layer addresses the question of how to model.
 It contains generic simulation concepts, concepts that are common to all modeling paradigms and independent of any specific medical field."""@en ;
                                        rdfs:label "OntoSim-Dis Capa 2 - Ontología de simulación"@es ,
-                                                  "OntoSim-Dis Couche 2 - Ontologie de modelisation et simulation"@fr ,
+                                                  "OntoSim-Dis Couche 2 - Ontologie de modélisation et simulation"@fr ,
                                                   "OntoSim-Dis Layer 2 - Simulation Ontology"@en ;
                                        owl:versionInfo "1.0" .
 
@@ -57,7 +57,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty ;
 ###  https://w3id.org/ontosim-dis#appliesExecutionKnowledge
 dsim:appliesExecutionKnowledge rdf:type owl:ObjectProperty ,
                                         owl:FunctionalProperty ;
-                               rdfs:comment "Lie un processus d'execution a la configuration qu'il realise. Fonctionnelle : une execution applique une configuration et une seule."@fr ,
+                               rdfs:comment "Lie un processus d'exécution à la configuration qu'il réalise. Fonctionnelle : une exécution applique une configuration et une seule."@fr ,
                                             "Links an execution process to the configuration it realises. Functional: one execution applies exactly one configuration."@en ;
                                rdfs:label "appliesExecutionKnowledge"@fr .
 
@@ -67,7 +67,7 @@ dsim:executesModel rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
                    rdfs:domain dsim:SimulationExecution ;
                    rdfs:range dsim:SimulationModel ;
-                   rdfs:comment "Lie une execution au modele qu'elle fait tourner."@fr ,
+                   rdfs:comment "Lie une exécution au modèle qu'elle fait tourner."@fr ,
                                 "Links an execution to the model it runs."@en ;
                    rdfs:label "executesModel"@en .
 
@@ -76,14 +76,14 @@ dsim:executesModel rdf:type owl:ObjectProperty ,
 dsim:hasComponent rdf:type owl:ObjectProperty ;
                   rdfs:domain dsim:ModelStructureKnowledge ;
                   rdfs:range dsim:ModelComponent ;
-                  rdfs:comment "Lie une structure de modele aux composants qu'elle contient."@fr ,
+                  rdfs:comment "Lie une structure de modèle aux composants qu'elle contient."@fr ,
                                "Links a model structure to the components it contains."@en ;
                   rdfs:label "hasComponent"@en .
 
 
 ###  https://w3id.org/ontosim-dis#hasExecutionKnowledge
 dsim:hasExecutionKnowledge rdf:type owl:ObjectProperty ;
-                           rdfs:comment "Lie un modele aux configurations d'execution definies pour lui. Non fonctionnelle : un meme modele peut etre execute sous plusieurs configurations, simulateurs differents ou nombres de repetitions differents."@fr ,
+                           rdfs:comment "Lie un modèle aux configurations d'exécution definies pour lui. Non fonctionnelle : un même modèle peut être exécuté sous plusieurs configurations, simulateurs differents ou nombres de répétitions differents."@fr ,
                                         "Links a model to the execution configurations defined for it. Not functional: the same model may be run under several configurations, with different simulators or different run counts."@en ;
                            rdfs:label "hasExecutionKnowledge"@en .
 
@@ -93,7 +93,7 @@ dsim:hasGranularityLevel rdf:type owl:ObjectProperty ,
                                   owl:FunctionalProperty ;
                          rdfs:domain dsim:ModelStructureKnowledge ;
                          rdfs:range dsim:GranularityLevel ;
-                         rdfs:comment "Lie une structure de modele a son niveau de detail."@fr ,
+                         rdfs:comment "Lie une structure de modèle à son niveau de détail."@fr ,
                                       "Links a model structure to its level of detail."@en ;
                          rdfs:label "hasGranularityLevel"@en .
 
@@ -101,14 +101,14 @@ dsim:hasGranularityLevel rdf:type owl:ObjectProperty ,
 ###  https://w3id.org/ontosim-dis#hasModelNature
 dsim:hasModelNature rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ;
-                    rdfs:comment "Dit si le modele est mecaniste, empirique ou mixte. Fonctionnelle."@fr ,
+                    rdfs:comment "Dit si le modèle est mecaniste, empirique ou mixte. Fonctionnelle."@fr ,
                                  "States whether the model is mechanistic, empirical or mixed. Functional."@en ;
                     rdfs:label "hasModelNature"@en .
 
 
 ###  https://w3id.org/ontosim-dis#hasModelPurpose
 dsim:hasModelPurpose rdf:type owl:ObjectProperty ;
-                     rdfs:comment "Lie un modele aux objectifs pour lesquels il a ete construit. Non fonctionnelle, deliberement : un meme modele peut servir a plusieurs choses, par exemple a comprendre une dynamique et a planifier une riposte."@fr ,
+                     rdfs:comment "Lie un modèle aux objectifs pour lesquels il a été construit. Non fonctionnelle, délibérément : un même modèle peut servir à plusieurs choses, par exemple à comprendre une dynamique et à planifier une riposte."@fr ,
                                   "Links a model to the purposes it was built for. Deliberately not functional: the same model may serve several ends, for instance understanding a dynamic and planning a response."@en ;
                      rdfs:label "hasModelPurpose"@en .
 
@@ -118,7 +118,7 @@ dsim:hasModelScope rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
                    rdfs:domain dsim:SimulationModel ;
                    rdfs:range dsim:ModelScope ;
-                   rdfs:comment "Dit si le modele est general ou specifique. Fonctionnelle : un modele est l'un ou l'autre, pas les deux."@fr ,
+                   rdfs:comment "Dit si le modèle est général ou specifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux."@fr ,
                                 "States whether the model is general or specific. Functional: a model is one or the other, not both."@en ;
                    rdfs:label "hasModelScope"@en .
 
@@ -128,7 +128,7 @@ dsim:hasParadigm rdf:type owl:ObjectProperty ,
                           owl:FunctionalProperty ;
                  rdfs:domain dsim:ModelStructureKnowledge ;
                  rdfs:range dsim:ParadigmType ;
-                 rdfs:comment "Lie une structure de modele a sa nature deterministe ou stochastique."@fr ,
+                 rdfs:comment "Lie une structure de modèle à sa nature déterministe ou stochastique."@fr ,
                               "Links a model structure to its deterministic or stochastic nature."@en ;
                  rdfs:label "hasParadigm"@en .
 
@@ -137,7 +137,7 @@ dsim:hasParadigm rdf:type owl:ObjectProperty ,
 dsim:hasParameter rdf:type owl:ObjectProperty ;
                   rdfs:domain dsim:SimulationModel ;
                   rdfs:range dsim:ModelParameter ;
-                  rdfs:comment "Lie un modele a ses parametres."@fr ,
+                  rdfs:comment "Lie un modèle à ses paramètres."@fr ,
                                "Links a model to its parameters."@en ;
                   rdfs:label "hasParameter"@en .
 
@@ -147,7 +147,7 @@ dsim:hasSourceState rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ;
                     rdfs:domain dsim:TransitionComponent ;
                     rdfs:range dsim:StateComponent ;
-                    rdfs:comment "Etat de depart d'une transition."@fr ,
+                    rdfs:comment "État de départ d'une transition."@fr ,
                                  "Start state of a transition."@en ;
                     rdfs:label "hasSourceState"@en .
 
@@ -157,7 +157,7 @@ dsim:hasSpatialType rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ;
                     rdfs:domain dsim:ModelStructureKnowledge ;
                     rdfs:range dsim:SpatialType ;
-                    rdfs:comment "Lie une structure de modele a son traitement de l'espace."@fr ,
+                    rdfs:comment "Lie une structure de modèle à son traitement de l'espace."@fr ,
                                  "Links a model structure to its handling of space."@en ;
                     rdfs:label "hasSpatialType"@en .
 
@@ -167,7 +167,7 @@ dsim:hasStructureKnowledge rdf:type owl:ObjectProperty ,
                                     owl:FunctionalProperty ;
                            rdfs:domain dsim:SimulationModel ;
                            rdfs:range dsim:ModelStructureKnowledge ;
-                           rdfs:comment "Lie un modele a la connaissance decrivant sa structure interne."@fr ,
+                           rdfs:comment "Lie un modèle à la connaissance décrivant sa structure interne."@fr ,
                                         "Links a model to the knowledge describing its internal structure."@en ;
                            rdfs:label "hasStructureKnowledge"@en .
 
@@ -178,7 +178,7 @@ dsim:hasTargetState rdf:type owl:ObjectProperty ,
                     rdfs:domain dsim:TransitionComponent ;
                     rdfs:range dsim:StateComponent ;
                     rdfs:comment "End state of a transition."@en ,
-                                 "Etat d'arrivee d'une transition."@fr ;
+                                 "État d'arrivée d'une transition."@fr ;
                     rdfs:label "hasTargetState"@en .
 
 
@@ -187,7 +187,7 @@ dsim:hasTemporalType rdf:type owl:ObjectProperty ,
                               owl:FunctionalProperty ;
                      rdfs:domain dsim:ModelStructureKnowledge ;
                      rdfs:range dsim:TemporalType ;
-                     rdfs:comment "Lie une structure de modele a son traitement du temps."@fr ,
+                     rdfs:comment "Lie une structure de modèle à son traitement du temps."@fr ,
                                   "Links a model structure to its handling of time."@en ;
                      rdfs:label "hasTemporalType"@en .
 
@@ -196,7 +196,7 @@ dsim:hasTemporalType rdf:type owl:ObjectProperty ,
 dsim:hasUncertaintyDistribution rdf:type owl:ObjectProperty ;
                                 rdfs:domain dsim:ModelParameter ;
                                 rdfs:range dsim:ProbabilityDistribution ;
-                                rdfs:comment "Lie un parametre a la loi de probabilite qui decrit l'incertitude sur sa valeur. C'est ce qui rend possible l'analyse de sensibilite probabiliste : au lieu d'une valeur unique, le parametre porte la loi dont sa valeur est tiree a chaque repetition de l'execution."@fr ,
+                                rdfs:comment "Lie un paramètre à la loi de probabilité qui décrit l'incertitude sur sa valeur. C'est ce qui rend possible l'analyse de sensibilité probabiliste : au lieu d'une valeur unique, le paramètre porte la loi dont sa valeur est tirée à chaque répétition de l'exécution."@fr ,
                                              "Links a parameter to the probability law describing the uncertainty on its value. This is what makes probabilistic sensitivity analysis possible: instead of a single value, the parameter carries the law its value is drawn from at each repetition of the run."@en ;
                                 rdfs:label "hasUncertaintyDistribution"@en ;
                                 skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#hasUncertaintyCharacterization> .
@@ -206,7 +206,7 @@ dsim:hasUncertaintyDistribution rdf:type owl:ObjectProperty ;
 dsim:hasValidationMethod rdf:type owl:ObjectProperty ;
                          rdfs:domain dsim:SimulationModel ;
                          rdfs:range dsim:ValidationMethod ;
-                         rdfs:comment "Lie un modele aux methodes par lesquelles il a ete valide."@fr ,
+                         rdfs:comment "Lie un modèle aux méthodes par lesquelles il a été validé."@fr ,
                                       "Links a model to the methods by which it was validated."@en ;
                          rdfs:label "hasValidationMethod"@en .
 
@@ -215,7 +215,7 @@ dsim:hasValidationMethod rdf:type owl:ObjectProperty ;
 dsim:producesResult rdf:type owl:ObjectProperty ;
                     rdfs:domain dsim:SimulationExecution ;
                     rdfs:range dsim:SimulationResult ;
-                    rdfs:comment "Lie une execution aux donnees qu'elle produit."@fr ,
+                    rdfs:comment "Lie une exécution aux données qu'elle produit."@fr ,
                                  "Links an execution to the data it produces."@en ;
                     rdfs:label "producesResult"@en .
 
@@ -224,7 +224,7 @@ dsim:producesResult rdf:type owl:ObjectProperty ;
 dsim:usesScenario rdf:type owl:ObjectProperty ;
                   rdfs:domain dsim:SimulationModel ;
                   rdfs:range dsim:SimulationScenario ;
-                  rdfs:comment "Lie un modele aux scenarios sous lesquels il est execute."@fr ,
+                  rdfs:comment "Lie un modèle aux scénarios sous lesquels il est exécuté."@fr ,
                                "Links a model to the scenarios under which it is run."@en ;
                   rdfs:label "usesScenario"@en .
 
@@ -237,7 +237,7 @@ dsim:usesScenario rdf:type owl:ObjectProperty ;
 dsim:alphaParameter rdf:type owl:DatatypeProperty ;
                     rdfs:domain dsim:ProbabilityDistribution ;
                     rdfs:range xsd:double ;
-                    rdfs:comment "Parametre de forme d'une loi beta ou gamma."@fr ,
+                    rdfs:comment "Paramètre de forme d'une loi bêta ou gamma."@fr ,
                                  "Shape parameter of a beta or gamma law."@en ;
                     rdfs:label "alphaParameter"@en .
 
@@ -246,7 +246,7 @@ dsim:alphaParameter rdf:type owl:DatatypeProperty ;
 dsim:betaParameter rdf:type owl:DatatypeProperty ;
                    rdfs:domain dsim:ProbabilityDistribution ;
                    rdfs:range xsd:double ;
-                   rdfs:comment "Second parametre de forme d'une loi beta."@fr ,
+                   rdfs:comment "Second paramètre de forme d'une loi bêta."@fr ,
                                 "Second shape parameter of a beta law."@en ;
                    rdfs:label "betaParameter"@en .
 
@@ -255,7 +255,7 @@ dsim:betaParameter rdf:type owl:DatatypeProperty ;
 dsim:creationDate rdf:type owl:DatatypeProperty ;
                   rdfs:domain dsim:SimulationModel ;
                   rdfs:range xsd:dateTime ;
-                  rdfs:comment "Date de creation du modele."@fr ,
+                  rdfs:comment "Date de création du modèle."@fr ,
                                "Date the model was created."@en ;
                   rdfs:label "creationDate"@en .
 
@@ -273,7 +273,7 @@ dsim:defaultValue rdf:type owl:DatatypeProperty ;
 dsim:endDate rdf:type owl:DatatypeProperty ;
              rdfs:domain dsim:SimulationScenario ;
              rdfs:range xsd:dateTime ;
-             rdfs:comment "Date de fin du scenario."@fr ,
+             rdfs:comment "Date de fin du scénario."@fr ,
                           "End date of the scenario."@en ;
              rdfs:label "endDate"@en .
 
@@ -282,7 +282,7 @@ dsim:endDate rdf:type owl:DatatypeProperty ;
 dsim:executionStatus rdf:type owl:DatatypeProperty ;
                      rdfs:domain dsim:SimulationExecution ;
                      rdfs:range xsd:string ;
-                     rdfs:comment "Etat de l'execution : en attente, en cours, terminee, echouee."@fr ,
+                     rdfs:comment "État de l'exécution : en attente, en cours, terminée, échouée."@fr ,
                                   "State of the execution: pending, running, completed, failed."@en ;
                      rdfs:label "executionStatus"@en .
 
@@ -291,7 +291,7 @@ dsim:executionStatus rdf:type owl:DatatypeProperty ;
 dsim:hasAuthor rdf:type owl:DatatypeProperty ;
                rdfs:domain dsim:SimulationModel ;
                rdfs:range xsd:string ;
-               rdfs:comment "Le nom de l'auteur du modele est sous forme de texte et non en classe. "@fr ,
+               rdfs:comment "Le nom de l'auteur du modèle est sous forme de texte et non en classe. "@fr ,
                             "The model author's name is stored as text rather than as a class."@en ;
                rdfs:label "hasAuthor"@en ;
                skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#hasAuthor> .
@@ -301,7 +301,7 @@ dsim:hasAuthor rdf:type owl:DatatypeProperty ;
 dsim:lambdaParameter rdf:type owl:DatatypeProperty ;
                      rdfs:domain dsim:ProbabilityDistribution ;
                      rdfs:range xsd:double ;
-                     rdfs:comment "Parametre de taux d'une loi exponentielle, gamma ou de Poisson."@fr ,
+                     rdfs:comment "Paramètre de taux d'une loi exponentielle, gamma ou de Poisson."@fr ,
                                   "Rate parameter of an exponential, gamma or Poisson law."@en ;
                      rdfs:label "lambdaParameter"@en .
 
@@ -310,7 +310,7 @@ dsim:lambdaParameter rdf:type owl:DatatypeProperty ;
 dsim:lowerLimitParameter rdf:type owl:DatatypeProperty ;
                          rdfs:domain dsim:ProbabilityDistribution ;
                          rdfs:range xsd:double ;
-                         rdfs:comment "Borne inferieure d'une loi uniforme."@fr ,
+                         rdfs:comment "Borne inférieure d'une loi uniforme."@fr ,
                                       "Lower bound of a uniform law."@en ;
                          rdfs:label "lowerLimitParameter"@en .
 
@@ -328,7 +328,7 @@ dsim:meanParameter rdf:type owl:DatatypeProperty ;
 dsim:modelDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain dsim:SimulationModel ;
                       rdfs:range xsd:string ;
-                      rdfs:comment "Description libre du modele."@fr ,
+                      rdfs:comment "Description libre du modèle."@fr ,
                                    "Free-text description of the model."@en ;
                       rdfs:label "modelDescription"@en .
 
@@ -338,7 +338,7 @@ dsim:modelName rdf:type owl:DatatypeProperty ;
                rdfs:domain dsim:SimulationModel ;
                rdfs:range xsd:string ;
                rdfs:comment "Name of the model."@en ,
-                            "Nom du modele"@fr ;
+                            "Nom du modèle"@fr ;
                rdfs:label "modelName"@en .
 
 
@@ -346,7 +346,7 @@ dsim:modelName rdf:type owl:DatatypeProperty ;
 dsim:modelVersion rdf:type owl:DatatypeProperty ;
                   rdfs:domain dsim:SimulationModel ;
                   rdfs:range xsd:string ;
-                  rdfs:comment "Version du modele."@fr ,
+                  rdfs:comment "Version du modèle."@fr ,
                                "Version of the model."@en ;
                   rdfs:label "modelVersion"@en .
 
@@ -355,7 +355,7 @@ dsim:modelVersion rdf:type owl:DatatypeProperty ;
 dsim:numberOfRuns rdf:type owl:DatatypeProperty ;
                   rdfs:domain dsim:ExecutionKnowledge ;
                   rdfs:range xsd:integer ;
-                  rdfs:comment "Nombre de repetitions de l'execution, utile pour les modeles stochastiques."@fr ,
+                  rdfs:comment "Nombre de répétitions de l'exécution, utile pour les modèles stochastiques."@fr ,
                                "Number of repetitions of the execution, useful for stochastic models."@en ;
                   rdfs:label "numberOfRuns"@en .
 
@@ -365,7 +365,7 @@ dsim:parameterName rdf:type owl:DatatypeProperty ;
                    rdfs:domain dsim:ModelParameter ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Name of the parameter, for instance beta."@en ,
-                                "Nom du parametre, par exemple beta."@fr ;
+                                "Nom du paramètre, par exemple beta."@fr ;
                    rdfs:label "parameterName"@en .
 
 
@@ -374,7 +374,7 @@ dsim:parameterUnit rdf:type owl:DatatypeProperty ;
                    rdfs:domain dsim:ModelParameter ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Unit of the parameter, for instance day^-1."@en ,
-                                "Unite du parametre, par exemple jour^-1."@fr ;
+                                "Unité du paramètre, par exemple jour^-1."@fr ;
                    rdfs:label "parameterUnit"@en .
 
 
@@ -383,7 +383,7 @@ dsim:parameterValue rdf:type owl:DatatypeProperty ;
                     rdfs:domain dsim:ModelParameter ;
                     rdfs:range xsd:double ;
                     rdfs:comment "Numeric value of the parameter."@en ,
-                                 "Valeur numerique du parametre."@fr ;
+                                 "Valeur numérique du paramètre."@fr ;
                     rdfs:label "parameterValue"@en .
 
 
@@ -391,7 +391,7 @@ dsim:parameterValue rdf:type owl:DatatypeProperty ;
 dsim:probabilityParameter rdf:type owl:DatatypeProperty ;
                           rdfs:domain dsim:ProbabilityDistribution ;
                           rdfs:range xsd:double ;
-                          rdfs:comment "Probabilite de succes d'une loi de Bernoulli, entre 0 et 1."@fr ,
+                          rdfs:comment "Probabilité de succès d'une loi de Bernoulli, entre 0 et 1."@fr ,
                                        "Probability of success of a Bernoulli law, between 0 and 1."@en ;
                           rdfs:label "probabilityParameter"@en .
 
@@ -400,7 +400,7 @@ dsim:probabilityParameter rdf:type owl:DatatypeProperty ;
 dsim:randomSeed rdf:type owl:DatatypeProperty ;
                 rdfs:domain dsim:ExecutionKnowledge ;
                 rdfs:range xsd:integer ;
-                rdfs:comment "Graine du generateur aleatoire, necessaire pour reproduire une execution stochastique."@fr ,
+                rdfs:comment "Graine du générateur aléatoire, nécessaire pour reproduire une exécution stochastique."@fr ,
                              "Seed of the random generator, needed to reproduce a stochastic run."@en ;
                 rdfs:label "randomSeed"@en .
 
@@ -410,7 +410,7 @@ dsim:scenarioDurationInDays rdf:type owl:DatatypeProperty ;
                             rdfs:domain dsim:SimulationScenario ;
                             rdfs:range xsd:double ;
                             rdfs:comment "Duration covered by the scenario in days"@en ,
-                                         "Duree couverte par le scenario en jours"@fr ;
+                                         "Durée couverte par le scénario en jours"@fr ;
                             rdfs:label "scenarioDurationInDays"@en .
 
 
@@ -418,7 +418,7 @@ dsim:scenarioDurationInDays rdf:type owl:DatatypeProperty ;
 dsim:simulationDurationInDays rdf:type owl:DatatypeProperty ;
                               rdfs:domain dsim:ModelStructureKnowledge ;
                               rdfs:range xsd:double ;
-                              rdfs:comment "Duree totale simulee en jours"@fr ,
+                              rdfs:comment "Durée totale simulée en jours"@fr ,
                                            "Total simulated duration in days"@en ;
                               rdfs:label "simulationDurationInDays"@en .
 
@@ -428,7 +428,7 @@ dsim:simulatorName rdf:type owl:DatatypeProperty ;
                    rdfs:domain dsim:ExecutionKnowledge ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Name of the simulator used, for instance JaDES, GAMA, NetLogo."@en ,
-                                "Nom du simulateur employe, par exemple JaDES, GAMA, NetLogo."@fr ;
+                                "Nom du simulateur employé, par exemple JaDES, GAMA, NetLogo."@fr ;
                    rdfs:label "simulatorName"@en .
 
 
@@ -436,7 +436,7 @@ dsim:simulatorName rdf:type owl:DatatypeProperty ;
 dsim:simulatorVersion rdf:type owl:DatatypeProperty ;
                       rdfs:domain dsim:ExecutionKnowledge ;
                       rdfs:range xsd:string ;
-                      rdfs:comment "Version du simulateur employe."@fr ,
+                      rdfs:comment "Version du simulateur employé."@fr ,
                                    "Version of the simulator used."@en ;
                       rdfs:label "simulatorVersion"@en .
 
@@ -445,7 +445,7 @@ dsim:simulatorVersion rdf:type owl:DatatypeProperty ;
 dsim:standardDeviationParameter rdf:type owl:DatatypeProperty ;
                                 rdfs:domain dsim:ProbabilityDistribution ;
                                 rdfs:range xsd:double ;
-                                rdfs:comment "Ecart type d'une loi normale"@fr ,
+                                rdfs:comment "Écart type d'une loi normale"@fr ,
                                              "Standard deviation of a normal law."@en ;
                                 rdfs:label "standardDeviationParameter"@en .
 
@@ -454,7 +454,7 @@ dsim:standardDeviationParameter rdf:type owl:DatatypeProperty ;
 dsim:startDate rdf:type owl:DatatypeProperty ;
                rdfs:domain dsim:SimulationScenario ;
                rdfs:range xsd:dateTime ;
-               rdfs:comment "Date de debut du scenario."@fr ,
+               rdfs:comment "Date de début du scénario."@fr ,
                             "Start date of the scenario."@en ;
                rdfs:label "startDate"@en .
 
@@ -464,7 +464,7 @@ dsim:timeStepInDays rdf:type owl:DatatypeProperty ;
                     rdfs:domain dsim:ModelStructureKnowledge ;
                     rdfs:range xsd:double ;
                     rdfs:comment "Duration of one simulation step in days"@en ,
-                                 "Duree d'un pas de simulation en jours"@fr ;
+                                 "Durée d'un pas de simulation en jours"@fr ;
                     rdfs:label "timeStepInDays"@en .
 
 
@@ -472,7 +472,7 @@ dsim:timeStepInDays rdf:type owl:DatatypeProperty ;
 dsim:upperLimitParameter rdf:type owl:DatatypeProperty ;
                          rdfs:domain dsim:ProbabilityDistribution ;
                          rdfs:range xsd:double ;
-                         rdfs:comment "Borne superieure d'une loi uniforme."@fr ,
+                         rdfs:comment "Borne supérieure d'une loi uniforme."@fr ,
                                       "Upper bound of a uniform law."@en ;
                          rdfs:label "upperLimitParameter"@en .
 
@@ -490,7 +490,7 @@ dsim:BernoulliDistribution rdf:type owl:Class ;
                                              owl:onDataRange xsd:double
                                            ] ;
                            rdfs:comment "Law of a single trial with two outcomes, of given probability."@en ,
-                                        "Loi d'un tirage unique a deux issues de probabilite donnee."@fr ;
+                                        "Loi d'un tirage unique à deux issues de probabilité donnée."@fr ;
                            rdfs:label "BernoulliDistribution"@en ;
                            skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#BernoulliDistributionExpression> .
 
@@ -509,7 +509,7 @@ dsim:BetaDistribution rdf:type owl:Class ;
                                         owl:onDataRange xsd:double
                                       ] ;
                       rdfs:comment "Law on the interval zero to one, used for proportions and probabilities."@en ,
-                                   "Loi sur l'intervalle de zero a un, employee pour les proportions et les probabilites."@fr ;
+                                   "Loi sur l'intervalle de zéro à un, employée pour les proportions et les probabilités."@fr ;
                       rdfs:label "BetaDistribution"@en ;
                       skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#BetaDistributionExpression> .
 
@@ -519,7 +519,7 @@ dsim:DynamicParameter rdf:type owl:Class ;
                       rdfs:subClassOf dsim:ModelParameter ;
                       owl:disjointWith dsim:StaticParameter ;
                       rdfs:comment "A parameter whose value varies with time, for instance a time-dependent transmission rate."@en ,
-                                   "Parametre dont la valeur varie dans le temps, par exemple un taux de transmission dependant du temps."@fr ;
+                                   "Paramètre dont la valeur varie dans le temps, par exemple un taux de transmission dépendant du temps."@fr ;
                       rdfs:label "DynamicParameter"@en .
 
 
@@ -527,14 +527,14 @@ dsim:DynamicParameter rdf:type owl:Class ;
 dsim:EnvironmentComponent rdf:type owl:Class ;
                           rdfs:subClassOf dsim:ModelComponent ;
                           rdfs:comment "An external or contextual factor influencing the modelled system: weather, terrain, infrastructure."@en ,
-                                       "Facteur externe ou contextuel influencant le systeme modelise : meteo, relief, infrastructure."@fr ;
+                                       "Facteur externe ou contextuel influençant le système modélisé : météo, relief, infrastructure."@fr ;
                           rdfs:label "EnvironmentComponent"@en .
 
 
 ###  https://w3id.org/ontosim-dis#ExecutionKnowledge
 dsim:ExecutionKnowledge rdf:type owl:Class ;
                         rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                        rdfs:comment "Comment executer le modele : quel simulateur, combien de repetitions, avec quelle graine aleatoire. Quatrieme composant du Quadruplet, a cote de la connaissance de la maladie, du contexte et de la structure. Ce n'est pas l'execution elle-meme, qui est un processus, mais la configuration que cette execution realise."@fr ,
+                        rdfs:comment "Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à cote de la connaissance de la maladie, du contexte et de la structure. Ce n'est pas l'exécution elle-même, qui est un processus, mais la configuration que cette exécution réalise."@fr ,
                                      "How to run the model: which simulator, how many runs, with which random seed. Fourth component of the Quadruplet, alongside disease, context and structure knowledge. It is not the execution itself, which is a process, but the configuration that execution realises."@en ;
                         rdfs:label "ExecutionKnowledge"@en .
 
@@ -548,7 +548,7 @@ dsim:ExponentialDistribution rdf:type owl:Class ;
                                                owl:onDataRange xsd:double
                                              ] ;
                              rdfs:comment "Law of the time between two events occurring at a constant rate."@en ,
-                                          "Loi du temps separant deux evenements survenant a taux constant."@fr ;
+                                          "Loi du temps séparant deux événements survenant à taux constant."@fr ;
                              rdfs:label "ExponentialDistribution"@en ;
                              skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#ExponentialDistributionExpression> .
 
@@ -567,7 +567,7 @@ dsim:GammaDistribution rdf:type owl:Class ;
                                          owl:onDataRange xsd:double
                                        ] ;
                        rdfs:comment "Law on positive values, used for costs and durations."@en ,
-                                    "Loi sur les valeurs positives, employee pour les couts et les durees."@fr ;
+                                    "Loi sur les valeurs positives, employée pour les coûts et les durées."@fr ;
                        rdfs:label "GammaDistribution"@en ;
                        skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#GammaDistributionExpression> .
 
@@ -583,7 +583,7 @@ dsim:GranularityLevel rdf:type owl:Class ;
                                           ] ;
                       rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                       rdfs:comment "Level of detail at which the modelled entities are described. Closed list."@en ,
-                                   "Niveau de detail auquel les entites modelisees sont decrites. Liste fermee."@fr ;
+                                   "Niveau de détail auquel les entités modélisées sont décrites. Liste fermée."@fr ;
                       rdfs:label "GranularityLevel"@en .
 
 
@@ -591,7 +591,7 @@ dsim:GranularityLevel rdf:type owl:Class ;
 dsim:InitialCondition rdf:type owl:Class ;
                       rdfs:subClassOf dsim:ModelParameter ;
                       rdfs:comment "A parameter giving the value of a quantity at the start of the simulation."@en ,
-                                   "Parametre donnant la valeur d'une grandeur au debut de la simulation."@fr ;
+                                   "Paramètre donnant la valeur d'une grandeur au début de la simulation."@fr ;
                       rdfs:label "InitialCondition"@en .
 
 
@@ -599,7 +599,7 @@ dsim:InitialCondition rdf:type owl:Class ;
 dsim:InterventionScenario rdf:type owl:Class ;
                           rdfs:subClassOf dsim:SimulationScenario ;
                           rdfs:comment "A scenario in which one or more interventions are applied: vaccination, treatment, control measure."@en ,
-                                       "Scenario dans lequel une ou plusieurs interventions sont appliquees : vaccination, traitement, mesure de controle."@fr ;
+                                       "Scénario dans lequel une ou plusieurs interventions sont appliquées : vaccination, traitement, mesure de contrôle."@fr ;
                           rdfs:label "InterventionScenario"@en ;
                           skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Intervention> .
 
@@ -608,7 +608,7 @@ dsim:InterventionScenario rdf:type owl:Class ;
 dsim:ModelComponent rdf:type owl:Class ;
                     rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                     rdfs:comment "A constituent part of the structure of a model."@en ,
-                                 "Partie constitutive de la structure d'un modele."@fr ;
+                                 "Partie constitutive de la structure d'un modèle."@fr ;
                     rdfs:label "ModelComponent"@en .
 
 
@@ -621,7 +621,7 @@ dsim:ModelNature rdf:type owl:Class ;
                                                  )
                                      ] ;
                  rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                 rdfs:comment "Dit si le modele explique les mecanismes ou se contente de reproduire les observations. Liste fermee. Ce critere decide de ce qui est recomposable : on ne recompose pas une boite noire comme un modele a mecanismes."@fr ,
+                 rdfs:comment "Dit si le modèle explique les mecanismes ou se contente de reproduire les observations. Liste fermée. Ce critere decide de ce qui est recomposable : on ne recompose pas une boite noire comme un modèle à mecanismes."@fr ,
                               "States whether the model explains mechanisms or merely reproduces observations. Closed list. This criterion decides what can be recomposed: a black box is not recomposed the way a mechanistic model is."@en ;
                  rdfs:label "ModelNature"@fr .
 
@@ -630,7 +630,7 @@ dsim:ModelNature rdf:type owl:Class ;
 dsim:ModelParameter rdf:type owl:Class ;
                     rdfs:subClassOf dsim:ModelComponent ;
                     rdfs:comment "A named quantity whose value settles part of the behaviour of the model. Merges the former ParameterComponent and ModelParameter."@en ,
-                                 "Grandeur nommee dont la valeur fixe une partie du comportement du modele. Fusionne les anciennes classes ParameterComponent et ModelParameter."@fr ;
+                                 "Grandeur nommée dont la valeur fixe une partie du comportement du modèle. Fusionne les anciennes classes ParameterComponent et ModelParameter."@fr ;
                     rdfs:label "ModelParameter"@en ;
                     skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Parameter> .
 
@@ -645,7 +645,7 @@ dsim:ModelPurpose rdf:type owl:Class ;
                                                   )
                                       ] ;
                   rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                  rdfs:comment "Objectif pour lequel le modele a ete construit. Liste fermee. Connaitre l'objectif permet de juger si un modele convient a une situation donnee, et d'identifier les caracteristiques qu'il doit reunir."@fr ,
+                  rdfs:comment "Objectif pour lequel le modèle à été construit. Liste fermée. Connaitre l'objectif permet de juger si un modèle convient à une situation donnée, et d'identifier les caractéristiques qu'il doit reunir."@fr ,
                                "Purpose the model was built for. Closed list. Knowing the purpose is what lets one judge whether a model fits a given situation, and identify the features it must combine."@en ;
                   rdfs:label "ModelPurpose"@en .
 
@@ -658,7 +658,7 @@ dsim:ModelScope rdf:type owl:Class ;
                                                 )
                                     ] ;
                 rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                rdfs:comment "Dit si le modele est reglable pour plusieurs maladies ou construit pour une seule. Liste fermee. C'est le critere qui decide si un modele est reutilisable ailleurs."@fr ,
+                rdfs:comment "Dit si le modèle est reglable pour plusieurs maladies ou construit pour une seule. Liste fermée. C'est le critere qui decide si un modèle est reutilisable ailleurs."@fr ,
                              "States whether the model can be retuned for several diseases or was built for one. Closed list. This is the criterion that decides whether a model is reusable elsewhere."@en ;
                 rdfs:label "ModelScope"@en .
 
@@ -709,7 +709,7 @@ dsim:NormalDistribution rdf:type owl:Class ;
                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                           owl:onDataRange xsd:double
                                         ] ;
-                        rdfs:comment "Loi symetrique caracterisee par une moyenne et un ecart type."@fr ,
+                        rdfs:comment "Loi symétrique caractérisée par une moyenne et un écart type."@fr ,
                                      "Symmetric law characterised by a mean and a standard deviation."@en ;
                         rdfs:label "NormalDistribution"@en ;
                         skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#NormalDistributionExpression> .
@@ -737,7 +737,7 @@ dsim:PoissonDistribution rdf:type owl:Class ;
                                            owl:onDataRange xsd:double
                                          ] ;
                          rdfs:comment "Law of the number of events occurring in a fixed interval."@en ,
-                                      "Loi du nombre d'evenements survenant dans un intervalle fixe."@fr ;
+                                      "Loi du nombre d'événements survenant dans un intervalle fixe."@fr ;
                          rdfs:label "PoissonDistribution"@en ;
                          skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#PoissonDistributionExpression> .
 
@@ -746,7 +746,7 @@ dsim:PoissonDistribution rdf:type owl:Class ;
 dsim:ProbabilityDistribution rdf:type owl:Class ;
                              rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                              rdfs:comment "A probability law characterising the uncertainty of a parameter, or the random draw of a value."@en ,
-                                          "Loi de probabilite caracterisant l'incertitude d'un parametre, ou le tirage aleatoire d'une valeur."@fr ;
+                                          "Loi de probabilité caractérisant l'incertitude d'un paramètre, ou le tirage aléatoire d'une valeur."@fr ;
                              rdfs:label "ProbabilityDistribution"@en ;
                              skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#ProbabilityDistributionExpression> .
 
@@ -755,7 +755,7 @@ dsim:ProbabilityDistribution rdf:type owl:Class ;
 dsim:RuleComponent rdf:type owl:Class ;
                    rdfs:subClassOf dsim:ModelComponent ;
                    rdfs:comment "A rule governing the behaviour of the model: decision rule, behaviour rule, interaction rule."@en ,
-                                "Regle gouvernant le comportement du modele : regle de decision, de comportement, d'interaction."@fr ;
+                                "Règle gouvernant le comportement du modèle : règle de décision, de comportement, d'interaction."@fr ;
                    rdfs:label "RuleComponent"@en .
 
 
@@ -772,8 +772,8 @@ dsim:SimulationExecution rdf:type owl:Class ;
                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                            owl:onClass dsim:SimulationModel
                                          ] ;
-                         rdfs:comment """Ceci represente le processus d'execution d'un modele de simulation sur un simulateur.
-Ce n'est pas un artefact d'information mais un processus car il se deroule dans le temps."""@fr ,
+                         rdfs:comment """Ceci représente le processus d'exécution d'un modèle de simulation sur un simulateur.
+Ce n'est pas un artefact d'information mais un processus car il se déroule dans le temps."""@fr ,
                                       """This represents the process of executing a simulation model on a simulator.
 It is not an information artifact but a process, because it unfolds over time."""@en ;
                          rdfs:label "SimulationExecution"@en .
@@ -782,7 +782,7 @@ It is not an information artifact but a process, because it unfolds over time.""
 ###  https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact
 dsim:SimulationKnowledgeArtifact rdf:type owl:Class ;
                                  rdfs:subClassOf obo:IAO_0000030 ;
-                                 rdfs:comment "Artefact d'information portant une connaissance utilisee pour construire, decrire ou executer un modele de simulation."@fr ,
+                                 rdfs:comment "Artefact d'information portant une connaissance utilisée pour construire, décrire ou exécuter un modèle de simulation."@fr ,
                                               "Information artifact carrying knowledge used to build, describe, or execute a simulation model."@en ;
                                  rdfs:label "SimulationKnowledgeArtifact"@en .
 
@@ -811,7 +811,7 @@ dsim:SimulationModel rdf:type owl:Class ;
                                        owl:onClass dsim:ModelStructureKnowledge
                                      ] ;
                      rdfs:comment "A representation of a system whose behaviour is studied by simulation, independently of the paradigm used."@en ,
-                                  "Representation d'un systeme dont on etudie le comportement par simulation, independamment du paradigme employe."@fr ;
+                                  "Représentation d'un système dont on étudie le comportement par simulation, indépendamment du paradigme employé."@fr ;
                      rdfs:label "SimulationModel"@en ;
                      skos:closeMatch <https://w3id.org/ontologies-ULL/OSDi#Model> .
 
@@ -819,7 +819,7 @@ dsim:SimulationModel rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#SimulationObservation
 dsim:SimulationObservation rdf:type owl:Class ;
                            rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                           rdfs:comment "Donnees reelles observees, servant a valider un modele par comparaison avec ses resultats."@fr ,
+                           rdfs:comment "Données réelles observées, servant à valider un modèle par comparaison avec ses résultats."@fr ,
                                         "Real observed data, used to validate a model by comparison with its results."@en ;
                            rdfs:label "SimulationObservation"@en .
 
@@ -828,7 +828,7 @@ dsim:SimulationObservation rdf:type owl:Class ;
 dsim:SimulationResult rdf:type owl:Class ;
                       rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                       rdfs:comment "Data produced by a simulation execution."@en ,
-                                   "Donnees produites par une execution de simulation."@fr ;
+                                   "Données produites par une exécution de simulation."@fr ;
                       rdfs:label "SimulationResult"@en .
 
 
@@ -836,7 +836,7 @@ dsim:SimulationResult rdf:type owl:Class ;
 dsim:SimulationScenario rdf:type owl:Class ;
                         rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                         rdfs:comment "A set of hypotheses and settings under which a model is run."@en ,
-                                     "Ensemble d'hypotheses et de reglages sous lesquels un modele est execute."@fr ;
+                                     "Ensemble d'hypothèses et de réglages sous lesquels un modèle est exécuté."@fr ;
                         rdfs:label "SimulationScenario"@en .
 
 
@@ -850,7 +850,7 @@ dsim:SpatialType rdf:type owl:Class ;
                                                  )
                                      ] ;
                  rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                 rdfs:comment "Facon dont l'espace est represente dans le modele. Liste fermee."@fr ,
+                 rdfs:comment "Façon dont l'espace est représenté dans le modèle. Liste fermée."@fr ,
                               "Way space is represented in the model. Closed list."@en ;
                  rdfs:label "SpatialType"@en .
 
@@ -859,7 +859,7 @@ dsim:SpatialType rdf:type owl:Class ;
 dsim:StateComponent rdf:type owl:Class ;
                     rdfs:subClassOf dsim:ModelComponent ;
                     rdfs:comment "A state that an entity of the model can occupy at a given time. Specialised as a compartment in compartmental models [C3B] and as an agent state in agent-based models [C3A]."@en ,
-                                 "Etat qu'une entite du modele peut occuper a un instant donne. Se specialise en compartiment pour les modeles compartimentaux [C3B] et en etat d'agent pour les modeles a agents [C3A]."@fr ;
+                                 "État qu'une entité du modèle peut occuper à un instant donné. Se spécialise en compartiment pour les modèles compartimentaux [C3B] et en état d'agent pour les modèles à agents [C3A]."@fr ;
                     rdfs:label "StateComponent"@en .
 
 
@@ -867,7 +867,7 @@ dsim:StateComponent rdf:type owl:Class ;
 dsim:StaticParameter rdf:type owl:Class ;
                      rdfs:subClassOf dsim:ModelParameter ;
                      rdfs:comment "A parameter whose value does not change during the simulation."@en ,
-                                  "Parametre dont la valeur ne change pas au cours de la simulation."@fr ;
+                                  "Paramètre dont la valeur ne change pas au cours de la simulation."@fr ;
                      rdfs:label "StaticParameter"@en .
 
 
@@ -879,7 +879,7 @@ dsim:TemporalType rdf:type owl:Class ;
                                                   )
                                       ] ;
                   rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                  rdfs:comment "Nature du temps dans le modele. Liste fermee."@fr ,
+                  rdfs:comment "Nature du temps dans le modèle. Liste fermée."@fr ,
                                "Nature of time in the model. Closed list."@en ;
                   rdfs:label "TemporalType"@en .
 
@@ -898,7 +898,7 @@ dsim:TransitionComponent rdf:type owl:Class ;
                                            owl:onClass dsim:StateComponent
                                          ] ;
                          rdfs:comment "A passage from one state to another. Has exactly one source state and one target state, whatever the paradigm. A transition to several states is represented by several transitions."@en ,
-                                      "Passage d'un etat a un autre. Possede exactement un etat de depart et un etat d'arrivee, quel que soit le paradigme. Une transition vers plusieurs etats se represente par plusieurs transitions."@fr ;
+                                      "Passage d'un état à un autre. Possède exactement un état de départ et un état d'arrivée, quel que soit le paradigme. Une transition vers plusieurs états se représente par plusieurs transitions."@fr ;
                          rdfs:label "TransitionComponent"@en .
 
 
@@ -916,7 +916,7 @@ dsim:UniformDistribution rdf:type owl:Class ;
                                            owl:onDataRange xsd:double
                                          ] ;
                          rdfs:comment "Law giving the same weight to every value between two bounds."@en ,
-                                      "Loi donnant le meme poids a toutes les valeurs entre deux bornes."@fr ;
+                                      "Loi donnant le même poids à toutes les valeurs entre deux bornes."@fr ;
                          rdfs:label "UniformDistribution"@en ;
                          skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression> .
 
@@ -932,7 +932,7 @@ dsim:ValidationMethod rdf:type owl:Class ;
                                           ] ;
                       rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                       rdfs:comment "Method by which the model is shown to be fit for its purpose. Closed list."@en ,
-                                   "Methode par laquelle on montre que le modele convient a son objectif. Liste fermee."@fr ;
+                                   "Méthode par laquelle on montre que le modèle convient à son objectif. Liste fermée."@fr ;
                       rdfs:label "ValidationMethod"@en .
 
 
@@ -943,7 +943,7 @@ dsim:ValidationMethod rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#ADEQUACY
 dsim:ADEQUACY rdf:type owl:NamedIndividual ,
                        dsim:ValidationMethod ;
-              rdfs:comment "Evaluation qualitative de la logique et des hypotheses du modele."@fr ,
+              rdfs:comment "Évaluation qualitative de la logique et des hypothèses du modèle."@fr ,
                            "Qualitative assessment of the model's logic and assumptions."@en ;
               rdfs:label "Adequacy validation"@en .
 
@@ -951,7 +951,7 @@ dsim:ADEQUACY rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#CONTINUOUS
 dsim:CONTINUOUS rdf:type owl:NamedIndividual ,
                          dsim:TemporalType ;
-                rdfs:comment "Le temps s'ecoule continument, exemple les equations differentielles."@fr ,
+                rdfs:comment "Le temps s'écoule continûment, exemple les équations différentielles."@fr ,
                              """Time flows continuously
  as in differential equations."""@en ;
                 rdfs:label "Continuous time"@en .
@@ -960,7 +960,7 @@ dsim:CONTINUOUS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#CROSS_MODEL
 dsim:CROSS_MODEL rdf:type owl:NamedIndividual ,
                           dsim:ValidationMethod ;
-                 rdfs:comment "Comparaison avec un modele etabli du meme phenomene."@fr ,
+                 rdfs:comment "Comparaison avec un modèle établi du même phénomène."@fr ,
                               "Comparison with an established model of the same phenomenon."@en ;
                  rdfs:label "Cross-model validation"@en .
 
@@ -968,7 +968,7 @@ dsim:CROSS_MODEL rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#DETERMINISTIC
 dsim:DETERMINISTIC rdf:type owl:NamedIndividual ,
                             dsim:ParadigmType ;
-                   rdfs:comment "Les memes entrees donnent toujours les memes sorties."@fr ,
+                   rdfs:comment "Les mêmes entrées donnent toujours les mêmes sorties."@fr ,
                                 "Same inputs always give the same outputs."@en ;
                    rdfs:label "Deterministic"@en .
 
@@ -976,7 +976,7 @@ dsim:DETERMINISTIC rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#DISCRETE
 dsim:DISCRETE rdf:type owl:NamedIndividual ,
                        dsim:TemporalType ;
-              rdfs:comment "Le temps avance par pas ou par evenements."@fr ,
+              rdfs:comment "Le temps avance par pas ou par événements."@fr ,
                            "Time advances by steps or by events."@en ;
               rdfs:label "Discrete time"@en .
 
@@ -993,7 +993,7 @@ dsim:DYNAMICS_RESEARCH rdf:type owl:NamedIndividual ,
 dsim:EMPIRICAL rdf:type owl:NamedIndividual ,
                         dsim:ModelNature ;
                rdfs:comment "Black-box model, describing the system's responses through equations fitted to experimental data, with no scientific principle or dynamic explanation. Its inner workings remain unknown."@en ,
-                            "Modele dit a boite noire, qui decrit les reponses du systeme par des equations ajustees sur des donnees experimentales, sans integrer de principe scientifique ni d'explication dynamique. Le fonctionnement interne reste inconnu."@fr ;
+                            "Modèle dit à boite noire, qui décrit les reponses du système par des équations ajustees sur des données experimentales, sans integrer de principe scientifique ni d'explication dynamique. Le fonctionnement interne reste inconnu."@fr ;
                rdfs:label "Empirical"@en .
 
 
@@ -1001,7 +1001,7 @@ dsim:EMPIRICAL rdf:type owl:NamedIndividual ,
 dsim:EPIDEMIC_PLANNING rdf:type owl:NamedIndividual ,
                                 dsim:ModelPurpose ;
                        rdfs:comment "Anticipating and managing potential epidemics by testing interventions and strategies, such as school closures or vaccination campaigns. A predictive purpose."@en ,
-                                    "Anticiper et gerer des epidemies potentielles en testant des interventions et des strategies, comme les fermetures d'ecoles ou les campagnes de vaccination. Objectif de prediction."@fr ;
+                                    "Anticiper et gerer des épidémies potentielles en testant des interventions et des strategies, comme les fermetures d'ecoles ou les campagnes de vaccination. Objectif de prediction."@fr ;
                        rdfs:label "Epidemic planning"@en .
 
 
@@ -1009,14 +1009,14 @@ dsim:EPIDEMIC_PLANNING rdf:type owl:NamedIndividual ,
 dsim:GENERAL rdf:type owl:NamedIndividual ,
                       dsim:ModelScope ;
              rdfs:comment "Model using generic dynamics and adjustable parameters, able to simulate a wide range of diseases sharing similar mechanisms. Needs less data and serves epidemic planning."@en ,
-                          "Modele employant des dynamiques generiques et des parametres ajustables, qui permet de simuler un large eventail de maladies partageant des mecanismes similaires. Demande moins de donnees et sert a la planification epidemique."@fr ;
+                          "Modèle employant des dynamiques generiques et des paramètres ajustables, qui permet de simuler un large eventail de maladies partageant des mecanismes similaires. Demande moins de données et sert à la planification epidemique."@fr ;
              rdfs:label "General"@en .
 
 
 ###  https://w3id.org/ontosim-dis#GIS
 dsim:GIS rdf:type owl:NamedIndividual ,
                   dsim:SpatialType ;
-         rdfs:comment "L'espace est represente par des donnees geographiques reelles."@fr ,
+         rdfs:comment "L'espace est représenté par des données géographiques réelles."@fr ,
                       "Space is represented by real geographic data."@en ;
          rdfs:label "Geographic information system"@en .
 
@@ -1025,14 +1025,14 @@ dsim:GIS rdf:type owl:NamedIndividual ,
 dsim:GREY_BOX rdf:type owl:NamedIndividual ,
                        dsim:ModelNature ;
               rdfs:comment "Model mixing a mechanistic part and an empirical part: some subsystems are described by their mechanisms, others by relations fitted to data."@en ,
-                           "Modele melant une part mecaniste et une part empirique : certains sous-systemes sont decrits par leurs mecanismes, d'autres par des relations ajustees sur les donnees."@fr ;
+                           "Modèle mêlant une part mecaniste et une part empirique : certains sous-systemes sont decrits par leurs mecanismes, d'autres par des relations ajustees sur les données."@fr ;
               rdfs:label "Grey box"@en .
 
 
 ###  https://w3id.org/ontosim-dis#GRID
 dsim:GRID rdf:type owl:NamedIndividual ,
                    dsim:SpatialType ;
-          rdfs:comment "L'espace est represente par une grille reguliere de cellules."@fr ,
+          rdfs:comment "L'espace est représenté par une grille régulière de cellules."@fr ,
                        "Space is represented by a regular grid of cells."@en ;
           rdfs:label "grid"@en .
 
@@ -1041,14 +1041,14 @@ dsim:GRID rdf:type owl:NamedIndividual ,
 dsim:GROUP rdf:type owl:NamedIndividual ,
                     dsim:GranularityLevel ;
            rdfs:comment "Individuals are gathered into homogeneous groups."@en ,
-                        "Les individus sont regroupes en groupes homogenes."@fr ;
+                        "Les individus sont regroupés en groupes homogènes."@fr ;
            rdfs:label "Group"@en .
 
 
 ###  https://w3id.org/ontosim-dis#HISTORICAL_DATA
 dsim:HISTORICAL_DATA rdf:type owl:NamedIndividual ,
                               dsim:ValidationMethod ;
-                     rdfs:comment "Comparaison des resultats avec des donnees reelles observees."@fr ,
+                     rdfs:comment "Comparaison des résultats avec des données réelles observées."@fr ,
                                   "Comparison of the results with real observed data."@en ;
                      rdfs:label "Historical data validation"@en .
 
@@ -1056,7 +1056,7 @@ dsim:HISTORICAL_DATA rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#INDIVIDUAL
 dsim:INDIVIDUAL rdf:type owl:NamedIndividual ,
                          dsim:GranularityLevel ;
-                rdfs:comment "Chaque individu est represente separement."@fr ,
+                rdfs:comment "Chaque individu est représenté séparément."@fr ,
                              "Each individual is represented separately."@en ;
                 rdfs:label "Individual"@en .
 
@@ -1064,7 +1064,7 @@ dsim:INDIVIDUAL rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#MECHANISTIC
 dsim:MECHANISTIC rdf:type owl:NamedIndividual ,
                           dsim:ModelNature ;
-                 rdfs:comment "Modele dit a boite blanche, construit sur la connaissance du fonctionnement du systeme, de ses elements et de leurs interactions. Fournit des explications causales, au prix d'une complexite accrue."@fr ,
+                 rdfs:comment "Modèle dit à boite blanche, construit sur la connaissance du fonctionnement du système, de ses elements et de leurs interactions. Fournit des explications causales, au prix d'une complexite accrue."@fr ,
                               "White-box model, built on knowledge of how the system works, of its elements and their interactions. Yields causal explanations, at the cost of greater complexity."@en ;
                  rdfs:label "Mechanistic"@en .
 
@@ -1072,7 +1072,7 @@ dsim:MECHANISTIC rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH
 dsim:METHODOLOGICAL_RESEARCH rdf:type owl:NamedIndividual ,
                                       dsim:ModelPurpose ;
-                             rdfs:comment "Ameliorer les approches de modelisation elles-memes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de comprehension."@fr ,
+                             rdfs:comment "Ameliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de comprehension."@fr ,
                                           "Improving the modelling approaches themselves, to make them more effective, faster or more robust. An explanatory purpose."@en ;
                              rdfs:label "Methodological research"@en .
 
@@ -1080,7 +1080,7 @@ dsim:METHODOLOGICAL_RESEARCH rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#MULTISCALE
 dsim:MULTISCALE rdf:type owl:NamedIndividual ,
                          dsim:GranularityLevel ;
-                rdfs:comment "Plusieurs niveaux de detail coexistent dans le meme modele."@fr ,
+                rdfs:comment "Plusieurs niveaux de détail coexistent dans le même modèle."@fr ,
                              "Several levels of detail coexist in the same model."@en ;
                 rdfs:label "Multiscale"@en .
 
@@ -1088,7 +1088,7 @@ dsim:MULTISCALE rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#NETWORK
 dsim:NETWORK rdf:type owl:NamedIndividual ,
                       dsim:SpatialType ;
-             rdfs:comment "L'espace est represente par un reseau de contacts ou de connexions."@fr ,
+             rdfs:comment "L'espace est représenté par un réseau de contacts ou de connexions."@fr ,
                           "Space is represented by a network of contacts or connections."@en ;
              rdfs:label "Network"@en .
 
@@ -1096,7 +1096,7 @@ dsim:NETWORK rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#NON_SPATIAL
 dsim:NON_SPATIAL rdf:type owl:NamedIndividual ,
                           dsim:SpatialType ;
-                 rdfs:comment "L'espace n'est pas represente, la population est supposee bien melangee."@fr ,
+                 rdfs:comment "L'espace n'est pas représenté, la population est supposée bien mélangée."@fr ,
                               "Space is not represented, the population is assumed well mixed."@en ;
                  rdfs:label "Non spatial"@en .
 
@@ -1104,7 +1104,7 @@ dsim:NON_SPATIAL rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#REGIONAL
 dsim:REGIONAL rdf:type owl:NamedIndividual ,
                        dsim:GranularityLevel ;
-              rdfs:comment "L'unite decrite est un territoire."@fr ,
+              rdfs:comment "L'unité décrite est un territoire."@fr ,
                            "The unit described is a territory."@en ;
               rdfs:label "Regional"@en .
 
@@ -1121,7 +1121,7 @@ dsim:RETROSPECTIVE_ANALYSIS rdf:type owl:NamedIndividual ,
 dsim:SPECIFIC rdf:type owl:NamedIndividual ,
                        dsim:ModelScope ;
               rdfs:comment "Model embedding the transmission mechanisms and factors particular to one disease, often in a given context. Needs precise data and serves the assessment of targeted interventions."@en ,
-                           "Modele integrant les mecanismes de transmission et les facteurs propres a une maladie precise, souvent dans un contexte donne. Demande des donnees precises et sert a evaluer des interventions ciblees."@fr ;
+                           "Modèle integrant les mecanismes de transmission et les facteurs propres à une maladie precise, souvent dans un contexte donne. Demande des données precises et sert à evaluer des interventions ciblees."@fr ;
               rdfs:label "Specific"@en .
 
 
@@ -1129,7 +1129,7 @@ dsim:SPECIFIC rdf:type owl:NamedIndividual ,
 dsim:STATISTICAL rdf:type owl:NamedIndividual ,
                           dsim:ValidationMethod ;
                  rdfs:comment "Statistical test of the agreement between results and reference data."@en ,
-                              "Test statistique de l'accord entre les resultats et des donnees de reference."@fr ;
+                              "Test statistique de l'accord entre les résultats et des données de référence."@fr ;
                  rdfs:label "Statistical Validation"@en .
 
 
@@ -1137,7 +1137,7 @@ dsim:STATISTICAL rdf:type owl:NamedIndividual ,
 dsim:STOCHASTIC rdf:type owl:NamedIndividual ,
                          dsim:ParadigmType ;
                 rdfs:comment "Chance takes part and results vary from one run to another."@en ,
-                             "Le hasard intervient et les resultats varient d'une execution a l'autre."@fr ;
+                             "Le hasard intervient et les résultats varient d'une exécution à l'autre."@fr ;
                 rdfs:label "Stochastic"@en .
 
 

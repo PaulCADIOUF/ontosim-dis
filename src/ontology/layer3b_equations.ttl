@@ -18,10 +18,10 @@
                                         rdfs:comment """For this type of model, we divide the population into compartments, and the flows between these compartments are governed by rates.
 They are usually expressed as differential equations.
 Reminder: This layer contains no medical content."""@en ,
-                                                     """Pour ce type de modele, nous divisons la population en compartiments et les flux entre ces compartiments sont gouvernes par des taux.
-Pour la plupart du temps ils sont exprime en exquations differentielles.
-Rappel : Cette couche ne contient aucun contenu medical"""@fr ;
-                                        rdfs:label "OntoSim-Dis Couche 3B - Paradigme compartimental et a equations"@fr ,
+                                                     """Pour ce type de modèle, nous divisons la population en compartiments, et les flux entre ces compartiments sont gouvernés par des taux.
+La plupart du temps, ils sont exprimés en équations différentielles.
+Rappel : cette couche ne contient aucun contenu médical."""@fr ;
+                                        rdfs:label "OntoSim-Dis Couche 3B - Paradigme compartimental et à équations"@fr ,
                                                    "OntoSim-Dis Layer 3B - Compartmental and equation-based paradigm"@en ;
                                         owl:versionInfo "1.0" .
 
@@ -43,7 +43,7 @@ dsim:governsCompartment rdf:type owl:ObjectProperty ,
                                  owl:FunctionalProperty ;
                         rdfs:domain dsim:DifferentialEquation ;
                         rdfs:range dsim:Compartment ;
-                        rdfs:comment "Lie une equation au compartiment dont elle donne la variation."@fr ,
+                        rdfs:comment "Lie une équation au compartiment dont elle donne la variation."@fr ,
                                      "Links an equation to the compartment whose variation it gives."@en ;
                         rdfs:label "governsCompartment"@en .
 
@@ -52,7 +52,7 @@ dsim:governsCompartment rdf:type owl:ObjectProperty ,
 dsim:hasCompartment rdf:type owl:ObjectProperty ;
                     rdfs:domain dsim:CompartmentalModel ;
                     rdfs:range dsim:Compartment ;
-                    rdfs:comment "Lie un modele compartimental a ses compartiments."@fr ,
+                    rdfs:comment "Lie un modèle compartimental à ses compartiments."@fr ,
                                  "Links a compartmental model to its compartments."@en ;
                     rdfs:label "hasCompartment"@en .
 
@@ -61,7 +61,7 @@ dsim:hasCompartment rdf:type owl:ObjectProperty ;
 dsim:hasEquation rdf:type owl:ObjectProperty ;
                  rdfs:domain dsim:CompartmentalModel ;
                  rdfs:range dsim:DifferentialEquation ;
-                 rdfs:comment "Lie un modele compartimental a ses equations differentielles."@fr ,
+                 rdfs:comment "Lie un modèle compartimental à ses équations différentielles."@fr ,
                               "Links a compartmental model to its differential equations."@en ;
                  rdfs:label "hasEquation"@en .
 
@@ -70,7 +70,7 @@ dsim:hasEquation rdf:type owl:ObjectProperty ;
 dsim:hasFlow rdf:type owl:ObjectProperty ;
              rdfs:domain dsim:CompartmentalModel ;
              rdfs:range dsim:TransitionFlow ;
-             rdfs:comment "Lie un modele compartimental a ses flux."@fr ,
+             rdfs:comment "Lie un modèle compartimental à ses flux."@fr ,
                           "Links a compartmental model to its flows."@en ;
              rdfs:label "hasFlow"@en .
 
@@ -80,7 +80,7 @@ dsim:hasRate rdf:type owl:ObjectProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain dsim:TransitionFlow ;
              rdfs:range dsim:RateSpecification ;
-             rdfs:comment "Lie un flux a la facon dont son taux est determine."@fr ,
+             rdfs:comment "Lie un flux à la façon dont son taux est déterminé."@fr ,
                           "Links a flow to the way its rate is determined."@en ;
              rdfs:label "hasRate"@en .
 
@@ -89,7 +89,7 @@ dsim:hasRate rdf:type owl:ObjectProperty ,
 dsim:involvesFlow rdf:type owl:ObjectProperty ;
                   rdfs:domain dsim:DifferentialEquation ;
                   rdfs:range dsim:TransitionFlow ;
-                  rdfs:comment "Lie une equation aux flux qui y figurent."@fr ,
+                  rdfs:comment "Lie une équation aux flux qui y figurent."@fr ,
                                "Links an equation to the flows appearing in it."@en ;
                   rdfs:label "involvesFlow"@en .
 
@@ -102,7 +102,7 @@ dsim:involvesFlow rdf:type owl:ObjectProperty ;
 dsim:compartmentInitialSize rdf:type owl:DatatypeProperty ;
                             rdfs:domain dsim:Compartment ;
                             rdfs:range xsd:double ;
-                            rdfs:comment "Nombre d'individus dans le compartiment au debut de la simulation."@fr ,
+                            rdfs:comment "Nombre d'individus dans le compartiment au début de la simulation."@fr ,
                                          "Number of individuals in the compartment at the start of the simulation."@en ;
                             rdfs:label "compartmentInitialSize"@en .
 
@@ -112,7 +112,7 @@ dsim:compartmentSymbol rdf:type owl:DatatypeProperty ;
                        rdfs:domain dsim:Compartment ;
                        rdfs:range xsd:string ;
                        rdfs:comment "Symbol of the compartment in the equations, for instance S or I."@en ,
-                                    "Symbole du compartiment dans les equations, par exemple S ou I."@fr ;
+                                    "Symbole du compartiment dans les équations, par exemple S ou I."@fr ;
                        rdfs:label "compartmentSymbol"@en .
 
 
@@ -120,7 +120,7 @@ dsim:compartmentSymbol rdf:type owl:DatatypeProperty ;
 dsim:equationExpression rdf:type owl:DatatypeProperty ;
                         rdfs:domain dsim:DifferentialEquation ;
                         rdfs:range xsd:string ;
-                        rdfs:comment "Expression textuelle de l'equation, par exemple dS/dt = -beta * S * I / N."@fr ,
+                        rdfs:comment "Expression textuelle de l'équation, par exemple dS/dt = -beta * S * I / N."@fr ,
                                      "Textual expression of the equation, for instance dS/dt = -beta * S * I / N."@en ;
                         rdfs:label "equationExpression"@en .
 
@@ -151,7 +151,7 @@ dsim:rateExpression rdf:type owl:DatatypeProperty ;
 dsim:Compartment rdf:type owl:Class ;
                  rdfs:subClassOf dsim:StateComponent ;
                  rdfs:comment "A group of individuals sharing the same situation, counted together. Compartmental form of a state component."@en ,
-                              "Groupe d'individus partageant la meme situation, comptes ensemble. Forme compartimentale d'un composant d'etat."@fr ;
+                              "Groupe d'individus partageant la même situation, comptés ensemble. Forme compartimentale d'un composant d'état."@fr ;
                  rdfs:label "Compartment"@en .
 
 
@@ -165,7 +165,7 @@ dsim:CompartmentDependentRate rdf:type owl:Class ;
                                               ] ;
                               owl:disjointWith dsim:ConstantRate ;
                               rdfs:comment "A rate whose value depends on the current content of one or more compartments, which makes the system non-linear and coupled. Compartmental form of population coupling."@en ,
-                                           "Taux dont la valeur depend du contenu courant d'un ou plusieurs compartiments, ce qui rend le systeme non lineaire et couple. Forme compartimentale du couplage populationnel."@fr ;
+                                           "Taux dont la valeur dépend du contenu courant d'un ou plusieurs compartiments, ce qui rend le système non linéaire et couplé. Forme compartimentale du couplage populationnel."@fr ;
                               rdfs:label "CompartmentDependentRate"@en .
 
 
@@ -183,7 +183,7 @@ dsim:CompartmentalModel rdf:type owl:Class ;
                                           owl:onClass dsim:TransitionFlow
                                         ] ;
                         rdfs:comment "A model dividing the population into compartments, between which flows carry individuals at rates."@en ,
-                                     "Modele divisant la population en compartiments, entre lesquels des flux font passer les individus a certains taux."@fr ;
+                                     "Modèle divisant la population en compartiments, entre lesquels des flux font passer les individus à certains taux."@fr ;
                         rdfs:label "CompartmentalModel"@en .
 
 
@@ -207,7 +207,7 @@ dsim:CoupledCompartmentalModel rdf:type owl:Class ;
                                                    ] ;
                                rdfs:subClassOf dsim:CompartmentalModel ;
                                rdfs:comment "A compartmental model containing at least one coupled flow. Inferred by the reasoner without anyone declaring the model infectious."@en ,
-                                            "Modele compartimental comportant au moins un flux couple. Infere par le raisonneur sans que personne ait declare le modele infectieux."@fr ;
+                                            "Modèle compartimental comportant au moins un flux couplé. Inféré par le raisonneur sans que personne ait déclaré le modèle infectieux."@fr ;
                                rdfs:label "CoupledCompartmentalModel"@en .
 
 
@@ -223,7 +223,7 @@ dsim:CoupledFlow rdf:type owl:Class ;
                                      ] ;
                  rdfs:subClassOf dsim:TransitionFlow ;
                  rdfs:comment "A flow whose rate depends on the content of a compartment."@en ,
-                              "Flux dont le taux depend du contenu d'un compartiment."@fr ;
+                              "Flux dont le taux dépend du contenu d'un compartiment."@fr ;
                  rdfs:label "CoupledFlow"@en .
 
 
@@ -240,7 +240,7 @@ dsim:DifferentialEquation rdf:type owl:Class ;
                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                             owl:onClass dsim:Compartment
                                           ] ;
-                          rdfs:comment "Equation donnant la variation dans le temps du contenu d'un compartiment, comme bilan des flux qui y entrent et en sortent."@fr ,
+                          rdfs:comment "Équation donnant la variation dans le temps du contenu d'un compartiment, comme bilan des flux qui y entrent et en sortent."@fr ,
                                        "The equation giving the variation over time of the content of one compartment, as the balance of the flows entering and leaving it."@en ;
                           rdfs:label "DifferentialEquation"@en .
 
@@ -248,7 +248,7 @@ dsim:DifferentialEquation rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#RateSpecification
 dsim:RateSpecification rdf:type owl:Class ;
                        rdfs:subClassOf dsim:ModelParameter ;
-                       rdfs:comment "Facon dont le taux d'un flux est determine."@fr ,
+                       rdfs:comment "Façon dont le taux d'un flux est déterminé."@fr ,
                                     "The way the rate of a flow is determined."@en ;
                        rdfs:label "RateSpecification"@en .
 
@@ -262,7 +262,7 @@ dsim:TransitionFlow rdf:type owl:Class ;
                                       owl:onClass dsim:RateSpecification
                                     ] ;
                     rdfs:comment "A passage of individuals from one compartment to another, governed by a rate. Inherits from the layer 2 transition its source and target states."@en ,
-                                 "Passage d'individus d'un compartiment a un autre, gouverne par un taux. Herite de la transition de couche 2 ses etats de depart et d'arrivee."@fr ;
+                                 "Passage d'individus d'un compartiment à un autre, gouverné par un taux. Hérite de la transition de couche 2 ses états de départ et d'arrivée."@fr ;
                     rdfs:label "TransitionFlow"@en .
 
 

@@ -15,9 +15,9 @@
                                             dcterms:created "\"2026\"" ;
                                             dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                             dcterms:source "OGMS " ;
-                                            rdfs:comment """Termes reutilises de l'Ontology for General Medical Science, extraits par MIREOT. 
-OGMS est une ontologie generale du domaine medicale donc elle n'est pas dans la couche 1 car OGMS est dans le domaine medical et que la couche 1 doit etre generale.
-Je l'ai mis dans un fichier séparé pour separer ce qui est de notre travail et ce que l'on a importé/réutilisé."""@fr ,
+                                            rdfs:comment """Termes réutilisés de l'Ontology for General Medical Science, extraits par MIREOT. 
+OGMS est une ontologie générale du domaine médicale donc elle n'est pas dans la couche 1 car OGMS est dans le domaine médical et que la couche 1 doit être générale.
+Je l'ai mis dans un fichier séparé pour séparer ce qui est de notre travail et ce que l'on a importé/réutilisé."""@fr ,
                                                          """Terms reused from the Ontology for General Medical Science, extracted via MIREOT.
 OGMS is a general ontology for the medical domain; therefore, it is not included in Layer 1, as Layer 1 must be general in nature.
 I placed it in a separate file to distinguish our own work from the material we imported or reused."""@en ,

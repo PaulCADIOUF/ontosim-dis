@@ -11,7 +11,7 @@
 
 <https://w3id.org/ontosim-dis/layer1> rdf:type owl:Ontology ;
                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer1/1.0> ;
-                                       dc:description "Couche 1 de l'ontologie OntoSim-Dis. les concepts fondateurs indépendants de tout domaine applicatif. Les termes nécessaires de BFO, RO et IAO ont été extraits selon une approche MIREOT."@fr ,
+                                       dc:description "Couche 1 de l'ontologie OntoSim-Dis : les concepts fondateurs, indépendants de tout domaine applicatif. Les termes nécessaires de BFO, RO et IAO ont été extraits selon la méthode MIREOT."@fr ,
                                                       "Layer 1 of the OntoSim-Dis ontology: foundational concepts independent of any application domain. The necessary terms from BFO, RO, and IAO were extracted using a MIREOT approach."@en ;
                                        dcterms:created "2026" ;
                                        dcterms:creator "Paul Cheikh Anta DIOUF" ;
@@ -108,7 +108,7 @@ obo:RO_0002233 rdf:type owl:ObjectProperty ;
                rdfs:domain obo:BFO_0000015 ;
                obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
 RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
-Peut etre que je vais l'enlever."""@fr ;
+Peut être que je vais l'enlever."""@fr ;
                rdfs:comment "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p."@en ;
                rdfs:label "has input"@en .
 
@@ -118,7 +118,7 @@ obo:RO_0002234 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000057 ;
                obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
 RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
-Peut etre que je vais l'enlever."""@fr ;
+Peut être que je vais l'enlever."""@fr ;
                rdfs:comment "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p."@en ;
                rdfs:label "has output"@en .
 
@@ -136,7 +136,7 @@ obo:RO_0002323 rdf:type owl:ObjectProperty ;
 ###  http://purl.obolibrary.org/obo/BFO_0000001
 obo:BFO_0000001 rdf:type owl:Class ;
                 obo:IAO_0000116 "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy."@en ,
-                                "BFO:0000001 - importé via MIREOT. Racine de toute la hierarchie BFO."@fr ;
+                                "BFO:0000001 - importé via MIREOT. Racine de toute la hiérarchie BFO."@fr ;
                 rdfs:comment "An entity is anything that exists or has existed or will exist."@en ;
                 rdfs:label "entity"@en ;
                 rdfs:seeAlso "http://purl.obolibrary.org/obo/bfo.owl"^^xsd:anyURI .

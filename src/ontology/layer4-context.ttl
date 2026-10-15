@@ -15,7 +15,7 @@
                                                dcterms:created "2026" ;
                                                dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                                dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                                               rdfs:comment "Ou, pour qui et dans quelles conditions un modele s'applique : population, region geographique, climat, infrastructure de sante. Deuxieme composant du Quadruplet de recomposition."@fr ,
+                                               rdfs:comment "Où, pour qui et dans quelles conditions un modèle s'applique : population, région géographique, climat, infrastructure de santé. Deuxième composant du Quadruplet de recomposition."@fr ,
                                                             "Where, for whom and under which conditions a model applies: population, geographic region, climate, health infrastructure. Second component of the recomposition Quadruplet."@en ;
                                                rdfs:label "OntoSim-Dis Couche 4-Context - Connaissance de contexte"@fr ,
                                                           "OntoSim-Dis Layer 4-Context - Context knowledge"@en ;
@@ -37,7 +37,7 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
 dsim:hasClimate rdf:type owl:ObjectProperty ;
                 rdfs:domain dsim:ContextKnowledge ;
                 rdfs:range dsim:Climate ;
-                rdfs:comment "Lie un contexte a ses conditions climatiques."@fr ,
+                rdfs:comment "Lie un contexte à ses conditions climatiques."@fr ,
                              "Links a context to its climatic conditions."@en ;
                 rdfs:label "hasClimate"@en .
 
@@ -46,7 +46,7 @@ dsim:hasClimate rdf:type owl:ObjectProperty ;
 dsim:hasContextKnowledge rdf:type owl:ObjectProperty ;
                          rdfs:domain dsim:SimulationModel ;
                          rdfs:range dsim:ContextKnowledge ;
-                         rdfs:comment "Lie un modele au contexte pour lequel il a ete construit."@fr ,
+                         rdfs:comment "Lie un modèle au contexte pour lequel il a été construit."@fr ,
                                       "Links a model to the context it was built for."@en ;
                          rdfs:label "hasContextKnowledge"@en .
 
@@ -64,7 +64,7 @@ dsim:hasGeographicRegion rdf:type owl:ObjectProperty ;
 dsim:hasHealthInfrastructure rdf:type owl:ObjectProperty ;
                              rdfs:domain dsim:ContextKnowledge ;
                              rdfs:range dsim:HealthInfrastructure ;
-                             rdfs:comment "Lie un contexte aux structures de sante disponibles."@fr ,
+                             rdfs:comment "Lie un contexte aux structures de santé disponibles."@fr ,
                                           "Links a context to the health facilities available."@en ;
                              rdfs:label "hasHealthInfrastructure"@en .
 
@@ -82,7 +82,7 @@ dsim:hasPopulation rdf:type owl:ObjectProperty ;
 dsim:isLocatedInRegion rdf:type owl:ObjectProperty ;
                        rdfs:domain dsim:Population ;
                        rdfs:range dsim:GeographicRegion ;
-                       rdfs:comment "Lie une population au territoire ou elle vit."@fr ,
+                       rdfs:comment "Lie une population au territoire où elle vit."@fr ,
                                     "Links a population to the territory where it lives."@en ;
                        rdfs:label "isLocatedInRegion"@en .
 
@@ -92,7 +92,7 @@ dsim:isSubRegionOf rdf:type owl:ObjectProperty ,
                             owl:TransitiveProperty ;
                    rdfs:domain dsim:GeographicRegion ;
                    rdfs:range dsim:GeographicRegion ;
-                   rdfs:comment "Lie un territoire au territoire plus large qui le contient. Transitive : un district dans une region dans un pays est dans ce pays. RO:located in n'est deliberement pas reutilisee ici, car elle relie des entites materielles reelles, alors que nos regions sont des descriptions de territoires."@fr ,
+                   rdfs:comment "Lie un territoire au territoire plus large qui le contient. Transitive : un district dans une région dans un pays est dans ce pays. RO:located in n'est délibérément pas réutilisée ici, car elle relie des entités matérielles réelles, alors que nos régions sont des descriptions de territoires."@fr ,
                                 "Links a territory to the larger territory containing it. Transitive: a district in a region in a country is in that country. RO:located in is deliberately not reused here, because it relates real material entities, whereas our regions are descriptions of territories."@en ;
                    rdfs:label "isSubRegionOf"@en .
 
@@ -106,7 +106,7 @@ dsim:averageHouseholdSize rdf:type owl:DatatypeProperty ;
                           rdfs:domain dsim:Population ;
                           rdfs:range xsd:double ;
                           rdfs:comment "Average number of people per household. Governs the intensity of domestic contacts."@en ,
-                                       "Nombre moyen de personnes par menage. Gouverne l'intensite des contacts domestiques."@fr ;
+                                       "Nombre moyen de personnes par ménage. Gouverne l'intensité des contacts domestiques."@fr ;
                           rdfs:label "averageHouseholdSize"@en .
 
 
@@ -115,7 +115,7 @@ dsim:avgHumidity rdf:type owl:DatatypeProperty ;
                  rdfs:domain dsim:Climate ;
                  rdfs:range xsd:double ;
                  rdfs:comment "Average relative humidity as a percentage."@en ,
-                              "Humidite relative moyenne en pourcentage."@fr ;
+                              "Humidité relative moyenne en pourcentage."@fr ;
                  rdfs:label "avgHumidity"@en .
 
 
@@ -124,7 +124,7 @@ dsim:avgTemperature rdf:type owl:DatatypeProperty ;
                     rdfs:domain dsim:Climate ;
                     rdfs:range xsd:double ;
                     rdfs:comment "Average annual temperature, in degrees Celsius."@en ,
-                                 "Temperature moyenne annuelle, en degres Celsius."@fr ;
+                                 "Température moyenne annuelle, en degrés Celsius."@fr ;
                     rdfs:label "avgTemperature"@en .
 
 
@@ -141,7 +141,7 @@ dsim:hospitalCapacity rdf:type owl:DatatypeProperty ;
 dsim:medianAge rdf:type owl:DatatypeProperty ;
                rdfs:domain dsim:Population ;
                rdfs:range xsd:double ;
-               rdfs:comment "Age median de la population, en annees."@fr ,
+               rdfs:comment "Âge médian de la population, en années."@fr ,
                             "Median age of the population, in years."@en ;
                rdfs:label "medianAge"@en .
 
@@ -159,7 +159,7 @@ dsim:numberOfZones rdf:type owl:DatatypeProperty ;
 dsim:populationDensity rdf:type owl:DatatypeProperty ;
                        rdfs:domain dsim:Population ;
                        rdfs:range xsd:double ;
-                       rdfs:comment "Densite en habitants par kilometre carre."@fr ,
+                       rdfs:comment "Densité en habitants par kilomètre carré."@fr ,
                                     "Density in inhabitants per square kilometre."@en ;
                        rdfs:label "populationDensity"@en .
 
@@ -190,14 +190,14 @@ dsim:regionName rdf:type owl:DatatypeProperty ;
 dsim:AdministrativeRegion rdf:type owl:Class ;
                           rdfs:subClassOf dsim:GeographicRegion ;
                           rdfs:comment "Administrative division of a country. Senegal has fourteen of them."@en ,
-                                       "Division administrative d'un pays. Le Senegal en compte quatorze."@fr ;
+                                       "Division administrative d'un pays. Le Sénégal en compte quatorze."@fr ;
                           rdfs:label "AdministrativeRegion"@en .
 
 
 ###  https://w3id.org/ontosim-dis#AridClimate
 dsim:AridClimate rdf:type owl:Class ;
                  rdfs:subClassOf dsim:Climate ;
-                 rdfs:comment "Climat sec à faibles precipitations."@fr ,
+                 rdfs:comment "Climat sec à faibles précipitations."@fr ,
                               "Dry climate with little rainfall."@en ;
                  rdfs:label "AridClimate"@en .
 
@@ -205,7 +205,7 @@ dsim:AridClimate rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#City
 dsim:City rdf:type owl:Class ;
           rdfs:subClassOf dsim:GeographicRegion ;
-          rdfs:comment "Localite urbaine."@fr ,
+          rdfs:comment "Localité urbaine."@fr ,
                        "Urban locality"@en ;
           rdfs:label "City"@en .
 
@@ -214,7 +214,7 @@ dsim:City rdf:type owl:Class ;
 dsim:Climate rdf:type owl:Class ;
              rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
              rdfs:comment "Climatic conditions influencing disease transmission. Decisive for vector-borne and water-borne diseases, where temperature and humidity govern the life cycle of the vector or of the intermediate host."@en ,
-                          "Conditions climatiques influencant la transmission des maladies. Determinantes pour les maladies a vecteur et a transmission hydrique, ou temperature et humidite gouvernent le cycle de vie du vecteur ou de l'hote intermediaire."@fr ;
+                          "Conditions climatiques influençant la transmission des maladies. Déterminantes pour les maladies à vecteur et à transmission hydrique, où température et humidité gouvernent le cycle de vie du vecteur ou de l'hôte intermédiaire."@fr ;
              rdfs:label "Climate"@en .
 
 
@@ -239,7 +239,7 @@ dsim:ContextKnowledge rdf:type owl:Class ;
                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                         owl:onClass dsim:Population
                                       ] ;
-                      rdfs:comment "Deuxieme composant du Quadruplet de recomposition (CK). Decrit ou, pour qui et dans quelles conditions un modele s'applique."@fr ,
+                      rdfs:comment "Deuxième composant du Quadruplet de recomposition (CK). Décrit où, pour qui et dans quelles conditions un modèle s'applique."@fr ,
                                    "Second component of the recomposition Quadruplet (CK). Describes where, for whom and under which conditions a model applies."@en ;
                       rdfs:label "ContextKnowledge"@en .
 
@@ -256,14 +256,14 @@ dsim:Country rdf:type owl:Class ;
 dsim:District rdf:type owl:Class ;
               rdfs:subClassOf dsim:GeographicRegion ;
               rdfs:comment "Administrative division of a region."@en ,
-                           "Division administrative d'une region."@fr ;
+                           "Division administrative d'une région."@fr ;
               rdfs:label "District"@en .
 
 
 ###  https://w3id.org/ontosim-dis#GeographicRegion
 dsim:GeographicRegion rdf:type owl:Class ;
                       rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                      rdfs:comment "Territoire auquel un modele s'applique. Quatre niveaux administratifs : pays, region, district, ville."@fr ,
+                      rdfs:comment "Territoire auquel un modèle s'applique. Quatre niveaux administratifs : pays, région, district, ville."@fr ,
                                    "The territory a model applies to. Four administrative levels: country, region, district, city."@en ;
                       rdfs:label "GeographicRegion"@en .
 
@@ -272,7 +272,7 @@ dsim:GeographicRegion rdf:type owl:Class ;
 dsim:HealthCentre rdf:type owl:Class ;
                   rdfs:subClassOf dsim:HealthInfrastructure ;
                   rdfs:comment "Local facility for primary care."@en ,
-                               "Structure de proximite assurant les soins primaires."@fr ;
+                               "Structure de proximité assurant les soins primaires."@fr ;
                   rdfs:label "HealthCentre"@en .
 
 
@@ -280,7 +280,7 @@ dsim:HealthCentre rdf:type owl:Class ;
 dsim:HealthInfrastructure rdf:type owl:Class ;
                           rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
                           rdfs:comment "Health facilities available in the context. Determines the capacity to respond, and the saturation threshold beyond which lethality rises."@en ,
-                                       "Structures de sante disponibles dans le contexte. Determine la capacite de reponse, et le seuil de saturation au-dela duquel la letalite augmente."@fr ;
+                                       "Structures de santé disponibles dans le contexte. Détermine la capacité de réponse, et le seuil de saturation au-delà duquel la létalité augmente."@fr ;
                           rdfs:label "HealthInfrastructure"@en .
 
 
@@ -296,7 +296,7 @@ dsim:Hospital rdf:type owl:Class ;
 dsim:MixedPopulation rdf:type owl:Class ;
                      rdfs:subClassOf dsim:Population ;
                      rdfs:comment "A population combining urban and rural zones within the same territory."@en ,
-                                  "Population melant zones urbaines et rurales au sein d'un meme territoire."@fr ;
+                                  "Population mêlant zones urbaines et rurales au sein d'un même territoire."@fr ;
                      rdfs:label "MixedPopulation"@en .
 
 
@@ -309,7 +309,7 @@ dsim:Population rdf:type owl:Class ;
                                   owl:onClass dsim:GeographicRegion
                                 ] ;
                 rdfs:comment "A group of individuals in a geographical context. Partial alignment with osdi:Population, which describes a clinical cohort by age, sex, life expectancy and size, here the population is situated, with its density, its households and its territory. The overlap is partial and must be documented as such."@en ,
-                             "Groupe d'individus dans un contexte geographique. Alignement partiel avec osdi:Population, qui decrit une cohorte clinique par age, sexe, esperance de vie et effectif ; ici la population est situee, avec sa densite, ses menages et son territoire. Le recouvrement est partiel et doit etre documente comme tel."@fr ;
+                             "Groupe d'individus dans un contexte géographique. Alignement partiel avec osdi:Population, qui décrit une cohorte clinique par âge, sexe, espérance de vie et effectif ; ici la population est située, avec sa densité, ses ménages et son territoire. Le recouvrement est partiel et doit être documenté comme tel."@fr ;
                 rdfs:label "Population"@en ;
                 skos:relatedMatch <http://purl.obolibrary.org/obo/OGMS_0000084> ,
                                   <https://w3id.org/ontologies-ULL/OSDi#Population> .
@@ -319,14 +319,14 @@ dsim:Population rdf:type owl:Class ;
 dsim:RuralPopulation rdf:type owl:Class ;
                      rdfs:subClassOf dsim:Population ;
                      rdfs:comment "A population living mainly in the countryside, with a low density and fewer contacts."@en ,
-                                  "Population vivant majoritairement en zone rurale, a faible densite et a contacts moins frequents."@fr ;
+                                  "Population vivant majoritairement en zone rurale, à faible densité et à contacts moins fréquents."@fr ;
                      rdfs:label "RuralPopulation"@en .
 
 
 ###  https://w3id.org/ontosim-dis#TemperateClimate
 dsim:TemperateClimate rdf:type owl:Class ;
                       rdfs:subClassOf dsim:Climate ;
-                      rdfs:comment "Climat a saisons marquees et temperatures moderees."@fr ,
+                      rdfs:comment "Climat à saisons marquées et températures modérées."@fr ,
                                    "Climate with marked seasons and moderate temperatures."@en ;
                       rdfs:label "TemperateClimate"@en .
 
@@ -334,7 +334,7 @@ dsim:TemperateClimate rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#TropicalClimate
 dsim:TropicalClimate rdf:type owl:Class ;
                      rdfs:subClassOf dsim:Climate ;
-                     rdfs:comment "Climat chaud et humide, favorable a de nombreux vecteurs."@fr ,
+                     rdfs:comment "Climat chaud et humide, favorable à de nombreux vecteurs."@fr ,
                                   "Hot and humid climate, favourable to many vectors."@en ;
                      rdfs:label "TropicalClimate"@en .
 
@@ -343,7 +343,7 @@ dsim:TropicalClimate rdf:type owl:Class ;
 dsim:UrbanPopulation rdf:type owl:Class ;
                      rdfs:subClassOf dsim:Population ;
                      rdfs:comment "A population living mainly in a city, with a high density and frequent contacts."@en ,
-                                  "Population vivant majoritairement en ville, a forte densite et a contacts frequents."@fr ;
+                                  "Population vivant majoritairement en ville, à forte densité et à contacts fréquents."@fr ;
                      rdfs:label "UrbanPopulation"@en .
 
 
@@ -351,7 +351,7 @@ dsim:UrbanPopulation rdf:type owl:Class ;
 dsim:VaccinationCentre rdf:type owl:Class ;
                        rdfs:subClassOf dsim:HealthInfrastructure ;
                        rdfs:comment "Facility dedicated to administering vaccines."@en ,
-                                    "Structure dediee a l'administration des vaccins."@fr ;
+                                    "Structure dédiée à l'administration des vaccins."@fr ;
                        rdfs:label "VaccinationCentre"@en .
 
 

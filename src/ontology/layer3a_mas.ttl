@@ -18,9 +18,9 @@
                                         rdfs:comment """A key characteristic of a multi-agent system is the absence of centralized control, meaning each agent makes decisions and acts independently. Agents also communicate and react to the actions of others and their environment.
 This gives rise to the potential emergence of unexpected collective behavior.
 This layer is generic and therefore contains no medical content."""@en ,
-                                                     """Les caracteristiques principales du systeme multi-agents est qu'il n'y a pas d'ordre centralisé ce qui fait que chaque agent prend des décisions et agit seul. Les agents aussi communiquent et réagissent aux actions des autres et de leur environnement.
-D'ou la possibilité de voir emerger un comportement collectif inattendu.
-Cette couche est générale donc ne contient aucun contenu medical."""@fr ;
+                                                     """La caractéristique principale d'un système multi-agents est l'absence de contrôle centralisé : chaque agent prend ses décisions et agit seul. Les agents communiquent aussi entre eux, et réagissent aux actions des autres et à leur environnement.
+D'où la possibilité de voir émerger un comportement collectif inattendu.
+Cette couche est générale : elle ne contient aucun contenu médical."""@fr ;
                                         rdfs:label "OntoSim-Dis Couche 3A - Paradigme multi-agents"@fr ,
                                                    "OntoSim-Dis Layer 3A - Agent-based paradigm"@en ;
                                         owl:versionInfo "1.0" .
@@ -33,7 +33,7 @@ Cette couche est générale donc ne contient aucun contenu medical."""@fr ;
 dsim:hasAgentState rdf:type owl:ObjectProperty ;
                    rdfs:domain dsim:AgentType ;
                    rdfs:range dsim:AgentState ;
-                   rdfs:comment "Lie une categorie d'agents aux etats que ses agents peuvent occuper."@fr ,
+                   rdfs:comment "Lie une catégorie d'agents aux états que ses agents peuvent occuper."@fr ,
                                 "Links a category of agents to the states its agents can occupy."@en ;
                    rdfs:label "hasAgentState"@en .
 
@@ -42,7 +42,7 @@ dsim:hasAgentState rdf:type owl:ObjectProperty ;
 dsim:hasAgentTransition rdf:type owl:ObjectProperty ;
                         rdfs:domain dsim:AgentBasedModel ;
                         rdfs:range dsim:AgentTransition ;
-                        rdfs:comment "Lie un modele aux changements d'etat que ses agents peuvent subir."@fr ,
+                        rdfs:comment "Lie un modèle aux changements d'état que ses agents peuvent subir."@fr ,
                                      "Links a model to the state changes its agents can undergo."@en ;
                         rdfs:label "hasAgentTransition"@en .
 
@@ -51,7 +51,7 @@ dsim:hasAgentTransition rdf:type owl:ObjectProperty ;
 dsim:hasAgentType rdf:type owl:ObjectProperty ;
                   rdfs:domain dsim:AgentBasedModel ;
                   rdfs:range dsim:AgentType ;
-                  rdfs:comment "Lie un modele aux categories d'agents qu'il contient."@fr ,
+                  rdfs:comment "Lie un modèle aux catégories d'agents qu'il contient."@fr ,
                                "Links a model to the categories of agents it contains."@en ;
                   rdfs:label "hasAgentType"@en .
 
@@ -60,7 +60,7 @@ dsim:hasAgentType rdf:type owl:ObjectProperty ;
 dsim:hasBehavior rdf:type owl:ObjectProperty ;
                  rdfs:domain dsim:AgentBasedModel ;
                  rdfs:range dsim:Behavior ;
-                 rdfs:comment "Lie un modele aux regles de comportement de ses agents."@fr ,
+                 rdfs:comment "Lie un modèle aux règles de comportement de ses agents."@fr ,
                               "Links a model to the behaviour rules of its agents."@en ;
                  rdfs:label "hasBehavior"@en .
 
@@ -70,7 +70,7 @@ dsim:hasEnvironmentModel rdf:type owl:ObjectProperty ,
                                   owl:FunctionalProperty ;
                          rdfs:domain dsim:AgentBasedModel ;
                          rdfs:range dsim:EnvironmentModel ;
-                         rdfs:comment "Lie un modele au milieu dans lequel ses agents evoluent."@fr ,
+                         rdfs:comment "Lie un modèle au milieu dans lequel ses agents évoluent."@fr ,
                                       "Links a model to the surroundings in which its agents evolve."@en ;
                          rdfs:label "hasEnvironmentModel"@en .
 
@@ -79,7 +79,7 @@ dsim:hasEnvironmentModel rdf:type owl:ObjectProperty ,
 dsim:involvesAgentType rdf:type owl:ObjectProperty ;
                        rdfs:domain dsim:InteractionType ;
                        rdfs:range dsim:AgentType ;
-                       rdfs:comment "Lie une sorte d'interaction aux categories d'agents qui y participent."@fr ,
+                       rdfs:comment "Lie une sorte d'interaction aux catégories d'agents qui y participent."@fr ,
                                     "Links a kind of interaction to the categories of agents that take part in it."@en ;
                        rdfs:label "involvesAgentType"@en .
 
@@ -88,7 +88,7 @@ dsim:involvesAgentType rdf:type owl:ObjectProperty ;
 dsim:triggeredBy rdf:type owl:ObjectProperty ;
                  rdfs:domain dsim:AgentTransition ;
                  rdfs:range dsim:InteractionType ;
-                 rdfs:comment "Lie une transition a la sorte d'interaction qui la declenche. Signature du couplage populationnel dans le paradigme multi-agents."@fr ,
+                 rdfs:comment "Lie une transition à la sorte d'interaction qui la déclenche. Signature du couplage populationnel dans le paradigme multi-agents."@fr ,
                               "Links a transition to the kind of interaction that triggers it. Signature of population coupling in the agent-based paradigm."@en ;
                  rdfs:label "triggeredBy"@en .
 
@@ -102,7 +102,7 @@ dsim:agentTypeName rdf:type owl:DatatypeProperty ;
                    rdfs:domain dsim:AgentType ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Name of the agent category."@en ,
-                                "Nom de la categorie d'agents."@fr ;
+                                "Nom de la catégorie d'agents."@fr ;
                    rdfs:label "agentTypeName"@en .
 
 
@@ -110,7 +110,7 @@ dsim:agentTypeName rdf:type owl:DatatypeProperty ;
 dsim:behaviorExpression rdf:type owl:DatatypeProperty ;
                         rdfs:domain dsim:Behavior ;
                         rdfs:range xsd:string ;
-                        rdfs:comment "Expression textuelle de la regle de comportement."@fr ,
+                        rdfs:comment "Expression textuelle de la règle de comportement."@fr ,
                                      "Textual expression of the behaviour rule."@en ;
                         rdfs:label "behaviorExpression"@en .
 
@@ -128,7 +128,7 @@ dsim:contactRatePerDay rdf:type owl:DatatypeProperty ;
 dsim:initialAgentCount rdf:type owl:DatatypeProperty ;
                        rdfs:domain dsim:AgentType ;
                        rdfs:range xsd:integer ;
-                       rdfs:comment "Nombre d'agents de cette categorie au debut de la simulation."@fr ,
+                       rdfs:comment "Nombre d'agents de cette catégorie au début de la simulation."@fr ,
                                     "Number of agents of this category at the start of the simulation."@en ;
                        rdfs:label "initialAgentCount"@en .
 
@@ -137,7 +137,7 @@ dsim:initialAgentCount rdf:type owl:DatatypeProperty ;
 dsim:interactionProbability rdf:type owl:DatatypeProperty ;
                             rdfs:domain dsim:InteractionType ;
                             rdfs:range xsd:double ;
-                            rdfs:comment "Probabilite que l'interaction entraine la transition qu'elle declenche."@fr ,
+                            rdfs:comment "Probabilité que l'interaction entraîne la transition qu'elle déclenche."@fr ,
                                          "Probability that the interaction leads to the transition it triggers."@en ;
                             rdfs:label "interactionProbability"@en .
 
@@ -160,7 +160,7 @@ dsim:AgentBasedModel rdf:type owl:Class ;
                                        owl:onClass dsim:Behavior
                                      ] ;
                      rdfs:comment "A model in which autonomous agents, each following its own behaviour, interact and produce the behaviour of the system."@en ,
-                                  "Modele dans lequel des agents autonomes, suivant chacun son comportement, interagissent et produisent le comportement du systeme."@fr ;
+                                  "Modèle dans lequel des agents autonomes, suivant chacun son comportement, interagissent et produisent le comportement du système."@fr ;
                      rdfs:label "AgentBasedModel"@en ;
                      skos:exactMatch <https://w3id.org/ontologies-ULL/OSDi#AgentBasedModel> .
 
@@ -169,7 +169,7 @@ dsim:AgentBasedModel rdf:type owl:Class ;
 dsim:AgentState rdf:type owl:Class ;
                 rdfs:subClassOf dsim:StateComponent ;
                 rdfs:comment "A state an agent can occupy. Agent-based form of a state component."@en ,
-                             "Etat qu'un agent peut occuper. Forme multi-agents d'un composant d'etat."@fr ;
+                             "État qu'un agent peut occuper. Forme multi-agents d'un composant d'état."@fr ;
                 rdfs:label "AgentState"@en .
 
 
@@ -177,7 +177,7 @@ dsim:AgentState rdf:type owl:Class ;
 dsim:AgentTransition rdf:type owl:Class ;
                      rdfs:subClassOf dsim:TransitionComponent ;
                      rdfs:comment "A change of state of an agent. Inherits from the layer 2 transition its source and target states."@en ,
-                                  "Changement d'etat d'un agent. Herite de la transition de couche 2 ses etats de depart et d'arrivee."@fr ;
+                                  "Changement d'état d'un agent. Hérite de la transition de couche 2 ses états de départ et d'arrivée."@fr ;
                      rdfs:label "AgentTransition"@en .
 
 
@@ -186,8 +186,8 @@ dsim:AgentType rdf:type owl:Class ;
                rdfs:subClassOf dsim:ModelComponent ;
                rdfs:comment """A category of autonomous entities in the model. 
 The individual agent is not modelled because it exists only at run time."""@en ,
-                            """Categorie d'entites autonomes du modele.
-L'agent individuel n'est pas modelise car il n'existe qu'a l'execution."""@fr ;
+                            """Catégorie d'entités autonomes du modèle.
+L'agent individuel n'est pas modélisé car il n'existe qu'à l'exécution."""@fr ;
                rdfs:label "AgentType"@en .
 
 
@@ -196,7 +196,7 @@ dsim:AttributeDrivenTransition rdf:type owl:Class ;
                                rdfs:subClassOf dsim:AgentTransition ;
                                owl:disjointWith dsim:InteractionTriggeredTransition ;
                                rdfs:comment "A transition triggered by the agent's own attributes alone: its age, the time spent in its current state. Individual determinant."@en ,
-                                            "Transition declenchee par les seuls attributs de l'agent : son age, le temps passe dans son etat courant. Determinant individuel."@fr ;
+                                            "Transition déclenchée par les seuls attributs de l'agent : son âge, le temps passé dans son état courant. Déterminant individuel."@fr ;
                                rdfs:label "AttributeDrivenTransition"@en .
 
 
@@ -204,7 +204,7 @@ dsim:AttributeDrivenTransition rdf:type owl:Class ;
 dsim:Behavior rdf:type owl:Class ;
               rdfs:subClassOf dsim:RuleComponent ;
               rdfs:comment "A rule saying what an agent does according to its state and its surroundings."@en ,
-                           "Regle disant ce que fait un agent selon son etat et ce qui l'entoure."@fr ;
+                           "Règle disant ce que fait un agent selon son état et ce qui l'entoure."@fr ;
               rdfs:label "Behavior"@en .
 
 
@@ -220,14 +220,14 @@ dsim:CoupledAgentBasedModel rdf:type owl:Class ;
                                                 ] ;
                             rdfs:subClassOf dsim:AgentBasedModel ;
                             rdfs:comment "An agent-based model containing at least one transition triggered by an interaction. Inferred by the reasoner without anyone declaring the model infectious."@en ,
-                                         "Modele multi-agents comportant au moins une transition declenchee par une interaction. Infere par le raisonneur sans que personne ait declare le modele infectieux."@fr ;
+                                         "Modèle multi-agents comportant au moins une transition déclenchée par une interaction. Inféré par le raisonneur sans que personne ait déclaré le modèle infectieux."@fr ;
                             rdfs:label "CoupledAgentBasedModel"@en .
 
 
 ###  https://w3id.org/ontosim-dis#EnvironmentModel
 dsim:EnvironmentModel rdf:type owl:Class ;
                       rdfs:subClassOf dsim:EnvironmentComponent ;
-                      rdfs:comment "Milieu dans lequel les agents se deplacent et se rencontrent. Sa nature spatiale est donnee par le type d'espace de la structure de modele, en couche 2 et n'est pas repetee ici."@fr ,
+                      rdfs:comment "Milieu dans lequel les agents se déplacent et se rencontrent. Sa nature spatiale est donnée par le type d'espace de la structure de modèle, en couche 2 et n'est pas répétée ici."@fr ,
                                    "The surroundings in which agents move and meet. Its spatial nature is given by the spatial type of the model structure, in layer 2 and is not repeated here."@en ;
                       rdfs:label "EnvironmentModel"@en .
 
@@ -252,7 +252,7 @@ dsim:InteractionTriggeredTransition rdf:type owl:Class ;
 dsim:InteractionType rdf:type owl:Class ;
                      rdfs:subClassOf dsim:ModelComponent ;
                      rdfs:comment "A kind of encounter or exchange between agents."@en ,
-                                  "Sorte de rencontre ou d'echange entre agents."@fr ;
+                                  "Sorte de rencontre ou d'échange entre agents."@fr ;
                      rdfs:label "InteractionType"@en .
 
 
