@@ -4,7 +4,9 @@
 **IRI :** `https://w3id.org/ontosim-dis/layer4-core`, version `https://w3id.org/ontosim-dis/layer4-core/1.0`
 **Importe :** `https://w3id.org/ontosim-dis/layer2/1.0` et `https://w3id.org/ontosim-dis/layer4-ogms/1.0`
 **Licence :** CC BY 4.0
-**Statut :** contenu de la v1.1, numéro encore à 1.0.
+**Statut :** contenu de la v1.1, numéro encore à 1.0. Changé encore en octobre 2026 : une
+contrainte retirée sur `IndividualDeterminant`, les disjonctions en deux groupes, un
+alignement remplacé par une note. Voir *Versionnement*.
 
 ## Rôle
 
@@ -19,7 +21,8 @@ noyau, ils ne le définissent pas.
 ## Contenu
 
 **24 classes, 23 propriétés d'objet, 12 propriétés de données, 8 classes définies,
-26 restrictions, 4 disjonctions, 20 alignements.** 554 triplets, le module le plus dense.
+25 restrictions, 5 disjonctions, 19 alignements.** 558 triplets. L'index des termes en compte
+59. C'est le module qui a le plus de restrictions.
 
 ### La maladie et ses pièces
 
@@ -28,8 +31,8 @@ noyau, ils ne le définissent pas.
 | `DiseaseKnowledgeTemplate` | `SimulationKnowledgeArtifact` | représente au moins une `disease` d'OGMS ; au moins **2** états de santé ; au moins 1 transition ; les formes de cours uniquement des `disease course` ; les facteurs de risque uniquement des `RiskFactor` |
 | `HealthState` | **`CouplingSource`** | représente une phase d'un `disease course` |
 | `HealthStateTransition` | `SimulationKnowledgeArtifact` | exactement 1 état de départ, 1 état d'arrivée ; au moins 1 déterminant |
-| `IndividualAttribute` | `SimulationKnowledgeArtifact` |, |
-| `RiskFactor` | `SimulationKnowledgeArtifact` |, |
+| `IndividualAttribute` | `SimulationKnowledgeArtifact` | - |
+| `RiskFactor` | `SimulationKnowledgeArtifact` | - |
 
 **`HealthState` n'est pas un composant de modèle** (décision D18). C'était l'erreur de fond de
 l'ancienne couche 4 où `SusceptibleState` et `InfectiousState` étaient à la fois des états
@@ -45,10 +48,15 @@ a qu'un état, il n'y a pas de dynamique.
 | Classe | Parent | Ce qu'elle impose |
 |---|---|---|
 | `TransitionDeterminant` | `SimulationKnowledgeArtifact` | **définie** : `IndividualDeterminant or PopulationCoupledDeterminant` ; quantifiée uniquement par des `ModelParameter` |
-| `IndividualDeterminant` | `TransitionDeterminant` | dépend d'au moins 1 `IndividualAttribute` |
+| `IndividualDeterminant` | `TransitionDeterminant` | peut lire des `IndividualAttribute` (`dependsOnAttribute`), sans y être obligé |
 | `PopulationCoupledDeterminant` | `TransitionDeterminant` | dépend de l'effectif d'au moins 1 **`CouplingSource`** |
 
 Les deux sortes sont **déclarées disjointes**.
+
+**Un déterminant individuel peut ne lire aucun attribut** (correction 7, 15 octobre 2026). Il
+exigeait au moins un `IndividualAttribute` ; or le taux de guérison γ du modèle SIR est
+individuel et ne lit rien : il ne dépend ni des autres individus, ni de l'âge, ni du sexe. La
+contrainte a été retirée ; `dependsOnAttribute` sert à décrire, sans entrer dans un axiome.
 
 **`CouplingSource`**. Avant, le déterminant
 couplé dépendait de l'effectif d'un `HealthState` : cela couvre la grippe et le COVID et exclut
@@ -90,7 +98,7 @@ aigu et couplée et un diabète à cours chronique et individuel. Les deux autre
 possibles et rien ne les interdit. Les deux axes se croisent sans se confondre et c'est le
 raisonneur qui place chaque maladie dans les deux.
 
-**`AcuteCourseDiseaseKnowledge` a été ajoutée. OGMS découpe les
+**`AcuteCourseDiseaseKnowledge` a été ajoutée.** OGMS découpe les
 cours en quatre ; trois seulement avaient leur pendant. Exercée par
 `tests/test_forme_du_cours.ttl`.
 
@@ -115,13 +123,17 @@ trois d'entre elles sont les **ponts de la décision D14** :
 | `representsPhaseOf` | `HealthState` → `OGMS:disease course` | non |
 
 **Le point décisif : les domaines des trois premières sont des classes de la couche 2.** Un
-compartiment (3B), un état d'agent (3A) et une étape de flux en héritent automatiquement. **La
+compartiment (3B), un état d'agent (3A), un flux (3B) et une transition d'agent (3A) en
+héritent automatiquement. **La
 couche 4 n'a donc pas besoin d'importer la couche 3** et une couche de paradigme future
 héritera des ponts sans qu'on y touche.
 
-> **PS.** Les trois ponts sont déclarés avec domaine et portée mais
-> n'apparaissent dans **aucun axiome et aucun individu** des huit fichiers : l'audit les signale
-> comme propriétés jamais utilisées. **Le pont est correct et il est vide.** C'est normal, il
+> **PS.** Les trois ponts sont déclarés avec domaine et portée mais n'apparaissent dans
+> **aucun individu** des neuf fichiers, ni dans aucun axiome de ce module : l'audit de 4-Core
+> les signale comme propriétés jamais utilisées. Depuis le 15 octobre 2026,
+> `representsStateTransition` entre dans les définitions du module 4-Checks
+> (`StaticApproximationFlow`, `StaticApproximationAgentTransition`), que l'audit de 4-Core ne
+> charge pas. **Le pont est correct et, hors de 4-Checks, il est vide.** C'est normal, il
 > sert à décrire des modèles réels, ce qui vient après, mais ne l'écrivez pas comme un résultat
 > acquis dans l'article sans joindre le jeu d'essai qui le montre. C'est le troisième test
 > fonctionnel à écrire (M7).
@@ -132,9 +144,9 @@ héritera des ponts sans qu'on y touche.
 | Classe | Parent | Ce qu'elle impose |
 |---|---|---|
 | `Intervention` | `SimulationKnowledgeArtifact` | modifie au moins 1 déterminant |
-| `PharmaceuticalIntervention` | `Intervention` |, |
-| `Treatment`, `Vaccination` | `PharmaceuticalIntervention` |, |
-| `NonPharmaceuticalIntervention` | `Intervention` |, |
+| `PharmaceuticalIntervention` | `Intervention` | - |
+| `Treatment`, `Vaccination` | `PharmaceuticalIntervention` | - |
+| `NonPharmaceuticalIntervention` | `Intervention` | - |
 | `DetectionIntervention` | `Intervention` | exactement 1 sensibilité et 1 spécificité, chacune un `ModelParameter` |
 | `ScreeningIntervention`, `DiagnosisIntervention` | `DetectionIntervention` | disjointes entre elles |
 
@@ -154,11 +166,22 @@ en `exactMatch` sur leurs équivalents OSDi, qui font le même choix.
 
 ### Disjonctions
 
-Cinq classes mutuellement exclusives : `HealthState`, `HealthStateTransition`,
-`IndividualAttribute`, `RiskFactor`, `TransitionDeterminant`. Plus les trois paires :
-individuel ⊥ couplé, pharmaceutique ⊥ non pharmaceutique, dépistage ⊥ diagnostic.
+Deux groupes de quatre classes mutuellement exclusives :
 
-### 20 alignements, 19 vers OSDi, 1 vers OGMS
+- `HealthState`, `HealthStateTransition`, `IndividualAttribute`, `TransitionDeterminant` ;
+- `HealthState`, `HealthStateTransition`, `RiskFactor`, `TransitionDeterminant`.
+
+Plus les trois paires : individuel ⊥ couplé, pharmaceutique ⊥ non pharmaceutique,
+dépistage ⊥ diagnostic.
+
+**Pourquoi deux groupes** (correction 6, 10 octobre 2026). Les cinq classes formaient un seul
+groupe, ce qui interdisait à un attribut individuel d'être aussi un facteur de risque. Or l'âge
+est les deux. `IndividualAttribute` et `RiskFactor` ne sont donc plus disjoints. C'est ce qui
+ouvre à la question Q6 un chemin d'une transition vers ses facteurs de risque, par les
+attributs que lit son déterminant ; Q6 reste notée `manque`, car ce chemin ne couvre que les
+attributs déclarés aussi facteurs de risque.
+
+### 19 alignements, 18 vers OSDi, 1 vers OGMS
 
 **12 `exactMatch` :** `detects`, `hasEndAge`, `hasOnsetAge`, `hasSensitivity`, `hasSpecificity`,
 `hasRefToDO`, `hasRefToICD`, `hasRefToSNOMED`, `DetectionIntervention`,
@@ -170,10 +193,13 @@ individuel ⊥ couplé, pharmaceutique ⊥ non pharmaceutique, dépistage ⊥ di
 `supersedesHealthState` → `osdi:supersedesClinicalProgression` ; `RiskFactor` →
 `OGMS_0000030`.
 
-**1 `relatedMatch` :** `TransitionDeterminant` → `osdi:hasRiskCharacterization`.
-
-**Ce dernier alignement est le plus parlant de toute l'ontologie.** `TransitionDeterminant` est
-une **classe** ; `osdi:hasRiskCharacterization` est une **propriété**.
+**L'alignement retiré est le plus parlant de toute l'ontologie** (correction 5).
+`TransitionDeterminant` était relié par `relatedMatch` à `osdi:hasRiskCharacterization` : une
+**classe** à une **propriété**. Retiré le 10 octobre 2026, il est remplacé par une note de
+l'éditeur (`obo:IAO_0000116`), ajoutée le 19 octobre : « Pas d'équivalent dans OSDi ». OSDi
+n'a pas de classe pour ce qui gouverne une transition ; il rattache le risque à un élément de
+progression clinique par une propriété dont la valeur est un paramètre. Ce que 4-Core nomme,
+OSDi le laisse dans une propriété.
 
 ---
 
@@ -181,29 +207,41 @@ une **classe** ; `osdi:hasRiskCharacterization` est une **propriété**.
 
 ### 1. Audit automatique
 
-**Résultat au 2026-10-08 : 0 erreur, 7 avertissements.** Le seul des huit fichiers sans erreur,
-avec la couche 1.
+**Résultat au 19 octobre 2026 : 0 erreur, 8 avertissements.** 558 triplets. HermiT : aucune
+classe insatisfiable.
 
-Les sept avertissements signalent des propriétés déclarées sans axiome : `detects`, `hasEndAge`,
-`hasOnsetAge`, `realisesDeterminant`, `representsHealthState`, `representsStateTransition`,
-`supersedesHealthState`.
+Les huit avertissements signalent des propriétés déclarées sans axiome : `dependsOnAttribute`,
+`detects`, `hasEndAge`, `hasOnsetAge`, `realisesDeterminant`, `representsHealthState`,
+`representsStateTransition`, `supersedesHealthState`. `dependsOnAttribute` s'y est ajoutée
+avec la correction 7, qui a retiré la seule contrainte où elle figurait.
 
 **Trois d'entre elles sont les ponts de D14.** Elles ne sortent pas : elles ont besoin d'un jeu
-d'essai, pas d'une suppression. Les quatre autres relèvent de la revue finale.
+d'essai, pas d'une suppression. `representsStateTransition` sert déjà dans 4-Checks, que cet
+audit ne charge pas. Les cinq autres relèvent de la revue finale.
 
-HermiT : aucune classe insatisfiable.
+Pour reproduire, depuis la racine du dépôt : `bash tools/audit_tout.sh`, ou pour 4-Core seule :
 
 ```
-python3 tools/audit_ontosim.py --focus layer4_core.ttl \
-    --load layer1_foundational.ttl layer2_modsim.ttl layer4-ogms.ttl layer4_core.ttl \
-    --ref tools/refs/*.owl
+python tools/audit_ontosim.py --focus src/ontology/layer4_core.ttl \
+    --load src/ontology/layer1_foundational.ttl src/ontology/layer2_modsim.ttl src/ontology/layer4-ogms.ttl src/ontology/layer4_core.ttl \
+    --ref tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl
 ```
 
 ### 2. Test de classification
 
 `tests/test_forme_du_cours.ttl`, une grippe à cours aigu est classée
 `AcuteCourseDiseaseKnowledge`, un diabète à cours chronique tombe dans
-`ChronicCourseDiseaseKnowledge` et aucune des deux n'entre dans la classe de l'autre.
+`ChronicCourseDiseaseKnowledge` et aucune des deux n'entre dans la classe de l'autre. Refait le
+19 octobre 2026 avec HermiT.
+
+Le même jour, trois autres cas, vérifiés à la main avec HermiT :
+
+- une maladie dont une transition est gouvernée par un déterminant couplé est classée
+  `CoupledDiseaseKnowledge` ;
+- une maladie dont la seule transition est gouvernée par un déterminant individuel n'est
+  **pas** classée `IndividualProgressionDiseaseKnowledge` : c'est la limite L1 ;
+- avec les deux axiomes de fermeture (la liste des transitions de la maladie, la liste des
+  déterminants de la transition), elle l'est.
 
 
 ### 3. Test à écrire
@@ -212,9 +250,18 @@ Un compartiment déclarant `representsHealthState` vers un état d'une
 maladie couplée doit permettre de retrouver, par requête, que ce modèle représente cette
 maladie. **C'est le test manquant**.
 
+Le pont `representsStateTransition` a déjà été exercé à la main le 19 octobre 2026, par les
+contrôles de 4-Checks (trois cas de taux, voir la fiche 3B). Il reste à écrire, dans `tests/`,
+un fichier qui exerce les trois ponts.
+
 ### 4. OOPS! 
 
 A FAIRE
+
+Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport. Défauts
+probables : les mêmes qu'en couche 2, inverses non déclarés (P13) et espaces de noms
+extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domaine et une portée.
+
 ---
 
 ## Décisions consignées
@@ -231,6 +278,10 @@ A FAIRE
 |- | `quantifiedBy` porte sur `ModelParameter`, pas sur `EpidemiologicalParameter`. |
 |- | Le nom `hasSourceHealthState`, distinct de `hasSourceState` de la couche 2. |
 |- | Les références externes sont des textes : on cite sans s'engager. |
+|- | Correction 5 : le `relatedMatch` de `TransitionDeterminant` vers une propriété d'OSDi est retiré et remplacé par une note de l'éditeur. |
+|- | Correction 6 : disjonctions en deux groupes ; un attribut individuel peut aussi être un facteur de risque. |
+|- | Correction 7 : un déterminant individuel peut ne lire aucun attribut. |
+|- | La couche 4 compte maintenant cinq fichiers : 4-OGMS (import, D1), 4-Core, 4-Infectious, 4-Context, et 4-Checks, ajouté par la correction 9 (15 octobre 2026) pour relier la maladie aux modèles des couches 3A et 3B. |
 | L1 | La détection négative du couplage demande des axiomes de fermeture. Découverte ici. |
 
 ---
@@ -238,13 +289,10 @@ A FAIRE
 ## Versionnement
 
 Le fichier porte `1.0` alors que son contenu est celui de la v1.1 : `CouplingSource` et
-`AcuteCourseDiseaseKnowledge` ont été ajoutés après. Il est importé par 4-Infectious, qui devra
-suivre la renumérotation.
-
-```
-git add src/ontology/layer4_core.ttl docs/couche4-core.md
-git commit -m "docs : fiche de la couche 4-Core (D22, D26)"
-```
+`AcuteCourseDiseaseKnowledge` ont été ajoutés après, puis les corrections 5, 6 et 7 en
+octobre 2026. Il est importé par 4-Infectious et par 4-Checks, qui devront suivre la
+renumérotation. Le numéro suit l'empilement entier, en un seul geste : voir la fiche de la
+couche 2, *Versionnement*.
 
 <br>
 

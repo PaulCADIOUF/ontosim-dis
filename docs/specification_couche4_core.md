@@ -4,6 +4,9 @@
 > deux fichiers. Il décrit maintenant les fichiers tels qu'ils sont :
 > `src/ontology/layer4-ogms.ttl` et `src/ontology/layer4_core.ttl`. Les écarts avec le plan
 > d'origine sont signalés à leur place par la mention **Changé**.
+>
+> La fiche de 4-Core, avec ses résultats de validation, est `couche4-core.md`. Le module
+> OGMS n'a pas encore de fiche : pour lui, ce document en tient lieu.
 
 Plan de construction dans Protégé. **Deux fichiers, dans cet ordre** : le module d'import
 OGMS d'abord, puisque 4-Core en dépend.

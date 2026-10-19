@@ -4,7 +4,9 @@
 **IRI :** `https://w3id.org/ontosim-dis/layer3b` — version `https://w3id.org/ontosim-dis/layer3b/1.0`
 **Importe :** `https://w3id.org/ontosim-dis/layer2/1.0`
 **Licence :** CC BY 4.0
-**Statut :** prête à être fermée à la version 1.0, après correction des guillemets d'en-tête.
+**Statut :** version 1.0. Aucun axiome n'a changé depuis ; seuls l'en-tête et des commentaires
+ont été revus (octobre 2026 : guillemets d'en-tête corrigés, sens de `ConstantRate` précisé,
+accents rétablis). Voir *Versionnement*.
 
 ## Rôle
 
@@ -22,7 +24,7 @@ paradigme et des états de santé, donc relèvent de la couche 5 (décision D12)
 ## Contenu
 
 **9 classes, 7 propriétés d'objet, 5 propriétés de données, 2 classes définies, 8 restrictions,
-1 disjonction, 0 alignement.** 181 triplets.
+1 disjonction, 0 alignement.** 181 triplets. L'index des termes en compte 21.
 
 ### Le modèle et ses pièces
 
@@ -55,6 +57,12 @@ dépendant d'un compartiment.
 Un taux de guérison γ est constant. Une force d'infection βI/N dépend du contenu du compartiment
 des infectieux. **C'est là et nulle part ailleurs, que le couplage se voit dans ce paradigme.**
 
+**Ce que « constant » veut dire.** `ConstantRate` veut dire indépendant des compartiments, et
+non fixe dans le temps : un taux saisonnier qui ne lit aucun compartiment est aussi un
+`ConstantRate`. Sa valeur s'écrit alors avec `rateExpression`, car `rateConstantValue` ne
+donne qu'une valeur fixe. Le commentaire de la classe le dit depuis le 15 octobre 2026
+(correction 10) ; le nom est gardé.
+
 ### Les deux classes définies
 
 ```
@@ -69,6 +77,30 @@ compartiment pour que le modèle entier soit reconnu couplé.
 
 C'est le pendant exact de `CoupledAgentBasedModel` en 3A, qui passe par une transition
 déclenchée par une interaction.
+
+### Lien avec 4-Checks
+
+3B n'importe pas la couche 4. C'est le module 4-Checks (correction 9, 15 octobre 2026) qui
+importe 3A, 3B et 4-Core et qui se sert de `ConstantRate` :
+
+```
+StaticApproximationFlow ≡ TransitionFlow and (hasRate some ConstantRate)
+                          and (representsStateTransition some CoupledTransition)
+```
+
+Pour un flux qui représente une transition couplée de la maladie, trois cas, vérifiés le
+19 octobre 2026 avec HermiT :
+
+| Taux du flux | Ce que le raisonneur conclut |
+|---|---|
+| `CompartmentDependentRate` | le flux est `CoupledFlow`, le modèle `CoupledCompartmentalModel` |
+| `ConstantRate` | le flux est `StaticApproximationFlow`, le modèle `StaticApproximationModel` |
+| sorte non déclarée (`RateSpecification` seulement) | rien |
+
+Le deuxième cas est une **approximation statique** : le modèle ignore le couplage, donc les
+effets indirects d'une intervention. C'est un signalement, pas une erreur. Le troisième cas
+rappelle le monde ouvert : tant que la sorte du taux n'est pas dite, le raisonneur ne
+conclut rien.
 
 ### 7 propriétés d'objet
 
@@ -102,19 +134,19 @@ endroits finit par être rangé différemment selon le jour.
 
 ### 1. Audit automatique
 
-**Résultat au 2026-10-08 : 2 erreurs, 1 avertissement.**
-
-Les deux erreurs sont les guillemets d'en-tête, lignes 15 et 26.
+**Résultat au 19 octobre 2026 : 0 erreur, 1 avertissement.** 181 triplets. HermiT : aucune
+classe insatisfiable. Les deux erreurs du 8 octobre (les guillemets d'en-tête) ont été
+corrigées.
 
 L'avertissement signale `hasEquation` comme déclarée sans apparaître dans un axiome. Conservée
 sciemment, comme les trois propriétés décoratives de 3A.
 
-HermiT : aucune classe insatisfiable.
+Pour reproduire, depuis la racine du dépôt : `bash tools/audit_tout.sh`, ou pour 3B seule :
 
 ```
-python3 tools/audit_ontosim.py --focus layer3b_equations.ttl \
-    --load layer1_foundational.ttl layer2_modsim.ttl layer3b_equations.ttl \
-    --ref tools/refs/*.owl
+python tools/audit_ontosim.py --focus src/ontology/layer3b_equations.ttl \
+    --load src/ontology/layer1_foundational.ttl src/ontology/layer2_modsim.ttl src/ontology/layer3b_equations.ttl \
+    --ref tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl
 ```
 
 ### 2. Test de classification
@@ -122,11 +154,12 @@ python3 tools/audit_ontosim.py --focus layer3b_equations.ttl \
 Un modèle dont un flux porte un taux dépendant d'un compartiment doit être classé
 `CoupledCompartmentalModel` et son flux `CoupledFlow`, **sans qu'on ait écrit ni l'un ni
 l'autre**. Un modèle dont tous les taux sont constants ne doit l'être ni l'un ni l'autre.
+**Vérifié le 19 octobre 2026** avec HermiT.
 
 ### 3. Test du garde-fou
 
 Un taux déclaré à la fois `ConstantRate` et `CompartmentDependentRate` doit rendre l'ontologie
-incohérente. **Vérifié.**
+incohérente. **Vérifié le 19 octobre 2026.**
 
 ### 4. Le test qui a révélé la limite L3
 
@@ -142,6 +175,11 @@ individus sont distincts et en OWL ils ne le sont pas par défaut.
 ### 5. OOPS!
 
 A FAIRE
+
+Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport. Défauts
+probables : les mêmes qu'en couche 2, inverses non déclarés (P13) et espaces de noms
+extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domaine et une portée.
+
 ---
 
 ## Décisions consignées
@@ -154,6 +192,7 @@ A FAIRE
 | — | Disjonction `ConstantRate` ⊥ `CompartmentDependentRate` : garde-fou vérifié. |
 | — | Parents explicites conservés sur les deux classes définies, de façon cohérente avec 3A. |
 | — | `hasEquation` laissée sans axiome. |
+| — | `ConstantRate` garde son nom ; son commentaire dit qu'il s'agit d'un taux indépendant des compartiments, pas d'un taux fixe (correction 10). |
 | L3 | Les propriétés fonctionnelles ne protègent que si les individus sont déclarés distincts. Découvert ici. |
 
 ## Décisions ouvertes
@@ -167,10 +206,9 @@ A FAIRE
 
 ## Versionnement
 
-```
-git add src/ontology/layer3b_equations.ttl docs/couche3b.md
-git commit -m "layer3b : corrige les guillemets dans created et versionInfo"
-```
+Le numéro de version suit l'empilement entier, pas ce fichier seul. Même sans changement
+d'axiome, la couche passera à 1.1 avec les autres, en un seul geste, et son import de la
+couche 2 suivra. Voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

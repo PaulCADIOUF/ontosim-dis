@@ -4,7 +4,8 @@
 **IRI :** `https://w3id.org/ontosim-dis/layer4-context` — version `https://w3id.org/ontosim-dis/layer4-context/1.0`
 **Importe :** `https://w3id.org/ontosim-dis/layer2/1.0`
 **Licence :** CC BY 4.0
-**Statut :** prête à être fermée à la version 1.0, après correction des guillemets d'en-tête.
+**Statut :** version 1.0. Aucun axiome n'a changé depuis ; seuls l'en-tête et des textes ont
+été revus (octobre 2026 : guillemets d'en-tête corrigés, accents rétablis). Voir *Versionnement*.
 
 ## Rôle
 
@@ -15,7 +16,7 @@ construit. Population, territoire, climat, infrastructure de santé.
 ## Contenu
 
 **18 classes, 7 propriétés d'objet, 9 propriétés de données, 0 classe définie, 5 restrictions,
-3 groupes de disjonctions, 2 alignements.** 250 triplets.
+3 groupes de disjonctions, 2 alignements.** 250 triplets. L'index des termes en compte 34.
 
 ### La racine et son pont vers la couche 2
 
@@ -89,8 +90,8 @@ matériel** d'organismes ; `osdi:Population` est une cohorte clinique ; notre `P
 
 ## Le seul module sans classe définie
 
-4-Context est le seul des six modules de contenu à n'avoir **aucune classe définie**. Les autres
-en ont de 1 à 8. Ce n'est pas un défaut en soi : décrire un contexte est un travail de
+4-Context est le seul des sept modules de contenu (tous sauf la couche 1 et le module OGMS, qui
+importent des termes) à n'avoir **aucune classe définie**. Les autres en ont de 2 à 8. Ce n'est pas un défaut en soi : décrire un contexte est un travail de
 vocabulaire et pas de classification.
 
 **Mais c'est une occasion manquée et elle a un nom : la question Q19.**
@@ -98,14 +99,15 @@ vocabulaire et pas de classification.
 > Q19 — *Quels paramètres d'un modèle doivent être réestimés si on change de contexte
 > géographique ?*
 
-**Cette question n'est pas répondable aujourd'hui.** J'ai cherché dans les huit fichiers :
+**Cette question n'est pas répondable aujourd'hui.** Vérifié de nouveau le 19 octobre 2026 dans
+les neuf fichiers :
 **aucune propriété ne relie un `ModelParameter` à l'élément de contexte dont sa valeur dépend.**
 On peut dire qu'un modèle suppose un climat tropical mais on ne peut pas dire que *tel paramètre* a
 été estimé sous ce climat et devra être réestimé ailleurs.
 
 Or Q19 est au cœur de notre thèse : réutiliser un modèle ailleurs que là où il a été construit.
 Sans ce lien, l'ontologie décrit le contexte mais ne sait pas dire ce que changer de contexte
-coûte.
+coûte. Q19 est notée `manque` dans `questions_de_competence.md`.
 
 ---
 
@@ -113,21 +115,22 @@ coûte.
 
 ### 1. Audit automatique
 
-**Résultat au 2026-10-08 : 2 erreurs, 2 avertissements.**
-
-Les deux erreurs sont les guillemets d'en-tête, lignes 15 et 22 — Partie IX.1 du registre.
+**Résultat au 19 octobre 2026 : 0 erreur, 2 avertissements.** 250 triplets. HermiT : aucune
+classe insatisfiable. Les deux erreurs du 8 octobre (les guillemets d'en-tête) ont été
+corrigées.
 
 Les deux avertissements signalent `hasContextKnowledge` et `isSubRegionOf` comme déclarées sans
 apparaître dans un axiome. **`hasContextKnowledge` est le pont de cette couche** : comme les
 trois ponts de D14 en 4-Core, il est correct et vide. Il a besoin d'un jeu d'essai, pas d'une
 suppression.
 
-HermiT : aucune classe insatisfiable.
+Pour reproduire, depuis la racine du dépôt : `bash tools/audit_tout.sh`, ou pour 4-Context
+seule :
 
 ```
-python3 tools/audit_ontosim.py --focus layer4-context.ttl \
-    --load layer1_foundational.ttl layer2_modsim.ttl layer4-context.ttl \
-    --ref tools/refs/*.owl
+python tools/audit_ontosim.py --focus src/ontology/layer4-context.ttl \
+    --load src/ontology/layer1_foundational.ttl src/ontology/layer2_modsim.ttl src/ontology/layer4-context.ttl \
+    --ref tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl
 ```
 
 
@@ -140,6 +143,10 @@ comparable à celui du Sénégal ?*
 ### 3. OOPS!
 
 A FAIRE
+
+Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport. Défauts
+probables : les mêmes qu'en couche 2, inverses non déclarés (P13) et espaces de noms
+extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domaine et une portée.
 
 ---
 
@@ -157,10 +164,9 @@ A FAIRE
 
 ## Versionnement
 
-```
-git add src/ontology/layer4-context.ttl docs/couche4-context.md
-git commit -m "layer4-context : corrige les guillemets dans created et versionInfo"
-```
+Le numéro de version suit l'empilement entier, pas ce fichier seul. Même sans changement
+d'axiome, la couche passera à 1.1 avec les autres, en un seul geste, et son import de la
+couche 2 suivra. Voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

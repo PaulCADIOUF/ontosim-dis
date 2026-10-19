@@ -282,3 +282,9 @@ module, sa nature et sa définition. Ne le modifiez pas à la main : après chaq
 l'ontologie, régénérez-le depuis la racine du dépôt avec
 
     python tools/index_termes.py
+
+Pour un module précis, sa **fiche** donne le détail : contenu, raisons des choix, résultats
+de l'audit et des tests, décisions. Il y en a six, dans `docs/` : `couche1.md`, `couche2.md`,
+`couche3a.md`, `couche3b.md`, `couche4-core.md` et `couche4-context.md`. Les modules OGMS,
+4-Infectious et 4-Checks n'en ont pas encore. La liste de tous les documents est dans
+`docs/README.md`.

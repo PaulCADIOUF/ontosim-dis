@@ -2,7 +2,7 @@
 
 > **Document historique, mis à jour le 19 octobre 2026.** Ce plan de construction de la
 > version 1.0 (septembre 2026) a été exécuté. Le contenu actuel de la couche est décrit dans
-> `README_couche2.md`. Depuis ce plan, la couche a reçu :
+> sa fiche, `couche2.md`. Depuis ce plan, la couche a reçu :
 > - les sept lois de probabilité d'OSDi, et `hasUncertaintyDistribution` pour les rattacher
 >   aux paramètres ;
 > - l'EK, `ExecutionKnowledge` (décision D17), qui porte désormais le simulateur, le nombre de
@@ -256,6 +256,8 @@ des modèles publiés ; il ne passe pas par la recomposition.
 
 **État au 19 octobre 2026.** Audit fait : 0 erreur, HermiT cohérent ; les six avertissements
 restants sont des propriétés qui ne servent qu'à décrire un modèle précis (voir
-`README_couche2.md`). Test de disjonction refait : incohérence signalée, comme attendu.
-Restent à faire : OOPS!, et les étiquettes `layer1-v1.0` et `layer2-v1.0`, au moment de
-publier (et non `layer1-v1.1` : la couche 1 est restée en 1.0).
+`couche2.md`). Test de disjonction refait : incohérence signalée, comme attendu.
+Restent à faire : OOPS!, et l'étiquette de version au moment de publier. La règle a changé
+depuis ce plan : il n'y a plus une étiquette par couche, le numéro suit l'empilement entier et
+une seule étiquette Git marque les neuf modules ensemble (voir `couche2.md`,
+*Versionnement*).
