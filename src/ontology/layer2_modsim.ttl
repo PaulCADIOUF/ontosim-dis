@@ -645,7 +645,7 @@ dsim:ModelPurpose rdf:type owl:Class ;
                                                   )
                                       ] ;
                   rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                  rdfs:comment "Objectif pour lequel le modèle à été construit. Liste fermée. Connaitre l'objectif permet de juger si un modèle convient à une situation donnée, et d'identifier les caractéristiques qu'il doit reunir."@fr ,
+                  rdfs:comment "Objectif pour lequel le modèle a été construit. Liste fermée. Connaitre l'objectif permet de juger si un modèle convient à une situation donnée, et d'identifier les caractéristiques qu'il doit reunir."@fr ,
                                "Purpose the model was built for. Closed list. Knowing the purpose is what lets one judge whether a model fits a given situation, and identify the features it must combine."@en ;
                   rdfs:label "ModelPurpose"@en .
 
