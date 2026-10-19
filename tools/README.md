@@ -19,11 +19,11 @@ Contrôles effectués sur un module :
 4. chaque terme importé de BFO, RO, IAO ou OGMS a le libellé et le parent de sa source officielle (fichiers de `ref/`) ;
 5. HermiT trouve l'ensemble cohérent, sans classe insatisfiable.
 
-**Les 9 modules d'un coup :**
+**Les 9 modules et l'ombrelle d'un coup :**
 
     bash tools/audit_tout.sh
 
-Le script audite chaque module avec ceux qu'il importe, puis compte les modules qui ont au moins une erreur. Pour aller plus vite sans HermiT : `bash tools/audit_tout.sh --no-reasoner`.
+Le script audite chaque module avec ceux qu'il importe, puis l'ombrelle avec les 9 modules, et compte les fichiers qui ont au moins une erreur. Pour aller plus vite sans HermiT : `bash tools/audit_tout.sh --no-reasoner`.
 
 **Un seul module**, par exemple la couche 2 :
 
@@ -44,6 +44,7 @@ Le script audite chaque module avec ceux qu'il importe, puis compte les modules 
 | 4-Infectious | couches 1, 2, OGMS, 4-Core, 4-Infectious |
 | 4-Context | couches 1, 2, 4-Context |
 | 4-Checks | couches 1, 2, 3A, 3B, OGMS, 4-Core, 4-Checks |
+| ombrelle | l'ombrelle et les 9 modules : HermiT vérifie alors toute l'ontologie |
 
 ## `reason.py` : le test de transmission environnementale
 
@@ -52,6 +53,16 @@ Le script audite chaque module avec ceux qu'il importe, puis compte les modules 
 Il fusionne les fichiers, lance HermiT, puis vérifie trois classements : les cercaires sont un état de réservoir, la schistosomiase est classée à médiation environnementale, la COVID-19 ne l'est pas. Résultat attendu : `3 verifications passees, 0 echouees`.
 
 Ces trois vérifications sont écrites dans le script : il ne sert qu'à ce test.
+
+## `version.py` : changer le numéro de version de tout l'empilement
+
+    python tools/version.py                  état : le numéro de chaque fichier, et cinq contrôles
+    python tools/version.py 1.1              simulation : ce qui changerait, sans rien écrire
+    python tools/version.py 1.1 --appliquer  écrit les changements
+
+Un seul numéro pour tout : les neuf modules et l'ombrelle changent ensemble, et s'importent entre eux à ce numéro. Le script change l'IRI de version, le numéro et les imports dans chaque fichier de `src/ontology`, les imports des tests, et réécrit les deux catalogues. Avant d'écrire un fichier, il vérifie avec rdflib que seul l'en-tête change.
+
+À lancer quand on prépare une nouvelle version, puis relire avec `git diff`. Une version publiée ne change plus : une correction prend un nouveau numéro.
 
 ## `index_termes.py` : régénérer l'index des termes
 

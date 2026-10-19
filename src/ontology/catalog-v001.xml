@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Produit par tools/version.py. Dit a Protege et a ROBOT ou trouver chaque module sur le disque, au lieu de le chercher sur w3id.org. -->
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="User Entered Import Resolution" name="https://w3id.org/ontosim-dis/layer3b/1.0" uri="layer3b_equations.ttl"/>
-    <uri id="User Entered Import Resolution" name="https://w3id.org/ontosim-dis/layer3a/1.0" uri="layer3a_mas.ttl"/>
-    <uri id="User Entered Import Resolution" name="https://w3id.org/ontosim-dis/layer4-core/1.0" uri="layer4_core.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/ontosim-dis/layer4-ogms/1.0" uri="layer4-ogms.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/ontosim-dis/layer2/1.0" uri="layer2_modsim.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/ontosim-dis/layer1/1.0" uri="layer1_foundational.ttl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public"/>
+    <uri name="https://w3id.org/ontosim-dis" uri="ontosim-dis.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/1.1" uri="ontosim-dis.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer1" uri="layer1_foundational.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer1/1.1" uri="layer1_foundational.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer2" uri="layer2_modsim.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer2/1.1" uri="layer2_modsim.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3a" uri="layer3a_mas.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3a/1.1" uri="layer3a_mas.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3b" uri="layer3b_equations.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer3b/1.1" uri="layer3b_equations.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-ogms" uri="layer4-ogms.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-ogms/1.1" uri="layer4-ogms.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-core" uri="layer4_core.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-core/1.1" uri="layer4_core.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-infectious" uri="layer4_infectious.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-infectious/1.1" uri="layer4_infectious.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-context" uri="layer4-context.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-context/1.1" uri="layer4-context.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-checks" uri="layer4-checks.ttl"/>
+    <uri name="https://w3id.org/ontosim-dis/layer4-checks/1.1" uri="layer4-checks.ttl"/>
 </catalog>

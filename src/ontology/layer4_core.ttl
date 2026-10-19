@@ -9,9 +9,9 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis/layer4-core> rdf:type owl:Ontology ;
-                                            owl:versionIRI <https://w3id.org/ontosim-dis/layer4-core/1.0> ;
-                                            owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ,
-                                                        <https://w3id.org/ontosim-dis/layer4-ogms/1.0> ;
+                                            owl:versionIRI <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
+                                            owl:imports <https://w3id.org/ontosim-dis/layer2/1.1> ,
+                                                        <https://w3id.org/ontosim-dis/layer4-ogms/1.1> ;
                                             dcterms:created "2026" ;
                                             dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                             dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -20,7 +20,7 @@
                                                          "The core of layer 4, independent of the type of disease. Provides the OGMS theory of disease, health states, transitions between them, the determinant that governs each transition, and the bridges by which any modelling paradigm states what its components represent."@en ;
                                             rdfs:label "OntoSim-Dis Couche 4-Core - Noyau commun à toutes les maladies"@fr ,
                                                        "OntoSim-Dis Layer 4-Core - Disease-agnostic core"@en ;
-                                            owl:versionInfo "1.0" .
+                                            owl:versionInfo "1.1" .
 
 #################################################################
 #    Annotation properties

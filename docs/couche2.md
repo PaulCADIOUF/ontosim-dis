@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 2 : modélisation et simulation
 
 **Fichier :** `src/ontology/layer2_modsim.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.0`
-**Importe :** `https://w3id.org/ontosim-dis/layer1/1.0`
+**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.1`
+**Importe :** `https://w3id.org/ontosim-dis/layer1/1.1`
 **Licence :** CC BY 4.0
-**Statut :** contenu de la v1.1, numéro encore à 1.0. Voir *Versionnement*.
+**Statut :** version 1.1. Voir *Versionnement*.
 
 
 ## Rôle
@@ -254,15 +254,15 @@ Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport.
 
 ## Versionnement
 
-**Le fichier porte `1.0` alors que son contenu est celui de la v1.1.** Les sept lois de
-probabilité, leurs huit paramètres et `hasUncertaintyDistribution` ont été ajoutés après la
-fermeture, puis, en octobre 2026, l'EK et les trois listes qui classent un modèle.
+**La couche est en 1.1 depuis octobre 2026.** Depuis la 1.0, elle a reçu les sept lois de
+probabilité, leurs huit paramètres et `hasUncertaintyDistribution`, puis l'EK et les trois
+listes qui classent un modèle.
 
-La renumérotation se fait **pour l'empilement entier et en un seul geste**, juste avant
-l'étiquette Git : neuf `versionIRI`, neuf `owl:versionInfo` et onze `owl:imports` passent à
-`1.1` ensemble. Cette couche est importée par quatre fichiers — 3A, 3B, 4-Core et 4-Context —
-qui devront suivre. Un import qui pointe vers une version inexistante, c'est Protégé qui ne
-charge plus la couche.
+Le numéro change **pour l'empilement entier et en un seul geste**, avec `tools/version.py` :
+dix `versionIRI` (les neuf modules et l'ombrelle), dix `owl:versionInfo`, vingt `owl:imports`
+et les deux catalogues. Cette couche est importée par quatre modules — 3A, 3B, 4-Core et
+4-Context — et par l'ombrelle. Un import qui pointe vers une version inexistante, c'est
+Protégé qui ne charge plus la couche.
 
 
 ---

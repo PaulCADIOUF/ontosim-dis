@@ -3,7 +3,8 @@
 Ce guide sert à une chose : quand on vous parle de population, de transmission, de
 compartiment ou de coût, vous devez savoir **dans quel fichier cela se trouve, et pourquoi**.
 
-Neuf fichiers, 325 termes au 18 octobre 2026. Voici la carte. Les nombres de termes à jour
+Neuf modules, 325 termes au 18 octobre 2026, et un fichier ombrelle qui les réunit. Voici la
+carte. Les nombres de termes à jour
 sont en tête de `index_termes.md`, que le script `tools/index_termes.py` régénère.
 
 ---
@@ -28,6 +29,11 @@ Si c'est « que modélise-t-on », il va en couche 4, même s'il ressemble à un
 ---
 
 # 2. Les neuf fichiers
+
+Un dixième fichier, `ontosim-dis.ttl`, ne contient aucun terme : il importe les neuf modules
+et porte les métadonnées de l'ensemble, titre, auteur, licence et numéro de version. C'est lui
+qu'on ouvre pour avoir toute l'ontologie d'un coup, et c'est son adresse,
+`https://w3id.org/ontosim-dis`, qu'on donnera aux applications et à la documentation.
 
 ## Couche 1 — `layer1_foundational.ttl` (22 termes)
 

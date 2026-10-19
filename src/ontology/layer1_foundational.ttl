@@ -10,7 +10,7 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis/layer1> rdf:type owl:Ontology ;
-                                       owl:versionIRI <https://w3id.org/ontosim-dis/layer1/1.0> ;
+                                       owl:versionIRI <https://w3id.org/ontosim-dis/layer1/1.1> ;
                                        dc:description "Couche 1 de l'ontologie OntoSim-Dis : les concepts fondateurs, indépendants de tout domaine applicatif. Les termes nécessaires de BFO, RO et IAO ont été extraits selon la méthode MIREOT."@fr ,
                                                       "Layer 1 of the OntoSim-Dis ontology: foundational concepts independent of any application domain. The necessary terms from BFO, RO, and IAO were extracted using a MIREOT approach."@en ;
                                        dcterms:created "2026" ;
@@ -18,7 +18,7 @@
                                        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                        dcterms:source "BFO, RO et IAO (termes extraits par la méthode MIREOT)"@fr ;
                                        rdfs:label "OntoSim-Dis Layer 1 - Foundational Ontologies"@en ;
-                                       owl:versionInfo "1.0" .
+                                       owl:versionInfo "1.1" .
 
 #################################################################
 #    Annotation properties

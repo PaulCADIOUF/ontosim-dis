@@ -10,8 +10,8 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis/layer3b> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer3b/1.0> ;
-                                        owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ;
+                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer3b/1.1> ;
+                                        owl:imports <https://w3id.org/ontosim-dis/layer2/1.1> ;
                                         dcterms:created "2026" ;
                                         dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                         dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -23,7 +23,7 @@ La plupart du temps, ils sont exprimés en équations différentielles.
 Rappel : cette couche ne contient aucun contenu médical."""@fr ;
                                         rdfs:label "OntoSim-Dis Couche 3B - Paradigme compartimental et à équations"@fr ,
                                                    "OntoSim-Dis Layer 3B - Compartmental and equation-based paradigm"@en ;
-                                        owl:versionInfo "1.0" .
+                                        owl:versionInfo "1.1" .
 
 #################################################################
 #    Object Properties

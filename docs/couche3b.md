@@ -1,12 +1,12 @@
 # OntoSim-Dis — Couche 3B : paradigme compartimental
 
 **Fichier :** `src/ontology/layer3b_equations.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer3b` — version `https://w3id.org/ontosim-dis/layer3b/1.0`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.0`
+**IRI :** `https://w3id.org/ontosim-dis/layer3b` — version `https://w3id.org/ontosim-dis/layer3b/1.1`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.1`
 **Licence :** CC BY 4.0
-**Statut :** version 1.0. Aucun axiome n'a changé depuis ; seuls l'en-tête et des commentaires
-ont été revus (octobre 2026 : guillemets d'en-tête corrigés, sens de `ConstantRate` précisé,
-accents rétablis). Voir *Versionnement*.
+**Statut :** version 1.1. Aucun axiome n'a changé depuis la 1.0 ; seuls l'en-tête et des
+commentaires ont été revus (octobre 2026 : guillemets d'en-tête corrigés, sens de
+`ConstantRate` précisé, accents rétablis). Voir *Versionnement*.
 
 ## Rôle
 
@@ -207,8 +207,8 @@ extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domain
 ## Versionnement
 
 Le numéro de version suit l'empilement entier, pas ce fichier seul. Même sans changement
-d'axiome, la couche passera à 1.1 avec les autres, en un seul geste, et son import de la
-couche 2 suivra. Voir la fiche de la couche 2, *Versionnement*.
+d'axiome, la couche est passée en 1.1 avec les autres, en un seul geste, et son import de la
+couche 2 a suivi. Voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

@@ -1,6 +1,6 @@
 # OntoSim-Dis — Index alphabétique des termes
 
-**325 termes**, régénéré le 19 octobre 2026 à partir des 9 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
+**325 termes**, régénéré le 19 octobre 2026 à partir des 10 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
 
 Pour chaque terme : le module où il se trouve, sa nature, et sa définition française (l'anglaise à défaut). Les **classes définies** sont celles que le raisonneur sait reconnaître seul ; les termes `importé` viennent de BFO, RO, IAO ou OGMS par MIREOT et portent leur libellé officiel en italique.
 

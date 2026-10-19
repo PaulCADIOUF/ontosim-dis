@@ -6,7 +6,7 @@
 
 <https://w3id.org/ontosim-dis/test-env> rdf:type owl:Ontology ;
     rdfs:label "Test fonctionnel - transmission directe contre transmission environnementale"@fr ;
-    owl:imports <https://w3id.org/ontosim-dis/layer4-infectious/1.0> ;
+    owl:imports <https://w3id.org/ontosim-dis/layer4-infectious/1.1> ;
     owl:versionInfo "1.0" .
 
 #################################################################

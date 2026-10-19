@@ -1,11 +1,11 @@
 # OntoSim-Dis — Couche 1 : fondations
 
 **Fichier :** `src/ontology/layer1_foundational.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer1` — version `https://w3id.org/ontosim-dis/layer1/1.0`
+**IRI :** `https://w3id.org/ontosim-dis/layer1` — version `https://w3id.org/ontosim-dis/layer1/1.1`
 **Importe :** rien. C'est la racine de l'empilement.
 **Licence :** CC BY 4.0
-**Statut :** contenu modifié depuis la 1.0 (octobre 2026 : sept relations retirées, notes
-revues), numéro encore à 1.0. Voir *Versionnement*.
+**Statut :** version 1.1 (octobre 2026 : sept relations retirées et notes revues depuis la
+1.0). Voir *Versionnement*.
 
 > **Corrigé le 9 octobre 2026.** La version précédente de cette fiche annonçait l'IRI
 > `http://www.ontosim-dis.org/ontology/layer1`, qui est l'adresse intermédiaire d'avant la
@@ -169,10 +169,12 @@ C'est le contrôle [4] de l'audit : aucun écart au 19 octobre 2026.
 
 Le dépôt porte une version par état de l'empilement entier et non une étiquette par couche :
 une adresse de version doit rester vraie et il est plus simple de garantir cela pour un
-ensemble cohérent que pour neuf fichiers numérotés séparément.
+ensemble cohérent que pour dix fichiers numérotés séparément.
 
-L'étiquette `v1.0` et la copie figée dans `releases/1.0/` se posent pour les neuf fichiers
-ensemble.
+L'empilement est en 1.1 depuis octobre 2026, fichier ombrelle compris : `tools/version.py`
+change le numéro dans tous les fichiers d'un seul geste. À la publication, l'étiquette Git
+`v1.1` se posera pour tout l'ensemble, et la copie figée de la version ira sur le site, dans
+un dossier à son numéro.
 
 ---
 

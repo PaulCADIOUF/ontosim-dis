@@ -13,7 +13,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 
 | Dossier | Contenu |
 |---|---|
-| `src/ontology/` | les 9 modules de l'ontologie, en Turtle |
+| `src/ontology/` | les 9 modules de l'ontologie et le fichier ombrelle qui les réunit, en Turtle |
 | `tests/` | des cas de test à ouvrir avec l'ontologie |
 | `tools/` | les scripts de vérification |
 | `docs/` | les documents de conception |
@@ -31,10 +31,11 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 | `layer4_infectious.ttl` | maladies transmissibles : pathogène, voie de transmission, réservoir | 4-Core |
 | `layer4-context.ttl` | contexte : population, région, climat, structures de santé | couche 2 |
 | `layer4-checks.ttl` | contrôles entre maladie et modèles : approximations statiques | 3A, 3B, 4-Core |
+| `ontosim-dis.ttl` | l'ontologie complète : aucun terme, les métadonnées de l'ensemble | les 9 modules |
 
 ## Ouvrir l'ontologie
 
-Ouvrir un module dans [Protégé](https://protege.stanford.edu/) (version 5.6 ou plus récente), directement depuis `src/ontology/` : Protégé trouve dans ce même dossier les modules qu'il importe.
+Ouvrir un module dans [Protégé](https://protege.stanford.edu/) (version 5.6 ou plus récente), directement depuis `src/ontology/` : Protégé trouve dans ce même dossier les modules qu'il importe, grâce au fichier `catalog-v001.xml`. Pour avoir toute l'ontologie d'un coup, ouvrir `ontosim-dis.ttl`.
 
 Raisonneur conseillé : HermiT.
 

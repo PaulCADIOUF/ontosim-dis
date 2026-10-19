@@ -1,12 +1,12 @@
 # OntoSim-Dis, Couche 4-Core : noyau de la connaissance de la maladie
 
 **Fichier :** `src/ontology/layer4_core.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer4-core`, version `https://w3id.org/ontosim-dis/layer4-core/1.0`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.0` et `https://w3id.org/ontosim-dis/layer4-ogms/1.0`
+**IRI :** `https://w3id.org/ontosim-dis/layer4-core`, version `https://w3id.org/ontosim-dis/layer4-core/1.1`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.1` et `https://w3id.org/ontosim-dis/layer4-ogms/1.1`
 **Licence :** CC BY 4.0
-**Statut :** contenu de la v1.1, numéro encore à 1.0. Changé encore en octobre 2026 : une
-contrainte retirée sur `IndividualDeterminant`, les disjonctions en deux groupes, un
-alignement remplacé par une note. Voir *Versionnement*.
+**Statut :** version 1.1. Changé en octobre 2026 : une contrainte retirée sur
+`IndividualDeterminant`, les disjonctions en deux groupes, un alignement remplacé par une
+note. Voir *Versionnement*.
 
 ## Rôle
 
@@ -288,11 +288,10 @@ extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domain
 
 ## Versionnement
 
-Le fichier porte `1.0` alors que son contenu est celui de la v1.1 : `CouplingSource` et
-`AcuteCourseDiseaseKnowledge` ont été ajoutés après, puis les corrections 5, 6 et 7 en
-octobre 2026. Il est importé par 4-Infectious et par 4-Checks, qui devront suivre la
-renumérotation. Le numéro suit l'empilement entier, en un seul geste : voir la fiche de la
-couche 2, *Versionnement*.
+Le module est en 1.1 depuis octobre 2026. Depuis la 1.0, il a reçu `CouplingSource`,
+`AcuteCourseDiseaseKnowledge` et les corrections 5, 6 et 7. Il est importé par 4-Infectious,
+par 4-Checks et par l'ombrelle, qui ont suivi. Le numéro suit l'empilement entier, en un seul
+geste : voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

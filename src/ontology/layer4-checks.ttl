@@ -9,10 +9,10 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis/layer4-checks> rdf:type owl:Ontology ;
-                                              owl:versionIRI <https://w3id.org/ontosim-dis/layer4-checks/1.0> ;
-                                              owl:imports <https://w3id.org/ontosim-dis/layer3a/1.0> ,
-                                                          <https://w3id.org/ontosim-dis/layer3b/1.0> ,
-                                                          <https://w3id.org/ontosim-dis/layer4-core/1.0> ;
+                                              owl:versionIRI <https://w3id.org/ontosim-dis/layer4-checks/1.1> ;
+                                              owl:imports <https://w3id.org/ontosim-dis/layer3a/1.1> ,
+                                                          <https://w3id.org/ontosim-dis/layer3b/1.1> ,
+                                                          <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
                                               dcterms:created "2026" ;
                                               dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -24,7 +24,7 @@ Elles sont signalées, pas interdites : le modèle reste cohérent et c'est au m
 Ce module est à part parce qu'il relie des couches qui ne s'importent pas entre elles."""@fr ;
                                               rdfs:label "OntoSim-Dis Couche 4-Checks - Contrôles entre maladie et modèles"@fr ,
                                                          "OntoSim-Dis Layer 4-Checks - Checks between disease knowledge and models"@en ;
-                                              owl:versionInfo "1.0" .
+                                              owl:versionInfo "1.1" .
 
 #################################################################
 #    Classes

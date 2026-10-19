@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Audite les 9 modules d'OntoSim-Dis, chacun avec les modules qu'il importe.
+# Audite les 9 modules d'OntoSim-Dis, chacun avec les modules qu'il importe,
+# puis l'ombrelle avec les 9 modules : HermiT verifie alors toute l'ontologie.
 #
 # A lancer depuis Git Bash, a la racine du depot :
 #     bash tools/audit_tout.sh
@@ -41,6 +42,7 @@ C=$O/layer4_core.ttl
 I=$O/layer4_infectious.ttl
 X=$O/layer4-context.ttl
 K=$O/layer4-checks.ttl
+U=$O/ontosim-dis.ttl
 REF="tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl"
 
 # Options passees au script (par exemple --no-reasoner), transmises a chaque audit
@@ -62,7 +64,8 @@ audit "$C"  "$L1" "$L2" "$G" "$C"
 audit "$I"  "$L1" "$L2" "$G" "$C" "$I"
 audit "$X"  "$L1" "$L2" "$X"
 audit "$K"  "$L1" "$L2" "$A" "$B" "$G" "$C" "$K"
+audit "$U"  "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K"
 
 echo "======================================================================"
-echo "Modules avec au moins une erreur : $echecs sur 9"
+echo "Fichiers avec au moins une erreur : $echecs sur 10"
 [ "$echecs" -eq 0 ]

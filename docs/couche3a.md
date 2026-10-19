@@ -1,11 +1,11 @@
 # OntoSim-Dis — Couche 3A : paradigme multi-agents
 
 **Fichier :** `src/ontology/layer3a_mas.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer3a` — version `https://w3id.org/ontosim-dis/layer3a/1.0`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.0`
+**IRI :** `https://w3id.org/ontosim-dis/layer3a` — version `https://w3id.org/ontosim-dis/layer3a/1.1`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.1`
 **Licence :** CC BY 4.0
-**Statut :** contenu modifié depuis la 1.0 (octobre 2026 : `InteractionTriggeredTransition`
-devient une classe définie), numéro encore à 1.0. Voir *Versionnement*.
+**Statut :** version 1.1 (octobre 2026 : `InteractionTriggeredTransition` devient une classe
+définie). Voir *Versionnement*.
 
 ## Rôle
 
@@ -212,9 +212,9 @@ agent qui participe à une exécution. `participates in` a d'ailleurs été reti
 
 ## Versionnement
 
-Le numéro de version suit l'empilement entier, pas ce fichier seul. Le contenu a changé depuis
-la 1.0 (classe définie, correction 8) : la couche passera à 1.1 avec les autres, en un seul
-geste. Voir la fiche de la couche 2, *Versionnement*.
+Le numéro de version suit l'empilement entier, pas ce fichier seul. La couche est passée en 1.1
+avec les autres, en un seul geste, par `tools/version.py`. Voir la fiche de la couche 2,
+*Versionnement*.
 
 <br>
 

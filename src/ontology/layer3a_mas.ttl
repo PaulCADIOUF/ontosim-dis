@@ -10,8 +10,8 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis/layer3a> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer3a/1.0> ;
-                                        owl:imports <https://w3id.org/ontosim-dis/layer2/1.0> ;
+                                        owl:versionIRI <https://w3id.org/ontosim-dis/layer3a/1.1> ;
+                                        owl:imports <https://w3id.org/ontosim-dis/layer2/1.1> ;
                                         dcterms:created "2026" ;
                                         dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                         dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -23,7 +23,7 @@ D'où la possibilité de voir émerger un comportement collectif inattendu.
 Cette couche est générale : elle ne contient aucun contenu médical."""@fr ;
                                         rdfs:label "OntoSim-Dis Couche 3A - Paradigme multi-agents"@fr ,
                                                    "OntoSim-Dis Layer 3A - Agent-based paradigm"@en ;
-                                        owl:versionInfo "1.0" .
+                                        owl:versionInfo "1.1" .
 
 #################################################################
 #    Object Properties

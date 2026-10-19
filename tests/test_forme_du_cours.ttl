@@ -7,7 +7,7 @@
 
 <https://w3id.org/ontosim-dis/test-cours> rdf:type owl:Ontology ;
     rdfs:label "Test fonctionnel - forme du cours de maladie"@fr ;
-    owl:imports <https://w3id.org/ontosim-dis/layer4-core/1.0> ;
+    owl:imports <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
     owl:versionInfo "1.0" .
 
 #################################################################
