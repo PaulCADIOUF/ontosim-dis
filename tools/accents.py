@@ -11,8 +11,11 @@ Le script ne touche que le contenu des textes marqués @fr. Les IRI, les noms de
 et les textes anglais ou espagnols restent tels quels. Avant d'écrire un fichier, il vérifie
 avec rdflib que le fichier corrigé contient les mêmes triplets, à ces textes près.
 
-Le dictionnaire a été établi pour les textes actuels de l'ontologie, en lisant chaque mot
-ambigu dans son contexte. Un texte écrit plus tard doit être accentué à la main.
+Le dictionnaire a été établi pour les textes de l'ontologie au 15 octobre 2026, en lisant
+chaque mot ambigu dans son contexte. Un texte écrit plus tard doit être accentué à la main :
+l'outil ne connaît pas ses mots, et le rapport de simulation doit être relu avant d'appliquer.
+Version du 19 octobre 2026 : « a » reste « a » devant « été », « eu », « pu », « au »… (c'est
+le verbe avoir) ; la version précédente écrivait à tort « le modèle à été construit ».
 """
 import glob
 import os
@@ -107,11 +110,15 @@ MOTS = {
 # ---------------------------------------------------------------------------------------
 AMBIGUS = {"a", "ou", "declare", "represente", "determine", "modelise", "infere", "donne",
            "passe", "valide", "exprime", "gouverne", "beta", "general", "medical"}
+# Mots qui ne peuvent suivre que le verbe « a », jamais la préposition « à ».
+A_VERBE = {"ete", "eu", "pu", "besoin", "lieu", "pour", "au", "aux"}
 
 
 def selon_contexte(mot, avant, apres, elision, debut):
     if mot == "a":                       # « il a » (avoir) ou « à » (préposition)
         if elision == "n'" or avant in ("il", "elle", "on", "y", "individu"):
+            return "a"
+        if apres in A_VERBE:             # « le modèle a été construit », « une maladie a au moins »
             return "a"
         return "à"
     if mot == "ou":                      # « ou » (ou bien) ou « où » (lieu, moment)

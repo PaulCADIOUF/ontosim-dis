@@ -706,6 +706,8 @@ dsim:TransientCourseDiseaseKnowledge rdf:type owl:Class ;
 
 ###  https://w3id.org/ontosim-dis#TransitionDeterminant
 dsim:TransitionDeterminant rdf:type owl:Class ;
+                           <http://purl.obolibrary.org/obo/IAO_0000116> "Pas d'équivalent dans OSDi. OSDi n'a pas de classe pour ce qui gouverne une transition : il rattache le risque à un élément de progression clinique par la propriété hasRiskCharacterization, dont la valeur est un paramètre (un risque relatif, par exemple) ou un chemin (Pathway)."@fr ,
+                                                                       "No equivalent in OSDi. OSDi has no class for what governs a transition: it attaches risk to a clinical progression element through the property hasRiskCharacterization, whose value is a parameter (for instance a relative risk) or a pathway."@en ;
                            owl:equivalentClass [ rdf:type owl:Class ;
                                                  owl:unionOf ( dsim:IndividualDeterminant
                                                                dsim:PopulationCoupledDeterminant

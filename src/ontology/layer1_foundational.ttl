@@ -16,7 +16,7 @@
                                        dcterms:created "2026" ;
                                        dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                                       dcterms:source "BFO / RO  /  IAO (Je rappelle que les termes sont extraits par MIREOT)"@fr ;
+                                       dcterms:source "BFO, RO et IAO (termes extraits par la méthode MIREOT)"@fr ;
                                        rdfs:label "OntoSim-Dis Layer 1 - Foundational Ontologies"@en ;
                                        owl:versionInfo "1.0" .
 
@@ -106,9 +106,7 @@ x overlaps y if and only if there exists some z such that x has part z and z par
 obo:RO_0002233 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000057 ;
                rdfs:domain obo:BFO_0000015 ;
-               obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
-RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
-Peut être que je vais l'enlever."""@fr ;
+               obo:IAO_0000116 "Décision en suspens : la recomposition n'est pas encore conçue. RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information ; elle pourra donc être retirée."@fr ;
                rdfs:comment "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p."@en ;
                rdfs:label "has input"@en .
 
@@ -116,9 +114,7 @@ Peut être que je vais l'enlever."""@fr ;
 ###  http://purl.obolibrary.org/obo/RO_0002234
 obo:RO_0002234 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000057 ;
-               obo:IAO_0000116 """Décision en suspens : la recomposition n'est pas encore conçue. 
-RO réserve cette relation aux entrées matérielles, alors que DK, CK, MSK et EK sont des artefacts d'information.
-Peut être que je vais l'enlever."""@fr ;
+               obo:IAO_0000116 "Décision en suspens : la recomposition n'est pas encore conçue. Relation gardée pour elle ; elle pourra être retirée."@fr ;
                rdfs:comment "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p."@en ;
                rdfs:label "has output"@en .
 

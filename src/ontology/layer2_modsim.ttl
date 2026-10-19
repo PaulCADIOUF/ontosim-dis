@@ -57,9 +57,11 @@ skos:exactMatch rdf:type owl:AnnotationProperty ;
 ###  https://w3id.org/ontosim-dis#appliesExecutionKnowledge
 dsim:appliesExecutionKnowledge rdf:type owl:ObjectProperty ,
                                         owl:FunctionalProperty ;
+                               rdfs:domain dsim:SimulationExecution ;
+                               rdfs:range dsim:ExecutionKnowledge ;
                                rdfs:comment "Lie un processus d'exécution à la configuration qu'il réalise. Fonctionnelle : une exécution applique une configuration et une seule."@fr ,
                                             "Links an execution process to the configuration it realises. Functional: one execution applies exactly one configuration."@en ;
-                               rdfs:label "appliesExecutionKnowledge"@fr .
+                               rdfs:label "appliesExecutionKnowledge"@en .
 
 
 ###  https://w3id.org/ontosim-dis#executesModel
@@ -83,7 +85,9 @@ dsim:hasComponent rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/ontosim-dis#hasExecutionKnowledge
 dsim:hasExecutionKnowledge rdf:type owl:ObjectProperty ;
-                           rdfs:comment "Lie un modèle aux configurations d'exécution definies pour lui. Non fonctionnelle : un même modèle peut être exécuté sous plusieurs configurations, simulateurs differents ou nombres de répétitions differents."@fr ,
+                           rdfs:domain dsim:SimulationModel ;
+                           rdfs:range dsim:ExecutionKnowledge ;
+                           rdfs:comment "Lie un modèle aux configurations d'exécution définies pour lui. Non fonctionnelle : un même modèle peut être exécuté sous plusieurs configurations, simulateurs différents ou nombres de répétitions différents."@fr ,
                                         "Links a model to the execution configurations defined for it. Not functional: the same model may be run under several configurations, with different simulators or different run counts."@en ;
                            rdfs:label "hasExecutionKnowledge"@en .
 
@@ -101,13 +105,17 @@ dsim:hasGranularityLevel rdf:type owl:ObjectProperty ,
 ###  https://w3id.org/ontosim-dis#hasModelNature
 dsim:hasModelNature rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ;
-                    rdfs:comment "Dit si le modèle est mecaniste, empirique ou mixte. Fonctionnelle."@fr ,
+                    rdfs:domain dsim:SimulationModel ;
+                    rdfs:range dsim:ModelNature ;
+                    rdfs:comment "Dit si le modèle est mécaniste, empirique ou mixte. Fonctionnelle."@fr ,
                                  "States whether the model is mechanistic, empirical or mixed. Functional."@en ;
                     rdfs:label "hasModelNature"@en .
 
 
 ###  https://w3id.org/ontosim-dis#hasModelPurpose
 dsim:hasModelPurpose rdf:type owl:ObjectProperty ;
+                     rdfs:domain dsim:SimulationModel ;
+                     rdfs:range dsim:ModelPurpose ;
                      rdfs:comment "Lie un modèle aux objectifs pour lesquels il a été construit. Non fonctionnelle, délibérément : un même modèle peut servir à plusieurs choses, par exemple à comprendre une dynamique et à planifier une riposte."@fr ,
                                   "Links a model to the purposes it was built for. Deliberately not functional: the same model may serve several ends, for instance understanding a dynamic and planning a response."@en ;
                      rdfs:label "hasModelPurpose"@en .
@@ -118,7 +126,7 @@ dsim:hasModelScope rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
                    rdfs:domain dsim:SimulationModel ;
                    rdfs:range dsim:ModelScope ;
-                   rdfs:comment "Dit si le modèle est général ou specifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux."@fr ,
+                   rdfs:comment "Dit si le modèle est général ou spécifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux."@fr ,
                                 "States whether the model is general or specific. Functional: a model is one or the other, not both."@en ;
                    rdfs:label "hasModelScope"@en .
 
@@ -534,7 +542,7 @@ dsim:EnvironmentComponent rdf:type owl:Class ;
 ###  https://w3id.org/ontosim-dis#ExecutionKnowledge
 dsim:ExecutionKnowledge rdf:type owl:Class ;
                         rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                        rdfs:comment "Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à cote de la connaissance de la maladie, du contexte et de la structure. Ce n'est pas l'exécution elle-même, qui est un processus, mais la configuration que cette exécution réalise."@fr ,
+                        rdfs:comment "Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à côté de la connaissance de la maladie, du contexte et de la structure. Ce n'est pas l'exécution elle-même, qui est un processus, mais la configuration que cette exécution réalise."@fr ,
                                      "How to run the model: which simulator, how many runs, with which random seed. Fourth component of the Quadruplet, alongside disease, context and structure knowledge. It is not the execution itself, which is a process, but the configuration that execution realises."@en ;
                         rdfs:label "ExecutionKnowledge"@en .
 
@@ -621,9 +629,9 @@ dsim:ModelNature rdf:type owl:Class ;
                                                  )
                                      ] ;
                  rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                 rdfs:comment "Dit si le modèle explique les mecanismes ou se contente de reproduire les observations. Liste fermée. Ce critere decide de ce qui est recomposable : on ne recompose pas une boite noire comme un modèle à mecanismes."@fr ,
+                 rdfs:comment "Dit si le modèle explique les mécanismes ou se contente de reproduire les observations. Liste fermée. Ce critère décide de ce qui est recomposable : on ne recompose pas une boîte noire comme un modèle à mécanismes."@fr ,
                               "States whether the model explains mechanisms or merely reproduces observations. Closed list. This criterion decides what can be recomposed: a black box is not recomposed the way a mechanistic model is."@en ;
-                 rdfs:label "ModelNature"@fr .
+                 rdfs:label "ModelNature"@en .
 
 
 ###  https://w3id.org/ontosim-dis#ModelParameter
@@ -645,7 +653,7 @@ dsim:ModelPurpose rdf:type owl:Class ;
                                                   )
                                       ] ;
                   rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                  rdfs:comment "Objectif pour lequel le modèle a été construit. Liste fermée. Connaitre l'objectif permet de juger si un modèle convient à une situation donnée, et d'identifier les caractéristiques qu'il doit reunir."@fr ,
+                  rdfs:comment "Objectif pour lequel le modèle a été construit. Liste fermée. Connaître l'objectif permet de juger si un modèle convient à une situation donnée, et d'identifier les caractéristiques qu'il doit réunir."@fr ,
                                "Purpose the model was built for. Closed list. Knowing the purpose is what lets one judge whether a model fits a given situation, and identify the features it must combine."@en ;
                   rdfs:label "ModelPurpose"@en .
 
@@ -658,7 +666,7 @@ dsim:ModelScope rdf:type owl:Class ;
                                                 )
                                     ] ;
                 rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
-                rdfs:comment "Dit si le modèle est reglable pour plusieurs maladies ou construit pour une seule. Liste fermée. C'est le critere qui decide si un modèle est reutilisable ailleurs."@fr ,
+                rdfs:comment "Dit si le modèle est réglable pour plusieurs maladies ou construit pour une seule. Liste fermée. C'est le critère qui décide si un modèle est réutilisable ailleurs."@fr ,
                              "States whether the model can be retuned for several diseases or was built for one. Closed list. This is the criterion that decides whether a model is reusable elsewhere."@en ;
                 rdfs:label "ModelScope"@en .
 
@@ -984,7 +992,7 @@ dsim:DISCRETE rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#DYNAMICS_RESEARCH
 dsim:DYNAMICS_RESEARCH rdf:type owl:NamedIndividual ,
                                 dsim:ModelPurpose ;
-                       rdfs:comment "Explorer les mecanismes de propagation des maladies, leurs dynamiques et les facteurs qui les influencent. Objectif de comprehension."@fr ,
+                       rdfs:comment "Explorer les mécanismes de propagation des maladies, leurs dynamiques et les facteurs qui les influencent. Objectif de compréhension."@fr ,
                                     "Exploring disease spread mechanisms, their dynamics and the factors influencing them. An explanatory purpose."@en ;
                        rdfs:label "Dynamics research"@en .
 
@@ -993,7 +1001,7 @@ dsim:DYNAMICS_RESEARCH rdf:type owl:NamedIndividual ,
 dsim:EMPIRICAL rdf:type owl:NamedIndividual ,
                         dsim:ModelNature ;
                rdfs:comment "Black-box model, describing the system's responses through equations fitted to experimental data, with no scientific principle or dynamic explanation. Its inner workings remain unknown."@en ,
-                            "Modèle dit à boite noire, qui décrit les reponses du système par des équations ajustees sur des données experimentales, sans integrer de principe scientifique ni d'explication dynamique. Le fonctionnement interne reste inconnu."@fr ;
+                            "Modèle dit à boîte noire, qui décrit les réponses du système par des équations ajustées sur des données expérimentales, sans intégrer de principe scientifique ni d'explication dynamique. Le fonctionnement interne reste inconnu."@fr ;
                rdfs:label "Empirical"@en .
 
 
@@ -1001,7 +1009,7 @@ dsim:EMPIRICAL rdf:type owl:NamedIndividual ,
 dsim:EPIDEMIC_PLANNING rdf:type owl:NamedIndividual ,
                                 dsim:ModelPurpose ;
                        rdfs:comment "Anticipating and managing potential epidemics by testing interventions and strategies, such as school closures or vaccination campaigns. A predictive purpose."@en ,
-                                    "Anticiper et gerer des épidémies potentielles en testant des interventions et des strategies, comme les fermetures d'ecoles ou les campagnes de vaccination. Objectif de prediction."@fr ;
+                                    "Anticiper et gérer des épidémies potentielles en testant des interventions et des stratégies, comme les fermetures d'écoles ou les campagnes de vaccination. Objectif de prédiction."@fr ;
                        rdfs:label "Epidemic planning"@en .
 
 
@@ -1009,7 +1017,7 @@ dsim:EPIDEMIC_PLANNING rdf:type owl:NamedIndividual ,
 dsim:GENERAL rdf:type owl:NamedIndividual ,
                       dsim:ModelScope ;
              rdfs:comment "Model using generic dynamics and adjustable parameters, able to simulate a wide range of diseases sharing similar mechanisms. Needs less data and serves epidemic planning."@en ,
-                          "Modèle employant des dynamiques generiques et des paramètres ajustables, qui permet de simuler un large eventail de maladies partageant des mecanismes similaires. Demande moins de données et sert à la planification epidemique."@fr ;
+                          "Modèle employant des dynamiques génériques et des paramètres ajustables, qui permet de simuler un large éventail de maladies partageant des mécanismes similaires. Demande moins de données et sert à la planification épidémique."@fr ;
              rdfs:label "General"@en .
 
 
@@ -1025,7 +1033,7 @@ dsim:GIS rdf:type owl:NamedIndividual ,
 dsim:GREY_BOX rdf:type owl:NamedIndividual ,
                        dsim:ModelNature ;
               rdfs:comment "Model mixing a mechanistic part and an empirical part: some subsystems are described by their mechanisms, others by relations fitted to data."@en ,
-                           "Modèle mêlant une part mecaniste et une part empirique : certains sous-systemes sont decrits par leurs mecanismes, d'autres par des relations ajustees sur les données."@fr ;
+                           "Modèle mêlant une part mécaniste et une part empirique : certains sous-systèmes sont décrits par leurs mécanismes, d'autres par des relations ajustées sur les données."@fr ;
               rdfs:label "Grey box"@en .
 
 
@@ -1064,7 +1072,7 @@ dsim:INDIVIDUAL rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#MECHANISTIC
 dsim:MECHANISTIC rdf:type owl:NamedIndividual ,
                           dsim:ModelNature ;
-                 rdfs:comment "Modèle dit à boite blanche, construit sur la connaissance du fonctionnement du système, de ses elements et de leurs interactions. Fournit des explications causales, au prix d'une complexite accrue."@fr ,
+                 rdfs:comment "Modèle dit à boîte blanche, construit sur la connaissance du fonctionnement du système, de ses éléments et de leurs interactions. Fournit des explications causales, au prix d'une complexité accrue."@fr ,
                               "White-box model, built on knowledge of how the system works, of its elements and their interactions. Yields causal explanations, at the cost of greater complexity."@en ;
                  rdfs:label "Mechanistic"@en .
 
@@ -1072,7 +1080,7 @@ dsim:MECHANISTIC rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH
 dsim:METHODOLOGICAL_RESEARCH rdf:type owl:NamedIndividual ,
                                       dsim:ModelPurpose ;
-                             rdfs:comment "Ameliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de comprehension."@fr ,
+                             rdfs:comment "Améliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de compréhension."@fr ,
                                           "Improving the modelling approaches themselves, to make them more effective, faster or more robust. An explanatory purpose."@en ;
                              rdfs:label "Methodological research"@en .
 
@@ -1112,7 +1120,7 @@ dsim:REGIONAL rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ontosim-dis#RETROSPECTIVE_ANALYSIS
 dsim:RETROSPECTIVE_ANALYSIS rdf:type owl:NamedIndividual ,
                                      dsim:ModelPurpose ;
-                            rdfs:comment "Etudier une epidemie passee pour evaluer l'efficacite des reponses et preparer les interventions futures. Objectif de prediction."@fr ,
+                            rdfs:comment "Étudier une épidémie passée pour évaluer l'efficacité des réponses et préparer les interventions futures. Objectif de prédiction."@fr ,
                                          "Studying a past epidemic to assess how effective the response was and to prepare future interventions. A predictive purpose."@en ;
                             rdfs:label "Retrospective analysis"@en .
 
@@ -1121,7 +1129,7 @@ dsim:RETROSPECTIVE_ANALYSIS rdf:type owl:NamedIndividual ,
 dsim:SPECIFIC rdf:type owl:NamedIndividual ,
                        dsim:ModelScope ;
               rdfs:comment "Model embedding the transmission mechanisms and factors particular to one disease, often in a given context. Needs precise data and serves the assessment of targeted interventions."@en ,
-                           "Modèle integrant les mecanismes de transmission et les facteurs propres à une maladie precise, souvent dans un contexte donne. Demande des données precises et sert à evaluer des interventions ciblees."@fr ;
+                           "Modèle intégrant les mécanismes de transmission et les facteurs propres à une maladie précise, souvent dans un contexte donné. Demande des données précises et sert à évaluer des interventions ciblées."@fr ;
               rdfs:label "Specific"@en .
 
 

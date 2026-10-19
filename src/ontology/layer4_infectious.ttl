@@ -363,8 +363,7 @@ dsim:ReservoirState rdf:type owl:Class ;
                                     ] ;
                     owl:disjointWith dsim:TransitionDeterminant ;
                     rdfs:comment "A non-human category whose current head count may make a risk vary: infected snails, cercariae present in a water body, infectious mosquitoes. It is not a health state, because the entity counted is not the individual whose disease is being modelled. It is the other kind of CouplingSource, the one that makes schistosomiasis representable."@en ,
-                                 """Catégorie non humaine dont l'effectif courant peut faire varier un risque : escargots infectés, cercaires présentes dans un point d'eau, moustiques infectieux. Ce n'est pas un état de santé, parce que l'entité comptée n'est pas l'individu dont on modélise la maladie. C'est l'autre sorte de CouplingSource, celle qui rend la schistosomiase représentable et cest pour cela que je l'ai ajouté.
-PS. je peux le modifier à l'avenir............ :)"""@fr ;
+                                 "Catégorie non humaine dont l'effectif courant peut faire varier un risque : escargots infectés, cercaires présentes dans un point d'eau, moustiques infectieux. Ce n'est pas un état de santé, parce que l'entité comptée n'est pas l'individu dont on modélise la maladie. C'est l'autre sorte de CouplingSource, celle qui rend la schistosomiase représentable."@fr ;
                     rdfs:label "ReservoirState"@en .
 
 

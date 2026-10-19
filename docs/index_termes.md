@@ -98,17 +98,17 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `District` | 4-Context | classe | Division administrative d'une région. |
 | `DROPLET` | 4-Infectious | valeur | Par des gouttelettes respiratoires projetées à courte distance. |
 | `DynamicParameter` | Couche 2 | classe | Paramètre dont la valeur varie dans le temps, par exemple un taux de transmission dépendant du temps. |
-| `DYNAMICS_RESEARCH` | Couche 2 | valeur | Explorer les mecanismes de propagation des maladies, leurs dynamiques et les facteurs qui les influencent. Objectif de comprehension. |
-| `EMPIRICAL` | Couche 2 | valeur | Modèle dit à boite noire, qui décrit les reponses du système par des équations ajustees sur des données experimentales, sans integrer de principe scientifique… |
+| `DYNAMICS_RESEARCH` | Couche 2 | valeur | Explorer les mécanismes de propagation des maladies, leurs dynamiques et les facteurs qui les influencent. Objectif de compréhension. |
+| `EMPIRICAL` | Couche 2 | valeur | Modèle dit à boîte noire, qui décrit les réponses du système par des équations ajustées sur des données expérimentales, sans intégrer de principe scientifique… |
 | `endDate` | Couche 2 | donnée | Date de fin du scénario. |
 | `EnvironmentallyMediatedDiseaseKnowledge` | 4-Infectious | **classe définie** | Classe DÉFINIE : maladie infectieuse dont la transmission passe par un effectif non humain. Le raisonneur l'infère à partir de la structure du modèle, SANS que… |
 | `EnvironmentComponent` | Couche 2 | classe | Facteur externe ou contextuel influençant le système modélisé : météo, relief, infrastructure. |
 | `EnvironmentModel` | Couche 3A | classe | Milieu dans lequel les agents se déplacent et se rencontrent. Sa nature spatiale est donnée par le type d'espace de la structure de modèle, en couche 2 et… |
-| `EPIDEMIC_PLANNING` | Couche 2 | valeur | Anticiper et gerer des épidémies potentielles en testant des interventions et des strategies, comme les fermetures d'ecoles ou les campagnes de vaccination.… |
+| `EPIDEMIC_PLANNING` | Couche 2 | valeur | Anticiper et gérer des épidémies potentielles en testant des interventions et des stratégies, comme les fermetures d'écoles ou les campagnes de vaccination.… |
 | `EpidemiologicalRole` | 4-Infectious | classe | Part qu'un organisme prend dans la transmission d'une maladie. |
 | `equationExpression` | Couche 3B | donnée | Expression textuelle de l'équation, par exemple dS/dt = -beta * S * I / N. |
 | `executesModel` | Couche 2 | relation | Lie une exécution au modèle qu'elle fait tourner. |
-| `ExecutionKnowledge` | Couche 2 | classe | Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à cote de la… |
+| `ExecutionKnowledge` | Couche 2 | classe | Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à côté de la… |
 | `executionStatus` | Couche 2 | donnée | État de l'exécution : en attente, en cours, terminée, échouée. |
 | `ExponentialDistribution` | Couche 2 | classe | Loi du temps séparant deux événements survenant à taux constant. |
 | `FECAL_ORAL` | 4-Infectious | valeur | Par ingestion de matières contaminées par des selles. |
@@ -116,12 +116,12 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `FreeLivingStageState` | 4-Infectious | classe | Effectif d'un stade libre de l'agent pathogène présent dans un milieu, hors de tout hôte. Les cercaires dans l'eau, les miracidies. Sous l'hypothèse de… |
 | `Fungus` | 4-Infectious | classe | Champignon pathogène. |
 | `GammaDistribution` | Couche 2 | classe | Loi sur les valeurs positives, employée pour les coûts et les durées. |
-| `GENERAL` | Couche 2 | valeur | Modèle employant des dynamiques generiques et des paramètres ajustables, qui permet de simuler un large eventail de maladies partageant des mecanismes… |
+| `GENERAL` | Couche 2 | valeur | Modèle employant des dynamiques génériques et des paramètres ajustables, qui permet de simuler un large éventail de maladies partageant des mécanismes… |
 | `GeographicRegion` | 4-Context | classe | Territoire auquel un modèle s'applique. Quatre niveaux administratifs : pays, région, district, ville. |
 | `GIS` | Couche 2 | valeur | L'espace est représenté par des données géographiques réelles. |
 | `governsCompartment` | Couche 3B | relation | Lie une équation au compartiment dont elle donne la variation. |
 | `GranularityLevel` | Couche 2 | **classe définie** | Niveau de détail auquel les entités modélisées sont décrites. Liste fermée. |
-| `GREY_BOX` | Couche 2 | valeur | Modèle mêlant une part mecaniste et une part empirique : certains sous-systemes sont decrits par leurs mecanismes, d'autres par des relations ajustees sur les… |
+| `GREY_BOX` | Couche 2 | valeur | Modèle mêlant une part mécaniste et une part empirique : certains sous-systèmes sont décrits par leurs mécanismes, d'autres par des relations ajustées sur les… |
 | `GRID` | Couche 2 | valeur | L'espace est représenté par une grille régulière de cellules. |
 | `GROUP` | Couche 2 | valeur | Les individus sont regroupés en groupes homogènes. |
 | `hasAgentState` | Couche 3A | relation | Lie une catégorie d'agents aux états que ses agents peuvent occuper. |
@@ -138,16 +138,16 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `hasEnvironmentModel` | Couche 3A | relation | Lie un modèle au milieu dans lequel ses agents évoluent. |
 | `hasEpidemiologicalRole` | 4-Infectious | relation | Lie une connaissance de maladie aux rôles intervenant dans son cycle de transmission. |
 | `hasEquation` | Couche 3B | relation | Lie un modèle compartimental à ses équations différentielles. |
-| `hasExecutionKnowledge` | Couche 2 | relation | Lie un modèle aux configurations d'exécution definies pour lui. Non fonctionnelle : un même modèle peut être exécuté sous plusieurs configurations, simulateurs… |
+| `hasExecutionKnowledge` | Couche 2 | relation | Lie un modèle aux configurations d'exécution définies pour lui. Non fonctionnelle : un même modèle peut être exécuté sous plusieurs configurations, simulateurs… |
 | `hasFlow` | Couche 3B | relation | Lie un modèle compartimental à ses flux. |
 | `hasGeographicRegion` | 4-Context | relation | Lie un contexte aux territoires qu'il couvre. |
 | `hasGranularityLevel` | Couche 2 | relation | Lie une structure de modèle à son niveau de détail. |
 | `hasHealthInfrastructure` | 4-Context | relation | Lie un contexte aux structures de santé disponibles. |
 | `hasHealthState` | 4-Core | relation | Lie une connaissance de maladie aux états de santé qu'elle définit. |
 | `hasMaterialBasisIn` | 4-Core | relation | Lie une maladie au désordre qui en est la base physique. OGMS énonce cette relation dans la définition textuelle de la maladie, mais ne la formalise pas. IDO… |
-| `hasModelNature` | Couche 2 | relation | Dit si le modèle est mecaniste, empirique ou mixte. Fonctionnelle. |
+| `hasModelNature` | Couche 2 | relation | Dit si le modèle est mécaniste, empirique ou mixte. Fonctionnelle. |
 | `hasModelPurpose` | Couche 2 | relation | Lie un modèle aux objectifs pour lesquels il a été construit. Non fonctionnelle, délibérément : un même modèle peut servir à plusieurs choses, par exemple à… |
-| `hasModelScope` | Couche 2 | relation | Dit si le modèle est général ou specifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux. |
+| `hasModelScope` | Couche 2 | relation | Dit si le modèle est général ou spécifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux. |
 | `hasOnsetAge` | 4-Core | relation | Lie un état de santé au paramètre donnant l'âge à partir duquel un individu peut y entrer. |
 | `hasParadigm` | Couche 2 | relation | Lie une structure de modèle à sa nature déterministe ou stochastique. |
 | `hasParameter` | Couche 2 | relation | Lie un modèle à ses paramètres. |
@@ -217,17 +217,17 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `lowerLimitParameter` | Couche 2 | donnée | Borne inférieure d'une loi uniforme. |
 | `MaskWearing` | 4-Infectious | classe | Réduction de la probabilité de transmission lors d'un contact. |
 | `meanParameter` | Couche 2 | donnée | Moyenne d'une loi normale. |
-| `MECHANISTIC` | Couche 2 | valeur | Modèle dit à boite blanche, construit sur la connaissance du fonctionnement du système, de ses elements et de leurs interactions. Fournit des explications… |
+| `MECHANISTIC` | Couche 2 | valeur | Modèle dit à boîte blanche, construit sur la connaissance du fonctionnement du système, de ses éléments et de leurs interactions. Fournit des explications… |
 | `medianAge` | 4-Context | donnée | Âge médian de la population, en années. |
-| `METHODOLOGICAL_RESEARCH` | Couche 2 | valeur | Ameliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de comprehension. |
+| `METHODOLOGICAL_RESEARCH` | Couche 2 | valeur | Améliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de compréhension. |
 | `MixedPopulation` | 4-Context | classe | Population mêlant zones urbaines et rurales au sein d'un même territoire. |
 | `ModelComponent` | Couche 2 | classe | Partie constitutive de la structure d'un modèle. |
 | `modelDescription` | Couche 2 | donnée | Description libre du modèle. |
 | `modelName` | Couche 2 | donnée | Nom du modèle |
-| `ModelNature` | Couche 2 | **classe définie** | Dit si le modèle explique les mecanismes ou se contente de reproduire les observations. Liste fermée. Ce critere decide de ce qui est recomposable : on ne… |
+| `ModelNature` | Couche 2 | **classe définie** | Dit si le modèle explique les mécanismes ou se contente de reproduire les observations. Liste fermée. Ce critère décide de ce qui est recomposable : on ne… |
 | `ModelParameter` | Couche 2 | classe | Grandeur nommée dont la valeur fixe une partie du comportement du modèle. Fusionne les anciennes classes ParameterComponent et ModelParameter. |
-| `ModelPurpose` | Couche 2 | **classe définie** | Objectif pour lequel le modèle a été construit. Liste fermée. Connaitre l'objectif permet de juger si un modèle convient à une situation donnée, et… |
-| `ModelScope` | Couche 2 | **classe définie** | Dit si le modèle est reglable pour plusieurs maladies ou construit pour une seule. Liste fermée. C'est le critere qui decide si un modèle est reutilisable… |
+| `ModelPurpose` | Couche 2 | **classe définie** | Objectif pour lequel le modèle a été construit. Liste fermée. Connaître l'objectif permet de juger si un modèle convient à une situation donnée, et… |
+| `ModelScope` | Couche 2 | **classe définie** | Dit si le modèle est réglable pour plusieurs maladies ou construit pour une seule. Liste fermée. C'est le critère qui décide si un modèle est réutilisable… |
 | `ModelStructureKnowledge` | Couche 2 | classe | Connaissance décrivant la structure interne d'un modèle : ses composants, et ses choix de traitement du hasard (déterministe ou stochastique), de temps,… |
 | `modelVersion` | Couche 2 | donnée | Version du modèle. |
 | `modifiesDeterminant` | 4-Core | relation | Lie une intervention aux déterminants dont elle modifie la valeur. C'est ce qui donne un sens formel à une intervention : sans cela, c'est une étiquette. |
@@ -283,7 +283,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `representsStateTransition` | 4-Core | relation | Déclare quelle transition d'état de santé un composant de transition de modèle représente. |
 | `ReservoirRole` | 4-Infectious | classe | Organisme ou milieu où l'agent pathogène persiste entre deux épidémies. |
 | `ReservoirState` | 4-Infectious | classe | Catégorie non humaine dont l'effectif courant peut faire varier un risque : escargots infectés, cercaires présentes dans un point d'eau, moustiques infectieux.… |
-| `RETROSPECTIVE_ANALYSIS` | Couche 2 | valeur | Etudier une epidemie passee pour evaluer l'efficacite des reponses et preparer les interventions futures. Objectif de prediction. |
+| `RETROSPECTIVE_ANALYSIS` | Couche 2 | valeur | Étudier une épidémie passée pour évaluer l'efficacité des réponses et préparer les interventions futures. Objectif de prédiction. |
 | `RiskFactor` | 4-Core | classe | Élément augmentant la probabilité d'une transition. Peut être un attribut individuel, un élément de contexte ou une exposition. |
 | `RO_0000057` | Couche 1 | importé | *has participant* — a relation between a process and a continuant, in which the continuant is somehow involved in the process. |
 | `RO_0002131` | Couche 1 | importé | *overlaps* — A overlaps B if they share some part in common. x overlaps y if and only if there exists some z such that x has part z and z part of y |
@@ -307,7 +307,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `simulatorVersion` | Couche 2 | donnée | Version du simulateur employé. |
 | `SocialDistancing` | 4-Infectious | classe | Réduction des contacts rapprochés dans l'ensemble de la population. |
 | `SpatialType` | Couche 2 | **classe définie** | Façon dont l'espace est représenté dans le modèle. Liste fermée. |
-| `SPECIFIC` | Couche 2 | valeur | Modèle integrant les mecanismes de transmission et les facteurs propres à une maladie precise, souvent dans un contexte donne. Demande des données precises et… |
+| `SPECIFIC` | Couche 2 | valeur | Modèle intégrant les mécanismes de transmission et les facteurs propres à une maladie précise, souvent dans un contexte donné. Demande des données précises et… |
 | `standardDeviationParameter` | Couche 2 | donnée | Écart type d'une loi normale |
 | `startDate` | Couche 2 | donnée | Date de début du scénario. |
 | `StateComponent` | Couche 2 | classe | État qu'une entité du modèle peut occuper à un instant donné. Se spécialise en compartiment pour les modèles compartimentaux [C3B] et en état d'agent pour les… |
