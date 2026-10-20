@@ -141,22 +141,17 @@ toujours invisible à une machine.
 
 ### 2. OOPS!
 
-A FAIRE!!!
+**Résultat sur la version 1.1** (octobre 2026). OOPS! a évalué le fichier complet, produit
+par `tools/construire.sh` : aucun défaut critique. Pour cette couche, quatre défauts, tous prévus et voulus :
 
-Soumettre `layer1_foundational.ttl` sur https://oops.linkeddata.es et sauvegarder le rapport
-sous `oops_couche1_AAAA-MM-JJ`.
+| Défaut OOPS! | Niveau | Termes concernés | Réponse |
+|---|---|---|---|
+| P11 domaine ou portée manquant | important | `part of`, `overlaps`, `mereotopologically related to`, `is about`, `has input`, `has output` | Conforme aux sources, qui ne les déclarent pas (décision M5). |
+| P13 inverse non déclaré | mineur | les mêmes sauf `overlaps`, qui est symétrique, plus `has participant` | Principe MIREOT : on n'importe pas les inverses qu'aucune couche n'utilise. |
+| P08 annotation manquante | mineur | `immaterial entity` | BFO 2.0 ne lui donne pas de définition, seulement une note ; la règle C1-16 interdit d'en inventer une. |
+| P04 élément isolé | mineur | `entity` | C'est la racine de BFO : rien au-dessus d'elle. |
 
-**Défauts probables, et réponse préparée.** Pour une ontologie construite par MIREOT, la
-plupart sont attendus et se justifient :
-
-| Défaut OOPS! (code probable) | Termes concernés | Réponse |
-|---|---|---|
-| Annotations manquantes (P08) | `immaterial entity` | BFO 2.0 ne lui donne pas de définition, seulement une note. |
-| Domaine ou portée manquant (P11) | `part of`, `overlaps`, `mereotopologically related to`, `is about`, `has input`, `has output` | Conforme aux sources, qui ne les déclarent pas (décision M5). |
-| Inverse non déclaré (P13) | 6 propriétés, dont `part of`, `is about`, `has participant` | Principe MIREOT : on n'importe pas les inverses qu'aucune couche n'utilise. |
-| Détournement d'espace de noms (P40) | tous les termes `obo:` | Attendu avec MIREOT, qui garde chaque terme dans son espace d'origine. |
-
-Les codes sont indicatifs : les vérifier dans le rapport réel.
+Le détournement d'espace de noms (P40), attendu avec MIREOT, n'a pas été signalé. Le rapport accompagne la documentation : lien « Evaluation » en tête de page.
 
 ### 3. Conformité MIREOT
 

@@ -256,11 +256,18 @@ un fichier qui exerce les trois ponts.
 
 ### 4. OOPS! 
 
-A FAIRE
+**Résultat sur la version 1.1** (octobre 2026). OOPS! a évalué le fichier complet, produit
+par `tools/construire.sh` : aucun défaut critique. Pour cette couche, deux défauts :
 
-Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport. Défauts
-probables : les mêmes qu'en couche 2, inverses non déclarés (P13) et espaces de noms
-extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domaine et une portée.
+- P13, inverse non déclaré, mineur, pour les 23 propriétés d'objet : même réponse qu'en
+  couche 2 ;
+- P30, classes équivalentes non déclarées, important, pour `Intervention` et `Treatment` :
+  fausse alerte. OOPS! les prend pour des synonymes, mais un traitement est une sorte
+  d'intervention (`Treatment` ⊑ `PharmaceuticalIntervention` ⊑ `Intervention`), et une
+  vaccination est une intervention sans être un traitement. Les déclarer équivalentes serait
+  une erreur.
+
+Le rapport accompagne la documentation : lien « Evaluation » en tête de page.
 
 ---
 

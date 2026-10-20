@@ -237,18 +237,15 @@ la même : c'est la limite L3, à prévoir dans l'outil qui produira les descrip
 
 ### 3. OOPS!
 
-A FAIRE!!!
+**Résultat sur la version 1.1** (octobre 2026). OOPS! a évalué le fichier complet, produit
+par `tools/construire.sh` : aucun défaut critique. Pour cette couche, un seul défaut, mineur : P13, inverse non déclaré,
+pour les 19 propriétés d'objet. Aucun usage ne demande le sens inverse pour l'instant, et OWL
+sait l'écrire au besoin ; à revoir si une couche supérieure en a besoin.
 
-Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport.
-
-**Défauts probables, et réponse préparée.**
-
-| Défaut probable | Concerne | Réponse |
-|---|---|---|
-| Inverse non déclaré (P13) | les 19 propriétés d'objet | Aucun usage ne demande le sens inverse pour l'instant. À revoir si une couche supérieure en a besoin. |
-| Détournement d'espace de noms (P40) | `obo:` et `osdi:` | Termes importés par MIREOT et cibles d'alignement, dans leur espace d'origine. |
-| Annotations manquantes (P08) | aucune | Toutes les entités ont libellé et commentaire. |
-| Domaine ou portée manquant (P11) | aucune | Toutes les propriétés en ont (vérifié le 19 octobre 2026). |
+Ni P08, ni P11, ni P40 : toutes les entités ont libellé et commentaire, toutes les propriétés
+ont domaine et portée. P22, conventions de nommage mélangées, vise toute l'ontologie et
+notamment les valeurs en MAJUSCULES de cette couche : c'est voulu, voir le guide, section 8.
+Le rapport accompagne la documentation : lien « Evaluation » en tête de page.
 
 ---
 

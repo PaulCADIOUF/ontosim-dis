@@ -289,6 +289,15 @@ l'ontologie, régénérez-le depuis la racine du dépôt avec
 
     python tools/index_termes.py
 
+**Les noms des termes.** Les classes s'écrivent en `UpperCamelCase`, les propriétés en
+`lowerCamelCase`, et les valeurs des listes fermées en MAJUSCULES (`NON_SPATIAL`), pour les
+distinguer des classes. Les termes importés gardent leur identifiant d'origine
+(`BFO_0000001`). OOPS! signale ce mélange de conventions (P22) : il est voulu. L'orthographe des
+noms reste aussi telle quelle, par décision d'octobre 2026 : trois noms sont en anglais
+britannique (`HealthCentre`, `VaccinationCentre`, `realisesDeterminant`) et trois en
+américain (`Behavior`, `hasBehavior`, `behaviorExpression`). Publiés, ces noms ne changent
+plus.
+
 Pour un module précis, sa **fiche** donne le détail : contenu, raisons des choix, résultats
 de l'audit et des tests, décisions. Il y en a six, dans `docs/` : `couche1.md`, `couche2.md`,
 `couche3a.md`, `couche3b.md`, `couche4-core.md` et `couche4-context.md`. Les modules OGMS,

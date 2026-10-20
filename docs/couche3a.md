@@ -179,11 +179,9 @@ interaction déclenchante.
 
 ### 4. OOPS!
 
-A FAIRE
-
-Soumettre le fichier sur https://oops.linkeddata.es et sauvegarder le rapport. Défauts
-probables : les mêmes qu'en couche 2, inverses non déclarés (P13) et espaces de noms
-extérieurs (P40), avec la même réponse. Toutes les propriétés ont un domaine et une portée.
+**Résultat sur la version 1.1** (octobre 2026). OOPS! a évalué le fichier complet, produit
+par `tools/construire.sh` : aucun défaut critique. Pour cette couche, un seul défaut, mineur : P13, inverse non déclaré,
+pour les 7 propriétés d'objet, avec la même réponse qu'en couche 2. Le rapport accompagne la documentation : lien « Evaluation » en tête de page.
 
 ---
 
