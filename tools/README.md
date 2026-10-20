@@ -9,6 +9,14 @@ Toutes les commandes se lancent dans Git Bash, à la racine du dépôt.
 
 Sous Windows, la commande Python s'appelle souvent `python` ou `py`, plutôt que `python3`.
 
+Pour construire la documentation seulement (`construire.sh`), deux outils Java, à télécharger une fois dans `tools/lib/`, que git ignore :
+
+    mkdir -p tools/lib
+    curl -L -o tools/lib/robot.jar https://github.com/ontodev/robot/releases/download/v1.9.11/robot.jar
+    curl -L -o tools/lib/widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+
+ROBOT réunit les modules en un seul fichier ; WIDOCO écrit la documentation. Tous deux demandent Java 11 ou plus récent. Si `java -version` affiche une version plus ancienne (1.8 par exemple), installe Java 21 à côté, depuis https://adoptium.net ou avec `winget install EclipseAdoptium.Temurin.21.JDK` dans PowerShell : `construire.sh` la trouve seul, dans `JAVA_HOME` ou dans `C:\Program Files`, et affiche celle qu'il utilise. Pour en imposer une : `JAVA="/chemin/vers/java" bash tools/construire.sh`.
+
 ## `audit_ontosim.py` : contrôler un module
 
 Contrôles effectués sur un module :
@@ -63,6 +71,24 @@ Ces trois vérifications sont écrites dans le script : il ne sert qu'à ce test
 Un seul numéro pour tout : les neuf modules et l'ombrelle changent ensemble, et s'importent entre eux à ce numéro. Le script change l'IRI de version, le numéro et les imports dans chaque fichier de `src/ontology`, les imports des tests, et réécrit les deux catalogues. Avant d'écrire un fichier, il vérifie avec rdflib que seul l'en-tête change.
 
 À lancer quand on prépare une nouvelle version, puis relire avec `git diff`. Une version publiée ne change plus : une correction prend un nouveau numéro.
+
+## `construire.sh` : le fichier complet et la documentation
+
+    bash tools/construire.sh
+
+Trois étapes, en une quinzaine de secondes :
+
+1. ROBOT suit les imports de `src/ontology/ontosim-dis.ttl` grâce au catalogue et réunit les neuf modules dans `build/ontosim-dis-full.ttl`, sans `owl:imports`, avec les métadonnées de l'ombrelle. C'est ce fichier que recevront les applications.
+2. WIDOCO écrit la documentation de ce fichier dans `build/site/latest/` : `index-en.html` et `index-fr.html`, la visualisation WebVOWL, l'ontologie en Turtle, RDF/XML (`ontology.owl`), N-Triples et JSON-LD, et l'évaluation OOPS! si le service répond.
+3. Le script copie `latest/` dans un dossier au numéro de la version, met le fichier de chaque module dans `build/site/<module>/latest/` et `build/site/<module>/<numéro>/`, et écrit la page d'accueil `build/site/index.html`.
+
+Le dossier `build/` est effacé et refait à chaque lancement. Pour regarder la documentation comme sur le web :
+
+    cd build/site && python -m http.server 8000
+
+puis ouvrir http://localhost:8000/latest/index-fr.html, et Ctrl+C pour arrêter.
+
+Si OOPS! ne répond pas, la documentation se construit quand même, sans évaluation : relancer plus tard, ou soumettre `build/ontosim-dis-full.ttl` sur https://oops.linkeddata.es.
 
 ## `index_termes.py` : régénérer l'index des termes
 

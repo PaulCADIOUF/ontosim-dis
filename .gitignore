@@ -14,3 +14,7 @@ __pycache__/
 # Sauvegardes
 *.bak
 accents_rapport.txt
+
+# Construction : produits par tools/construire.sh, et outils Java telecharges
+build/
+tools/lib/
