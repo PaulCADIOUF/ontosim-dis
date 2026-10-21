@@ -1,10 +1,10 @@
 # OntoSim-Dis
 
-*An OWL 2 ontology of diseases and of the simulation models that represent them.*
+*An OWL 2 ontology of disease simulation models.*
 
-OntoSim-Dis est une ontologie OWL 2 DL. Elle décrit une maladie, c'est-à-dire ses états de santé, les transitions entre ces états et ce qui gouverne chaque transition. Elle décrit aussi les modèles de simulation qui représentent cette maladie : modèles à compartiments et modèles multi-agents.
+OntoSim-Dis est une ontologie OWL 2 DL des modèles de simulation des maladies. Elle décrit un modèle, à compartiments ou multi-agents : sa structure, ses paramètres, son exécution. Elle décrit aussi ce qu'il représente : la maladie, c'est-à-dire ses états de santé, les transitions entre ces états et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit.
 
-Sa distinction centrale porte sur le risque : dépend-il de l'état de la population, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit les transitions d'une maladie et le raisonneur en déduit si elle est couplée à la population.
+Sa distinction centrale porte sur le risque : dépend-il de l'état de la population, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit un modèle et la maladie qu'il représente, et le raisonneur en déduit si la maladie est couplée à la population, et si le modèle réalise ce couplage.
 
 Ce dépôt accompagne la thèse de doctorat de **Paul Cheikh Anta Diouf**,
 Université Assane Seck de Ziguinchor, laboratoire LI3.

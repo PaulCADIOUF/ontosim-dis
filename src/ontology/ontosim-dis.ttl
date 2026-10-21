@@ -4,13 +4,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 
-#################################################################
-#    L'ontologie complète
-#
-#    Ce fichier ne contient aucun terme. Il importe les neuf
-#    modules et porte les métadonnées de l'ensemble. Son IRI est
-#    celle que l'on donne aux applications et à la documentation.
-#################################################################
 
 <https://w3id.org/ontosim-dis> rdf:type owl:Ontology ;
                                owl:versionIRI <https://w3id.org/ontosim-dis/1.1> ;
@@ -23,26 +16,22 @@
                                            <https://w3id.org/ontosim-dis/layer4-infectious/1.1> ,
                                            <https://w3id.org/ontosim-dis/layer4-context/1.1> ,
                                            <https://w3id.org/ontosim-dis/layer4-checks/1.1> ;
-                               dcterms:title "OntoSim-Dis: an ontology of diseases and of the simulation models that represent them"@en ,
-                                             "OntoSim-Dis : une ontologie des maladies et des modèles de simulation qui les représentent"@fr ;
-                               dcterms:abstract "OntoSim-Dis describes a disease, its health states, the transitions between them and what governs each transition, together with the compartmental and agent-based simulation models that represent it."@en ,
-                                                "OntoSim-Dis décrit une maladie, ses états de santé, les transitions entre ces états et ce qui gouverne chaque transition, ainsi que les modèles de simulation à compartiments et multi-agents qui la représentent."@fr ;
+                               dcterms:title "OntoSim-Dis: an ontology of disease simulation models"@en ,
+                                             "OntoSim-Dis : une ontologie des modèles de simulation des maladies"@fr ;
+                               dcterms:abstract "OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built."@en ,
+                                                "OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit."@fr ;
                                dcterms:created "2026" ;
                                dcterms:creator "Paul Cheikh Anta DIOUF" ;
                                dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                vann:preferredNamespacePrefix "dsim" ;
                                vann:preferredNamespaceUri "https://w3id.org/ontosim-dis#" ;
-                               rdfs:comment """The complete OntoSim-Dis ontology. This file contains no term: it imports the nine modules and carries the metadata of the whole.
-Its central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes the transitions of a disease, and the reasoner infers whether it is coupled to the population."""@en ,
-                                            """L'ontologie OntoSim-Dis complète. Ce fichier ne contient aucun terme : il importe les neuf modules et porte les métadonnées de l'ensemble.
-Sa distinction centrale porte sur le risque : le risque d'une transition dépend-il de l'effectif d'une catégorie d'individus, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit les transitions d'une maladie, et le raisonneur en déduit si elle est couplée à la population."""@fr ;
+                               rdfs:comment """The complete OntoSim-Dis ontology, an ontology of disease simulation models. This file contains no term: it imports the nine modules and carries the metadata of the whole.
+Its central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling."""@en ,
+                                            """L'ontologie OntoSim-Dis complète, une ontologie des modèles de simulation des maladies. Ce fichier ne contient aucun terme : il importe les neuf modules et porte les métadonnées de l'ensemble.
+Sa distinction centrale porte sur le risque : le risque d'une transition dépend-il de l'effectif d'une catégorie d'individus, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit un modèle et la maladie qu'il représente ; le raisonneur en déduit si la maladie est couplée à la population, et si le modèle réalise ce couplage."""@fr ;
                                rdfs:label "OntoSim-Dis - ontologie complète"@fr ,
                                           "OntoSim-Dis - complete ontology"@en ;
                                owl:versionInfo "1.1" .
-
-#################################################################
-#    Propriétés d'annotation employées dans l'en-tête
-#################################################################
 
 dcterms:abstract rdf:type owl:AnnotationProperty .
 dcterms:created rdf:type owl:AnnotationProperty .
