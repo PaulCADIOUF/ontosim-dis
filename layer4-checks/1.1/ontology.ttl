@@ -1,0 +1,92 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer4-checks> rdf:type owl:Ontology ;
+                                              owl:versionIRI <https://w3id.org/ontosim-dis/layer4-checks/1.1> ;
+                                              owl:imports <https://w3id.org/ontosim-dis/layer3a/1.1> ,
+                                                          <https://w3id.org/ontosim-dis/layer3b/1.1> ,
+                                                          <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
+                                              dcterms:created "2026" ;
+                                              dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                              dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                              rdfs:comment """Checks between disease knowledge (layer 4-Core) and models (layers 3A and 3B). The reasoner identifies models that represent a coupled transition without realising the coupling: a flow with a constant rate or an agent transition triggered by the agent's own attributes alone. These are static approximations.
+They are reported, not forbidden: the model remains consistent and it is up to the modeller to judge whether the approximation suits the question.
+This module stands apart because it links layers that do not import each other."""@en ,
+                                                           """Contrôles entre la connaissance de maladie (couche 4-Core) et les modèles (couches 3A et 3B). Le raisonneur y repère les modèles qui représentent une transition couplée sans réaliser le couplage : un flux à taux constant ou une transition d'agent déclenchée par les seuls attributs de l'agent. Ce sont des approximations statiques.
+Elles sont signalées, pas interdites : le modèle reste cohérent et c'est au modélisateur de juger si l'approximation convient à sa question.
+Ce module est à part parce qu'il relie des couches qui ne s'importent pas entre elles."""@fr ;
+                                              rdfs:label "OntoSim-Dis Couche 4-Checks - Contrôles entre maladie et modèles"@fr ,
+                                                         "OntoSim-Dis Layer 4-Checks - Checks between disease knowledge and models"@en ;
+                                              owl:versionInfo "1.1" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/ontosim-dis#StaticApproximationAgentTransition
+dsim:StaticApproximationAgentTransition rdf:type owl:Class ;
+                                        owl:equivalentClass [ owl:intersectionOf ( dsim:AttributeDrivenTransition
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty dsim:representsStateTransition ;
+                                                                                     owl:someValuesFrom dsim:CoupledTransition
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] ;
+                                        rdfs:subClassOf dsim:AttributeDrivenTransition ;
+                                        rdfs:comment "An agent transition that represents a coupled transition but is triggered by the agent's own attributes alone, not by an interaction. Agent-based form of the static approximation."@en ,
+                                                     "Transition d'agent qui représente une transition couplée, mais qui est déclenchée par les seuls attributs de l'agent, et non par une interaction. Forme multi-agents de l'approximation statique."@fr ;
+                                        rdfs:label "StaticApproximationAgentTransition"@en .
+
+
+###  https://w3id.org/ontosim-dis#StaticApproximationFlow
+dsim:StaticApproximationFlow rdf:type owl:Class ;
+                             owl:equivalentClass [ owl:intersectionOf ( dsim:TransitionFlow
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty dsim:hasRate ;
+                                                                          owl:someValuesFrom dsim:ConstantRate
+                                                                        ]
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty dsim:representsStateTransition ;
+                                                                          owl:someValuesFrom dsim:CoupledTransition
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ] ;
+                             rdfs:subClassOf dsim:TransitionFlow ;
+                             rdfs:comment "A flow that represents a coupled transition but whose rate is constant: it does not read the head count on which the risk depends. Compartmental form of the static approximation."@en ,
+                                          "Flux qui représente une transition couplée, mais dont le taux est constant : il ne lit pas l'effectif dont dépend le risque. Forme compartimentale de l'approximation statique."@fr ;
+                             rdfs:label "StaticApproximationFlow"@en .
+
+
+###  https://w3id.org/ontosim-dis#StaticApproximationModel
+dsim:StaticApproximationModel rdf:type owl:Class ;
+                              owl:equivalentClass [ owl:intersectionOf ( dsim:SimulationModel
+                                                                         [ rdf:type owl:Class ;
+                                                                           owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty dsim:hasAgentTransition ;
+                                                                                           owl:someValuesFrom dsim:StaticApproximationAgentTransition
+                                                                                         ]
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty dsim:hasFlow ;
+                                                                                           owl:someValuesFrom dsim:StaticApproximationFlow
+                                                                                         ]
+                                                                                       )
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] ;
+                              rdfs:subClassOf dsim:SimulationModel ;
+                              rdfs:comment "A model containing at least one static approximation: it represents a coupled transition without realising the coupling. It therefore ignores the indirect effects of an intervention, such as herd immunity. The approximation is acceptable when the intervention studied does not change transmission; otherwise, a dynamic model is needed. Inferred by the reasoner."@en ,
+                                           "Modèle comportant au moins une approximation statique : il représente une transition couplée sans en réaliser le couplage. Il ignore donc les effets indirects d'une intervention, comme l'immunité de groupe. L'approximation est acceptable lorsque l'intervention étudiée ne modifie pas la transmission ; sinon, un modèle dynamique est nécessaire. Inféré par le raisonneur."@fr ;
+                              rdfs:label "StaticApproximationModel"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,560 @@
+@prefix : <https://w3id.org/ontosim-dis#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/ontosim-dis#> .
+
+<https://w3id.org/ontosim-dis/layer4-infectious> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <https://w3id.org/ontosim-dis/layer4-infectious/1.1> ;
+                                                  owl:imports <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
+                                                  dcterms:created "2026" ;
+                                                  dcterms:creator "Paul Cheikh Anta DIOUF" ;
+                                                  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                                  rdfs:comment "First extension of the disease-agnostic core: pathogen, transmission route, epidemiological roles, and the periods that only make sense for an infection."@en ,
+                                                               "Première extension du noyau commun : agent pathogène, voie de transmission, rôles épidémiologiques, et les périodes qui n'ont de sens que pour une infection."@fr ;
+                                                  rdfs:label "OntoSim-Dis Couche 4-Infectious - Extension aux maladies transmissibles"@fr ,
+                                                             "OntoSim-Dis Layer 4-Infectious - Communicable disease extension"@en ;
+                                                  owl:versionInfo "1.1" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#hasEpidemiologicalRole
+dsim:hasEpidemiologicalRole rdf:type owl:ObjectProperty ;
+                            rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                            rdfs:range dsim:EpidemiologicalRole ;
+                            rdfs:comment "Lie une connaissance de maladie aux rôles intervenant dans son cycle de transmission."@fr ,
+                                         "Links a disease knowledge artifact to the roles involved in its transmission cycle."@en ;
+                            rdfs:label "hasEpidemiologicalRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasPathogen
+dsim:hasPathogen rdf:type owl:ObjectProperty ;
+                 rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                 rdfs:range dsim:Pathogen ;
+                 rdfs:comment "Lie une connaissance de maladie à l'agent pathogène qui la cause."@fr ,
+                              "Links a disease knowledge artifact to the pathogen causing it."@en ;
+                 rdfs:label "hasPathogen"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasReservoirState
+dsim:hasReservoirState rdf:type owl:ObjectProperty ;
+                       rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                       rdfs:range dsim:ReservoirState ;
+                       rdfs:comment "Lie une connaissance de maladie aux états de réservoir qui interviennent dans sa transmission. Une maladie qui en déclare au moins un est classée transmission médiée par l'environnement, sans que personne ne l'ait dit."@fr ,
+                                    "Links a disease knowledge artifact to the reservoir states involved in its transmission. A disease declaring at least one is classified as environmentally mediated, without anyone having said so."@en ;
+                       rdfs:label "hasReservoirState"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasTransmissionRoute
+dsim:hasTransmissionRoute rdf:type owl:ObjectProperty ;
+                          rdfs:domain dsim:DiseaseKnowledgeTemplate ;
+                          rdfs:range dsim:TransmissionRoute ;
+                          rdfs:comment "Lie une connaissance de maladie aux voies par lesquelles elle se transmet."@fr ,
+                                       "Links a disease knowledge artifact to the routes by which it is transmitted."@en ;
+                          rdfs:label "hasTransmissionRoute"@en .
+
+
+###  https://w3id.org/ontosim-dis#isStateOfRole
+dsim:isStateOfRole rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain dsim:ReservoirState ;
+                   rdfs:range dsim:EpidemiologicalRole ;
+                   rdfs:comment "Lie un état de réservoir au rôle épidémiologique dont il quantifie l'effectif : le rôle d'hôte intermédiaire pour les escargots infectés, le rôle de réservoir pour les cercaires présentes dans l'eau. Fonctionnelle : un effectif ne quantifie qu'un seul rôle."@fr ,
+                                "Links a reservoir state to the epidemiological role whose head count it quantifies: the intermediate host role for infected snails, the reservoir role for cercariae present in the water. Functional: one head count quantifies one role only."@en ;
+                   rdfs:label "isStateOfRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#transmittedThroughRole
+dsim:transmittedThroughRole rdf:type owl:ObjectProperty ;
+                            rdfs:domain dsim:TransmissionRoute ;
+                            rdfs:range dsim:EpidemiologicalRole ;
+                            rdfs:comment "Lie une voie de transmission au rôle par lequel elle passe, lorsqu'elle passe par un organisme vivant ou un milieu."@fr ,
+                                         "Links a transmission route to the role it passes through, when it passes through a living organism or an environment."@en ;
+                            rdfs:label "transmittedThroughRole"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/ontosim-dis#basicReproductionNumber
+dsim:basicReproductionNumber rdf:type owl:DatatypeProperty ;
+                             rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                             rdfs:range xsd:double ;
+                             rdfs:comment "Average number of secondary cases produced by one case in a fully susceptible population."@en ,
+                                          "Nombre moyen de cas secondaires produits par un cas dans une population entièrement susceptible."@fr ;
+                             rdfs:label "basicReproductionNumber"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasPermanentImmunity
+dsim:hasPermanentImmunity rdf:type owl:DatatypeProperty ;
+                          rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "True when the immunity acquired after recovery lasts for life."@en ,
+                                       "Vrai lorsque l'immunité acquise après guérison dure toute la vie."@fr ;
+                          rdfs:label "hasPermanentImmunity"@en .
+
+
+###  https://w3id.org/ontosim-dis#hasRefToNCBITaxon
+dsim:hasRefToNCBITaxon rdf:type owl:DatatypeProperty ;
+                       rdfs:domain dsim:Pathogen ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Identifiant NCBI Taxonomy de l'agent pathogène. Rattache la taxonomie biologique, délibérément tenue hors de la structure de l'ontologie."@fr ,
+                                    "NCBI Taxonomy identifier of the pathogen. Attaches the biological taxonomy, deliberately kept outside the structure of the ontology."@en ;
+                       rdfs:label "hasRefToNCBITaxon"@en .
+
+
+###  https://w3id.org/ontosim-dis#incubationPeriodDays
+dsim:incubationPeriodDays rdf:type owl:DatatypeProperty ;
+                          rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                          rdfs:range xsd:double ;
+                          rdfs:comment "Average time between infection and the first symptoms, in days."@en ,
+                                       "Durée moyenne entre l'infection et les premiers symptômes, en jours."@fr ;
+                          rdfs:label "incubationPeriodDays"@en .
+
+
+###  https://w3id.org/ontosim-dis#infectiousPeriodDays
+dsim:infectiousPeriodDays rdf:type owl:DatatypeProperty ;
+                          rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                          rdfs:range xsd:double ;
+                          rdfs:comment "Average duration during which a host can transmit, in days."@en ,
+                                       "Durée moyenne pendant laquelle un hôte peut transmettre, en jours."@fr ;
+                          rdfs:label "infectiousPeriodDays"@en .
+
+
+###  https://w3id.org/ontosim-dis#latentPeriodDays
+dsim:latentPeriodDays rdf:type owl:DatatypeProperty ;
+                      rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                      rdfs:range xsd:double ;
+                      rdfs:comment "Average time between infection and the moment the host becomes infectious, in days. Distinct from the incubation period: one may transmit before showing symptoms."@en ,
+                                   "Durée moyenne entre l'infection et le moment où l'hôte devient infectieux, en jours. Distincte de la période d'incubation : on peut transmettre avant d'avoir des symptômes."@fr ;
+                      rdfs:label "latentPeriodDays"@en .
+
+
+###  https://w3id.org/ontosim-dis#pathogenName
+dsim:pathogenName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain dsim:Pathogen ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Nom scientifique de l'agent pathogène."@fr ,
+                               "Scientific name of the pathogen."@en ;
+                  rdfs:label "pathogenName"@en .
+
+
+###  https://w3id.org/ontosim-dis#reinfectionPossible
+dsim:reinfectionPossible rdf:type owl:DatatypeProperty ;
+                         rdfs:domain dsim:InfectiousDiseaseKnowledge ;
+                         rdfs:range xsd:boolean ;
+                         rdfs:comment "True when a recovered host can be infected again."@en ,
+                                      "Vrai lorsqu'un hôte guéri peut être infecté à nouveau."@fr ;
+                         rdfs:label "reinfectionPossible"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/ontosim-dis#Bacterium
+dsim:Bacterium rdf:type owl:Class ;
+               rdfs:subClassOf dsim:Pathogen ;
+               rdfs:comment "Agent pathogène unicellulaire dépourvu de noyau."@fr ,
+                            "Single-celled pathogen without a nucleus."@en ;
+               rdfs:label "Bacterium"@en .
+
+
+###  https://w3id.org/ontosim-dis#DirectlyCoupledDeterminant
+dsim:DirectlyCoupledDeterminant rdf:type owl:Class ;
+                                owl:equivalentClass [ owl:intersectionOf ( dsim:PopulationCoupledDeterminant
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty dsim:dependsOnCountIn ;
+                                                                             owl:someValuesFrom dsim:HealthState
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ] ;
+                                rdfs:subClassOf dsim:PopulationCoupledDeterminant ;
+                                rdfs:comment "Classe DÉFINIE : déterminant dont la valeur se lit sur un effectif d'humains. Signature de la transmission interhumaine directe. Le raisonneur y classe la force d'infection du COVID, de la grippe, de la rougeole. N'est PAS disjointe de IndirectlyCoupledDeterminant : un risque peut lire les deux à la fois, ce qui est le cas du cycle complet de la schistosomiase."@fr ,
+                                             "DEFINED class: a determinant whose value is read off a head count of humans. Signature of direct person-to-person transmission. NOT disjoint from IndirectlyCoupledDeterminant: one risk may read both, which is the case of the full schistosomiasis cycle."@en ;
+                                rdfs:label "DirectlyCoupledDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#EnvironmentallyMediatedDiseaseKnowledge
+dsim:EnvironmentallyMediatedDiseaseKnowledge rdf:type owl:Class ;
+                                             owl:equivalentClass [ owl:intersectionOf ( dsim:InfectiousDiseaseKnowledge
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty dsim:hasReservoirState ;
+                                                                                          owl:someValuesFrom dsim:ReservoirState
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ] ;
+                                             rdfs:subClassOf dsim:InfectiousDiseaseKnowledge ;
+                                             rdfs:comment """Classe DÉFINIE : maladie infectieuse dont la transmission passe par un effectif non
+humain. Le raisonneur l'infère à partir de la structure du modèle, SANS que personne
+ait déclaré la maladie environnementale. Schistosomiase, paludisme et choléra y
+tombent ; COVID, grippe et rougeole n'y tombent pas."""@fr ,
+                                                          "DEFINED class: an infectious disease whose transmission goes through a non-human head count. The reasoner infers it from the structure of the model, WITHOUT anyone having declared the disease environmental. Schistosomiasis, malaria and cholera fall here; COVID, influenza and measles do not."@en ;
+                                             rdfs:label "EnvironmentallyMediatedDiseaseKnowledge"@en .
+
+
+###  https://w3id.org/ontosim-dis#EpidemiologicalRole
+dsim:EpidemiologicalRole rdf:type owl:Class ;
+                         rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                         rdfs:comment "Part qu'un organisme prend dans la transmission d'une maladie."@fr ,
+                                      "The part an organism plays in the transmission of a disease."@en ;
+                         rdfs:label "EpidemiologicalRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#FreeLivingStageState
+dsim:FreeLivingStageState rdf:type owl:Class ;
+                          rdfs:subClassOf dsim:ReservoirState ;
+                          owl:disjointWith dsim:NonHumanHostState ;
+                          rdfs:comment "Effectif d'un stade libre de l'agent pathogène présent dans un milieu, hors de tout hôte. Les cercaires dans l'eau, les miracidies. Sous l'hypothèse de quasi-équilibre, cet effectif se lit sur celui des hôtes qui le produisent et n'a pas besoin d'un compartiment propre."@fr ,
+                                       "Head count of a free-living stage of the pathogen present in an environment, outside any host. The cercariae in the water, the miracidia. Under the quasi-equilibrium assumption, this head count is read off that of the hosts producing it and needs no compartment of its own."@en ;
+                          rdfs:label "FreeLivingStageState"@en .
+
+
+###  https://w3id.org/ontosim-dis#Fungus
+dsim:Fungus rdf:type owl:Class ;
+            rdfs:subClassOf dsim:Pathogen ;
+            rdfs:comment "Champignon pathogène."@fr ,
+                         "Pathogenic fungus."@en ;
+            rdfs:label "Fungus"@en .
+
+
+###  https://w3id.org/ontosim-dis#HealthState
+dsim:HealthState owl:disjointWith dsim:ReservoirState .
+
+
+###  https://w3id.org/ontosim-dis#HealthStateTransition
+dsim:HealthStateTransition owl:disjointWith dsim:ReservoirState .
+
+
+###  https://w3id.org/ontosim-dis#HostRole
+dsim:HostRole rdf:type owl:Class ;
+              rdfs:subClassOf dsim:EpidemiologicalRole ;
+              rdfs:comment "Organism in which the pathogen develops and which suffers the disease."@en ,
+                           "Organisme dans lequel l'agent pathogène se développe et qui subit la maladie."@fr ;
+              rdfs:label "HostRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#IndirectlyCoupledDeterminant
+dsim:IndirectlyCoupledDeterminant rdf:type owl:Class ;
+                                  owl:equivalentClass [ owl:intersectionOf ( dsim:PopulationCoupledDeterminant
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty dsim:dependsOnCountIn ;
+                                                                               owl:someValuesFrom dsim:ReservoirState
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ] ;
+                                  rdfs:subClassOf dsim:PopulationCoupledDeterminant ;
+                                  rdfs:comment "Classe DÉFINIE : déterminant dont la valeur se lit sur un effectif non humain. Signature de la transmission médiée par un réservoir ou un milieu. Le raisonneur y classe le risque d'infection de la schistosomiase, du paludisme, du choléra."@fr ,
+                                               "DEFINED class: a determinant whose value is read off a non-human head count. Signature of reservoir-mediated or environmentally mediated transmission. The reasoner classifies here the infection risk of schistosomiasis, malaria and cholera."@en ;
+                                  rdfs:label "IndirectlyCoupledDeterminant"@en .
+
+
+###  https://w3id.org/ontosim-dis#InfectiousDiseaseKnowledge
+dsim:InfectiousDiseaseKnowledge rdf:type owl:Class ;
+                                owl:equivalentClass [ owl:intersectionOf ( dsim:DiseaseKnowledgeTemplate
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty dsim:hasPathogen ;
+                                                                             owl:someValuesFrom dsim:Pathogen
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ] ;
+                                rdfs:subClassOf dsim:DiseaseKnowledgeTemplate ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty dsim:hasTransmissionRoute ;
+                                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass dsim:TransmissionRoute
+                                                ] ;
+                                rdfs:comment "Connaissance d'une maladie causée par un agent pathogène. Classe DÉFINIE : toute connaissance de maladie déclarant un agent pathogène est classée ici par le raisonneur, sans qu'on ait à dire qu'elle est infectieuse."@fr ,
+                                             "Knowledge of a disease caused by a pathogen. DEFINED class: any disease knowledge declaring a pathogen is classified here by the reasoner, without anyone having to say it is infectious."@en ;
+                                rdfs:label "InfectiousDiseaseKnowledge"@en ;
+                                <http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/ontologies-ULL/OSDi#InfectiousDisease> .
+
+
+###  https://w3id.org/ontosim-dis#IntermediateHostRole
+dsim:IntermediateHostRole rdf:type owl:Class ;
+                          rdfs:subClassOf dsim:EpidemiologicalRole ;
+                          rdfs:comment "Organism in which the pathogen goes through a stage of its life cycle before reaching its final host. The snail in schistosomiasis."@en ,
+                                       "Organisme dans lequel l'agent pathogène accomplit une étape de son cycle de vie avant d'atteindre son hôte final. L'escargot dans la schistosomiase."@fr ;
+                          rdfs:label "IntermediateHostRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#Isolation
+dsim:Isolation rdf:type owl:Class ;
+               rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+               rdfs:comment "Mise à l'écart d'individus dont on sait qu'ils sont infectieux."@fr ,
+                            "Separation of individuals known to be infectious."@en ;
+               rdfs:label "Isolation"@en .
+
+
+###  https://w3id.org/ontosim-dis#MaskWearing
+dsim:MaskWearing rdf:type owl:Class ;
+                 rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+                 rdfs:comment "Réduction de la probabilité de transmission lors d'un contact."@fr ,
+                              "Reduction of the probability of transmission during a contact."@en ;
+                 rdfs:label "MaskWearing"@en .
+
+
+###  https://w3id.org/ontosim-dis#MovementRestriction
+dsim:MovementRestriction rdf:type owl:Class ;
+                         rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+                         rdfs:comment "Limitation des déplacements : confinement, couvre-feu, fermeture des frontières."@fr ,
+                                      "Limitation of movement: lockdown, curfew, closure of borders."@en ;
+                         rdfs:label "MovementRestriction"@en .
+
+
+###  https://w3id.org/ontosim-dis#NonHumanHostState
+dsim:NonHumanHostState rdf:type owl:Class ;
+                       rdfs:subClassOf dsim:ReservoirState ;
+                       rdfs:comment "Effectif d'organismes non humains se trouvant dans un état donné du cycle de l'agent pathogène. Les escargots infectés de la schistosomiase, les moustiques infectieux du paludisme."@fr ,
+                                    "Head count of non-human organisms in a given state of the pathogen cycle. The infected snails of schistosomiasis, the infectious mosquitoes of malaria."@en ;
+                       rdfs:label "NonHumanHostState"@en .
+
+
+###  https://w3id.org/ontosim-dis#Parasite
+dsim:Parasite rdf:type owl:Class ;
+              rdfs:subClassOf dsim:Pathogen ;
+              rdfs:comment "Organism living at the expense of a host, often with a life cycle passing through several hosts."@en ,
+                           "Organisme vivant aux dépens d'un hôte, souvent avec un cycle de vie passant par plusieurs hôtes."@fr ;
+              rdfs:label "Parasite"@en .
+
+
+###  https://w3id.org/ontosim-dis#Pathogen
+dsim:Pathogen rdf:type owl:Class ;
+              rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+              rdfs:comment "Agent infectieux responsable de la maladie."@fr ,
+                           "The infectious agent responsible for the disease."@en ;
+              rdfs:label "Pathogen"@en .
+
+
+###  https://w3id.org/ontosim-dis#Quarantine
+dsim:Quarantine rdf:type owl:Class ;
+                rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+                rdfs:comment "Mise à l'écart d'individus possiblement exposés, pour les empêcher de transmettre."@fr ,
+                             "Separation of individuals who may have been exposed, to prevent them from transmitting."@en ;
+                rdfs:label "Quarantine"@en .
+
+
+###  https://w3id.org/ontosim-dis#ReservoirRole
+dsim:ReservoirRole rdf:type owl:Class ;
+                   rdfs:subClassOf dsim:EpidemiologicalRole ;
+                   rdfs:comment "Organism or environment where the pathogen persists between outbreaks."@en ,
+                                "Organisme ou milieu où l'agent pathogène persiste entre deux épidémies."@fr ;
+                   rdfs:label "ReservoirRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#ReservoirState
+dsim:ReservoirState rdf:type owl:Class ;
+                    rdfs:subClassOf dsim:CouplingSource ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty dsim:isStateOfRole ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass dsim:EpidemiologicalRole
+                                    ] ;
+                    owl:disjointWith dsim:TransitionDeterminant ;
+                    rdfs:comment "A non-human category whose current head count may make a risk vary: infected snails, cercariae present in a water body, infectious mosquitoes. It is not a health state, because the entity counted is not the individual whose disease is being modelled. It is the other kind of CouplingSource, the one that makes schistosomiasis representable."@en ,
+                                 "Catégorie non humaine dont l'effectif courant peut faire varier un risque : escargots infectés, cercaires présentes dans un point d'eau, moustiques infectieux. Ce n'est pas un état de santé, parce que l'entité comptée n'est pas l'individu dont on modélise la maladie. C'est l'autre sorte de CouplingSource, celle qui rend la schistosomiase représentable."@fr ;
+                    rdfs:label "ReservoirState"@en .
+
+
+###  https://w3id.org/ontosim-dis#SchoolClosure
+dsim:SchoolClosure rdf:type owl:Class ;
+                   rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+                   rdfs:comment "Closure of schools, which removes from the mixing population the age group with the highest contact rate."@en ,
+                                "Fermeture des établissements scolaires."@fr ;
+                   rdfs:label "SchoolClosure"@en .
+
+
+###  https://w3id.org/ontosim-dis#SocialDistancing
+dsim:SocialDistancing rdf:type owl:Class ;
+                      rdfs:subClassOf dsim:NonPharmaceuticalIntervention ;
+                      rdfs:comment "Réduction des contacts rapprochés dans l'ensemble de la population."@fr ,
+                                   "Reduction of close contacts throughout the population."@en ;
+                      rdfs:label "SocialDistancing"@en .
+
+
+###  https://w3id.org/ontosim-dis#TransmissionReducingIntervention
+dsim:TransmissionReducingIntervention rdf:type owl:Class ;
+                                      owl:equivalentClass [ owl:intersectionOf ( dsim:Intervention
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty dsim:modifiesDeterminant ;
+                                                                                   owl:someValuesFrom dsim:PopulationCoupledDeterminant
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ] ;
+                                      rdfs:subClassOf dsim:Intervention ;
+                                      rdfs:comment "Classe DÉFINIE : intervention agissant sur un déterminant couplé à la population. N'a de sens que pour une maladie transmissible, puisque réduire les contacts ne change rien lorsque le risque ne dépend que de l'individu."@fr ,
+                                                   "DEFINED class: an intervention acting on a population-coupled determinant. Only makes sense for a transmissible disease, since reducing contacts changes nothing when the risk depends on the individual alone."@en ;
+                                      rdfs:label "TransmissionReducingIntervention"@en .
+
+
+###  https://w3id.org/ontosim-dis#TransmissionRoute
+dsim:TransmissionRoute rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Class ;
+                                             owl:oneOf ( dsim:AIRBORNE
+                                                         dsim:BLOODBORNE
+                                                         dsim:DIRECT_CONTACT
+                                                         dsim:DROPLET
+                                                         dsim:FECAL_ORAL
+                                                         dsim:FOODBORNE
+                                                         dsim:SEXUAL
+                                                         dsim:VECTOR_BORNE
+                                                         dsim:VERTICAL
+                                                         dsim:WATERBORNE
+                                                       )
+                                           ] ;
+                       rdfs:subClassOf dsim:SimulationKnowledgeArtifact ;
+                       rdfs:comment "The biological route by which a communicable disease passes from one host to another. Closed list."@en ,
+                                    "Voie biologique par laquelle une maladie transmissible passe d'un hôte à un autre. Liste fermée."@fr ;
+                       rdfs:label "TransmissionRoute"@en .
+
+
+###  https://w3id.org/ontosim-dis#VectorRole
+dsim:VectorRole rdf:type owl:Class ;
+                rdfs:subClassOf dsim:EpidemiologicalRole ;
+                rdfs:comment "Organism carrying the pathogen from one host to another without suffering the disease."@en ,
+                             "Organisme transportant l'agent pathogène d'un hôte à un autre sans subir la maladie."@fr ;
+                rdfs:label "VectorRole"@en .
+
+
+###  https://w3id.org/ontosim-dis#Virus
+dsim:Virus rdf:type owl:Class ;
+           rdfs:subClassOf dsim:Pathogen ;
+           rdfs:comment "Acellular pathogen, which replicates only inside a host cell."@en ,
+                        "Agent pathogène acellulaire, qui ne se réplique qu'à l'intérieur d'une cellule hôte."@fr ;
+           rdfs:label "Virus"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/ontosim-dis#AIRBORNE
+dsim:AIRBORNE rdf:type owl:NamedIndividual ,
+                       dsim:TransmissionRoute ;
+              rdfs:comment "Par des particules fines restant en suspension dans l'air."@fr ,
+                           "Through fine particles remaining suspended in the air."@en ;
+              rdfs:label "Airborne"@en .
+
+
+###  https://w3id.org/ontosim-dis#BLOODBORNE
+dsim:BLOODBORNE rdf:type owl:NamedIndividual ,
+                         dsim:TransmissionRoute ;
+                rdfs:comment "Par le sang ou des produits sanguins."@fr ,
+                             "Through blood or blood products."@en ;
+                rdfs:label "Bloodborne"@en .
+
+
+###  https://w3id.org/ontosim-dis#DIRECT_CONTACT
+dsim:DIRECT_CONTACT rdf:type owl:NamedIndividual ,
+                             dsim:TransmissionRoute ;
+                    rdfs:comment "Par contact physique entre deux hôtes."@fr ,
+                                 "Through physical contact between two hosts."@en ;
+                    rdfs:label "Direct contact"@en .
+
+
+###  https://w3id.org/ontosim-dis#DROPLET
+dsim:DROPLET rdf:type owl:NamedIndividual ,
+                      dsim:TransmissionRoute ;
+             rdfs:comment "Par des gouttelettes respiratoires projetées à courte distance."@fr ,
+                          "Through respiratory droplets projected over a short distance."@en ;
+             rdfs:label "Droplet"@en .
+
+
+###  https://w3id.org/ontosim-dis#FECAL_ORAL
+dsim:FECAL_ORAL rdf:type owl:NamedIndividual ,
+                         dsim:TransmissionRoute ;
+                rdfs:comment "Par ingestion de matières contaminées par des selles."@fr ,
+                             "Through ingestion of matter contaminated by faeces."@en ;
+                rdfs:label "Faecal-oral"@en .
+
+
+###  https://w3id.org/ontosim-dis#FOODBORNE
+dsim:FOODBORNE rdf:type owl:NamedIndividual ,
+                        dsim:TransmissionRoute ;
+               rdfs:comment "Par des aliments contaminés."@fr ,
+                            "Through contaminated food."@en ;
+               rdfs:label "Foodborne"@en .
+
+
+###  https://w3id.org/ontosim-dis#SEXUAL
+dsim:SEXUAL rdf:type owl:NamedIndividual ,
+                     dsim:TransmissionRoute ;
+            rdfs:comment "Par contact sexuel."@fr ,
+                         "Through sexual contact."@en ;
+            rdfs:label "Sexual"@en .
+
+
+###  https://w3id.org/ontosim-dis#VECTOR_BORNE
+dsim:VECTOR_BORNE rdf:type owl:NamedIndividual ,
+                           dsim:TransmissionRoute ;
+                  rdfs:comment "Par un vecteur vivant, le plus souvent un arthropode. Voie du paludisme et de la dengue."@fr ,
+                               "Through a living vector, usually an arthropod. Route of malaria and dengue."@en ;
+                  rdfs:label "Vector-borne"@en .
+
+
+###  https://w3id.org/ontosim-dis#VERTICAL
+dsim:VERTICAL rdf:type owl:NamedIndividual ,
+                       dsim:TransmissionRoute ;
+              rdfs:comment "De la mère à l'enfant, pendant la grossesse, l'accouchement ou l'allaitement."@fr ,
+                           "From mother to child, during pregnancy, birth or breastfeeding."@en ;
+              rdfs:label "Vertical"@en .
+
+
+###  https://w3id.org/ontosim-dis#WATERBORNE
+dsim:WATERBORNE rdf:type owl:NamedIndividual ,
+                         dsim:TransmissionRoute ;
+                rdfs:comment "Par de l'eau contaminée. Voie de la schistosomiase et du choléra."@fr ,
+                             "Through contaminated water. Route of schistosomiasis and cholera."@en ;
+                rdfs:label "Waterborne"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dsim:Bacterium
+                dsim:Fungus
+                dsim:Parasite
+                dsim:Virus
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dsim:HostRole
+                dsim:IntermediateHostRole
+                dsim:ReservoirRole
+                dsim:VectorRole
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( dsim:AIRBORNE
+                        dsim:BLOODBORNE
+                        dsim:DIRECT_CONTACT
+                        dsim:DROPLET
+                        dsim:FECAL_ORAL
+                        dsim:FOODBORNE
+                        dsim:SEXUAL
+                        dsim:VECTOR_BORNE
+                        dsim:VERTICAL
+                        dsim:WATERBORNE
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
