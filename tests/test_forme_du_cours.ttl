@@ -10,9 +10,8 @@
     owl:imports <https://w3id.org/ontosim-dis/layer4-core/1.1> ;
     owl:versionInfo "1.0" .
 
-#################################################################
+
 #    Deux cours de maladie, de formes differentes
-#################################################################
 
 ta:tFluShape  rdf:type owl:NamedIndividual , obo:OGMS_0000094 .
 # un cours aigu
@@ -20,9 +19,8 @@ ta:tFluShape  rdf:type owl:NamedIndividual , obo:OGMS_0000094 .
 ta:tDiabShape rdf:type owl:NamedIndividual , obo:OGMS_0000064 .
 # un cours chronique
 
-#################################################################
+
 #    Les deux maladies : memes proprietes, seule la forme change
-#################################################################
 
 ta:tFlu rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
     dsim:diseaseName "Influenza" ;
