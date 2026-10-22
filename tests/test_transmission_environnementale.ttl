@@ -9,9 +9,7 @@
     owl:imports <https://w3id.org/ontosim-dis/layer4-infectious/1.1> ;
     owl:versionInfo "1.0" .
 
-#################################################################
 #    Les agents pathogenes
-#################################################################
 
 test:tSchistosoma rdf:type owl:NamedIndividual , dsim:Parasite ;
     dsim:pathogenName "Schistosoma mansoni" .
@@ -19,9 +17,7 @@ test:tSchistosoma rdf:type owl:NamedIndividual , dsim:Parasite ;
 test:tSarsCov2 rdf:type owl:NamedIndividual , dsim:Virus ;
     dsim:pathogenName "SARS-CoV-2" .
 
-#################################################################
 #    Le reservoir : des cercaires dans un point d'eau
-#################################################################
 
 test:tWaterReservoir rdf:type owl:NamedIndividual , dsim:ReservoirRole .
 
@@ -29,9 +25,7 @@ test:tCercariae rdf:type owl:NamedIndividual , dsim:FreeLivingStageState ;
     dsim:isStateOfRole test:tWaterReservoir .
 
 
-#################################################################
 #    Les deux maladies : memes proprietes, a une pres
-#################################################################
 
 test:tSchisto rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
     dsim:diseaseName "Schistosomiasis" ;
