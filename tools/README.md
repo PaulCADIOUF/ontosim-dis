@@ -61,7 +61,7 @@ Le script audite chaque module avec ceux qu'il importe, puis l'ombrelle avec les
 Il fusionne les fichiers, lance HermiT, puis vérifie trois classements : les cercaires sont un état de réservoir, la schistosomiase est classée à médiation environnementale, la COVID-19 ne l'est pas. Résultat attendu : `3 verifications passees, 0 echouees`.
 
 Ces trois vérifications sont écrites dans le script : il ne sert qu'à ce test.
-
+<!--
 ## `version.py` : changer le numéro de version de tout l'empilement
 
     python tools/version.py                  état : le numéro de chaque fichier, et cinq contrôles
@@ -106,7 +106,7 @@ Résultat au 19 octobre 2026 : 325 termes.
 Il a servi le 15 octobre 2026 (correction 11), pour remettre les accents dans les textes français de l'ontologie. Il ne touche que les textes marqués `@fr` et vérifie, avant d'écrire, que seuls ces textes changent.
 
 Son dictionnaire ne connaît que les mots des textes de cette date : **un texte écrit plus tard s'accentue à la main.** Si on le relance, lire d'abord `accents_rapport.txt` (ignoré par git), puis seulement appliquer.
-
+-->
 ## `ref/` : les fichiers de référence
 
 Voir `ref/LISEZMOI.md`.
