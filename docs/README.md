@@ -42,13 +42,16 @@ actuel : en cas d'écart, la fiche fait foi.
 | `specification_couche2_coeur.md` | Le plan de construction de la couche 2, avec les corrections signalées à leur place. |
 | `specification_couche4_core.md` | Le plan de construction du module OGMS et de 4-Core, mis à jour le 19 octobre 2026. |
 
-## Après une modification de l'ontologie
+
+<!--
+ce sont mes notes internes
+Après une modification de l'ontologie
 
 1. Lancer l'audit, à la racine du dépôt : `bash tools/audit_tout.sh`.
 2. Régénérer l'index : `python tools/index_termes.py`.
 3. Mettre à jour la fiche du module : chiffres, résultat de l'audit, décisions.
 4. Enregistrer l'ontologie, l'index et la fiche dans le même commit.
-
+-->
 <br>
 
 <p align="center">
