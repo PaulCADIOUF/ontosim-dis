@@ -43,21 +43,21 @@
         "value" : "dsim",
         "type" : "label"
       } ],
-      "abstract" : [ {
-        "identifier" : "abstract",
-        "language" : "en",
-        "value" : "OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built.",
-        "type" : "label"
-      }, {
-        "identifier" : "abstract",
-        "language" : "fr",
-        "value" : "OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit.",
-        "type" : "label"
-      } ],
       "versionInfo" : [ {
         "identifier" : "versionInfo",
         "language" : "undefined",
         "value" : "1.1",
+        "type" : "label"
+      } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "fr",
+        "value" : "OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d'un noyau commun à toutes les maladies.",
+        "type" : "label"
+      }, {
+        "identifier" : "abstract",
+        "language" : "en",
+        "value" : "OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built. It focuses on infectious diseases: a dedicated module covers pathogens, hosts, vectors, reservoirs and transmission routes, on top of a core common to all diseases.",
         "type" : "label"
       } ],
       "preferredNamespaceUri" : [ {
@@ -68,13 +68,13 @@
       } ],
       "title" : [ {
         "identifier" : "title",
-        "language" : "fr",
-        "value" : "OntoSim-Dis : une ontologie des modèles de simulation des maladies",
+        "language" : "en",
+        "value" : "OntoSim-Dis: an ontology of disease simulation models",
         "type" : "label"
       }, {
         "identifier" : "title",
-        "language" : "en",
-        "value" : "OntoSim-Dis: an ontology of disease simulation models",
+        "language" : "fr",
+        "value" : "OntoSim-Dis : une ontologie des modèles de simulation des maladies",
         "type" : "label"
       } ]
     }
@@ -108,7 +108,7 @@
     "id" : "40",
     "type" : "owl:Class"
   }, {
-    "id" : "44",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
     "id" : "47",
@@ -156,7 +156,7 @@
     "id" : "99",
     "type" : "owl:Class"
   }, {
-    "id" : "106",
+    "id" : "104",
     "type" : "owl:Class"
   }, {
     "id" : "113",
@@ -187,10 +187,10 @@
     "type" : "owl:Class"
   }, {
     "id" : "155",
-    "type" : "owl:intersectionOf"
-  }, {
-    "id" : "157",
     "type" : "owl:Class"
+  }, {
+    "id" : "156",
+    "type" : "owl:intersectionOf"
   }, {
     "id" : "48",
     "type" : "owl:Class"
@@ -201,7 +201,7 @@
     "id" : "170",
     "type" : "owl:Class"
   }, {
-    "id" : "190",
+    "id" : "188",
     "type" : "owl:Class"
   }, {
     "id" : "80",
@@ -213,7 +213,7 @@
     "id" : "38",
     "type" : "owl:Thing"
   }, {
-    "id" : "43",
+    "id" : "44",
     "type" : "owl:Thing"
   }, {
     "id" : "209",
@@ -243,7 +243,7 @@
     "id" : "103",
     "type" : "owl:Class"
   }, {
-    "id" : "189",
+    "id" : "190",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "231",
@@ -495,7 +495,7 @@
     "id" : "50",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "41",
     "type" : "owl:Class"
   }, {
     "id" : "259",
@@ -552,13 +552,13 @@
     "id" : "115",
     "type" : "owl:Class"
   }, {
-    "id" : "46",
-    "type" : "owl:Class"
-  }, {
     "id" : "248",
     "type" : "owl:Class"
   }, {
-    "id" : "156",
+    "id" : "42",
+    "type" : "owl:Class"
+  }, {
+    "id" : "157",
     "type" : "owl:Class"
   }, {
     "id" : "317",
@@ -573,11 +573,11 @@
     "id" : "92",
     "type" : "owl:Class"
   }, {
-    "id" : "185",
-    "type" : "owl:intersectionOf"
-  }, {
     "id" : "22",
     "type" : "owl:Class"
+  }, {
+    "id" : "185",
+    "type" : "owl:intersectionOf"
   }, {
     "id" : "177",
     "type" : "owl:Class"
@@ -588,11 +588,11 @@
     "id" : "55",
     "type" : "owl:Class"
   }, {
-    "id" : "41",
-    "type" : "owl:intersectionOf"
-  }, {
     "id" : "322",
     "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:intersectionOf"
   }, {
     "id" : "319",
     "type" : "owl:Class"
@@ -606,10 +606,10 @@
     "id" : "6",
     "type" : "owl:intersectionOf"
   }, {
-    "id" : "85",
+    "id" : "280",
     "type" : "owl:Class"
   }, {
-    "id" : "280",
+    "id" : "85",
     "type" : "owl:Class"
   }, {
     "id" : "284",
@@ -624,7 +624,7 @@
     "id" : "268",
     "type" : "owl:Class"
   }, {
-    "id" : "105",
+    "id" : "106",
     "type" : "owl:Class"
   }, {
     "id" : "212",
@@ -654,10 +654,10 @@
     "id" : "111",
     "type" : "owl:Class"
   }, {
-    "id" : "245",
+    "id" : "206",
     "type" : "owl:Class"
   }, {
-    "id" : "206",
+    "id" : "245",
     "type" : "owl:Class"
   }, {
     "id" : "525",
@@ -783,21 +783,6 @@
       "IRI-based" : "double"
     }
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#CompartmentalModel",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "CompartmentalModel",
-      "en" : "CompartmentalModel"
-    },
-    "subClasses" : [ "41" ],
-    "comment" : {
-      "en" : "A model dividing the population into compartments, between which flows carry individuals at rates.",
-      "fr" : "Modèle divisant la population en compartiments, entre lesquels des flux font passer les individus à certains taux."
-    },
-    "id" : "40",
-    "superClasses" : [ "32" ]
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#EnvironmentComponent",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -805,13 +790,28 @@
       "IRI-based" : "EnvironmentComponent",
       "en" : "EnvironmentComponent"
     },
-    "subClasses" : [ "46" ],
+    "subClasses" : [ "42" ],
     "comment" : {
       "en" : "An external or contextual factor influencing the modelled system: weather, terrain, infrastructure.",
       "fr" : "Facteur externe ou contextuel influençant le système modélisé : météo, relief, infrastructure."
     },
-    "id" : "44",
-    "superClasses" : [ "45" ]
+    "id" : "40",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#CompartmentalModel",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CompartmentalModel",
+      "en" : "CompartmentalModel"
+    },
+    "subClasses" : [ "46" ],
+    "comment" : {
+      "en" : "A model dividing the population into compartments, between which flows carry individuals at rates.",
+      "fr" : "Modèle divisant la population en compartiments, entre lesquels des flux font passer les individus à certains taux."
+    },
+    "id" : "45",
+    "superClasses" : [ "32" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#ParadigmType",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -983,7 +983,7 @@
       "en" : "This represents the process of executing a simulation model on a simulator.\nIt is not an information artifact but a process, because it unfolds over time.",
       "fr" : "Ceci représente le processus d'exécution d'un modèle de simulation sur un simulateur.\nCe n'est pas un artefact d'information mais un processus car il se déroule dans le temps."
     },
-    "id" : "106",
+    "id" : "104",
     "superClasses" : [ "37" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -999,13 +999,13 @@
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
-        "language" : "en",
-        "value" : "Entities persisting over time: models, diseases, populations.",
+        "language" : "fr",
+        "value" : "Entités persistant dans le temps : modèles, maladies, populations.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000116",
-        "language" : "fr",
-        "value" : "Entités persistant dans le temps : modèles, maladies, populations.",
+        "language" : "en",
+        "value" : "Entities persisting over time: models, diseases, populations.",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -1033,13 +1033,13 @@
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
-        "language" : "en",
-        "value" : "BFO:0000003 - imported via MIREOT. Superclass of all processes in OntoSim-Dis.",
+        "language" : "fr",
+        "value" : "BFO:0000003 - importé via MIREOT. Superclasse de tous les processus dans OntoSim-Dis.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000116",
-        "language" : "fr",
-        "value" : "BFO:0000003 - importé via MIREOT. Superclasse de tous les processus dans OntoSim-Dis.",
+        "language" : "en",
+        "value" : "BFO:0000003 - imported via MIREOT. Superclass of all processes in OntoSim-Dis.",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -1067,13 +1067,13 @@
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
-        "language" : "en",
-        "value" : "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy.",
+        "language" : "fr",
+        "value" : "BFO:0000001 - importé via MIREOT. Racine de toute la hiérarchie BFO.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000116",
-        "language" : "fr",
-        "value" : "BFO:0000001 - importé via MIREOT. Racine de toute la hiérarchie BFO.",
+        "language" : "en",
+        "value" : "BFO:0000001 - imported via MIREOT. Root of the entire BFO hierarchy.",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -1167,22 +1167,6 @@
     "id" : "135",
     "superClasses" : [ "131" ]
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#StaticApproximationAgentTransition",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "StaticApproximationAgentTransition",
-      "en" : "StaticApproximationAgentTransition"
-    },
-    "intersection" : [ "156" ],
-    "comment" : {
-      "en" : "An agent transition that represents a coupled transition but is triggered by the agent's own attributes alone, not by an interaction. Agent-based form of the static approximation.",
-      "fr" : "Transition d'agent qui représente une transition couplée, mais qui est déclenchée par les seuls attributs de l'agent, et non par une interaction. Forme multi-agents de l'approximation statique."
-    },
-    "attributes" : [ "intersection" ],
-    "id" : "155",
-    "superClasses" : [ "156" ]
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#SimulationObservation",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -1194,8 +1178,24 @@
       "en" : "Real observed data, used to validate a model by comparison with its results.",
       "fr" : "Données réelles observées, servant à valider un modèle par comparaison avec ses résultats."
     },
-    "id" : "157",
+    "id" : "155",
     "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#StaticApproximationAgentTransition",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "StaticApproximationAgentTransition",
+      "en" : "StaticApproximationAgentTransition"
+    },
+    "intersection" : [ "157" ],
+    "comment" : {
+      "en" : "An agent transition that represents a coupled transition but is triggered by the agent's own attributes alone, not by an interaction. Agent-based form of the static approximation.",
+      "fr" : "Transition d'agent qui représente une transition couplée, mais qui est déclenchée par les seuls attributs de l'agent, et non par une interaction. Forme multi-agents de l'approximation statique."
+    },
+    "attributes" : [ "intersection" ],
+    "id" : "156",
+    "superClasses" : [ "157" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -1204,7 +1204,7 @@
       "IRI-based" : "SimulationKnowledgeArtifact",
       "en" : "SimulationKnowledgeArtifact"
     },
-    "subClasses" : [ "159", "45", "160", "161", "111", "162", "163", "164", "105", "165", "98", "62", "166", "167", "109", "47", "168", "157", "95", "169", "170", "171", "172", "129", "3", "97", "10", "118", "26", "99", "32" ],
+    "subClasses" : [ "159", "41", "160", "161", "111", "162", "163", "164", "106", "165", "98", "62", "166", "167", "109", "47", "168", "155", "95", "169", "170", "171", "172", "129", "3", "97", "10", "118", "26", "99", "32" ],
     "comment" : {
       "en" : "Information artifact carrying knowledge used to build, describe, or execute a simulation model.",
       "fr" : "Artefact d'information portant une connaissance utilisée pour construire, décrire ou exécuter un modèle de simulation."
@@ -1298,7 +1298,7 @@
       "en" : "A drug treatment of affected individuals. Usually acts on an individual determinant: it changes the recovery or the progression of the treated individual.",
       "fr" : "Traitement médicamenteux des individus atteints. Agit en général sur un déterminant individuel : il modifie la guérison ou la progression de l'individu traité."
     },
-    "id" : "190",
+    "id" : "188",
     "superClasses" : [ "2" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#MaskWearing",
@@ -1347,7 +1347,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "43",
+    "id" : "44",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1380,12 +1380,12 @@
       "relatedMatch" : [ {
         "identifier" : "relatedMatch",
         "language" : "undefined",
-        "value" : "http://purl.obolibrary.org/obo/OGMS_0000084",
+        "value" : "https://w3id.org/ontologies-ULL/OSDi#Population",
         "type" : "iri"
       }, {
         "identifier" : "relatedMatch",
         "language" : "undefined",
-        "value" : "https://w3id.org/ontologies-ULL/OSDi#Population",
+        "value" : "http://purl.obolibrary.org/obo/OGMS_0000084",
         "type" : "iri"
       } ]
     },
@@ -1452,7 +1452,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#double",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "189",
+    "id" : "190",
     "label" : {
       "IRI-based" : "double"
     }
@@ -1628,7 +1628,7 @@
       "fr" : "Grandeur nommée dont la valeur fixe une partie du comportement du modèle. Fusionne les anciennes classes ParameterComponent et ModelParameter."
     },
     "id" : "56",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -2094,7 +2094,7 @@
       "fr" : "Catégorie d'entités autonomes du modèle.\nL'agent individuel n'est pas modélisé car il n'existe qu'à l'exécution."
     },
     "id" : "12",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#EpidemiologicalRole",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -2270,13 +2270,13 @@
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
-        "language" : "fr",
-        "value" : "Pas d'équivalent dans OSDi. OSDi n'a pas de classe pour ce qui gouverne une transition : il rattache le risque à un élément de progression clinique par la propriété hasRiskCharacterization, dont la valeur est un paramètre (un risque relatif, par exemple) ou un chemin (Pathway).",
+        "language" : "en",
+        "value" : "No equivalent in OSDi. OSDi has no class for what governs a transition: it attaches risk to a clinical progression element through the property hasRiskCharacterization, whose value is a parameter (for instance a relative risk) or a pathway.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000116",
-        "language" : "en",
-        "value" : "No equivalent in OSDi. OSDi has no class for what governs a transition: it attaches risk to a clinical progression element through the property hasRiskCharacterization, whose value is a parameter (for instance a relative risk) or a pathway.",
+        "language" : "fr",
+        "value" : "Pas d'équivalent dans OSDi. OSDi n'a pas de classe pour ce qui gouverne une transition : il rattache le risque à un élément de progression clinique par la propriété hasRiskCharacterization, dont la valeur est un paramètre (un risque relatif, par exemple) ou un chemin (Pathway).",
         "type" : "label"
       } ]
     },
@@ -2326,7 +2326,7 @@
       "IRI-based" : "AgentTransition",
       "en" : "AgentTransition"
     },
-    "subClasses" : [ "89", "156" ],
+    "subClasses" : [ "89", "157" ],
     "comment" : {
       "en" : "A change of state of an agent. Inherits from the layer 2 transition its source and target states.",
       "fr" : "Changement d'état d'un agent. Hérite de la transition de couche 2 ses états de départ et d'arrivée."
@@ -2416,7 +2416,7 @@
       "IRI-based" : "BFO_0000015",
       "en" : "process"
     },
-    "subClasses" : [ "245", "106" ],
+    "subClasses" : [ "245", "104" ],
     "comment" : {
       "en" : "An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t."
     },
@@ -2687,12 +2687,12 @@
       "IRI-based" : "ModelComponent",
       "en" : "ModelComponent"
     },
-    "subClasses" : [ "212", "256", "259", "56", "85", "44", "149", "12" ],
+    "subClasses" : [ "212", "256", "259", "56", "85", "40", "149", "12" ],
     "comment" : {
       "en" : "A constituent part of the structure of a model.",
       "fr" : "Partie constitutive de la structure d'un modèle."
     },
-    "id" : "45",
+    "id" : "41",
     "superClasses" : [ "48" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#InteractionType",
@@ -2707,7 +2707,7 @@
       "fr" : "Sorte de rencontre ou d'échange entre agents."
     },
     "id" : "259",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -2919,7 +2919,7 @@
       "IRI-based" : "SimulationModel",
       "en" : "SimulationModel"
     },
-    "subClasses" : [ "177", "40", "228" ],
+    "subClasses" : [ "177", "45", "228" ],
     "comment" : {
       "en" : "A representation of a system whose behaviour is studied by simulation, independently of the paradigm used.",
       "fr" : "Représentation d'un système dont on étudie le comportement par simulation, indépendamment du paradigme employé."
@@ -3014,20 +3014,6 @@
     "id" : "115",
     "superClasses" : [ "62" ]
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#EnvironmentModel",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EnvironmentModel",
-      "en" : "EnvironmentModel"
-    },
-    "comment" : {
-      "en" : "The surroundings in which agents move and meet. Its spatial nature is given by the spatial type of the model structure, in layer 2 and is not repeated here.",
-      "fr" : "Milieu dans lequel les agents se déplacent et se rencontrent. Sa nature spatiale est donnée par le type d'espace de la structure de modèle, en couche 2 et n'est pas répétée ici."
-    },
-    "id" : "46",
-    "superClasses" : [ "44" ]
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#TemperateClimate",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -3042,6 +3028,20 @@
     "id" : "248",
     "superClasses" : [ "129" ]
   }, {
+    "iri" : "https://w3id.org/ontosim-dis#EnvironmentModel",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EnvironmentModel",
+      "en" : "EnvironmentModel"
+    },
+    "comment" : {
+      "en" : "The surroundings in which agents move and meet. Its spatial nature is given by the spatial type of the model structure, in layer 2 and is not repeated here.",
+      "fr" : "Milieu dans lequel les agents se déplacent et se rencontrent. Sa nature spatiale est donnée par le type d'espace de la structure de modèle, en couche 2 et n'est pas répétée ici."
+    },
+    "id" : "42",
+    "superClasses" : [ "40" ]
+  }, {
     "iri" : "https://w3id.org/ontosim-dis#AttributeDrivenTransition",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -3049,12 +3049,12 @@
       "IRI-based" : "AttributeDrivenTransition",
       "en" : "AttributeDrivenTransition"
     },
-    "subClasses" : [ "155" ],
+    "subClasses" : [ "156" ],
     "comment" : {
       "en" : "A transition triggered by the agent's own attributes alone: its age, the time spent in its current state. Individual determinant.",
       "fr" : "Transition déclenchée par les seuls attributs de l'agent : son âge, le temps passé dans son état courant. Déterminant individuel."
     },
-    "id" : "156",
+    "id" : "157",
     "superClasses" : [ "90" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#PoissonDistribution",
@@ -3123,6 +3123,20 @@
     "id" : "92",
     "superClasses" : [ "121" ]
   }, {
+    "iri" : "https://w3id.org/ontosim-dis#IntermediateHostRole",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "IntermediateHostRole",
+      "en" : "IntermediateHostRole"
+    },
+    "comment" : {
+      "en" : "Organism in which the pathogen goes through a stage of its life cycle before reaching its final host. The snail in schistosomiasis.",
+      "fr" : "Organisme dans lequel l'agent pathogène accomplit une étape de son cycle de vie avant d'atteindre son hôte final. L'escargot dans la schistosomiase."
+    },
+    "id" : "22",
+    "superClasses" : [ "10" ]
+  }, {
     "iri" : "https://w3id.org/ontosim-dis#CoupledTransition",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -3138,20 +3152,6 @@
     "attributes" : [ "intersection" ],
     "id" : "185",
     "superClasses" : [ "97" ]
-  }, {
-    "iri" : "https://w3id.org/ontosim-dis#IntermediateHostRole",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "IntermediateHostRole",
-      "en" : "IntermediateHostRole"
-    },
-    "comment" : {
-      "en" : "Organism in which the pathogen goes through a stage of its life cycle before reaching its final host. The snail in schistosomiasis.",
-      "fr" : "Organisme dans lequel l'agent pathogène accomplit une étape de son cycle de vie avant d'atteindre son hôte final. L'escargot dans la schistosomiase."
-    },
-    "id" : "22",
-    "superClasses" : [ "10" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#AgentBasedModel",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -3215,22 +3215,6 @@
     "id" : "55",
     "superClasses" : [ "3" ]
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#CoupledCompartmentalModel",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "CoupledCompartmentalModel",
-      "en" : "CoupledCompartmentalModel"
-    },
-    "intersection" : [ "40" ],
-    "comment" : {
-      "en" : "A compartmental model containing at least one coupled flow. Inferred by the reasoner without anyone declaring the model infectious.",
-      "fr" : "Modèle compartimental comportant au moins un flux couplé. Inféré par le raisonneur sans que personne ait déclaré le modèle infectieux."
-    },
-    "attributes" : [ "intersection" ],
-    "id" : "41",
-    "superClasses" : [ "40" ]
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#BetaDistribution",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -3252,6 +3236,22 @@
     },
     "id" : "322",
     "superClasses" : [ "111" ]
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#CoupledCompartmentalModel",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CoupledCompartmentalModel",
+      "en" : "CoupledCompartmentalModel"
+    },
+    "intersection" : [ "45" ],
+    "comment" : {
+      "en" : "A compartmental model containing at least one coupled flow. Inferred by the reasoner without anyone declaring the model infectious.",
+      "fr" : "Modèle compartimental comportant au moins un flux couplé. Inféré par le raisonneur sans que personne ait déclaré le modèle infectieux."
+    },
+    "attributes" : [ "intersection" ],
+    "id" : "46",
+    "superClasses" : [ "45" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#NormalDistribution",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -3319,20 +3319,6 @@
     "id" : "6",
     "superClasses" : [ "3" ]
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#DifferentialEquation",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DifferentialEquation",
-      "en" : "DifferentialEquation"
-    },
-    "comment" : {
-      "en" : "The equation giving the variation over time of the content of one compartment, as the balance of the flows entering and leaving it.",
-      "fr" : "Équation donnant la variation dans le temps du contenu d'un compartiment, comme bilan des flux qui y entrent et en sortent."
-    },
-    "id" : "85",
-    "superClasses" : [ "45" ]
-  }, {
     "iri" : "http://purl.obolibrary.org/obo/OGMS_0000030",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "instances" : 0,
@@ -3347,6 +3333,20 @@
     "attributes" : [ "external" ],
     "id" : "280",
     "superClasses" : [ "281" ]
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#DifferentialEquation",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DifferentialEquation",
+      "en" : "DifferentialEquation"
+    },
+    "comment" : {
+      "en" : "The equation giving the variation over time of the content of one compartment, as the balance of the flows entering and leaving it.",
+      "fr" : "Équation donnant la variation dans le temps du contenu d'un compartiment, comme bilan des flux qui y entrent et en sortent."
+    },
+    "id" : "85",
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OGMS_0000031",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -3458,7 +3458,7 @@
       "en" : "States whether the model explains mechanisms or merely reproduces observations. Closed list. This criterion decides what can be recomposed: a black box is not recomposed the way a mechanistic model is.",
       "fr" : "Dit si le modèle explique les mécanismes ou se contente de reproduire les observations. Liste fermée. Ce critère décide de ce qui est recomposable : on ne recompose pas une boîte noire comme un modèle à mécanismes."
     },
-    "id" : "105",
+    "id" : "106",
     "superClasses" : [ "48" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#RuleComponent",
@@ -3474,7 +3474,7 @@
       "fr" : "Règle gouvernant le comportement du modèle : règle de décision, de comportement, d'interaction."
     },
     "id" : "212",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#TransitionFlow",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -3579,13 +3579,13 @@
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
-        "language" : "fr",
-        "value" : "Superclasse directe de dsim:SimulationKnowledgeArtifact (Couche 2). Regroupe tous les artefacts informationnels de l'ontologie",
+        "language" : "en",
+        "value" : "Direct superclass of dsim:SimulationKnowledgeArtifact (Layer 2). Groups all informational artifacts of the ontology.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000116",
-        "language" : "en",
-        "value" : "Direct superclass of dsim:SimulationKnowledgeArtifact (Layer 2). Groups all informational artifacts of the ontology.",
+        "language" : "fr",
+        "value" : "Superclasse directe de dsim:SimulationKnowledgeArtifact (Couche 2). Regroupe tous les artefacts informationnels de l'ontologie",
         "type" : "label"
       } ]
     },
@@ -3624,21 +3624,6 @@
     "id" : "111",
     "superClasses" : [ "48" ]
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/OGMS_0000063",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "OGMS_0000063",
-      "en" : "disease course"
-    },
-    "subClasses" : [ "522", "525", "528", "531" ],
-    "comment" : {
-      "en" : "The totality of all processes through which a given disease instance is realized."
-    },
-    "attributes" : [ "external" ],
-    "id" : "245",
-    "superClasses" : [ "37" ]
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#ScreeningIntervention",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "instances" : 0,
@@ -3660,6 +3645,21 @@
     },
     "id" : "206",
     "superClasses" : [ "55" ]
+  }, {
+    "iri" : "http://purl.obolibrary.org/obo/OGMS_0000063",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OGMS_0000063",
+      "en" : "disease course"
+    },
+    "subClasses" : [ "522", "525", "528", "531" ],
+    "comment" : {
+      "en" : "The totality of all processes through which a given disease instance is realized."
+    },
+    "attributes" : [ "external" ],
+    "id" : "245",
+    "superClasses" : [ "37" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OGMS_0000064",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -3795,7 +3795,7 @@
       "fr" : "État qu'une entité du modèle peut occuper à un instant donné. Se spécialise en compartiment pour les modèles compartimentaux [C3B] et en état d'agent pour les modèles à agents [C3A]."
     },
     "id" : "149",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "https://w3id.org/ontosim-dis#VectorRole",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -3912,7 +3912,7 @@
       "IRI-based" : "PharmaceuticalIntervention",
       "en" : "PharmaceuticalIntervention"
     },
-    "subClasses" : [ "409", "190" ],
+    "subClasses" : [ "409", "188" ],
     "comment" : {
       "en" : "An intervention using a medical product: vaccine, antiviral, antibiotic.",
       "fr" : "Intervention reposant sur un produit médical : vaccin, antiviral, antibiotique."
@@ -4008,7 +4008,7 @@
       "fr" : "Passage d'un état à un autre. Possède exactement un état de départ et un état d'arrivée, quel que soit le paradigme. Une transition vers plusieurs états se représente par plusieurs transitions."
     },
     "id" : "256",
-    "superClasses" : [ "45" ]
+    "superClasses" : [ "41" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OGMS_0000094",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -4061,7 +4061,7 @@
     "id" : "36",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "42",
+    "id" : "43",
     "type" : "owl:objectProperty"
   }, {
     "id" : "49",
@@ -4115,7 +4115,7 @@
     "id" : "96",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "104",
+    "id" : "105",
     "type" : "owl:objectProperty"
   }, {
     "id" : "107",
@@ -4190,7 +4190,7 @@
     "id" : "186",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "188",
+    "id" : "189",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "191",
@@ -4424,17 +4424,17 @@
     "id" : "335",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "333",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "336",
     "type" : "owl:objectProperty"
   }, {
+    "id" : "333",
+    "type" : "owl:objectProperty"
+  }, {
     "id" : "337",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "338",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "339",
     "type" : "owl:datatypeProperty"
@@ -4482,13 +4482,13 @@
     "type" : "owl:allValuesFrom"
   }, {
     "id" : "354",
-    "type" : "owl:allValuesFrom"
+    "type" : "owl:someValuesFrom"
   }, {
     "id" : "355",
     "type" : "owl:objectProperty"
   }, {
     "id" : "356",
-    "type" : "owl:someValuesFrom"
+    "type" : "owl:allValuesFrom"
   }, {
     "id" : "357",
     "type" : "owl:objectProperty"
@@ -4584,7 +4584,7 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "392",
-    "type" : "owl:someValuesFrom"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "393",
     "type" : "owl:disjointWith"
@@ -4614,7 +4614,7 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "402",
-    "type" : "owl:disjointWith"
+    "type" : "owl:someValuesFrom"
   }, {
     "id" : "403",
     "type" : "owl:disjointWith"
@@ -4842,10 +4842,10 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "484",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "485",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "486",
     "type" : "owl:objectProperty"
@@ -5100,13 +5100,13 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "574",
-    "type" : "owl:allValuesFrom"
+    "type" : "owl:someValuesFrom"
   }, {
     "id" : "575",
     "type" : "owl:objectProperty"
   }, {
     "id" : "576",
-    "type" : "owl:someValuesFrom"
+    "type" : "owl:allValuesFrom"
   }, {
     "id" : "577",
     "type" : "owl:someValuesFrom"
@@ -5148,10 +5148,10 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "590",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "591",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "592",
     "type" : "owl:objectProperty"
@@ -5280,7 +5280,7 @@
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0002234",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "43",
+    "range" : "44",
     "annotations" : {
       "IAO_0000116" : [ {
         "identifier" : "IAO_0000116",
@@ -5294,12 +5294,12 @@
       "en" : "has output"
     },
     "superproperty" : [ "39" ],
-    "domain" : "43",
+    "domain" : "44",
     "comment" : {
       "en" : "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "42"
+    "id" : "43"
   }, {
     "range" : "51",
     "domain" : "50",
@@ -5331,7 +5331,7 @@
       "en" : "Links a detection intervention to the parameter giving its specificity: the share of unaffected individuals the test correctly leaves aside.",
       "fr" : "Lie une intervention de détection au paramètre qui en donne la spécificité : la part des individus indemnes que le test écarte correctement."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "54"
   }, {
     "range" : "3",
@@ -5391,7 +5391,7 @@
       "en" : "Links an equation to the compartment whose variation it gives.",
       "fr" : "Lie une équation au compartiment dont elle donne la variation."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "84"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#creationDate",
@@ -5436,7 +5436,7 @@
       "en" : "States whether the model is general or specific. Functional: a model is one or the other, not both.",
       "fr" : "Dit si le modèle est général ou spécifique. Fonctionnelle : un modèle est l'un ou l'autre, pas les deux."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "94"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#isGovernedBy",
@@ -5456,7 +5456,7 @@
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasModelNature",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "105",
+    "range" : "106",
     "label" : {
       "IRI-based" : "hasModelNature",
       "en" : "hasModelNature"
@@ -5466,8 +5466,8 @@
       "en" : "States whether the model is mechanistic, empirical or mixed. Functional.",
       "fr" : "Dit si le modèle est mécaniste, empirique ou mixte. Fonctionnelle."
     },
-    "attributes" : [ "object", "functional" ],
-    "id" : "104"
+    "attributes" : [ "functional", "object" ],
+    "id" : "105"
   }, {
     "range" : "109",
     "domain" : "108",
@@ -5512,7 +5512,7 @@
       "en" : "Links a flow to the way its rate is determined.",
       "fr" : "Lie un flux à la façon dont son taux est déterminé."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "119"
   }, {
     "range" : "118",
@@ -5611,13 +5611,13 @@
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0002131",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "43",
+    "range" : "44",
     "label" : {
       "IRI-based" : "RO_0002131",
       "en" : "overlaps"
     },
     "superproperty" : [ "174" ],
-    "domain" : "43",
+    "domain" : "44",
     "subproperty" : [ "175" ],
     "comment" : {
       "en" : "A overlaps B if they share some part in common.\nx overlaps y if and only if there exists some z such that x has part z and z part of y"
@@ -5672,7 +5672,7 @@
   }, {
     "iri" : "https://w3id.org/ontosim-dis#upperLimitParameter",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "189",
+    "range" : "190",
     "label" : {
       "IRI-based" : "upperLimitParameter",
       "en" : "upperLimitParameter"
@@ -5684,7 +5684,7 @@
       "fr" : "Borne supérieure d'une loi uniforme."
     },
     "attributes" : [ "datatype" ],
-    "id" : "188"
+    "id" : "189"
   }, {
     "range" : "168",
     "domain" : "192",
@@ -5699,7 +5699,7 @@
       "en" : "has participant"
     },
     "domain" : "138",
-    "subproperty" : [ "36", "42" ],
+    "subproperty" : [ "36", "43" ],
     "comment" : {
       "en" : "a relation between a process and a continuant, in which the continuant is somehow involved in the process."
     },
@@ -5802,7 +5802,7 @@
     "id" : "210"
   }, {
     "range" : "40",
-    "domain" : "41",
+    "domain" : "42",
     "attributes" : [ "object", "anonymous" ],
     "id" : "213"
   }, {
@@ -5875,7 +5875,7 @@
     "id" : "223"
   }, {
     "range" : "32",
-    "domain" : "40",
+    "domain" : "45",
     "attributes" : [ "object", "anonymous" ],
     "id" : "225"
   }, {
@@ -5884,8 +5884,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "227"
   }, {
-    "range" : "156",
-    "domain" : "155",
+    "range" : "157",
+    "domain" : "156",
     "attributes" : [ "object", "anonymous" ],
     "id" : "229"
   }, {
@@ -5894,22 +5894,22 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "230"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "85",
     "attributes" : [ "object", "anonymous" ],
     "id" : "232"
   }, {
-    "range" : "45",
-    "domain" : "44",
+    "range" : "41",
+    "domain" : "40",
     "attributes" : [ "object", "anonymous" ],
     "id" : "234"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "149",
     "attributes" : [ "object", "anonymous" ],
     "id" : "236"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "12",
     "attributes" : [ "object", "anonymous" ],
     "id" : "238"
@@ -5970,22 +5970,22 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "250"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "212",
     "attributes" : [ "object", "anonymous" ],
     "id" : "253"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "256",
     "attributes" : [ "object", "anonymous" ],
     "id" : "255"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "259",
     "attributes" : [ "object", "anonymous" ],
     "id" : "258"
   }, {
-    "range" : "45",
+    "range" : "41",
     "domain" : "56",
     "attributes" : [ "object", "anonymous" ],
     "id" : "260"
@@ -6021,7 +6021,7 @@
     "id" : "275"
   }, {
     "range" : "37",
-    "domain" : "106",
+    "domain" : "104",
     "attributes" : [ "object", "anonymous" ],
     "id" : "277"
   }, {
@@ -6076,7 +6076,7 @@
     "id" : "294"
   }, {
     "range" : "90",
-    "domain" : "156",
+    "domain" : "157",
     "attributes" : [ "object", "anonymous" ],
     "id" : "296"
   }, {
@@ -6097,7 +6097,7 @@
       "en" : "End state of a transition.",
       "fr" : "État d'arrivée d'une transition."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "301"
   }, {
     "range" : "26",
@@ -6135,7 +6135,7 @@
       "en" : "Links a health state to the parameter giving the age from which an individual may enter it.",
       "fr" : "Lie un état de santé au paramètre donnant l'âge à partir duquel un individu peut y entrer."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "308"
   }, {
     "range" : "133",
@@ -6180,12 +6180,12 @@
       "IRI-based" : "executesModel",
       "en" : "executesModel"
     },
-    "domain" : "106",
+    "domain" : "104",
     "comment" : {
       "en" : "Links an execution to the model it runs.",
       "fr" : "Lie une exécution au modèle qu'elle fait tourner."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "320"
   }, {
     "range" : "322",
@@ -6258,21 +6258,6 @@
     "attributes" : [ "external", "object" ],
     "id" : "332"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#modelDescription",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "278",
-    "label" : {
-      "IRI-based" : "modelDescription",
-      "en" : "modelDescription"
-    },
-    "domain" : "32",
-    "comment" : {
-      "en" : "Free-text description of the model.",
-      "fr" : "Description libre du modèle."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "334"
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#lowerLimitParameter",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "297",
@@ -6287,21 +6272,22 @@
       "fr" : "Borne inférieure d'une loi uniforme."
     },
     "attributes" : [ "datatype" ],
-    "id" : "335"
+    "id" : "334"
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/BFO_0000055",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "299",
+    "iri" : "https://w3id.org/ontosim-dis#modelDescription",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "278",
     "label" : {
-      "IRI-based" : "BFO_0000055",
-      "en" : "realizes"
+      "IRI-based" : "modelDescription",
+      "en" : "modelDescription"
     },
-    "domain" : "37",
+    "domain" : "32",
     "comment" : {
-      "en" : "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"
+      "en" : "Free-text description of the model.",
+      "fr" : "Description libre du modèle."
     },
-    "attributes" : [ "external", "object" ],
-    "id" : "333"
+    "attributes" : [ "datatype" ],
+    "id" : "335"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#quantifiedBy",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -6318,6 +6304,35 @@
     "attributes" : [ "object" ],
     "id" : "336"
   }, {
+    "iri" : "http://purl.obolibrary.org/obo/BFO_0000055",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "range" : "299",
+    "label" : {
+      "IRI-based" : "BFO_0000055",
+      "en" : "realizes"
+    },
+    "domain" : "37",
+    "comment" : {
+      "en" : "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "333"
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#hasComponent",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "hasComponent",
+      "en" : "hasComponent"
+    },
+    "domain" : "161",
+    "comment" : {
+      "en" : "Links a model structure to the components it contains.",
+      "fr" : "Lie une structure de modèle aux composants qu'elle contient."
+    },
+    "attributes" : [ "object" ],
+    "id" : "337"
+  }, {
     "iri" : "https://w3id.org/ontosim-dis#medianAge",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "276",
@@ -6331,21 +6346,6 @@
       "fr" : "Âge médian de la population, en années."
     },
     "attributes" : [ "datatype" ],
-    "id" : "337"
-  }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasComponent",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "45",
-    "label" : {
-      "IRI-based" : "hasComponent",
-      "en" : "hasComponent"
-    },
-    "domain" : "161",
-    "comment" : {
-      "en" : "Links a model structure to the components it contains.",
-      "fr" : "Lie une structure de modèle aux composants qu'elle contient."
-    },
-    "attributes" : [ "object" ],
     "id" : "338"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#simulatorName",
@@ -6375,11 +6375,11 @@
       "en" : "Links a reservoir state to the epidemiological role whose head count it quantifies: the intermediate host role for infected snails, the reservoir role for cercariae present in the water. Functional: one head count quantifies one role only.",
       "fr" : "Lie un état de réservoir au rôle épidémiologique dont il quantifie l'effectif : le rôle d'hôte intermédiaire pour les escargots infectés, le rôle de réservoir pour les cercaires présentes dans l'eau. Fonctionnelle : un effectif ne quantifie qu'un seul rôle."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "340"
   }, {
     "range" : "89",
-    "domain" : "156",
+    "domain" : "157",
     "attributes" : [ "object", "anonymous" ],
     "id" : "341"
   }, {
@@ -6405,7 +6405,7 @@
       "en" : "Links a model structure to its handling of time.",
       "fr" : "Lie une structure de modèle à son traitement du temps."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "344"
   }, {
     "range" : "68",
@@ -6433,7 +6433,7 @@
       "en" : "Links a detection intervention to the parameter giving its sensitivity: the share of affected individuals the test does find. Going through a parameter rather than a plain number allows the sensitivity to carry its own uncertainty.",
       "fr" : "Lie une intervention de détection au paramètre qui en donne la sensibilité : la part des individus atteints que le test trouve effectivement. Passer par un paramètre plutôt que par un nombre en clair permet à la sensibilité de porter sa propre incertitude."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "346"
   }, {
     "range" : "68",
@@ -6466,21 +6466,6 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "352"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasRiskFactor",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "172",
-    "label" : {
-      "IRI-based" : "hasRiskFactor",
-      "en" : "hasRiskFactor"
-    },
-    "domain" : "118",
-    "comment" : {
-      "en" : "Links a disease knowledge artifact to its risk factors.",
-      "fr" : "Lie une connaissance de maladie à ses facteurs de risque."
-    },
-    "attributes" : [ "object", "allValues" ],
-    "id" : "353"
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "245",
@@ -6493,7 +6478,23 @@
       "en" : "Links a disease knowledge artifact to the dynamic shape of its course, as classified by OGMS. This shape constrains the structure of the model independently of the determinant: it says whether a return to health is possible, whether an absorbing state is required or whether progression is monotone.",
       "fr" : "Lie une connaissance de maladie à la forme dynamique de son cours, telle que classifiée par OGMS. Cette forme contraint la structure du modèle indépendamment du déterminant : elle dit si un retour à l'état sain est possible, si un état absorbant est requis ou si la progression est monotone."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
+    "id" : "353"
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#representsDisease",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "284",
+    "label" : {
+      "IRI-based" : "representsDisease",
+      "en" : "representsDisease"
+    },
+    "superproperty" : [ "246" ],
+    "domain" : "118",
+    "comment" : {
+      "en" : "Links a disease knowledge artifact to the real disease it is about, a disposition borne by an organism. Only point of contact between the informational layer of OntoSim-Dis and the realist ontology OGMS.",
+      "fr" : "Lie un artefact de connaissance de maladie à la maladie réelle dont il parle, c'est-à-dire une disposition portée par un organisme. Unique point de contact entre la couche informationnelle d'OntoSim-Dis et l'ontologie réaliste OGMS."
+    },
+    "attributes" : [ "object", "someValues" ],
     "id" : "354"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#involvesFlow",
@@ -6511,20 +6512,19 @@
     "attributes" : [ "object" ],
     "id" : "355"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#representsDisease",
+    "iri" : "https://w3id.org/ontosim-dis#hasRiskFactor",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "284",
+    "range" : "172",
     "label" : {
-      "IRI-based" : "representsDisease",
-      "en" : "representsDisease"
+      "IRI-based" : "hasRiskFactor",
+      "en" : "hasRiskFactor"
     },
-    "superproperty" : [ "246" ],
     "domain" : "118",
     "comment" : {
-      "en" : "Links a disease knowledge artifact to the real disease it is about, a disposition borne by an organism. Only point of contact between the informational layer of OntoSim-Dis and the realist ontology OGMS.",
-      "fr" : "Lie un artefact de connaissance de maladie à la maladie réelle dont il parle, c'est-à-dire une disposition portée par un organisme. Unique point de contact entre la couche informationnelle d'OntoSim-Dis et l'ontologie réaliste OGMS."
+      "en" : "Links a disease knowledge artifact to its risk factors.",
+      "fr" : "Lie une connaissance de maladie à ses facteurs de risque."
     },
-    "attributes" : [ "object", "someValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "356"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasValidationMethod",
@@ -6560,7 +6560,7 @@
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasEnvironmentModel",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "46",
+    "range" : "42",
     "label" : {
       "IRI-based" : "hasEnvironmentModel",
       "en" : "hasEnvironmentModel"
@@ -6570,7 +6570,7 @@
       "en" : "Links a model to the surroundings in which its agents evolve.",
       "fr" : "Lie un modèle au milieu dans lequel ses agents évoluent."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "359"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasParadigm",
@@ -6585,7 +6585,7 @@
       "en" : "Links a model structure to its deterministic or stochastic nature.",
       "fr" : "Lie une structure de modèle à sa nature déterministe ou stochastique."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "360"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasAuthor",
@@ -6611,19 +6611,19 @@
     "attributes" : [ "datatype" ],
     "id" : "361"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasClimate",
+    "iri" : "https://w3id.org/ontosim-dis#hasHealthInfrastructure",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "129",
+    "range" : "26",
     "label" : {
-      "IRI-based" : "hasClimate",
-      "en" : "hasClimate"
+      "IRI-based" : "hasHealthInfrastructure",
+      "en" : "hasHealthInfrastructure"
     },
     "domain" : "162",
     "comment" : {
-      "en" : "Links a context to its climatic conditions.",
-      "fr" : "Lie un contexte à ses conditions climatiques."
+      "en" : "Links a context to the health facilities available.",
+      "fr" : "Lie un contexte aux structures de santé disponibles."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "362"
   }, {
     "range" : "92",
@@ -6651,19 +6651,19 @@
     "attributes" : [ "datatype" ],
     "id" : "366"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasHealthInfrastructure",
+    "iri" : "https://w3id.org/ontosim-dis#hasClimate",
     "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "26",
+    "range" : "129",
     "label" : {
-      "IRI-based" : "hasHealthInfrastructure",
-      "en" : "hasHealthInfrastructure"
+      "IRI-based" : "hasClimate",
+      "en" : "hasClimate"
     },
     "domain" : "162",
     "comment" : {
-      "en" : "Links a context to the health facilities available.",
-      "fr" : "Lie un contexte aux structures de santé disponibles."
+      "en" : "Links a context to its climatic conditions.",
+      "fr" : "Lie un contexte à ses conditions climatiques."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "368"
   }, {
     "range" : "317",
@@ -6735,7 +6735,7 @@
       "en" : "realisesDeterminant"
     },
     "superproperty" : [ "246" ],
-    "domain" : "45",
+    "domain" : "41",
     "comment" : {
       "en" : "States which determinant a model component realises: a compartment-dependent rate [3B] or an interaction-triggered transition [3A] both realise a population-coupled determinant.",
       "fr" : "Déclare quel déterminant un composant de modèle réalise : un taux dépendant d'un compartiment [3B] ou une transition déclenchée par une interaction [3A] réalisent tous deux un déterminant couplé à la population."
@@ -6765,7 +6765,7 @@
       "IRI-based" : "hasEquation",
       "en" : "hasEquation"
     },
-    "domain" : "40",
+    "domain" : "45",
     "comment" : {
       "en" : "Links a compartmental model to its differential equations.",
       "fr" : "Lie un modèle compartimental à ses équations différentielles."
@@ -6833,24 +6833,13 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "391"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#representsPhaseOf",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "245",
-    "label" : {
-      "IRI-based" : "representsPhaseOf",
-      "en" : "representsPhaseOf"
-    },
-    "superproperty" : [ "246" ],
-    "domain" : "108",
-    "comment" : {
-      "en" : "Links a health state to the phase of the disease course it stands for. A health state is not a real phase: it is a modelling abstraction standing in for one.",
-      "fr" : "Lie un état de santé à la phase du cours de maladie qu'il représente. Un état de santé n'est pas une phase réelle : c'est une abstraction de modélisation qui en tient lieu."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "392"
-  }, {
     "range" : "145",
     "domain" : "108",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "392"
+  }, {
+    "range" : "98",
+    "domain" : "172",
     "attributes" : [ "object", "anonymous" ],
     "id" : "393"
   }, {
@@ -6865,7 +6854,7 @@
     "id" : "395"
   }, {
     "range" : "98",
-    "domain" : "172",
+    "domain" : "97",
     "attributes" : [ "object", "anonymous" ],
     "id" : "396"
   }, {
@@ -6915,19 +6904,30 @@
     "attributes" : [ "datatype" ],
     "id" : "399"
   }, {
-    "range" : "98",
+    "range" : "172",
     "domain" : "97",
     "attributes" : [ "object", "anonymous" ],
     "id" : "400"
   }, {
-    "range" : "172",
-    "domain" : "97",
+    "range" : "98",
+    "domain" : "108",
     "attributes" : [ "object", "anonymous" ],
     "id" : "401"
   }, {
-    "range" : "97",
+    "iri" : "https://w3id.org/ontosim-dis#representsPhaseOf",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "245",
+    "label" : {
+      "IRI-based" : "representsPhaseOf",
+      "en" : "representsPhaseOf"
+    },
+    "superproperty" : [ "246" ],
     "domain" : "108",
-    "attributes" : [ "object", "anonymous" ],
+    "comment" : {
+      "en" : "Links a health state to the phase of the disease course it stands for. A health state is not a real phase: it is a modelling abstraction standing in for one.",
+      "fr" : "Lie un état de santé à la phase du cours de maladie qu'il représente. Un état de santé n'est pas une phase réelle : c'est une abstraction de modélisation qui en tient lieu."
+    },
+    "attributes" : [ "object", "someValues" ],
     "id" : "402"
   }, {
     "range" : "221",
@@ -6935,12 +6935,12 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "403"
   }, {
-    "range" : "98",
+    "range" : "172",
     "domain" : "108",
     "attributes" : [ "object", "anonymous" ],
     "id" : "404"
   }, {
-    "range" : "172",
+    "range" : "97",
     "domain" : "108",
     "attributes" : [ "object", "anonymous" ],
     "id" : "405"
@@ -6966,7 +6966,7 @@
     "id" : "410"
   }, {
     "range" : "2",
-    "domain" : "190",
+    "domain" : "188",
     "attributes" : [ "object", "anonymous" ],
     "id" : "411"
   }, {
@@ -7022,7 +7022,7 @@
     "id" : "418"
   }, {
     "range" : "256",
-    "domain" : "44",
+    "domain" : "40",
     "attributes" : [ "object", "anonymous" ],
     "id" : "419"
   }, {
@@ -7032,7 +7032,7 @@
     "id" : "420"
   }, {
     "range" : "56",
-    "domain" : "44",
+    "domain" : "40",
     "attributes" : [ "object", "anonymous" ],
     "id" : "421"
   }, {
@@ -7042,7 +7042,7 @@
     "id" : "422"
   }, {
     "range" : "149",
-    "domain" : "44",
+    "domain" : "40",
     "attributes" : [ "object", "anonymous" ],
     "id" : "423"
   }, {
@@ -7058,11 +7058,11 @@
       "en" : "Links a model structure to its handling of space.",
       "fr" : "Lie une structure de modèle à son traitement de l'espace."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "424"
   }, {
     "range" : "212",
-    "domain" : "44",
+    "domain" : "40",
     "attributes" : [ "object", "anonymous" ],
     "id" : "425"
   }, {
@@ -7083,12 +7083,12 @@
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0002323",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "43",
+    "range" : "44",
     "label" : {
       "IRI-based" : "RO_0002323",
       "en" : "mereotopologically related to"
     },
-    "domain" : "43",
+    "domain" : "44",
     "subproperty" : [ "173" ],
     "comment" : {
       "en" : "A mereological relationship or a topological relationship"
@@ -7118,7 +7118,7 @@
       "en" : "Links a determinant to the parameter that gives it its value: beta, gamma, a hazard ratio.",
       "fr" : "Lie un déterminant au paramètre qui lui donne sa valeur : beta, gamma, un rapport de risque."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "433"
   }, {
     "range" : "98",
@@ -7236,6 +7236,21 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "448"
   }, {
+    "iri" : "https://w3id.org/ontosim-dis#hasSourceState",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "149",
+    "label" : {
+      "IRI-based" : "hasSourceState",
+      "en" : "hasSourceState"
+    },
+    "domain" : "256",
+    "comment" : {
+      "en" : "Start state of a transition.",
+      "fr" : "État de départ d'une transition."
+    },
+    "attributes" : [ "functional", "object" ],
+    "id" : "449"
+  }, {
     "iri" : "https://w3id.org/ontosim-dis#hasGeographicRegion",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "62",
@@ -7249,21 +7264,6 @@
       "fr" : "Lie un contexte aux territoires qu'il couvre."
     },
     "attributes" : [ "object" ],
-    "id" : "449"
-  }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasSourceState",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "149",
-    "label" : {
-      "IRI-based" : "hasSourceState",
-      "en" : "hasSourceState"
-    },
-    "domain" : "256",
-    "comment" : {
-      "en" : "Start state of a transition.",
-      "fr" : "État de départ d'une transition."
-    },
-    "attributes" : [ "object", "functional" ],
     "id" : "450"
   }, {
     "range" : "22",
@@ -7328,7 +7328,7 @@
       "en" : "Links a model structure to its level of detail.",
       "fr" : "Lie une structure de modèle à son niveau de détail."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "455"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#randomSeed",
@@ -7398,7 +7398,7 @@
       "IRI-based" : "executionStatus",
       "en" : "executionStatus"
     },
-    "domain" : "106",
+    "domain" : "104",
     "comment" : {
       "en" : "State of the execution: pending, running, completed, failed.",
       "fr" : "État de l'exécution : en attente, en cours, terminée, échouée."
@@ -7501,7 +7501,7 @@
       "en" : "Links a model to the knowledge describing its internal structure.",
       "fr" : "Lie un modèle à la connaissance décrivant sa structure interne."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "466"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#probabilityParameter",
@@ -7572,28 +7572,13 @@
       "IRI-based" : "appliesExecutionKnowledge",
       "en" : "appliesExecutionKnowledge"
     },
-    "domain" : "106",
+    "domain" : "104",
     "comment" : {
       "en" : "Links an execution process to the configuration it realises. Functional: one execution applies exactly one configuration.",
       "fr" : "Lie un processus d'exécution à la configuration qu'il réalise. Fonctionnelle : une exécution applique une configuration et une seule."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "471"
-  }, {
-    "iri" : "https://w3id.org/ontosim-dis#populationDensity",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "249",
-    "label" : {
-      "IRI-based" : "populationDensity",
-      "en" : "populationDensity"
-    },
-    "domain" : "168",
-    "comment" : {
-      "en" : "Density in inhabitants per square kilometre.",
-      "fr" : "Densité en habitants par kilomètre carré."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "472"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#numberOfRuns",
     "baseIri" : "https://w3id.org/ontosim-dis",
@@ -7606,6 +7591,21 @@
     "comment" : {
       "en" : "Number of repetitions of the execution, useful for stochastic models.",
       "fr" : "Nombre de répétitions de l'exécution, utile pour les modèles stochastiques."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "472"
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#populationDensity",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "249",
+    "label" : {
+      "IRI-based" : "populationDensity",
+      "en" : "populationDensity"
+    },
+    "domain" : "168",
+    "comment" : {
+      "en" : "Density in inhabitants per square kilometre.",
+      "fr" : "Densité en habitants par kilomètre carré."
     },
     "attributes" : [ "datatype" ],
     "id" : "473"
@@ -7637,7 +7637,7 @@
       "en" : "Start health state of a transition. Distinct from hasSourceState of layer 2, which links model components, not knowledge.",
       "fr" : "État de santé de départ d'une transition. Distincte de hasSourceState de la couche 2, qui relie des composants de modèle et non des connaissances."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "475"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#usesScenario",
@@ -7667,7 +7667,7 @@
       "en" : "End health state of a transition.",
       "fr" : "État de santé d'arrivée d'une transition."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "477"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#endDate",
@@ -7692,7 +7692,7 @@
       "IRI-based" : "hasCompartment",
       "en" : "hasCompartment"
     },
-    "domain" : "40",
+    "domain" : "45",
     "comment" : {
       "en" : "Links a compartmental model to its compartments.",
       "fr" : "Lie un modèle compartimental à ses compartiments."
@@ -7745,21 +7745,6 @@
     "attributes" : [ "object" ],
     "id" : "483"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#populationSize",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "252",
-    "label" : {
-      "IRI-based" : "populationSize",
-      "en" : "populationSize"
-    },
-    "domain" : "168",
-    "comment" : {
-      "en" : "Number of individuals in the population.",
-      "fr" : "Effectif de la population."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "484"
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#hasEndAge",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "56",
@@ -7780,7 +7765,22 @@
       "en" : "Links a health state to the parameter giving the age beyond which an individual is no longer in it.",
       "fr" : "Lie un état de santé au paramètre donnant l'âge au-delà duquel un individu n'y est plus."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
+    "id" : "484"
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#populationSize",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "252",
+    "label" : {
+      "IRI-based" : "populationSize",
+      "en" : "populationSize"
+    },
+    "domain" : "168",
+    "comment" : {
+      "en" : "Number of individuals in the population.",
+      "fr" : "Effectif de la population."
+    },
+    "attributes" : [ "datatype" ],
     "id" : "485"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#producesResult",
@@ -7790,7 +7790,7 @@
       "IRI-based" : "producesResult",
       "en" : "producesResult"
     },
-    "domain" : "106",
+    "domain" : "104",
     "comment" : {
       "en" : "Links an execution to the data it produces.",
       "fr" : "Lie une exécution aux données qu'elle produit."
@@ -7799,7 +7799,7 @@
     "id" : "486"
   }, {
     "range" : "48",
-    "domain" : "157",
+    "domain" : "155",
     "attributes" : [ "object", "anonymous" ],
     "id" : "487"
   }, {
@@ -7912,7 +7912,7 @@
     "id" : "501"
   }, {
     "range" : "48",
-    "domain" : "105",
+    "domain" : "106",
     "attributes" : [ "object", "anonymous" ],
     "id" : "502"
   }, {
@@ -8072,7 +8072,7 @@
     "id" : "527"
   }, {
     "range" : "48",
-    "domain" : "45",
+    "domain" : "41",
     "attributes" : [ "object", "anonymous" ],
     "id" : "529"
   }, {
@@ -8202,7 +8202,7 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "548"
   }, {
-    "range" : "44",
+    "range" : "45",
     "domain" : "46",
     "attributes" : [ "object", "anonymous" ],
     "id" : "549"
@@ -8413,19 +8413,19 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "573"
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/BFO_0000054",
-    "inverse" : "333",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "245",
+    "iri" : "https://w3id.org/ontosim-dis#hasMaterialBasisIn",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "266",
     "label" : {
-      "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "IRI-based" : "hasMaterialBasisIn",
+      "en" : "hasMaterialBasisIn"
     },
     "domain" : "284",
     "comment" : {
-      "en" : "Paraphrase of elucidation: a relation between a realizable entity and a process, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"
+      "en" : "Links a disease to the disorder that is its physical basis. OGMS states this in the textual definition of disease but does not formalise it. IDO formalises it under its own IRI; we declare it here so as not to depend on IDO.",
+      "fr" : "Lie une maladie au désordre qui en est la base physique. OGMS énonce cette relation dans la définition textuelle de la maladie, mais ne la formalise pas. IDO la formalise sous son propre IRI ; nous la déclarons ici pour ne pas dépendre d'IDO."
     },
-    "attributes" : [ "external", "object", "allValues" ],
+    "attributes" : [ "object", "someValues" ],
     "id" : "574"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape",
@@ -8443,19 +8443,19 @@
     "attributes" : [ "object" ],
     "id" : "575"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#hasMaterialBasisIn",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "266",
+    "iri" : "http://purl.obolibrary.org/obo/BFO_0000054",
+    "inverse" : "333",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "range" : "245",
     "label" : {
-      "IRI-based" : "hasMaterialBasisIn",
-      "en" : "hasMaterialBasisIn"
+      "IRI-based" : "BFO_0000054",
+      "en" : "realized in"
     },
     "domain" : "284",
     "comment" : {
-      "en" : "Links a disease to the disorder that is its physical basis. OGMS states this in the textual definition of disease but does not formalise it. IDO formalises it under its own IRI; we declare it here so as not to depend on IDO.",
-      "fr" : "Lie une maladie au désordre qui en est la base physique. OGMS énonce cette relation dans la définition textuelle de la maladie, mais ne la formalise pas. IDO la formalise sous son propre IRI ; nous la déclarons ici pour ne pas dépendre d'IDO."
+      "en" : "Paraphrase of elucidation: a relation between a realizable entity and a process, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"
     },
-    "attributes" : [ "object", "someValues" ],
+    "attributes" : [ "external", "allValues", "object" ],
     "id" : "576"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -8616,7 +8616,7 @@
       "IRI-based" : "hasFlow",
       "en" : "hasFlow"
     },
-    "domain" : "40",
+    "domain" : "45",
     "comment" : {
       "en" : "Links a compartmental model to its flows.",
       "fr" : "Lie un modèle compartimental à ses flux."
@@ -8639,21 +8639,6 @@
     "attributes" : [ "datatype" ],
     "id" : "589"
   }, {
-    "iri" : "https://w3id.org/ontosim-dis#behaviorExpression",
-    "baseIri" : "https://w3id.org/ontosim-dis",
-    "range" : "428",
-    "label" : {
-      "IRI-based" : "behaviorExpression",
-      "en" : "behaviorExpression"
-    },
-    "domain" : "211",
-    "comment" : {
-      "en" : "Textual expression of the behaviour rule.",
-      "fr" : "Expression textuelle de la règle de comportement."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "590"
-  }, {
     "iri" : "https://w3id.org/ontosim-dis#hasRiskFactor",
     "baseIri" : "https://w3id.org/ontosim-dis",
     "range" : "172",
@@ -8667,6 +8652,21 @@
       "fr" : "Lie une connaissance de maladie à ses facteurs de risque."
     },
     "attributes" : [ "object" ],
+    "id" : "590"
+  }, {
+    "iri" : "https://w3id.org/ontosim-dis#behaviorExpression",
+    "baseIri" : "https://w3id.org/ontosim-dis",
+    "range" : "428",
+    "label" : {
+      "IRI-based" : "behaviorExpression",
+      "en" : "behaviorExpression"
+    },
+    "domain" : "211",
+    "comment" : {
+      "en" : "Textual expression of the behaviour rule.",
+      "fr" : "Expression textuelle de la règle de comportement."
+    },
+    "attributes" : [ "datatype" ],
     "id" : "591"
   }, {
     "iri" : "https://w3id.org/ontosim-dis#hasContextKnowledge",
