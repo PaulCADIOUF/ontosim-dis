@@ -290,6 +290,7 @@ Le rapport accompagne la documentation : lien « Evaluation » en tête de page.
 |- | Correction 7 : un déterminant individuel peut ne lire aucun attribut. |
 |- | La couche 4 compte maintenant cinq fichiers : 4-OGMS (import, D1), 4-Core, 4-Infectious, 4-Context, et 4-Checks, ajouté par la correction 9 (15 octobre 2026) pour relier la maladie aux modèles des couches 3A et 3B. |
 | L1 | La détection négative du couplage demande des axiomes de fermeture. Découverte ici. |
+| D30 | La thèse se concentre sur les maladies infectieuses : l'ontologie n'est validée que sur elles. Le noyau 4-Core reste commun à toutes les maladies (décision A1 maintenue). |
 
 ---
 
