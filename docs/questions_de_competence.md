@@ -1,11 +1,9 @@
 # OntoSim-Dis, Questions de compétence
 
-**Version du 19 octobre 2026.** 
+**Version du 17 novembre 2026.**
 
-**Ce qui a changé depuis le 9 octobre.** Q15 passe à `OK` : le module 4-Checks signale les
-modèles non couplés qui représentent une transition couplée. Q6 et Q20 passent à `manque` :
-il leur manque une relation, détaillée sous chaque groupe. Q21 passe aussi à `manque`, car
-elle demande la même relation que Q20. Les chiffres d'alignement de Q24 sont à jour.
+**Ce qui a changé depuis le 19 octobre.** Q19 passe à `OK` : le module 4-Transfer classe les
+paramètres à réestimer, à remplacer ou à recalculer quand un modèle change de contexte.
 
 **Colonne « état ».**
 
@@ -17,8 +15,7 @@ elle demande la même relation que Q20. Les chiffres d'alignement de Q24 sont à
 | `reporté` | En attente |
 | `à construire` | demande un jeu de données, pas un terme |
 
-**Compte au 19 octobre : 30 questions, 21 `OK`, 2 `fermeture`, 4 `manque`, 2 `reporté`,
-1 `à construire`.**
+**Compte au 17 novembre : 30 questions, 22 `OK`, 2 `fermeture`, 3 `manque`, 2 `reporté`, 1 `à construire`.**
 
 ---
 
@@ -96,8 +93,9 @@ sorte du taux n'est pas déclarée, le raisonneur ne conclut rien.
 |---|---|---|
 | Q17 | Quelles populations, régions et infrastructures de santé un modèle donné suppose-t-il ? | OK |
 | Q18 | Quels modèles ont été construits pour un contexte comparable à celui du Sénégal, climat, densité, infrastructure ? | OK |
-| Q19 | Quels paramètres d'un modèle doivent être réestimés si on change de contexte géographique ? | **manque** |
+| Q19 | Quels paramètres d'un modèle doivent être réestimés si on change de contexte géographique ? | OK |
 
+**Q19 et le module 4-Transfer.** Pour chaque paramètre, on déclare l'élément du contexte dont sa valeur dépend et l'origine de cette valeur. Le raisonneur classe alors le paramètre : estimé sur les données du contexte d'origine, il est `ParameterToReestimate` ; supposé ou repris de la littérature, il est `ParameterToReplace` ; calculé à partir d'un paramètre qui dépend du contexte, il est `ParameterToRecalculate`. Un paramètre qui ne dépend d'aucun élément du contexte n'est classé dans aucune des trois : il se garde tel quel. Vérifié le 17 novembre 2026 sur le modèle d'Althaus (2014) pour la Guinée, avec `tests/test_changement_de_contexte.ttl`. Si la dépendance au contexte n'est pas déclarée, le raisonneur ne conclut rien.
 
 ---
 

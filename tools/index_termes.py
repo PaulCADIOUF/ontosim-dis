@@ -31,6 +31,7 @@ MODULES = [
     ("layer4_infectious.ttl", "4-Infectious"),
     ("layer4-context.ttl", "4-Context"),
     ("layer4-checks.ttl", "4-Checks"),
+    ("layer4-transfer.ttl", "4-Transfer"),
 ]
 LOCAL = "https://w3id.org/ontosim-dis#"
 OBO = "http://purl.obolibrary.org/obo/"

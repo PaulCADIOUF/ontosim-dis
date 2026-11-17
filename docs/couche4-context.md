@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 4-Context : population, territoire, climat, infrastructure
 
 **Fichier :** `src/ontology/layer4-context.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer4-context` — version `https://w3id.org/ontosim-dis/layer4-context/1.1`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.1`
+**IRI :** `https://w3id.org/ontosim-dis/layer4-context` — version `https://w3id.org/ontosim-dis/layer4-context/1.2`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.2`
 **Licence :** CC BY 4.0
-**Statut :** version 1.1. Aucun axiome n'a changé depuis la 1.0 ; seuls l'en-tête et des
+**Statut :** version 1.2. Aucun axiome n'a changé depuis la 1.0 ; seuls l'en-tête et des
 textes ont été revus (octobre 2026 : guillemets d'en-tête corrigés, accents rétablis). Voir
 *Versionnement*.
 
@@ -91,24 +91,21 @@ matériel** d'organismes ; `osdi:Population` est une cohorte clinique ; notre `P
 
 ## Le seul module sans classe définie
 
-4-Context est le seul des sept modules de contenu (tous sauf la couche 1 et le module OGMS, qui
+4-Context est le seul des huit modules de contenu (tous sauf la couche 1 et le module OGMS, qui
 importent des termes) à n'avoir **aucune classe définie**. Les autres en ont de 2 à 8. Ce n'est pas un défaut en soi : décrire un contexte est un travail de
 vocabulaire et pas de classification.
 
-**Mais c'est une occasion manquée et elle a un nom : la question Q19.**
+**Cette couche décrit un contexte, elle ne dit pas ce que coûte un changement de contexte.**
+C'était la question Q19 :
 
 > Q19 — *Quels paramètres d'un modèle doivent être réestimés si on change de contexte
 > géographique ?*
 
-**Cette question n'est pas répondable aujourd'hui.** Vérifié de nouveau le 19 octobre 2026 dans
-les neuf fichiers :
-**aucune propriété ne relie un `ModelParameter` à l'élément de contexte dont sa valeur dépend.**
-On peut dire qu'un modèle suppose un climat tropical mais on ne peut pas dire que *tel paramètre* a
-été estimé sous ce climat et devra être réestimé ailleurs.
-
-Or Q19 est au cœur de notre thèse : réutiliser un modèle ailleurs que là où il a été construit.
-Sans ce lien, l'ontologie décrit le contexte mais ne sait pas dire ce que changer de contexte
-coûte. Q19 est notée `manque` dans `questions_de_competence.md`.
+Jusqu'en octobre 2026, cette question n'avait pas de réponse : aucune propriété ne reliait un
+`ModelParameter` à l'élément de contexte dont sa valeur dépend. Depuis novembre 2026, le
+module 4-Transfer ajoute ce lien, sans toucher à cette couche. Il importe 4-Context et classe
+les paramètres à réestimer, à remplacer ou à recalculer. Voir `couche4-transfer.md`. Q19 est
+notée `OK` dans `questions_de_competence.md`.
 
 ---
 
@@ -165,7 +162,7 @@ pour les 7 propriétés d'objet, avec la même réponse qu'en couche 2. Le rappo
 
 Le numéro de version suit l'empilement entier, pas ce fichier seul. Même sans changement
 d'axiome, la couche est passée en 1.1 avec les autres, en un seul geste, et son import de la
-couche 2 a suivi. Voir la fiche de la couche 2, *Versionnement*.
+couche 2 a suivi. Elle est passée en 1.2 en novembre 2026, de la même façon, quand le module 4-Transfer a été ajouté. Voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

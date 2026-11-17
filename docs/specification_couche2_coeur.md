@@ -259,5 +259,5 @@ restants sont des propriétés qui ne servent qu'à décrire un modèle précis 
 `couche2.md`). Test de disjonction refait : incohérence signalée, comme attendu.
 Restent à faire : OOPS!, et l'étiquette de version au moment de publier. La règle a changé
 depuis ce plan : il n'y a plus une étiquette par couche, le numéro suit l'empilement entier et
-une seule étiquette Git marque les neuf modules ensemble (voir `couche2.md`,
+une seule étiquette Git marque les dix modules ensemble (voir `couche2.md`,
 *Versionnement*).

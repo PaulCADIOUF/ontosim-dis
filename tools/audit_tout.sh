@@ -42,6 +42,7 @@ C=$O/layer4_core.ttl
 I=$O/layer4_infectious.ttl
 X=$O/layer4-context.ttl
 K=$O/layer4-checks.ttl
+T=$O/layer4-transfer.ttl
 U=$O/ontosim-dis.ttl
 REF="tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl"
 
@@ -64,8 +65,9 @@ audit "$C"  "$L1" "$L2" "$G" "$C"
 audit "$I"  "$L1" "$L2" "$G" "$C" "$I"
 audit "$X"  "$L1" "$L2" "$X"
 audit "$K"  "$L1" "$L2" "$A" "$B" "$G" "$C" "$K"
-audit "$U"  "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K"
+audit "$T"  "$L1" "$L2" "$X" "$T"
+audit "$U"  "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K" "$T"
 
 echo "======================================================================"
-echo "Fichiers avec au moins une erreur : $echecs sur 10"
+echo "Fichiers avec au moins une erreur : $echecs sur 11"
 [ "$echecs" -eq 0 ]

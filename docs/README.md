@@ -24,6 +24,7 @@ des tests, et les décisions qui le touchent. **C'est la référence à jour.**
 | `couche3b.md` | `layer3b_equations.ttl` : modèles à compartiments |
 | `couche4-core.md` | `layer4_core.ttl` : la maladie |
 | `couche4-context.md` | `layer4-context.ttl` : le contexte |
+| `couche4-transfer.md` | `layer4-transfer.ttl` : le changement de contexte |
 
 Trois modules n'ont pas encore de fiche :
 

@@ -13,7 +13,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 
 | Dossier | Contenu |
 |---|---|
-| `src/ontology/` | les 9 modules de l'ontologie et le fichier ombrelle qui les réunit, en Turtle |
+| `src/ontology/` | les 10 modules de l'ontologie et le fichier ombrelle qui les réunit, en Turtle |
 | `tests/` | des cas de test à ouvrir avec l'ontologie |
 | `tools/` | les scripts de vérification |
 | `docs/` | les documents de conception |
@@ -31,7 +31,8 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 | `layer4_infectious.ttl` | maladies transmissibles : pathogène, voie de transmission, réservoir | 4-Core |
 | `layer4-context.ttl` | contexte : population, région, climat, structures de santé | couche 2 |
 | `layer4-checks.ttl` | contrôles entre maladie et modèles : approximations statiques | 3A, 3B, 4-Core |
-| `ontosim-dis.ttl` | l'ontologie complète : aucun terme, les métadonnées de l'ensemble | les 9 modules |
+| `layer4-transfer.ttl` | changement de contexte : paramètres à réestimer, à remplacer ou à recalculer | 4-Context |
+| `ontosim-dis.ttl` | l'ontologie complète : aucun terme, les métadonnées de l'ensemble | les 10 modules |
 
 ## Ouvrir l'ontologie
 

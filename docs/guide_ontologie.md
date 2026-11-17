@@ -3,7 +3,7 @@
 Ce guide sert à une chose : quand on vous parle de population, de transmission, de
 compartiment ou de coût, vous devez savoir **dans quel fichier cela se trouve, et pourquoi**.
 
-Neuf modules, 325 termes au 18 octobre 2026, et un fichier ombrelle qui les réunit. Voici la
+Dix modules, 338 termes au 17 novembre 2026, et un fichier ombrelle qui les réunit. Voici la
 carte. Les nombres de termes à jour
 sont en tête de `index_termes.md`, que le script `tools/index_termes.py` régénère.
 
@@ -28,9 +28,9 @@ Si c'est « que modélise-t-on », il va en couche 4, même s'il ressemble à un
 
 ---
 
-# 2. Les neuf fichiers
+# 2. Les dix fichiers
 
-Un dixième fichier, `ontosim-dis.ttl`, ne contient aucun terme : il importe les neuf modules
+Un onzieme fichier, `ontosim-dis.ttl`, ne contient aucun terme : il importe les neuf modules
 et porte les métadonnées de l'ensemble, titre, auteur, licence et numéro de version. C'est lui
 qu'on ouvre pour avoir toute l'ontologie d'un coup, et c'est son adresse,
 `https://w3id.org/ontosim-dis`, qu'on donnera aux applications et à la documentation.
@@ -168,6 +168,23 @@ couplage.
 paradigmes (3A, 3B). Mis en 4-Core, ces contrôles auraient fait dépendre la description de la
 maladie des paradigmes.
 
+### `layer4-transfer.ttl` — le changement de contexte (13 termes)
+**Ce qu'il faut refaire quand un modèle change de contexte.** Pour chaque paramètre, on
+déclare deux choses : l'élément du contexte dont sa valeur dépend (`dependsOnContextElement`)
+et l'origine de cette valeur (`hasValueOrigin`), qui est reprise de la littérature, supposée,
+estimée sur des données ou calculée. Le raisonneur range alors le paramètre :
+
+- `ParameterToReestimate` — sa valeur a été estimée sur les données du contexte d'origine
+- `ParameterToReplace` — sa valeur a été supposée ou reprise de la littérature pour ce contexte
+- `ParameterToRecalculate` — sa valeur est calculée à partir d'un paramètre qui dépend du
+  contexte (`isDerivedFrom`)
+
+Un paramètre qui ne dépend d'aucun élément du contexte n'est rangé dans aucune des trois : il
+se garde tel quel.
+
+**Pourquoi un fichier à part :** 4-Context décrit un contexte, il ne dit rien de ce qui arrive
+quand on en change. Ce fichier ajoute cette question sans toucher à la description du contexte.
+
 ## Couche 5 — à venir
 
 Un fichier par cas étudié, du modèle SIR le plus simple à la schistosomiase au Sénégal. Chacun
@@ -233,6 +250,7 @@ statiques.
 | un compartiment, un flux, une équation différentielle | 3B |
 | un agent, une interaction, un comportement | 3A |
 | un modèle qui ignore le couplage de la maladie | 4-Checks |
+| un modèle qu'on réutilise dans un autre pays, un paramètre à réestimer | 4-Transfer |
 | une vaccination, un traitement, un dépistage | 4-Core |
 | une quarantaine, un masque, une distanciation | 4-Infectious |
 | une activité, une ressource, une file, un événement daté | **nulle part pour l'instant — la couche 3C a été retirée** |
@@ -299,7 +317,7 @@ américain (`Behavior`, `hasBehavior`, `behaviorExpression`). Publiés, ces noms
 plus.
 
 Pour un module précis, sa **fiche** donne le détail : contenu, raisons des choix, résultats
-de l'audit et des tests, décisions. Il y en a six, dans `docs/` : `couche1.md`, `couche2.md`,
-`couche3a.md`, `couche3b.md`, `couche4-core.md` et `couche4-context.md`. Les modules OGMS,
-4-Infectious et 4-Checks n'en ont pas encore. La liste de tous les documents est dans
-`docs/README.md`.
+de l'audit et des tests, décisions. Il y en a sept, dans `docs/` : `couche1.md`, `couche2.md`,
+`couche3a.md`, `couche3b.md`, `couche4-core.md`, `couche4-context.md` et `couche4-transfer.md`.
+Les modules OGMS, 4-Infectious et 4-Checks n'en ont pas encore. La liste de tous les documents
+est dans `docs/README.md`.

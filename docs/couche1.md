@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 1 : fondations
 
 **Fichier :** `src/ontology/layer1_foundational.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer1` — version `https://w3id.org/ontosim-dis/layer1/1.1`
+**IRI :** `https://w3id.org/ontosim-dis/layer1` — version `https://w3id.org/ontosim-dis/layer1/1.2`
 **Importe :** rien. C'est la racine de l'empilement.
 **Licence :** CC BY 4.0
-**Statut :** version 1.1 (octobre 2026 : sept relations retirées et notes revues depuis la
+**Statut :** version 1.2, sans changement depuis la 1.1 (octobre 2026 : sept relations retirées et notes revues depuis la
 1.0). Voir *Versionnement*.
 
 > **Corrigé le 9 octobre 2026.** La version précédente de cette fiche annonçait l'IRI
@@ -170,6 +170,8 @@ L'empilement est en 1.1 depuis octobre 2026, fichier ombrelle compris : `tools/v
 change le numéro dans tous les fichiers d'un seul geste. À la publication, l'étiquette Git
 `v1.1` se posera pour tout l'ensemble, et la copie figée de la version ira sur le site, dans
 un dossier à son numéro.
+L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté. Ce
+fichier n'a pas changé.
 
 ---
 

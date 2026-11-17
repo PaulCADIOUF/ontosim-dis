@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 2 : modélisation et simulation
 
 **Fichier :** `src/ontology/layer2_modsim.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.1`
-**Importe :** `https://w3id.org/ontosim-dis/layer1/1.1`
+**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.2`
+**Importe :** `https://w3id.org/ontosim-dis/layer1/1.2`
 **Licence :** CC BY 4.0
-**Statut :** version 1.1. Voir *Versionnement*.
+**Statut :** version 1.2, sans changement depuis la 1.1. Voir *Versionnement*.
 
 
 ## Rôle
@@ -256,11 +256,13 @@ probabilité, leurs huit paramètres et `hasUncertaintyDistribution`, puis l'EK 
 listes qui classent un modèle.
 
 Le numéro change **pour l'empilement entier et en un seul geste**, avec `tools/version.py` :
-dix `versionIRI` (les neuf modules et l'ombrelle), dix `owl:versionInfo`, vingt `owl:imports`
+onze `versionIRI` (les dix modules et l'ombrelle), onze `owl:versionInfo`, vingt-deux `owl:imports`
 et les deux catalogues. Cette couche est importée par quatre modules — 3A, 3B, 4-Core et
 4-Context — et par l'ombrelle. Un import qui pointe vers une version inexistante, c'est
 Protégé qui ne charge plus la couche.
 
+L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté. Ce
+fichier n'a pas changé.
 
 ---
 

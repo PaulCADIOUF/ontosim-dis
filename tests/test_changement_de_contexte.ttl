@@ -1,0 +1,97 @@
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix test: <https://w3id.org/ontosim-dis/test-contexte#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+
+#    Les valeurs viennent d'un modele publie : Althaus C.L. (2014), PLOS Currents /////    Outbreaks, DOI 10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288.
+#    C'est un modele SEIR de l'epidemie d'Ebola de 2014, pris ici pour la Guinee.
+
+<https://w3id.org/ontosim-dis/test-contexte> rdf:type owl:Ontology ;
+    rdfs:label "Test fonctionnel - paramètres à réestimer quand le contexte change"@fr ;
+    owl:imports <https://w3id.org/ontosim-dis/layer4-transfer/1.2> ;
+    owl:versionInfo "1.0" .
+
+
+#    Le contexte : la Guinee et sa population
+
+test:tGuinea rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "Guinea" .
+
+test:tGuineaPopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion test:tGuinea .
+
+test:tGuineaContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion test:tGuinea ;
+    dsim:hasPopulation test:tGuineaPopulation .
+
+
+#    Le modele, son contexte et ses sept parametres
+
+test:tAlthausGuinea rdf:type owl:NamedIndividual , dsim:SimulationModel ;
+    dsim:modelName "Althaus 2014 - Ebola SEIR - Guinea" ;
+    dsim:hasContextKnowledge test:tGuineaContext ;
+    dsim:hasParameter test:tIncubation , test:tInfectious , test:tBeta ,
+                      test:tF , test:tK , test:tN , test:tR0 .
+
+
+#    Deux durees reprises d'une epidemie anterieure : aucun lien avec le contexte
+
+test:tIncubation rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "1/sigma" ;
+    dsim:parameterValue "5.3"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE .
+
+test:tInfectious rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "1/gamma" ;
+    dsim:parameterValue "5.61"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE .
+
+
+#    Trois valeurs estimees sur les donnees du pays
+
+test:tBeta rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.27"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement test:tGuinea .
+
+test:tF rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "f" ;
+    dsim:parameterValue "0.74"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement test:tGuinea .
+
+test:tK rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "k" ;
+    dsim:parameterValue "0.0023"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement test:tGuinea .
+
+
+#    Une valeur supposee, qui depend de la population
+
+test:tN rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "N" ;
+    dsim:parameterValue "1000000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement test:tGuineaPopulation .
+
+
+#    Une valeur calculee a partir de deux autres
+
+test:tR0 rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "R0" ;
+    dsim:parameterValue "1.51"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "beta / gamma" ;
+    dsim:isDerivedFrom test:tBeta , test:tInfectious .
+
+#
+# Ce que ce test demontre : on a seulement dit de quoi depend chaque parametre et comment sa valeur a ete obtenue. Personne n'a ecrit quel parametre il faut reestimer : c'est le raisonneur qui le trouve.

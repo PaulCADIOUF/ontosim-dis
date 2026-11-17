@@ -47,7 +47,7 @@ OMBRELLE = "ontosim-dis.ttl"
 # Ordre des fichiers dans les catalogues : l'ombrelle, puis les couches
 ORDRE = [OMBRELLE, "layer1_foundational.ttl", "layer2_modsim.ttl", "layer3a_mas.ttl",
          "layer3b_equations.ttl", "layer4-ogms.ttl", "layer4_core.ttl", "layer4_infectious.ttl",
-         "layer4-context.ttl", "layer4-checks.ttl"]
+         "layer4-context.ttl", "layer4-checks.ttl", "layer4-transfer.ttl"]
 
 NUMERO = re.compile(r"^[0-9]+\.[0-9]+(\.[0-9]+)?$")
 

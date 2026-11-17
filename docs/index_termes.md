@@ -1,6 +1,6 @@
 # OntoSim-Dis — Index alphabétique des termes
 
-**325 termes**, régénéré le 19 octobre 2026 à partir des 10 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
+**338 termes**, régénéré le 17 novembre 2026 à partir des 11 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
 
 Pour chaque terme : le module où il se trouve, sa nature, et sa définition française (l'anglaise à défaut). Les **classes définies** sont celles que le raisonneur sait reconnaître seul ; les termes `importé` viennent de BFO, RO, IAO ou OGMS par MIREOT et portent leur libellé officiel en italique.
 
@@ -15,6 +15,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | 4-Infectious | 49 |
 | 4-Context | 34 |
 | 4-Checks | 3 |
+| 4-Transfer | 13 |
 
 | Terme | Module | Nature | Définition |
 |---|---|---|---|
@@ -30,6 +31,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `alphaParameter` | Couche 2 | donnée | Paramètre de forme d'une loi bêta ou gamma. |
 | `appliesExecutionKnowledge` | Couche 2 | relation | Lie un processus d'exécution à la configuration qu'il réalise. Fonctionnelle : une exécution applique une configuration et une seule. |
 | `AridClimate` | 4-Context | classe | Climat sec à faibles précipitations. |
+| `ASSUMED` | 4-Transfer | valeur | Valeur posée par hypothèse, sans mesure ni estimation. |
 | `AttributeDrivenTransition` | Couche 3A | classe | Transition déclenchée par les seuls attributs de l'agent : son âge, le temps passé dans son état courant. Déterminant individuel. |
 | `averageHouseholdSize` | 4-Context | donnée | Nombre moyen de personnes par ménage. Gouverne l'intensité des contacts domestiques. |
 | `avgHumidity` | 4-Context | donnée | Humidité relative moyenne en pourcentage. |
@@ -68,6 +70,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `compartmentSymbol` | Couche 3B | donnée | Symbole du compartiment dans les équations, par exemple S ou I. |
 | `ConstantRate` | Couche 3B | classe | Taux qui ne dépend du contenu courant d'aucun compartiment. Déterminant individuel. « Constant » veut dire ici indépendant des compartiments, et non fixe dans… |
 | `contactRatePerDay` | Couche 3A | donnée | Nombre moyen d'interactions de cette sorte par agent et par jour. |
+| `ContextDependentParameter` | 4-Transfer | **classe définie** | Paramètre dont la valeur dépend d'au moins un élément de contexte. Inféré par le raisonneur. |
 | `ContextKnowledge` | 4-Context | classe | Deuxième composant du Quadruplet de recomposition (CK). Décrit où, pour qui et dans quelles conditions un modèle s'applique. |
 | `CONTINUOUS` | Couche 2 | valeur | Le temps s'écoule continûment, exemple les équations différentielles. |
 | `Country` | 4-Context | classe | Niveau administratif le plus haut. |
@@ -83,7 +86,9 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `defaultValue` | Couche 2 | donnée | Valeur utilisée lorsqu'aucune n'est fournie. |
 | `dependsOnAttribute` | 4-Core | relation | Lie un déterminant aux attributs individuels qu'il lit. |
 | `dependsOnCompartment` | Couche 3B | relation | Lie un taux aux compartiments dont il lit le contenu courant. Signature du couplage populationnel dans le paradigme compartimental. |
+| `dependsOnContextElement` | 4-Transfer | relation | Lie un paramètre à l'élément de contexte dont sa valeur dépend : une région géographique, une population, un climat ou une infrastructure de santé. On ne… |
 | `dependsOnCountIn` | 4-Core | relation | Lie un déterminant aux catégories dont il lit l'effectif courant. Signature du couplage populationnel. La catégorie lue est un état de santé lorsque le risque… |
+| `DERIVED` | 4-Transfer | valeur | Valeur calculée par une formule à partir d'autres paramètres. |
 | `DetectionIntervention` | 4-Core | classe | Intervention dont le but est de savoir si un individu a la maladie, et non de la soigner. Elle modifie un déterminant par l'intermédiaire de ce qu'elle… |
 | `detects` | 4-Core | relation | Lie une intervention de détection à la connaissance de maladie qu'elle recherche. |
 | `determinantExpression` | 4-Core | donnée | Expression textuelle du déterminant, par exemple beta * I / N. |
@@ -107,6 +112,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `EPIDEMIC_PLANNING` | Couche 2 | valeur | Anticiper et gérer des épidémies potentielles en testant des interventions et des stratégies, comme les fermetures d'écoles ou les campagnes de vaccination.… |
 | `EpidemiologicalRole` | 4-Infectious | classe | Part qu'un organisme prend dans la transmission d'une maladie. |
 | `equationExpression` | Couche 3B | donnée | Expression textuelle de l'équation, par exemple dS/dt = -beta * S * I / N. |
+| `ESTIMATED_FROM_DATA` | 4-Transfer | valeur | Valeur obtenue en ajustant le modèle à des données observées. |
 | `executesModel` | Couche 2 | relation | Lie une exécution au modèle qu'elle fait tourner. |
 | `ExecutionKnowledge` | Couche 2 | classe | Comment exécuter le modèle : quel simulateur, combien de répétitions, avec quelle graine aléatoire. Quatrième composant du Quadruplet, à côté de la… |
 | `executionStatus` | Couche 2 | donnée | État de l'exécution : en attente, en cours, terminée, échouée. |
@@ -114,6 +120,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `FECAL_ORAL` | 4-Infectious | valeur | Par ingestion de matières contaminées par des selles. |
 | `FOODBORNE` | 4-Infectious | valeur | Par des aliments contaminés. |
 | `FreeLivingStageState` | 4-Infectious | classe | Effectif d'un stade libre de l'agent pathogène présent dans un milieu, hors de tout hôte. Les cercaires dans l'eau, les miracidies. Sous l'hypothèse de… |
+| `FROM_LITERATURE` | 4-Transfer | valeur | Valeur reprise d'une étude publiée. |
 | `Fungus` | 4-Infectious | classe | Champignon pathogène. |
 | `GammaDistribution` | Couche 2 | classe | Loi sur les valeurs positives, employée pour les coûts et les durées. |
 | `GENERAL` | Couche 2 | valeur | Modèle employant des dynamiques génériques et des paramètres ajustables, qui permet de simuler un large éventail de maladies partageant des mécanismes… |
@@ -174,6 +181,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `hasTransmissionRoute` | 4-Infectious | relation | Lie une connaissance de maladie aux voies par lesquelles elle se transmet. |
 | `hasUncertaintyDistribution` | Couche 2 | relation | Lie un paramètre à la loi de probabilité qui décrit l'incertitude sur sa valeur. C'est ce qui rend possible l'analyse de sensibilité probabiliste : au lieu… |
 | `hasValidationMethod` | Couche 2 | relation | Lie un modèle aux méthodes par lesquelles il a été validé. |
+| `hasValueOrigin` | 4-Transfer | relation | Dit comment la valeur d'un paramètre a été obtenue. Fonctionnelle : une valeur a une origine et une seule. |
 | `HealthCentre` | 4-Context | classe | Structure de proximité assurant les soins primaires. |
 | `HealthInfrastructure` | 4-Context | classe | Structures de santé disponibles dans le contexte. Détermine la capacité de réponse, et le seuil de saturation au-delà duquel la létalité augmente. |
 | `HealthState` | 4-Core | classe | État qu'un individu peut occuper vis-à-vis d'une maladie. C'est une connaissance sur une phase du cours de la maladie et NON un composant de modèle : un… |
@@ -207,6 +215,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `involvesAgentType` | Couche 3A | relation | Lie une sorte d'interaction aux catégories d'agents qui y participent. |
 | `involvesFlow` | Couche 3B | relation | Lie une équation aux flux qui y figurent. |
 | `isAbsorbingState` | 4-Core | donnée | Vrai lorsqu'aucune transition ne quitte cet état, par exemple le décès. |
+| `isDerivedFrom` | 4-Transfer | relation | Lie un paramètre calculé aux paramètres dont une formule tire sa valeur. Le nombre de reproduction de base est ainsi tiré du taux de transmission et de la… |
 | `isGovernedBy` | 4-Core | relation | Lie une transition aux déterminants qui en fixent le taux ou la probabilité. |
 | `isLocatedInRegion` | 4-Context | relation | Lie une population au territoire où elle vit. |
 | `Isolation` | 4-Infectious | classe | Mise à l'écart d'individus dont on sait qu'ils sont infectieux. |
@@ -251,7 +260,11 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `OGMS_0000087` | 4-OGMS | importé | *extended organism* — Un agrégat d'objets constitué d'un organisme et de toutes les entités matérielles situées à l'intérieur de l'organisme, chevauchant… |
 | `OGMS_0000094` | 4-OGMS | importé | *acute disease course* — A disease course with an acute onset. |
 | `ParadigmType` | Couche 2 | **classe définie** | Nature du traitement du hasard par le modèle : déterministe ou stochastique. Liste fermée. Malgré son nom, cette classe ne désigne pas le paradigme de… |
+| `parameterExpression` | 4-Transfer | donnée | Expression textuelle d'un paramètre calculé à partir d'autres, par exemple beta / gamma. |
 | `parameterName` | Couche 2 | donnée | Nom du paramètre, par exemple beta. |
+| `ParameterToRecalculate` | 4-Transfer | **classe définie** | Paramètre calculé à partir d'au moins un paramètre dépendant du contexte. Changer de contexte demande de refaire le calcul, sans nouvelles données. Il dépend… |
+| `ParameterToReestimate` | 4-Transfer | **classe définie** | Paramètre dépendant du contexte dont la valeur a été estimée sur des données. Changer de contexte demande de l'estimer de nouveau, sur des données du nouveau… |
+| `ParameterToReplace` | 4-Transfer | **classe définie** | Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau… |
 | `parameterUnit` | Couche 2 | donnée | Unité du paramètre, par exemple jour^-1. |
 | `parameterValue` | Couche 2 | donnée | Valeur numérique du paramètre. |
 | `Parasite` | 4-Infectious | classe | Organisme vivant aux dépens d'un hôte, souvent avec un cycle de vie passant par plusieurs hôtes. |
@@ -338,6 +351,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `Vaccination` | 4-Core | classe | Campagne faisant passer des individus d'un état susceptible à un état protégé. |
 | `VaccinationCentre` | 4-Context | classe | Structure dédiée à l'administration des vaccins. |
 | `ValidationMethod` | Couche 2 | **classe définie** | Méthode par laquelle on montre que le modèle convient à son objectif. Liste fermée. |
+| `ValueOrigin` | 4-Transfer | **classe définie** | Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de… |
 | `VECTOR_BORNE` | 4-Infectious | valeur | Par un vecteur vivant, le plus souvent un arthropode. Voie du paludisme et de la dengue. |
 | `VectorRole` | 4-Infectious | classe | Organisme transportant l'agent pathogène d'un hôte à un autre sans subir la maladie. |
 | `VERTICAL` | 4-Infectious | valeur | De la mère à l'enfant, pendant la grossesse, l'accouchement ou l'allaitement. |

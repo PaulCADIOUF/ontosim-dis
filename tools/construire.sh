@@ -34,7 +34,7 @@ LANGUE=en   # langue de la page d'accueil du site : en ou fr
 MODULES="layer1:layer1_foundational.ttl layer2:layer2_modsim.ttl layer3a:layer3a_mas.ttl
 layer3b:layer3b_equations.ttl layer4-ogms:layer4-ogms.ttl layer4-core:layer4_core.ttl
 layer4-infectious:layer4_infectious.ttl layer4-context:layer4-context.ttl
-layer4-checks:layer4-checks.ttl"
+layer4-checks:layer4-checks.ttl layer4-transfer:layer4-transfer.ttl"
 
 # 1. Les outils
 
