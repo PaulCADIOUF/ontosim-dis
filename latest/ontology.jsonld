@@ -1,27 +1,67 @@
 [ {
   "@id" : "_:genid1",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasMaterialBasisIn"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000045"
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#Climate"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#GeographicRegion"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#HealthInfrastructure"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#Population"
+    } ]
   } ]
 }, {
-  "@id" : "_:genid10",
+  "@id" : "_:genid100",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#probabilityParameter"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
     "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#TransitionDeterminant"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#modifiesDeterminant"
   } ]
 }, {
   "@id" : "_:genid101",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#EMPIRICAL"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#GREY_BOX"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#MECHANISTIC"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid105",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#DYNAMICS_RESEARCH"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#EPIDEMIC_PLANNING"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#RETROSPECTIVE_ANALYSIS"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid11",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000094"
+  } ]
+}, {
+  "@id" : "_:genid110",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -31,7 +71,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid104",
+  "@id" : "_:genid113",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -44,7 +84,7 @@
     "@id" : "https://w3id.org/ontosim-dis#hasComponent"
   } ]
 }, {
-  "@id" : "_:genid105",
+  "@id" : "_:genid114",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#GranularityLevel"
@@ -57,7 +97,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid106",
+  "@id" : "_:genid115",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ParadigmType"
@@ -70,7 +110,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid107",
+  "@id" : "_:genid116",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SpatialType"
@@ -83,7 +123,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid108",
+  "@id" : "_:genid117",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#TemporalType"
@@ -96,7 +136,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid109",
+  "@id" : "_:genid118",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -109,20 +149,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid11",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#alphaParameter"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ]
-}, {
-  "@id" : "_:genid110",
+  "@id" : "_:genid119",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -135,7 +162,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid111",
+  "@id" : "_:genid120",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -145,7 +172,87 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid114",
+  "@id" : "_:genid123",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+    }, {
+      "@id" : "_:genid125"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid125",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#isDerivedFrom"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+  } ]
+}, {
+  "@id" : "_:genid127",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+    }, {
+      "@id" : "_:genid129"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid129",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#hasValue" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasValueOrigin"
+  } ]
+}, {
+  "@id" : "_:genid13",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#AgentType"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasAgentType"
+  } ]
+}, {
+  "@id" : "_:genid131",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+    }, {
+      "@id" : "_:genid133"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid133",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasValueOrigin"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "_:genid134"
+  } ]
+}, {
+  "@id" : "_:genid134",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ASSUMED"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#FROM_LITERATURE"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid138",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -158,7 +265,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid115",
+  "@id" : "_:genid139",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -171,7 +278,20 @@
     "@id" : "https://w3id.org/ontosim-dis#isLocatedInRegion"
   } ]
 }, {
-  "@id" : "_:genid116",
+  "@id" : "_:genid14",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#Behavior"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasBehavior"
+  } ]
+}, {
+  "@id" : "_:genid140",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -184,17 +304,17 @@
     "@id" : "https://w3id.org/ontosim-dis#dependsOnCountIn"
   } ]
 }, {
-  "@id" : "_:genid117",
+  "@id" : "_:genid141",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
     }, {
-      "@id" : "_:genid119"
+      "@id" : "_:genid143"
     } ]
   } ]
 }, {
-  "@id" : "_:genid119",
+  "@id" : "_:genid143",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
@@ -203,20 +323,7 @@
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000065"
   } ]
 }, {
-  "@id" : "_:genid12",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#double"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#betaParameter"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ]
-}, {
-  "@id" : "_:genid121",
+  "@id" : "_:genid145",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#EpidemiologicalRole"
@@ -229,7 +336,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid122",
+  "@id" : "_:genid146",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ExecutionKnowledge"
@@ -242,7 +349,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid123",
+  "@id" : "_:genid147",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationModel"
@@ -255,7 +362,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid124",
+  "@id" : "_:genid148",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -268,7 +375,7 @@
     "@id" : "https://w3id.org/ontosim-dis#hasParameter"
   } ]
 }, {
-  "@id" : "_:genid125",
+  "@id" : "_:genid149",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -281,7 +388,20 @@
     "@id" : "https://w3id.org/ontosim-dis#hasValidationMethod"
   } ]
 }, {
-  "@id" : "_:genid126",
+  "@id" : "_:genid15",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#probabilityParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid150",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -294,7 +414,7 @@
     "@id" : "https://w3id.org/ontosim-dis#usesScenario"
   } ]
 }, {
-  "@id" : "_:genid127",
+  "@id" : "_:genid151",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelStructureKnowledge"
@@ -307,7 +427,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid128",
+  "@id" : "_:genid152",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -321,27 +441,17 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid13",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
-    }, {
-      "@id" : "_:genid15"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid133",
+  "@id" : "_:genid157",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#AttributeDrivenTransition"
     }, {
-      "@id" : "_:genid135"
+      "@id" : "_:genid159"
     } ]
   } ]
 }, {
-  "@id" : "_:genid135",
+  "@id" : "_:genid159",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#representsStateTransition"
@@ -350,19 +460,32 @@
     "@id" : "https://w3id.org/ontosim-dis#CoupledTransition"
   } ]
 }, {
-  "@id" : "_:genid137",
+  "@id" : "_:genid16",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#alphaParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid161",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
     }, {
-      "@id" : "_:genid141"
+      "@id" : "_:genid165"
     }, {
-      "@id" : "_:genid139"
+      "@id" : "_:genid163"
     } ]
   } ]
 }, {
-  "@id" : "_:genid139",
+  "@id" : "_:genid163",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#representsStateTransition"
@@ -371,7 +494,7 @@
     "@id" : "https://w3id.org/ontosim-dis#CoupledTransition"
   } ]
 }, {
-  "@id" : "_:genid141",
+  "@id" : "_:genid165",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasRate"
@@ -380,27 +503,40 @@
     "@id" : "https://w3id.org/ontosim-dis#ConstantRate"
   } ]
 }, {
-  "@id" : "_:genid143",
+  "@id" : "_:genid167",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#SimulationModel"
     }, {
-      "@id" : "_:genid145"
+      "@id" : "_:genid169"
     } ]
   } ]
 }, {
-  "@id" : "_:genid145",
+  "@id" : "_:genid169",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "_:genid149"
+      "@id" : "_:genid173"
     }, {
-      "@id" : "_:genid147"
+      "@id" : "_:genid171"
     } ]
   } ]
 }, {
-  "@id" : "_:genid147",
+  "@id" : "_:genid17",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#double"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#betaParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid171",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasFlow"
@@ -409,7 +545,7 @@
     "@id" : "https://w3id.org/ontosim-dis#StaticApproximationFlow"
   } ]
 }, {
-  "@id" : "_:genid149",
+  "@id" : "_:genid173",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasAgentTransition"
@@ -418,16 +554,7 @@
     "@id" : "https://w3id.org/ontosim-dis#StaticApproximationAgentTransition"
   } ]
 }, {
-  "@id" : "_:genid15",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000064"
-  } ]
-}, {
-  "@id" : "_:genid151",
+  "@id" : "_:genid175",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -437,17 +564,27 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid154",
+  "@id" : "_:genid178",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
     }, {
-      "@id" : "_:genid156"
+      "@id" : "_:genid180"
     } ]
   } ]
 }, {
-  "@id" : "_:genid156",
+  "@id" : "_:genid18",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
+    }, {
+      "@id" : "_:genid20"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid180",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
@@ -456,7 +593,7 @@
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000066"
   } ]
 }, {
-  "@id" : "_:genid158",
+  "@id" : "_:genid182",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#StateComponent"
@@ -469,7 +606,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid159",
+  "@id" : "_:genid183",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#StateComponent"
@@ -482,7 +619,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid160",
+  "@id" : "_:genid184",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -492,7 +629,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid163",
+  "@id" : "_:genid187",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
@@ -501,7 +638,7 @@
     "@id" : "https://w3id.org/ontosim-dis#quantifiedBy"
   } ]
 }, {
-  "@id" : "_:genid164",
+  "@id" : "_:genid188",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#RateSpecification"
@@ -514,17 +651,17 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid165",
+  "@id" : "_:genid189",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#Intervention"
     }, {
-      "@id" : "_:genid167"
+      "@id" : "_:genid191"
     } ]
   } ]
 }, {
-  "@id" : "_:genid167",
+  "@id" : "_:genid191",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#modifiesDeterminant"
@@ -533,7 +670,7 @@
     "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
   } ]
 }, {
-  "@id" : "_:genid169",
+  "@id" : "_:genid193",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -559,33 +696,16 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid17",
+  "@id" : "_:genid20",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#Compartment"
-  } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#dependsOnCompartment"
+    "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000064"
   } ]
 }, {
-  "@id" : "_:genid18",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "2"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#Compartment"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasCompartment"
-  } ]
-}, {
-  "@id" : "_:genid180",
+  "@id" : "_:genid204",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -598,7 +718,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid181",
+  "@id" : "_:genid205",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -611,7 +731,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid182",
+  "@id" : "_:genid206",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -625,7 +745,21 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid187",
+  "@id" : "_:genid211",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ASSUMED"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#DERIVED"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#FROM_LITERATURE"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid216",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -639,20 +773,20 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid19",
+  "@id" : "_:genid22",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
+    "@id" : "https://w3id.org/ontosim-dis#Compartment"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasFlow"
+    "@id" : "https://w3id.org/ontosim-dis#dependsOnCompartment"
   } ]
 }, {
-  "@id" : "_:genid192",
+  "@id" : "_:genid221",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -664,7 +798,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid196",
+  "@id" : "_:genid225",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -678,25 +812,20 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid2",
+  "@id" : "_:genid23",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000063"
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "2"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#Compartment"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/BFO_0000054"
+    "@id" : "https://w3id.org/ontosim-dis#hasCompartment"
   } ]
 }, {
-  "@id" : "_:genid20",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#Climate"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasClimate"
-  } ]
-}, {
-  "@id" : "_:genid201",
+  "@id" : "_:genid230",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -716,7 +845,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid209",
+  "@id" : "_:genid238",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -732,16 +861,20 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid21",
+  "@id" : "_:genid24",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#HealthInfrastructure"
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasHealthInfrastructure"
+    "@id" : "https://w3id.org/ontosim-dis#hasFlow"
   } ]
 }, {
-  "@id" : "_:genid215",
+  "@id" : "_:genid244",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -755,20 +888,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid22",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#GeographicRegion"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasGeographicRegion"
-  } ]
-}, {
-  "@id" : "_:genid220",
+  "@id" : "_:genid249",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -782,7 +902,17 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid225",
+  "@id" : "_:genid25",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+    }, {
+      "@id" : "_:genid27"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid254",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -796,20 +926,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid23",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#Population"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasPopulation"
-  } ]
-}, {
-  "@id" : "_:genid230",
+  "@id" : "_:genid259",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -821,7 +938,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid234",
+  "@id" : "_:genid263",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
   "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
     "@list" : [ {
@@ -859,17 +976,16 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid24",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#AgentBasedModel"
-    }, {
-      "@id" : "_:genid26"
-    } ]
+  "@id" : "_:genid27",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#dependsOnContextElement"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "_:genid251",
+  "@id" : "_:genid280",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
   "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
     "@list" : [ {
@@ -895,16 +1011,30 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid26",
+  "@id" : "_:genid29",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasAgentTransition"
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#Climate"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#InteractionTriggeredTransition"
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasClimate"
   } ]
 }, {
-  "@id" : "_:genid262",
+  "@id" : "_:genid291",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
+  "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#ASSUMED"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#DERIVED"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA"
+    }, {
+      "@id" : "https://w3id.org/ontosim-dis#FROM_LITERATURE"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid296",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
   "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
     "@list" : [ {
@@ -928,26 +1058,71 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid28",
+  "@id" : "_:genid30",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#HealthInfrastructure"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasHealthInfrastructure"
+  } ]
+}, {
+  "@id" : "_:genid31",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#GeographicRegion"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasGeographicRegion"
+  } ]
+}, {
+  "@id" : "_:genid32",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#Population"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasPopulation"
+  } ]
+}, {
+  "@id" : "_:genid33",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#AgentBasedModel"
+    }, {
+      "@id" : "_:genid35"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasAgentTransition"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#InteractionTriggeredTransition"
+  } ]
+}, {
+  "@id" : "_:genid37",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#CompartmentalModel"
     }, {
-      "@id" : "_:genid30"
+      "@id" : "_:genid39"
     } ]
   } ]
 }, {
-  "@id" : "_:genid3",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/BFO_0000050"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000087"
-  } ]
-}, {
-  "@id" : "_:genid30",
+  "@id" : "_:genid39",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasFlow"
@@ -956,17 +1131,17 @@
     "@id" : "https://w3id.org/ontosim-dis#CoupledFlow"
   } ]
 }, {
-  "@id" : "_:genid32",
+  "@id" : "_:genid41",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
     }, {
-      "@id" : "_:genid34"
+      "@id" : "_:genid43"
     } ]
   } ]
 }, {
-  "@id" : "_:genid34",
+  "@id" : "_:genid43",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasStateTransition"
@@ -975,17 +1150,17 @@
     "@id" : "https://w3id.org/ontosim-dis#CoupledTransition"
   } ]
 }, {
-  "@id" : "_:genid36",
+  "@id" : "_:genid45",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
     }, {
-      "@id" : "_:genid38"
+      "@id" : "_:genid47"
     } ]
   } ]
 }, {
-  "@id" : "_:genid38",
+  "@id" : "_:genid47",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasRate"
@@ -994,27 +1169,17 @@
     "@id" : "https://w3id.org/ontosim-dis#CompartmentDependentRate"
   } ]
 }, {
-  "@id" : "_:genid4",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
-    }, {
-      "@id" : "_:genid6"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid40",
+  "@id" : "_:genid49",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#HealthStateTransition"
     }, {
-      "@id" : "_:genid42"
+      "@id" : "_:genid51"
     } ]
   } ]
 }, {
-  "@id" : "_:genid42",
+  "@id" : "_:genid51",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#isGovernedBy"
@@ -1023,7 +1188,7 @@
     "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
   } ]
 }, {
-  "@id" : "_:genid44",
+  "@id" : "_:genid53",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
@@ -1036,7 +1201,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid45",
+  "@id" : "_:genid54",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
@@ -1049,7 +1214,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid46",
+  "@id" : "_:genid55",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -1062,7 +1227,7 @@
     "@id" : "https://w3id.org/ontosim-dis#involvesFlow"
   } ]
 }, {
-  "@id" : "_:genid47",
+  "@id" : "_:genid56",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#Compartment"
@@ -1075,17 +1240,17 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid48",
+  "@id" : "_:genid57",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
     }, {
-      "@id" : "_:genid50"
+      "@id" : "_:genid59"
     } ]
   } ]
 }, {
-  "@id" : "_:genid50",
+  "@id" : "_:genid59",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#dependsOnCountIn"
@@ -1094,7 +1259,16 @@
     "@id" : "https://w3id.org/ontosim-dis#HealthState"
   } ]
 }, {
-  "@id" : "_:genid52",
+  "@id" : "_:genid6",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasMaterialBasisIn"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000045"
+  } ]
+}, {
+  "@id" : "_:genid61",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#representsDisease"
@@ -1103,7 +1277,7 @@
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000031"
   } ]
 }, {
-  "@id" : "_:genid53",
+  "@id" : "_:genid62",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000063"
@@ -1112,7 +1286,7 @@
     "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
   } ]
 }, {
-  "@id" : "_:genid54",
+  "@id" : "_:genid63",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/ontosim-dis#RiskFactor"
@@ -1121,7 +1295,7 @@
     "@id" : "https://w3id.org/ontosim-dis#hasRiskFactor"
   } ]
 }, {
-  "@id" : "_:genid55",
+  "@id" : "_:genid64",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -1134,7 +1308,7 @@
     "@id" : "https://w3id.org/ontosim-dis#hasHealthState"
   } ]
 }, {
-  "@id" : "_:genid56",
+  "@id" : "_:genid65",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -1147,17 +1321,17 @@
     "@id" : "https://w3id.org/ontosim-dis#hasStateTransition"
   } ]
 }, {
-  "@id" : "_:genid57",
+  "@id" : "_:genid66",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#InfectiousDiseaseKnowledge"
     }, {
-      "@id" : "_:genid59"
+      "@id" : "_:genid68"
     } ]
   } ]
 }, {
-  "@id" : "_:genid59",
+  "@id" : "_:genid68",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasReservoirState"
@@ -1166,16 +1340,16 @@
     "@id" : "https://w3id.org/ontosim-dis#ReservoirState"
   } ]
 }, {
-  "@id" : "_:genid6",
+  "@id" : "_:genid7",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasDiseaseCourseShape"
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000063"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000094"
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/BFO_0000054"
   } ]
 }, {
-  "@id" : "_:genid61",
+  "@id" : "_:genid70",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -1188,7 +1362,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid62",
+  "@id" : "_:genid71",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -1201,7 +1375,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid63",
+  "@id" : "_:genid72",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#double"
@@ -1214,7 +1388,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid64",
+  "@id" : "_:genid73",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -1228,7 +1402,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid69",
+  "@id" : "_:genid78",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#representsPhaseOf"
@@ -1237,7 +1411,7 @@
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000063"
   } ]
 }, {
-  "@id" : "_:genid70",
+  "@id" : "_:genid79",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -1250,7 +1424,16 @@
     "@id" : "https://w3id.org/ontosim-dis#isGovernedBy"
   } ]
 }, {
-  "@id" : "_:genid71",
+  "@id" : "_:genid8",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/BFO_0000050"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/OGMS_0000087"
+  } ]
+}, {
+  "@id" : "_:genid80",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#HealthState"
@@ -1263,7 +1446,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid72",
+  "@id" : "_:genid81",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "https://w3id.org/ontosim-dis#HealthState"
@@ -1276,71 +1459,11 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid73",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
-    }, {
-      "@id" : "_:genid75"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid75",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#dependsOnCountIn"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#ReservoirState"
-  } ]
-}, {
-  "@id" : "_:genid77",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
-    }, {
-      "@id" : "_:genid79"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid79",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "_:genid80"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasStateTransition"
-  } ]
-}, {
-  "@id" : "_:genid8",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#AgentType"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasAgentType"
-  } ]
-}, {
-  "@id" : "_:genid80",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#IndividualDeterminant"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#isGovernedBy"
-  } ]
-}, {
   "@id" : "_:genid82",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
+      "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
     }, {
       "@id" : "_:genid84"
     } ]
@@ -1349,13 +1472,70 @@
   "@id" : "_:genid84",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#dependsOnCountIn"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ReservoirState"
+  } ]
+}, {
+  "@id" : "_:genid86",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
+    }, {
+      "@id" : "_:genid88"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid88",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "_:genid89"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#hasStateTransition"
+  } ]
+}, {
+  "@id" : "_:genid89",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#IndividualDeterminant"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#isGovernedBy"
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
+    }, {
+      "@id" : "_:genid11"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid91",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
+    }, {
+      "@id" : "_:genid93"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid93",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#hasPathogen"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "https://w3id.org/ontosim-dis#Pathogen"
   } ]
 }, {
-  "@id" : "_:genid86",
+  "@id" : "_:genid95",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -1368,75 +1548,23 @@
     "@id" : "https://w3id.org/ontosim-dis#hasTransmissionRoute"
   } ]
 }, {
-  "@id" : "_:genid87",
+  "@id" : "_:genid96",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/ontosim-dis#AgentTransition"
     }, {
-      "@id" : "_:genid89"
+      "@id" : "_:genid98"
     } ]
   } ]
 }, {
-  "@id" : "_:genid89",
+  "@id" : "_:genid98",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/ontosim-dis#triggeredBy"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "https://w3id.org/ontosim-dis#InteractionType"
-  } ]
-}, {
-  "@id" : "_:genid9",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#Behavior"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#hasBehavior"
-  } ]
-}, {
-  "@id" : "_:genid91",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#TransitionDeterminant"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/ontosim-dis#modifiesDeterminant"
-  } ]
-}, {
-  "@id" : "_:genid92",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#oneOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#EMPIRICAL"
-    }, {
-      "@id" : "https://w3id.org/ontosim-dis#GREY_BOX"
-    }, {
-      "@id" : "https://w3id.org/ontosim-dis#MECHANISTIC"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid96",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#oneOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/ontosim-dis#DYNAMICS_RESEARCH"
-    }, {
-      "@id" : "https://w3id.org/ontosim-dis#EPIDEMIC_PLANNING"
-    }, {
-      "@id" : "https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH"
-    }, {
-      "@id" : "https://w3id.org/ontosim-dis#RETROSPECTIVE_ANALYSIS"
-    } ]
   } ]
 }, {
   "@id" : "http://purl.obolibrary.org/obo/BFO_0000001",
@@ -1786,9 +1914,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://purl.obolibrary.org/obo/BFO_0000016"
   }, {
-    "@id" : "_:genid1"
+    "@id" : "_:genid6"
   }, {
-    "@id" : "_:genid2"
+    "@id" : "_:genid7"
   } ]
 }, {
   "@id" : "http://purl.obolibrary.org/obo/OGMS_0000045",
@@ -1807,7 +1935,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://purl.obolibrary.org/obo/BFO_0000040"
   }, {
-    "@id" : "_:genid3"
+    "@id" : "_:genid8"
   } ]
 }, {
   "@id" : "http://purl.obolibrary.org/obo/OGMS_0000063",
@@ -2084,10 +2212,10 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "fr",
-    "@value" : "L'ontologie OntoSim-Dis complète, une ontologie des modèles de simulation des maladies. Ce fichier ne contient aucun terme : il importe les neuf modules et porte les métadonnées de l'ensemble.\nSa distinction centrale porte sur le risque : le risque d'une transition dépend-il de l'effectif d'une catégorie d'individus, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit un modèle et la maladie qu'il représente ; le raisonneur en déduit si la maladie est couplée à la population, et si le modèle réalise ce couplage."
+    "@value" : "L'ontologie OntoSim-Dis complète, une ontologie des modèles de simulation des maladies. Ce fichier ne contient aucun terme : il importe les dix modules et porte les métadonnées de l'ensemble.\nSa distinction centrale porte sur le risque : le risque d'une transition dépend-il de l'effectif d'une catégorie d'individus, comme dans une maladie transmissible, ou seulement de l'individu ? On décrit un modèle et la maladie qu'il représente ; le raisonneur en déduit si la maladie est couplée à la population, et si le modèle réalise ce couplage."
   }, {
     "@language" : "en",
-    "@value" : "The complete OntoSim-Dis ontology, an ontology of disease simulation models. This file contains no term: it imports the nine modules and carries the metadata of the whole.\nIts central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling."
+    "@value" : "The complete OntoSim-Dis ontology, an ontology of disease simulation models. This file contains no term: it imports the ten modules and carries the metadata of the whole.\nIts central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2097,10 +2225,10 @@
     "@value" : "OntoSim-Dis - ontologie complète"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/ontosim-dis/1.1"
+    "@id" : "https://w3id.org/ontosim-dis/1.2"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "1.1"
+    "@value" : "1.2"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ADEQUACY",
@@ -2137,6 +2265,23 @@
     "@value" : "Airborne"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontosim-dis#ASSUMED",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Valeur posée par hypothèse, sans mesure ni estimation."
+  }, {
+    "@language" : "en",
+    "@value" : "Value set by assumption, neither measured nor estimated."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Assumed"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontosim-dis#AcuteCourseDiseaseKnowledge",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2154,7 +2299,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid4"
+    "@id" : "_:genid9"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#AdministrativeRegion",
@@ -2190,9 +2335,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationModel"
   }, {
-    "@id" : "_:genid8"
+    "@id" : "_:genid13"
   }, {
-    "@id" : "_:genid9"
+    "@id" : "_:genid14"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#AgentBasedModel"
@@ -2353,7 +2498,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid10"
+    "@id" : "_:genid15"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#BernoulliDistributionExpression"
@@ -2375,9 +2520,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid11"
+    "@id" : "_:genid16"
   }, {
-    "@id" : "_:genid12"
+    "@id" : "_:genid17"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#BetaDistributionExpression"
@@ -2434,7 +2579,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid13"
+    "@id" : "_:genid18"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#City",
@@ -2504,7 +2649,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#RateSpecification"
   }, {
-    "@id" : "_:genid17"
+    "@id" : "_:genid22"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ConstantRate"
@@ -2526,9 +2671,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationModel"
   }, {
-    "@id" : "_:genid18"
+    "@id" : "_:genid23"
   }, {
-    "@id" : "_:genid19"
+    "@id" : "_:genid24"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ConstantRate",
@@ -2548,6 +2693,26 @@
     "@id" : "https://w3id.org/ontosim-dis#RateSpecification"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A parameter whose value depends on at least one context element. Inferred by the reasoner."
+  }, {
+    "@language" : "fr",
+    "@value" : "Paramètre dont la valeur dépend d'au moins un élément de contexte. Inféré par le raisonneur."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ContextDependentParameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid25"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontosim-dis#ContextKnowledge",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2564,13 +2729,13 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid20"
+    "@id" : "_:genid29"
   }, {
-    "@id" : "_:genid21"
+    "@id" : "_:genid30"
   }, {
-    "@id" : "_:genid22"
+    "@id" : "_:genid31"
   }, {
-    "@id" : "_:genid23"
+    "@id" : "_:genid32"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#Country",
@@ -2607,7 +2772,7 @@
     "@id" : "https://w3id.org/ontosim-dis#AgentBasedModel"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid24"
+    "@id" : "_:genid33"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#CoupledCompartmentalModel",
@@ -2627,7 +2792,7 @@
     "@id" : "https://w3id.org/ontosim-dis#CompartmentalModel"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid28"
+    "@id" : "_:genid37"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#CoupledDiseaseKnowledge",
@@ -2647,7 +2812,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid32"
+    "@id" : "_:genid41"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#CoupledFlow",
@@ -2667,7 +2832,7 @@
     "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid36"
+    "@id" : "_:genid45"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#CoupledTransition",
@@ -2687,7 +2852,7 @@
     "@id" : "https://w3id.org/ontosim-dis#HealthStateTransition"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid40"
+    "@id" : "_:genid49"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#CouplingSource",
@@ -2705,6 +2870,23 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#DERIVED",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Valeur calculée par une formule à partir d'autres paramètres."
+  }, {
+    "@language" : "en",
+    "@value" : "Value calculated by a formula from other parameters."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Derived"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#DETERMINISTIC",
@@ -2808,9 +2990,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#Intervention"
   }, {
-    "@id" : "_:genid44"
+    "@id" : "_:genid53"
   }, {
-    "@id" : "_:genid45"
+    "@id" : "_:genid54"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#DetectionIntervention"
@@ -2855,9 +3037,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelComponent"
   }, {
-    "@id" : "_:genid46"
+    "@id" : "_:genid55"
   }, {
-    "@id" : "_:genid47"
+    "@id" : "_:genid56"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#DirectlyCoupledDeterminant",
@@ -2877,7 +3059,7 @@
     "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid48"
+    "@id" : "_:genid57"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate",
@@ -2896,15 +3078,15 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid52"
+    "@id" : "_:genid61"
   }, {
-    "@id" : "_:genid53"
+    "@id" : "_:genid62"
   }, {
-    "@id" : "_:genid54"
+    "@id" : "_:genid63"
   }, {
-    "@id" : "_:genid55"
+    "@id" : "_:genid64"
   }, {
-    "@id" : "_:genid56"
+    "@id" : "_:genid65"
   } ],
   "http://www.w3.org/2004/02/skos/core#closeMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Disease"
@@ -2981,6 +3163,23 @@
     "@value" : "Epidemic planning"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Valeur obtenue en ajustant le modèle à des données observées."
+  }, {
+    "@language" : "en",
+    "@value" : "Value obtained by fitting the model to observed data."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Estimated from data"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontosim-dis#EnvironmentComponent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -3032,7 +3231,7 @@
     "@id" : "https://w3id.org/ontosim-dis#InfectiousDiseaseKnowledge"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid57"
+    "@id" : "_:genid66"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#EpidemiologicalRole",
@@ -3085,7 +3284,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid61"
+    "@id" : "_:genid70"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#ExponentialDistributionExpression"
@@ -3123,6 +3322,23 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "Foodborne"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#FROM_LITERATURE",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Valeur reprise d'une étude publiée."
+  }, {
+    "@language" : "en",
+    "@value" : "Value taken from a published study."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "From literature"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#FreeLivingStageState",
@@ -3263,9 +3479,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid62"
+    "@id" : "_:genid71"
   }, {
-    "@id" : "_:genid63"
+    "@id" : "_:genid72"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#GammaDistributionExpression"
@@ -3305,7 +3521,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid64"
+    "@id" : "_:genid73"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#HISTORICAL_DATA",
@@ -3375,7 +3591,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#CouplingSource"
   }, {
-    "@id" : "_:genid69"
+    "@id" : "_:genid78"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ReservoirState"
@@ -3400,11 +3616,11 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid70"
+    "@id" : "_:genid79"
   }, {
-    "@id" : "_:genid71"
+    "@id" : "_:genid80"
   }, {
-    "@id" : "_:genid72"
+    "@id" : "_:genid81"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ReservoirState"
@@ -3481,7 +3697,7 @@
     "@id" : "https://w3id.org/ontosim-dis#PopulationCoupledDeterminant"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid73"
+    "@id" : "_:genid82"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#IndividualAttribute",
@@ -3541,7 +3757,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid77"
+    "@id" : "_:genid86"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#InfectiousDiseaseKnowledge",
@@ -3560,10 +3776,10 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   }, {
-    "@id" : "_:genid86"
+    "@id" : "_:genid95"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid82"
+    "@id" : "_:genid91"
   } ],
   "http://www.w3.org/2004/02/skos/core#closeMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#InfectiousDisease"
@@ -3603,7 +3819,7 @@
     "@id" : "https://w3id.org/ontosim-dis#AgentTransition"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid87"
+    "@id" : "_:genid96"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#InteractionType",
@@ -3656,7 +3872,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid91"
+    "@id" : "_:genid100"
   } ],
   "http://www.w3.org/2004/02/skos/core#closeMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Intervention"
@@ -3818,7 +4034,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid92"
+    "@id" : "_:genid101"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ModelParameter",
@@ -3858,7 +4074,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid96"
+    "@id" : "_:genid105"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ModelScope",
@@ -3878,7 +4094,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid101"
+    "@id" : "_:genid110"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ModelStructureKnowledge",
@@ -3897,15 +4113,15 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid104"
+    "@id" : "_:genid113"
   }, {
-    "@id" : "_:genid105"
+    "@id" : "_:genid114"
   }, {
-    "@id" : "_:genid106"
+    "@id" : "_:genid115"
   }, {
-    "@id" : "_:genid107"
+    "@id" : "_:genid116"
   }, {
-    "@id" : "_:genid108"
+    "@id" : "_:genid117"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#MovementRestriction",
@@ -4012,9 +4228,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid109"
+    "@id" : "_:genid118"
   }, {
-    "@id" : "_:genid110"
+    "@id" : "_:genid119"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#NormalDistributionExpression"
@@ -4037,7 +4253,67 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid111"
+    "@id" : "_:genid120"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#ParameterToRecalculate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A parameter calculated from at least one context-dependent parameter. Changing context requires redoing the calculation, with no new data. It depends on the context itself, through the parameter it is obtained from. Inferred by the reasoner."
+  }, {
+    "@language" : "fr",
+    "@value" : "Paramètre calculé à partir d'au moins un paramètre dépendant du contexte. Changer de contexte demande de refaire le calcul, sans nouvelles données. Il dépend lui-même du contexte, par le paramètre dont il est tiré. Inféré par le raisonneur."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ParameterToRecalculate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid123"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#ParameterToReestimate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A context-dependent parameter whose value was estimated from data. Changing context requires estimating it again, from data of the new context. Inferred by the reasoner."
+  }, {
+    "@language" : "fr",
+    "@value" : "Paramètre dépendant du contexte dont la valeur a été estimée sur des données. Changer de contexte demande de l'estimer de nouveau, sur des données du nouveau contexte. Inféré par le raisonneur."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ParameterToReestimate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid127"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#ParameterToReplace",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A context-dependent parameter whose value was assumed or taken from a source. Changing context only requires taking the value of the new context. Inferred by the reasoner."
+  }, {
+    "@language" : "fr",
+    "@value" : "Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ParameterToReplace"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ContextDependentParameter"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid131"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#Parasite",
@@ -4110,7 +4386,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid114"
+    "@id" : "_:genid138"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#PoissonDistributionExpression"
@@ -4132,7 +4408,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid115"
+    "@id" : "_:genid139"
   } ],
   "http://www.w3.org/2004/02/skos/core#relatedMatch" : [ {
     "@id" : "http://purl.obolibrary.org/obo/OGMS_0000084"
@@ -4156,7 +4432,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#TransitionDeterminant"
   }, {
-    "@id" : "_:genid116"
+    "@id" : "_:genid140"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution",
@@ -4196,7 +4472,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid117"
+    "@id" : "_:genid141"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#Quarantine",
@@ -4300,7 +4576,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#CouplingSource"
   }, {
-    "@id" : "_:genid121"
+    "@id" : "_:genid145"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "https://w3id.org/ontosim-dis#TransitionDeterminant"
@@ -4481,9 +4757,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://purl.obolibrary.org/obo/BFO_0000015"
   }, {
-    "@id" : "_:genid122"
+    "@id" : "_:genid146"
   }, {
-    "@id" : "_:genid123"
+    "@id" : "_:genid147"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact",
@@ -4519,13 +4795,13 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid124"
+    "@id" : "_:genid148"
   }, {
-    "@id" : "_:genid125"
+    "@id" : "_:genid149"
   }, {
-    "@id" : "_:genid126"
+    "@id" : "_:genid150"
   }, {
-    "@id" : "_:genid127"
+    "@id" : "_:genid151"
   } ],
   "http://www.w3.org/2004/02/skos/core#closeMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#Model"
@@ -4616,7 +4892,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid128"
+    "@id" : "_:genid152"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#StateComponent",
@@ -4653,7 +4929,7 @@
     "@id" : "https://w3id.org/ontosim-dis#AttributeDrivenTransition"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid133"
+    "@id" : "_:genid157"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#StaticApproximationFlow",
@@ -4673,7 +4949,7 @@
     "@id" : "https://w3id.org/ontosim-dis#TransitionFlow"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid137"
+    "@id" : "_:genid161"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#StaticApproximationModel",
@@ -4693,7 +4969,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationModel"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid143"
+    "@id" : "_:genid167"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#StaticParameter",
@@ -4747,7 +5023,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid151"
+    "@id" : "_:genid175"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge",
@@ -4767,7 +5043,7 @@
     "@id" : "https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid154"
+    "@id" : "_:genid178"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransitionComponent",
@@ -4786,9 +5062,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ModelComponent"
   }, {
-    "@id" : "_:genid158"
+    "@id" : "_:genid182"
   }, {
-    "@id" : "_:genid159"
+    "@id" : "_:genid183"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransitionDeterminant",
@@ -4814,10 +5090,10 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   }, {
-    "@id" : "_:genid163"
+    "@id" : "_:genid187"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid160"
+    "@id" : "_:genid184"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransitionFlow",
@@ -4836,7 +5112,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#TransitionComponent"
   }, {
-    "@id" : "_:genid164"
+    "@id" : "_:genid188"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransmissionReducingIntervention",
@@ -4856,7 +5132,7 @@
     "@id" : "https://w3id.org/ontosim-dis#Intervention"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid165"
+    "@id" : "_:genid189"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#TransmissionRoute",
@@ -4876,7 +5152,7 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid169"
+    "@id" : "_:genid193"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#Treatment",
@@ -4929,9 +5205,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/ontosim-dis#ProbabilityDistribution"
   }, {
-    "@id" : "_:genid180"
+    "@id" : "_:genid204"
   }, {
-    "@id" : "_:genid181"
+    "@id" : "_:genid205"
   } ],
   "http://www.w3.org/2004/02/skos/core#exactMatch" : [ {
     "@id" : "https://w3id.org/ontologies-ULL/OSDi#UniformDistributionExpression"
@@ -5039,7 +5315,27 @@
     "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid182"
+    "@id" : "_:genid206"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#ValueOrigin",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée ou reprise d'une source se remplace, une valeur calculée se recalcule."
+  }, {
+    "@language" : "en",
+    "@value" : "How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed or taken from a source is replaced, a calculated value is recalculated."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid211"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#VectorRole",
@@ -5451,6 +5747,26 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/ontosim-dis#Compartment"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#dependsOnContextElement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Lie un paramètre à l'élément de contexte dont sa valeur dépend : une région géographique, une population, un climat ou une infrastructure de santé. On ne l'écrit pas pour un paramètre propre à la maladie, comme une durée d'incubation."
+  }, {
+    "@language" : "en",
+    "@value" : "Links a parameter to the context element its value depends on: a geographic region, a population, a climate or a health infrastructure. It is not stated for a parameter that belongs to the disease itself, such as an incubation period."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "dependsOnContextElement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "_:genid1"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#dependsOnCountIn",
@@ -6663,6 +6979,26 @@
     "@id" : "https://w3id.org/ontosim-dis#ValidationMethod"
   } ]
 }, {
+  "@id" : "https://w3id.org/ontosim-dis#hasValueOrigin",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Dit comment la valeur d'un paramètre a été obtenue. Fonctionnelle : une valeur a une origine et une seule."
+  }, {
+    "@language" : "en",
+    "@value" : "States how the value of a parameter was obtained. Functional: a value has one origin and only one."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "hasValueOrigin"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ValueOrigin"
+  } ]
+}, {
   "@id" : "https://w3id.org/ontosim-dis#healthStateName",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -6901,6 +7237,26 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#isDerivedFrom",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Lie un paramètre calculé aux paramètres dont une formule tire sa valeur. Le nombre de reproduction de base est ainsi tiré du taux de transmission et de la durée de contagiosité."
+  }, {
+    "@language" : "en",
+    "@value" : "Links a calculated parameter to the parameters from which a formula obtains its value. The basic reproduction number is thus obtained from the transmission rate and the infectious period."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "isDerivedFrom"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#isGovernedBy",
@@ -7201,6 +7557,26 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "https://w3id.org/ontosim-dis#parameterExpression",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "fr",
+    "@value" : "Expression textuelle d'un paramètre calculé à partir d'autres, par exemple beta / gamma."
+  }, {
+    "@language" : "en",
+    "@value" : "Textual expression of a parameter calculated from others, for instance beta / gamma."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ontosim-dis#ModelParameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "parameterExpression"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
   "@id" : "https://w3id.org/ontosim-dis#parameterName",
