@@ -124,7 +124,11 @@ aucune des trois.
 
 ### 3. OOPS!
 
-Pas encore passé sur ce module.
+**Résultat sur la version 1.2** (novembre 2026). OOPS! a évalué le fichier complet, produit
+par `tools/construire.sh` : aucun défaut critique, et aucun défaut nouveau par rapport à la
+1.1. Pour ce module, un seul défaut, mineur : P13, inverse non déclaré, pour les 3 propriétés
+d'objet, avec la même réponse qu'en couche 2. Le rapport accompagne la documentation : lien
+« Evaluation » en tête de page.
 
 ---
 
