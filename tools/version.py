@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 version.py : donne le même numéro de version à tout l'empilement d'OntoSim-Dis,
-puis réécrit les deux catalogues.
+puis réécrit les trois catalogues.
 
 À lancer depuis Git Bash, à la racine du dépôt :
 
@@ -12,11 +12,11 @@ puis réécrit les deux catalogues.
 Ce qui change :
   - dans chaque fichier de src/ontology : l'IRI de version, le numéro (owl:versionInfo)
     et les imports. Par exemple, <.../layer2/1.0> devient <.../layer2/1.1> ;
-  - dans chaque fichier de tests : les imports seulement. Le numéro propre d'un test
-    reste le sien ;
-  - les deux catalogues, src/ontology/catalog-v001.xml et tests/catalog-v001.xml :
-    ils sont réécrits à partir des en-têtes. Chaque module y figure deux fois, avec et
-    sans numéro, et l'ombrelle aussi.
+  - dans chaque fichier de tests et de src/applications : les imports seulement. Le
+    numéro propre d'un test ou d'une application reste le sien ;
+  - les trois catalogues, src/ontology/catalog-v001.xml, tests/catalog-v001.xml et
+    src/applications/catalog-v001.xml : ils sont réécrits à partir des en-têtes. Chaque
+    module y figure deux fois, avec et sans numéro, et l'ombrelle aussi.
 
 Avant d'écrire un fichier, le script vérifie avec rdflib que le fichier modifié contient
 les mêmes triplets qu'avant, à ces changements près. Il finit par cinq contrôles :
@@ -42,6 +42,7 @@ BASE = "https://w3id.org/ontosim-dis"
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ONTO = os.path.join(RACINE, "src", "ontology")
 TESTS = os.path.join(RACINE, "tests")
+APPLIS = os.path.join(RACINE, "src", "applications")
 OMBRELLE = "ontosim-dis.ttl"
 
 # Ordre des fichiers dans les catalogues : l'ombrelle, puis les couches
@@ -55,6 +56,8 @@ ENTETE_SRC = ("<!-- Produit par tools/version.py. Dit a Protege et a ROBOT ou tr
               "module sur le disque, au lieu de le chercher sur w3id.org. -->")
 ENTETE_TESTS = ("<!-- Produit par tools/version.py. Dit a Protege ou trouver les couches sur le "
                 "disque : dans ../src/ontology/, et non sur w3id.org. -->")
+ENTETE_APPLIS = ("<!-- Produit par tools/version.py. Dit a Protege ou trouver les couches sur le "
+                 "disque : dans ../ontology/, et non sur w3id.org. -->")
 
 
 class Fichier:
@@ -77,6 +80,11 @@ class Fichier:
 
 def ordre(nom):
     return (ORDRE.index(nom), nom) if nom in ORDRE else (len(ORDRE), nom)
+
+
+def dossier_de(f):
+    """Le dossier d'un fichier, compte depuis la racine du depot : tests/ ou src/applications/."""
+    return os.path.relpath(os.path.dirname(f.chemin), RACINE).replace(os.sep, "/") + "/"
 
 
 def charger(dossier):
@@ -237,20 +245,26 @@ def main():
         print("Usage : python tools/version.py [NUMERO [--appliquer]]   (NUMERO comme 1.1 ou 1.1.2)")
         return 2
 
-    sources, tests = charger(ONTO), charger(TESTS)
+    # Les tests et les applications : on n'y change que les imports
+    sources, tests = charger(ONTO), charger(TESTS) + charger(APPLIS)
     cat_src = os.path.join(ONTO, "catalog-v001.xml")
     cat_tests = os.path.join(TESTS, "catalog-v001.xml")
+    cat_applis = os.path.join(APPLIS, "catalog-v001.xml")
+    # Le catalogue des applications, seulement si le dossier existe
+    dependants = [(cat_tests, TESTS, "../src/ontology/", ENTETE_TESTS)]
+    if os.path.isdir(APPLIS):
+        dependants.append((cat_applis, APPLIS, "../ontology/", ENTETE_APPLIS))
 
     print("=== Etat actuel ===")
     for f in sources:
         print(f"  {f.nom:28s} {str(f.vinfo):6s} {f.viri}")
     for f in tests:
-        print(f"  tests/{f.nom:22s} importe {', '.join(str(i) for i in f.imports)}")
+        print(f"  {dossier_de(f)}{f.nom:22s} importe {', '.join(str(i) for i in f.imports)}")
 
     if not args:
         print("\n=== Controles ===")
         catalogues = {}
-        for chemin, dossier in ((cat_src, ONTO), (cat_tests, TESTS)):
+        for chemin, dossier in [(cat_src, ONTO)] + [(c, d) for c, d, _, _ in dependants]:
             texte = open(chemin, encoding="utf-8").read() if os.path.exists(chemin) else ""
             catalogues[os.path.relpath(chemin, RACINE).replace(os.sep, "/")] = (dossier, texte)
         echecs = controles(sources, tests, catalogues)
@@ -270,7 +284,7 @@ def main():
     for f, avec_entete in [(s, True) for s in sources] + [(t, False) for t in tests]:
         texte, changements, err = renumeroter(f, nouveau, cible, avec_entete)
         erreurs += err
-        prefixe = "" if avec_entete else "tests/"
+        prefixe = "" if avec_entete else dossier_de(f)
         if changements:
             print(f"  {prefixe}{f.nom} : {len(changements)} changement(s)")
             for c in changements:
@@ -299,10 +313,9 @@ def main():
     sources_neuves, tests_neufs = simules[:len(sources)], simules[len(sources):]
 
     entrees = entrees_catalogue(sources_neuves)
-    textes_cat = {
-        cat_src: catalogue(entrees, "", ENTETE_SRC, fin_de_ligne(cat_src)),
-        cat_tests: catalogue(entrees, "../src/ontology/", ENTETE_TESTS, fin_de_ligne(cat_tests)),
-    }
+    textes_cat = {cat_src: catalogue(entrees, "", ENTETE_SRC, fin_de_ligne(cat_src))}
+    for chemin, _, vers_onto, entete in dependants:
+        textes_cat[chemin] = catalogue(entrees, vers_onto, entete, fin_de_ligne(chemin))
     for chemin, texte in textes_cat.items():
         avant = open(chemin, encoding="utf-8", newline="").read() if os.path.exists(chemin) else ""
         nom = os.path.relpath(chemin, RACINE).replace(os.sep, "/")

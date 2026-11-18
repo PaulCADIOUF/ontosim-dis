@@ -1,0 +1,568 @@
+@prefix dsim:    <https://w3id.org/ontosim-dis#> .
+@prefix althaus: <https://w3id.org/ontosim-dis/applications/althaus-2014#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#    Couche 5, application : le modele d'Althaus (2014), decrit avec le vocabulaire d'OntoSim-Dis.
+#    L'article ajuste un meme modele SEIR a trois pays. On decrit donc trois modeles, un par pays.
+#    Ils partagent la description de la maladie et la structure, et gardent chacun leurs valeurs.
+#    Toutes les valeurs viennent de l'article, sauf quand une autre source est indiquee.
+
+<https://w3id.org/ontosim-dis/applications/althaus-2014> rdf:type owl:Ontology ;
+    rdfs:label "Application - Althaus (2014), Ebola, modèle SEIR"@fr ,
+               "Application - Althaus (2014), Ebola, SEIR model"@en ;
+    rdfs:comment "Le modèle SEIR de l'épidémie d'Ebola de 2014, ajusté par Althaus à la Guinée, à la Sierra Leone et au Libéria."@fr ,
+                 "The SEIR model of the 2014 Ebola outbreak, fitted by Althaus to Guinea, Sierra Leone and Liberia."@en ;
+    dcterms:bibliographicCitation "Althaus C.L. (2014). Estimating the Reproduction Number of Ebola Virus (EBOV) During the 2014 Outbreak in West Africa. PLOS Currents Outbreaks, 2 September 2014, Edition 1. DOI 10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288" ;
+    dcterms:source <https://doi.org/10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288> ;
+    dcterms:creator "Paul Cheikh Anta DIOUF" ;
+    dcterms:created "2026" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <https://w3id.org/ontosim-dis/1.2> ;
+    owl:versionInfo "1.0" .
+
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    1. La maladie (DK), commune aux trois modeles
+#################################################################
+
+althaus:EbolaVirusDisease rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
+    dsim:diseaseName "Ebola virus disease" ;
+    dsim:hasPathogen althaus:EbolaVirus ;
+    dsim:hasTransmissionRoute dsim:DIRECT_CONTACT ;
+    dsim:hasHealthState althaus:Susceptible , althaus:Exposed , althaus:Infectious ,
+                        althaus:Recovered , althaus:Dead ;
+    dsim:hasStateTransition althaus:Infection , althaus:EndOfIncubation ,
+                            althaus:Recovery , althaus:Death ;
+    dcterms:source <https://doi.org/10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288> ,
+                   <https://www.who.int/news-room/fact-sheets/detail/ebola-disease> ;
+    rdfs:comment "États et transitions tirés de l'article. L'article ne discute pas la voie de transmission : le contact direct vient de la fiche de l'OMS sur la maladie."@fr .
+
+althaus:EbolaVirus rdf:type owl:NamedIndividual , dsim:Virus ;
+    dsim:pathogenName "Ebola virus (EBOV)" .
+
+
+#    Les cinq etats de sante
+
+althaus:Susceptible rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Susceptible" .
+
+althaus:Exposed rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Exposed" ;
+    rdfs:comment "Infecté, en incubation, pas encore contagieux."@fr .
+
+althaus:Infectious rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Infectious" .
+
+althaus:Recovered rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Recovered" .
+
+althaus:Dead rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Dead" ;
+    dsim:isAbsorbingState "true"^^xsd:boolean .
+
+
+#    Les quatre transitions et ce qui les gouverne.
+#    Seule l'infection depend du nombre d'infectieux : son determinant est couple a la population.
+
+althaus:Infection rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState althaus:Susceptible ;
+    dsim:hasTargetHealthState althaus:Exposed ;
+    dsim:isGovernedBy althaus:InfectionDeterminant .
+
+althaus:InfectionDeterminant rdf:type owl:NamedIndividual , dsim:PopulationCoupledDeterminant ;
+    dsim:dependsOnCountIn althaus:Infectious ;
+    dsim:determinantExpression "beta(t) * I / N" .
+
+althaus:EndOfIncubation rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState althaus:Exposed ;
+    dsim:hasTargetHealthState althaus:Infectious ;
+    dsim:isGovernedBy althaus:IncubationDeterminant .
+
+althaus:IncubationDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:determinantExpression "sigma" .
+
+althaus:Recovery rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState althaus:Infectious ;
+    dsim:hasTargetHealthState althaus:Recovered ;
+    dsim:isGovernedBy althaus:RecoveryDeterminant .
+
+althaus:RecoveryDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:determinantExpression "(1 - f) * gamma" .
+
+althaus:Death rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState althaus:Infectious ;
+    dsim:hasTargetHealthState althaus:Dead ;
+    dsim:isGovernedBy althaus:DeathDeterminant .
+
+althaus:DeathDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:determinantExpression "f * gamma" .
+
+
+#################################################################
+#    2. Les trois contextes (CK)
+#    Seulement ce que dit l'article : le pays et sa population, sans taille ni climat.
+#################################################################
+
+althaus:Guinea rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "Guinea" .
+
+althaus:GuineaPopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion althaus:Guinea .
+
+althaus:GuineaContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion althaus:Guinea ;
+    dsim:hasPopulation althaus:GuineaPopulation .
+
+
+althaus:SierraLeone rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "Sierra Leone" .
+
+althaus:SierraLeonePopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion althaus:SierraLeone .
+
+althaus:SierraLeoneContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion althaus:SierraLeone ;
+    dsim:hasPopulation althaus:SierraLeonePopulation .
+
+
+althaus:Liberia rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "Liberia" .
+
+althaus:LiberiaPopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion althaus:Liberia .
+
+althaus:LiberiaContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion althaus:Liberia ;
+    dsim:hasPopulation althaus:LiberiaPopulation .
+
+
+#################################################################
+#    3. La structure du modele (MSK), commune aux trois modeles
+#################################################################
+
+althaus:SEIRStructure rdf:type owl:NamedIndividual , dsim:ModelStructureKnowledge ;
+    dsim:hasParadigm dsim:DETERMINISTIC ;
+    dsim:hasTemporalType dsim:CONTINUOUS ;
+    dsim:hasSpatialType dsim:NON_SPATIAL ;
+    dsim:hasGranularityLevel dsim:GROUP ;
+    dsim:hasComponent althaus:CompartmentS , althaus:CompartmentE , althaus:CompartmentI ,
+                      althaus:CompartmentR , althaus:CompartmentD ,
+                      althaus:FlowSE , althaus:FlowEI , althaus:FlowIR , althaus:FlowID ,
+                      althaus:RateSE , althaus:RateEI , althaus:RateIR , althaus:RateID ,
+                      althaus:EquationS , althaus:EquationE , althaus:EquationI ,
+                      althaus:EquationR , althaus:EquationD ;
+    rdfs:comment "Les cas cumulés C ne sont pas un compartiment : ils comptent les passages de E à I, dC/dt = sigma * E. Ils servent seulement à l'ajustement. sigma et gamma sont les inverses des durées 1/sigma et 1/gamma."@fr .
+
+
+#    Cinq compartiments, chacun represente un etat de sante
+
+althaus:CompartmentS rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "S" ;
+    dsim:representsHealthState althaus:Susceptible .
+
+althaus:CompartmentE rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "E" ;
+    dsim:representsHealthState althaus:Exposed .
+
+althaus:CompartmentI rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "I" ;
+    dsim:representsHealthState althaus:Infectious .
+
+althaus:CompartmentR rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "R" ;
+    dsim:representsHealthState althaus:Recovered .
+
+althaus:CompartmentD rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "D" ;
+    dsim:representsHealthState althaus:Dead .
+
+
+#    Quatre flux, chacun represente une transition
+
+althaus:FlowSE rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState althaus:CompartmentS ;
+    dsim:hasTargetState althaus:CompartmentE ;
+    dsim:hasRate althaus:RateSE ;
+    dsim:representsStateTransition althaus:Infection .
+
+althaus:FlowEI rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState althaus:CompartmentE ;
+    dsim:hasTargetState althaus:CompartmentI ;
+    dsim:hasRate althaus:RateEI ;
+    dsim:representsStateTransition althaus:EndOfIncubation .
+
+althaus:FlowIR rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState althaus:CompartmentI ;
+    dsim:hasTargetState althaus:CompartmentR ;
+    dsim:hasRate althaus:RateIR ;
+    dsim:representsStateTransition althaus:Recovery .
+
+althaus:FlowID rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState althaus:CompartmentI ;
+    dsim:hasTargetState althaus:CompartmentD ;
+    dsim:hasRate althaus:RateID ;
+    dsim:representsStateTransition althaus:Death .
+
+
+#    Quatre taux. Ce sont des formules : elles se gardent quand le contexte change,
+#    ce sont leurs parametres qui changent.
+
+althaus:RateSE rdf:type owl:NamedIndividual , dsim:CompartmentDependentRate ;
+    dsim:dependsOnCompartment althaus:CompartmentI ;
+    dsim:rateExpression "beta(t) * I / N, où beta(t) = beta avant tau, puis beta * exp(-k * (t - tau))" ;
+    dsim:realisesDeterminant althaus:InfectionDeterminant .
+
+althaus:RateEI rdf:type owl:NamedIndividual , dsim:ConstantRate ;
+    dsim:rateExpression "sigma" ;
+    dsim:realisesDeterminant althaus:IncubationDeterminant .
+
+althaus:RateIR rdf:type owl:NamedIndividual , dsim:ConstantRate ;
+    dsim:rateExpression "(1 - f) * gamma" ;
+    dsim:realisesDeterminant althaus:RecoveryDeterminant .
+
+althaus:RateID rdf:type owl:NamedIndividual , dsim:ConstantRate ;
+    dsim:rateExpression "f * gamma" ;
+    dsim:realisesDeterminant althaus:DeathDeterminant .
+
+
+#    Les equations de l'article
+
+althaus:EquationS rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment althaus:CompartmentS ;
+    dsim:involvesFlow althaus:FlowSE ;
+    dsim:equationExpression "dS/dt = -beta(t) * S * I / N" .
+
+althaus:EquationE rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment althaus:CompartmentE ;
+    dsim:involvesFlow althaus:FlowSE , althaus:FlowEI ;
+    dsim:equationExpression "dE/dt = beta(t) * S * I / N - sigma * E" .
+
+althaus:EquationI rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment althaus:CompartmentI ;
+    dsim:involvesFlow althaus:FlowEI , althaus:FlowIR , althaus:FlowID ;
+    dsim:equationExpression "dI/dt = sigma * E - gamma * I" .
+
+althaus:EquationR rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment althaus:CompartmentR ;
+    dsim:involvesFlow althaus:FlowIR ;
+    dsim:equationExpression "dR/dt = (1 - f) * gamma * I" .
+
+althaus:EquationD rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment althaus:CompartmentD ;
+    dsim:involvesFlow althaus:FlowID ;
+    dsim:equationExpression "dD/dt = f * gamma * I" .
+
+
+#################################################################
+#    4. L'execution (EK), commune aux trois modeles
+#################################################################
+
+althaus:FitInR rdf:type owl:NamedIndividual , dsim:ExecutionKnowledge ;
+    dsim:simulatorName "R, paquet deSolve (fonction ode)" ;
+    rdfs:comment "Ajustement par maximum de vraisemblance, en supposant que les cas et décès cumulés suivent une loi de Poisson. Algorithme de Nelder et Mead (fonction optim de R). Intervalles de confiance tirés du profil de vraisemblance."@fr .
+
+
+#################################################################
+#    5. Les parametres communs aux trois pays.
+#    Ils ne dependent d'aucun element du contexte : ils se gardent.
+#################################################################
+
+althaus:IncubationPeriod rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "1/sigma" ;
+    dsim:parameterValue "5.3"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dcterms:source <https://doi.org/10.1016/j.jtbi.2004.03.006> ;
+    rdfs:comment "Durée moyenne d'incubation, reprise de l'épidémie de 1995 au Congo (Chowell et al., 2004)."@fr .
+
+althaus:InfectiousPeriod rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "1/gamma" ;
+    dsim:parameterValue "5.61"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dcterms:source <https://doi.org/10.1016/j.jtbi.2004.03.006> ;
+    rdfs:comment "Durée moyenne de contagiosité, reprise de la même source. L'article la traite comme propre à la maladie : c'est une de ses hypothèses."@fr .
+
+althaus:InitialInfected rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "I(0)" ;
+    dsim:parameterValue "1"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "L'épidémie commence avec un seul infectieux."@fr .
+
+althaus:InitialCases rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "C(0)" ;
+    dsim:parameterValue "1"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "Le compteur des cas cumulés commence à un."@fr .
+
+
+#################################################################
+#    6. Les trois modeles, un par pays
+#################################################################
+
+#    Guinee
+
+althaus:ModelGuinea rdf:type owl:NamedIndividual , dsim:CompartmentalModel ;
+    dsim:modelName "Althaus 2014 - Ebola SEIR - Guinea" ;
+    dsim:hasAuthor "Christian L. Althaus" ;
+    dsim:modelDescription "Modèle SEIR de l'épidémie d'Ebola de 2014 en Guinée, ajusté aux cas et décès cumulés déclarés par l'OMS du 22 mars au 20 août 2014." ;
+    dsim:hasModelNature dsim:MECHANISTIC ;
+    dsim:hasModelScope dsim:SPECIFIC ;
+    dsim:hasModelPurpose dsim:RETROSPECTIVE_ANALYSIS ;
+    dsim:hasValidationMethod dsim:HISTORICAL_DATA ;
+    dsim:hasStructureKnowledge althaus:SEIRStructure ;
+    dsim:hasExecutionKnowledge althaus:FitInR ;
+    dsim:hasContextKnowledge althaus:GuineaContext ;
+    dsim:usesScenario althaus:GuineaScenario ;
+    dsim:hasCompartment althaus:CompartmentS , althaus:CompartmentE , althaus:CompartmentI ,
+                        althaus:CompartmentR , althaus:CompartmentD ;
+    dsim:hasFlow althaus:FlowSE , althaus:FlowEI , althaus:FlowIR , althaus:FlowID ;
+    dsim:hasEquation althaus:EquationS , althaus:EquationE , althaus:EquationI ,
+                     althaus:EquationR , althaus:EquationD ;
+    dsim:hasParameter althaus:IncubationPeriod , althaus:InfectiousPeriod ,
+                      althaus:InitialInfected , althaus:InitialCases ,
+                      althaus:BetaGuinea , althaus:FGuinea , althaus:KGuinea , althaus:NGuinea ,
+                      althaus:TGuinea , althaus:TauGuinea , althaus:R0Guinea ;
+    dcterms:source <https://doi.org/10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288> .
+
+althaus:GuineaScenario rdf:type owl:NamedIndividual , dsim:InterventionScenario ;
+    dsim:startDate "2013-12-02T00:00:00"^^xsd:dateTime ;
+    rdfs:comment "Commence au premier cas. Les mesures de contrôle font baisser la transmission dès ce jour."@fr .
+
+althaus:BetaGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.27"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Guinea ;
+    rdfs:comment "Taux de transmission avant les mesures de contrôle. IC à 95 % : 0,27 à 0,27."@fr .
+
+althaus:FGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "f" ;
+    dsim:parameterValue "0.74"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Guinea ;
+    rdfs:comment "Létalité. IC à 95 % : 0,72 à 0,75."@fr .
+
+althaus:KGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "k" ;
+    dsim:parameterValue "0.0023"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Guinea ;
+    rdfs:comment "Vitesse de baisse de la transmission due aux mesures de contrôle. IC à 95 % : 0,0023 à 0,0024."@fr .
+
+althaus:NGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "N" ;
+    dsim:parameterValue "1000000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:GuineaPopulation ;
+    rdfs:comment "Taille de population supposée par l'article. Sa valeur exacte compte peu tant que les cas restent peu nombreux devant N."@fr .
+
+althaus:TGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "T" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dsim:dependsOnContextElement althaus:Guinea ;
+    dcterms:source <https://doi.org/10.1056/NEJMoa1404505> ;
+    rdfs:comment "Date du premier cas : 2 décembre 2013, reprise de Baize et al. (2014). C'est aussi le début du scénario."@fr .
+
+althaus:TauGuinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "tau" ;
+    dsim:parameterValue "0"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:Guinea ;
+    rdfs:comment "Début des mesures de contrôle, en jours après le premier cas : dès le premier cas."@fr .
+
+althaus:R0Guinea rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "R0" ;
+    dsim:parameterValue "1.51"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "beta / gamma" ;
+    dsim:isDerivedFrom althaus:BetaGuinea , althaus:InfectiousPeriod ;
+    rdfs:comment "IC à 95 % : 1,50 à 1,52."@fr .
+
+
+#    Sierra Leone
+
+althaus:ModelSierraLeone rdf:type owl:NamedIndividual , dsim:CompartmentalModel ;
+    dsim:modelName "Althaus 2014 - Ebola SEIR - Sierra Leone" ;
+    dsim:hasAuthor "Christian L. Althaus" ;
+    dsim:modelDescription "Modèle SEIR de l'épidémie d'Ebola de 2014 en Sierra Leone, ajusté aux cas et décès cumulés déclarés par l'OMS du 27 mai au 20 août 2014." ;
+    dsim:hasModelNature dsim:MECHANISTIC ;
+    dsim:hasModelScope dsim:SPECIFIC ;
+    dsim:hasModelPurpose dsim:RETROSPECTIVE_ANALYSIS ;
+    dsim:hasValidationMethod dsim:HISTORICAL_DATA ;
+    dsim:hasStructureKnowledge althaus:SEIRStructure ;
+    dsim:hasExecutionKnowledge althaus:FitInR ;
+    dsim:hasContextKnowledge althaus:SierraLeoneContext ;
+    dsim:usesScenario althaus:SierraLeoneScenario ;
+    dsim:hasCompartment althaus:CompartmentS , althaus:CompartmentE , althaus:CompartmentI ,
+                        althaus:CompartmentR , althaus:CompartmentD ;
+    dsim:hasFlow althaus:FlowSE , althaus:FlowEI , althaus:FlowIR , althaus:FlowID ;
+    dsim:hasEquation althaus:EquationS , althaus:EquationE , althaus:EquationI ,
+                     althaus:EquationR , althaus:EquationD ;
+    dsim:hasParameter althaus:IncubationPeriod , althaus:InfectiousPeriod ,
+                      althaus:InitialInfected , althaus:InitialCases ,
+                      althaus:BetaSierraLeone , althaus:FSierraLeone , althaus:KSierraLeone ,
+                      althaus:NSierraLeone , althaus:TSierraLeone , althaus:TauSierraLeone ,
+                      althaus:R0SierraLeone ;
+    dcterms:source <https://doi.org/10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288> .
+
+althaus:SierraLeoneScenario rdf:type owl:NamedIndividual , dsim:InterventionScenario ;
+    dsim:startDate "2014-04-23T00:00:00"^^xsd:dateTime ;
+    rdfs:comment "Commence au premier cas. Les mesures de contrôle font baisser la transmission dès ce jour."@fr .
+
+althaus:BetaSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.45"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:SierraLeone ;
+    rdfs:comment "Taux de transmission avant les mesures de contrôle. IC à 95 % : 0,43 à 0,48."@fr .
+
+althaus:FSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "f" ;
+    dsim:parameterValue "0.48"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:SierraLeone ;
+    rdfs:comment "Létalité. IC à 95 % : 0,47 à 0,50."@fr .
+
+althaus:KSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "k" ;
+    dsim:parameterValue "0.0097"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:SierraLeone ;
+    rdfs:comment "Vitesse de baisse de la transmission due aux mesures de contrôle. IC à 95 % : 0,0085 à 0,0110."@fr .
+
+althaus:NSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "N" ;
+    dsim:parameterValue "1000000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:SierraLeonePopulation ;
+    rdfs:comment "Taille de population supposée par l'article. Sa valeur exacte compte peu tant que les cas restent peu nombreux devant N."@fr .
+
+althaus:TSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "T" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:SierraLeone ;
+    rdfs:comment "Date du premier cas, estimée : 23 avril 2014, IC à 95 % du 19 au 25 avril 2014. C'est aussi le début du scénario."@fr .
+
+althaus:TauSierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "tau" ;
+    dsim:parameterValue "0"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:SierraLeone ;
+    rdfs:comment "Début des mesures de contrôle, en jours après le premier cas : dès le premier cas."@fr .
+
+althaus:R0SierraLeone rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "R0" ;
+    dsim:parameterValue "2.53"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "beta / gamma" ;
+    dsim:isDerivedFrom althaus:BetaSierraLeone , althaus:InfectiousPeriod ;
+    rdfs:comment "IC à 95 % : 2,41 à 2,67."@fr .
+
+
+#    Liberia
+
+althaus:ModelLiberia rdf:type owl:NamedIndividual , dsim:CompartmentalModel ;
+    dsim:modelName "Althaus 2014 - Ebola SEIR - Liberia" ;
+    dsim:hasAuthor "Christian L. Althaus" ;
+    dsim:modelDescription "Modèle SEIR de l'épidémie d'Ebola de 2014 au Libéria, ajusté aux cas et décès cumulés déclarés par l'OMS du 16 juin au 20 août 2014." ;
+    dsim:hasModelNature dsim:MECHANISTIC ;
+    dsim:hasModelScope dsim:SPECIFIC ;
+    dsim:hasModelPurpose dsim:RETROSPECTIVE_ANALYSIS ;
+    dsim:hasValidationMethod dsim:HISTORICAL_DATA ;
+    dsim:hasStructureKnowledge althaus:SEIRStructure ;
+    dsim:hasExecutionKnowledge althaus:FitInR ;
+    dsim:hasContextKnowledge althaus:LiberiaContext ;
+    dsim:usesScenario althaus:LiberiaScenario ;
+    dsim:hasCompartment althaus:CompartmentS , althaus:CompartmentE , althaus:CompartmentI ,
+                        althaus:CompartmentR , althaus:CompartmentD ;
+    dsim:hasFlow althaus:FlowSE , althaus:FlowEI , althaus:FlowIR , althaus:FlowID ;
+    dsim:hasEquation althaus:EquationS , althaus:EquationE , althaus:EquationI ,
+                     althaus:EquationR , althaus:EquationD ;
+    dsim:hasParameter althaus:IncubationPeriod , althaus:InfectiousPeriod ,
+                      althaus:InitialInfected , althaus:InitialCases ,
+                      althaus:BetaLiberia , althaus:FLiberia , althaus:KLiberia , althaus:NLiberia ,
+                      althaus:TLiberia , althaus:TauLiberia , althaus:R0Liberia ;
+    dcterms:source <https://doi.org/10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288> .
+
+althaus:LiberiaScenario rdf:type owl:NamedIndividual , dsim:InterventionScenario ;
+    dsim:startDate "2014-04-14T00:00:00"^^xsd:dateTime ;
+    rdfs:comment "Commence au premier cas. Selon l'article, la transmission n'avait pas encore baissé fin août 2014 (k nul)."@fr .
+
+althaus:BetaLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.28"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Liberia ;
+    rdfs:comment "Taux de transmission. IC à 95 % : 0,28 à 0,29."@fr .
+
+althaus:FLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "f" ;
+    dsim:parameterValue "0.71"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Liberia ;
+    rdfs:comment "Létalité. IC à 95 % : 0,69 à 0,74."@fr .
+
+althaus:KLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "k" ;
+    dsim:parameterValue "0"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Liberia ;
+    rdfs:comment "k = 0 : selon un test du rapport de vraisemblance, laisser k libre n'améliore pas l'ajustement aux données du pays."@fr .
+
+althaus:NLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "N" ;
+    dsim:parameterValue "1000000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:LiberiaPopulation ;
+    rdfs:comment "Taille de population supposée par l'article. Sa valeur exacte compte peu tant que les cas restent peu nombreux devant N."@fr .
+
+althaus:TLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "T" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement althaus:Liberia ;
+    rdfs:comment "Date du premier cas, estimée : 14 avril 2014, IC à 95 % du 11 au 16 avril 2014. C'est aussi le début du scénario."@fr .
+
+althaus:TauLiberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "tau" ;
+    dsim:parameterValue "0"^^xsd:double ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement althaus:Liberia ;
+    rdfs:comment "Début des mesures de contrôle, en jours après le premier cas : dès le premier cas."@fr .
+
+althaus:R0Liberia rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "R0" ;
+    dsim:parameterValue "1.59"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "beta / gamma" ;
+    dsim:isDerivedFrom althaus:BetaLiberia , althaus:InfectiousPeriod ;
+    rdfs:comment "IC à 95 % : 1,57 à 1,60."@fr .
+
+
+#
+#    Ce que le raisonneur doit trouver tout seul :
+#    - les trois modeles sont des CoupledCompartmentalModel, parce que le flux de S vers E a un taux
+#      qui depend d'un compartiment ;
+#    - la maladie est une InfectiousDiseaseKnowledge (elle declare un virus) et une
+#      CoupledDiseaseKnowledge (l'infection depend du nombre d'infectieux) ;
+#    - beta, f et k des trois pays, et T de la Sierra Leone et du Liberia : ParameterToReestimate ;
+#    - N et tau des trois pays, et T de la Guinee : ParameterToReplace ;
+#    - R0 des trois pays : ParameterToRecalculate ;
+#    - 1/sigma, 1/gamma, I(0) et C(0) : aucune des trois, ils se gardent.

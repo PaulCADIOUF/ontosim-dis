@@ -27,11 +27,10 @@ Contrôles effectués sur un module :
 4. chaque terme importé de BFO, RO, IAO ou OGMS a le libellé et le parent de sa source officielle (fichiers de `ref/`) ;
 5. HermiT trouve l'ensemble cohérent, sans classe insatisfiable.
 
-**Les 10 modules et l'ombrelle d'un coup :**
-
+**Les 10 modules, l'ombrelle et les applications d'un coup :**
     bash tools/audit_tout.sh
 
-Le script audite chaque module avec ceux qu'il importe, puis l'ombrelle avec les 10 modules, et compte les fichiers qui ont au moins une erreur. Pour aller plus vite sans HermiT : `bash tools/audit_tout.sh --no-reasoner`.
+Le script audite chaque module avec ceux qu'il importe, puis l'ombrelle avec les 10 modules, puis chaque application de `src/applications/` avec toute l'ontologie, et compte les fichiers qui ont au moins une erreur. Pour aller plus vite sans HermiT : `bash tools/audit_tout.sh --no-reasoner`.
 
 **Un seul module**, par exemple la couche 2 :
 

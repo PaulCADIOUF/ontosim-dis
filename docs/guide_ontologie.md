@@ -20,7 +20,7 @@ terme.
 | **Couche 2** | Comment modélise-t-on ? | modèle, paramètre, état, transition |
 | **Couche 3** | Avec quel paradigme ? | compartiment, flux, agent, interaction |
 | **Couche 4** | Que modélise-t-on ? | maladie, état de santé, population, pathogène |
-| **Couche 5** *(à venir)* | Quel cas précis ? | un modèle SIR publié, la schistosomiase au Sénégal |
+| **Couche 5** *(commencée)* | Quel cas précis ? | le modèle d'Althaus (2014) sur Ebola, la schistosomiase au Sénégal |
 
 **La règle de décision :** avant d'ajouter un terme, demandez-vous à quelle question il répond.
 Si c'est « comment modéliser », il va en couche 2, même s'il parle de maladie dans votre tête.
@@ -185,12 +185,21 @@ se garde tel quel.
 **Pourquoi un fichier à part :** 4-Context décrit un contexte, il ne dit rien de ce qui arrive
 quand on en change. Ce fichier ajoute cette question sans toucher à la description du contexte.
 
-## Couche 5 — à venir
+## Couche 5 — les applications
 
-Un fichier par cas étudié, du modèle SIR le plus simple à la schistosomiase au Sénégal. Chacun
-décrira son cas avec le vocabulaire des couches 1 à 4 : la maladie, le contexte, le modèle et
-ses paramètres. Ces fichiers viendront avec la représentation et la simulation des modèles,
-dans `src/applications/`.
+Un fichier par cas étudié, dans `src/applications/`. Chacun décrit un modèle publié avec le
+vocabulaire des couches 1 à 4 : la maladie, le contexte, la structure du modèle et ses
+paramètres. Il ne crée aucun terme, et chaque valeur reprise d'une publication porte sa source.
+La simulation de ces modèles viendra avec la plateforme.
+
+### `althaus-2014-ebola.ttl` — Ebola, 2014 (novembre 2026)
+Le modèle SEIR d'Althaus (2014), ajusté à la Guinée, à la Sierra Leone et au Libéria : trois
+modèles, un par pays, qui partagent la description de la maladie et la structure, et gardent
+chacun leurs valeurs. Sans qu'on le lui dise, le raisonneur trouve que les trois modèles sont
+couplés, qu'Ebola est une maladie infectieuse couplée, et quels paramètres il faut réestimer,
+remplacer ou recalculer pour reprendre le modèle dans un autre pays.
+
+D'autres cas suivront, du modèle SIR le plus simple à la schistosomiase au Sénégal.
 
 ---
 

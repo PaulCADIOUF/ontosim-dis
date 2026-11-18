@@ -14,6 +14,7 @@ Université Assane Seck de Ziguinchor, laboratoire LI3.
 | Dossier | Contenu |
 |---|---|
 | `src/ontology/` | les 10 modules de l'ontologie et le fichier ombrelle qui les réunit, en Turtle |
+| `src/applications/` | les applications de la couche 5 : un fichier par cas étudié, décrit avec le vocabulaire de l'ontologie |
 | `tests/` | des cas de test à ouvrir avec l'ontologie |
 | `tools/` | les scripts de vérification |
 | `docs/` | les documents de conception |
