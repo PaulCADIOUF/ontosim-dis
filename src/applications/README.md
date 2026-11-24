@@ -5,6 +5,7 @@ La couche 5 d'OntoSim-Dis : un fichier par cas étudié. Chaque application déc
 | Fichier | Le cas | Source |
 |---|---|---|
 | `althaus-2014-ebola.ttl` | le modèle SEIR de l'épidémie d'Ebola de 2014, ajusté à la Guinée, à la Sierra Leone et au Libéria : trois modèles qui partagent la description de la maladie et la structure | Althaus (2014), *PLOS Currents Outbreaks*, doi:10.1371/currents.outbreaks.91afb5e0f279e7f29e7056095255b288 |
+| `roques-2020-covid19.ttl` | le modèle SIRD du COVID-19 en France pendant le confinement du printemps 2020, ajusté aux tests positifs et aux décès à l'hôpital | Roques et al. (2020), *Frontiers in Medicine*, doi:10.3389/fmed.2020.00274 |
 
 Dans Protégé :
 

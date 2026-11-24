@@ -1,0 +1,367 @@
+@prefix dsim:    <https://w3id.org/ontosim-dis#> .
+@prefix roques:  <https://w3id.org/ontosim-dis/applications/roques-2020#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#    Couche 5, application : le modele de Roques et al. (2020), decrit avec le vocabulaire d'OntoSim-Dis.
+#    Un modele SIRD du COVID-19 en France, pendant le confinement du printemps 2020.
+#    Toutes les valeurs viennent de l'article, sauf quand une autre source est indiquee.
+#    Trois valeurs estimees ne sont pas publiees dans l'article : elles sont decrites sans chiffre.
+
+<https://w3id.org/ontosim-dis/applications/roques-2020> rdf:type owl:Ontology ;
+    rdfs:label "Application - Roques et al. (2020), COVID-19, modèle SIRD"@fr ,
+               "Application - Roques et al. (2020), COVID-19, SIRD model"@en ;
+    rdfs:comment "Le modèle SIRD du COVID-19 en France pendant le confinement du printemps 2020, ajusté par Roques et al. aux tests positifs et aux décès à l'hôpital."@fr ,
+                 "The SIRD model of COVID-19 in France during the spring 2020 lockdown, fitted by Roques et al. to positive tests and hospital deaths."@en ;
+    dcterms:bibliographicCitation "Roques L., Klein E.K., Papaïx J., Sar A., Soubeyrand S. (2020). Impact of Lockdown on the Epidemic Dynamics of COVID-19 in France. Frontiers in Medicine, 7:274. DOI 10.3389/fmed.2020.00274" ;
+    dcterms:source <https://doi.org/10.3389/fmed.2020.00274> ;
+    dcterms:creator "Paul Cheikh Anta DIOUF" ;
+    dcterms:created "2026" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <https://w3id.org/ontosim-dis/1.3> ;
+    owl:versionInfo "1.0" .
+
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    1. La maladie (DK)
+#################################################################
+
+roques:Covid19 rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
+    dsim:diseaseName "COVID-19" ;
+    dsim:hasPathogen roques:SarsCov2 ;
+    dsim:hasTransmissionRoute dsim:DROPLET , dsim:DIRECT_CONTACT ;
+    dsim:hasHealthState roques:Susceptible , roques:Infectious , roques:Recovered , roques:Dead ;
+    dsim:hasStateTransition roques:Infection , roques:Recovery , roques:Death ;
+    dcterms:source <https://doi.org/10.3389/fmed.2020.00274> ,
+                   <https://www.who.int/news-room/commentaries/detail/transmission-of-SARS-CoV-2-implications-for-infection-prevention-precautions> ;
+    rdfs:comment "États et transitions tirés de l'article. L'article ne discute pas les voies de transmission : les gouttelettes et le contact viennent de la note scientifique de l'OMS sur la transmission du SARS-CoV-2."@fr .
+
+roques:SarsCov2 rdf:type owl:NamedIndividual , dsim:Virus ;
+    dsim:pathogenName "SARS-CoV-2" .
+
+
+#    Les quatre etats de sante. Pas d'etat expose : le modele n'a pas de compartiment E.
+
+roques:Susceptible rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Susceptible" .
+
+roques:Infectious rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Infectious" .
+
+roques:Recovered rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Recovered" .
+
+roques:Dead rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Dead" ;
+    dsim:isAbsorbingState "true"^^xsd:boolean .
+
+
+#    Les trois transitions. Seule l'infection depend du nombre d'infectieux.
+
+roques:Infection rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState roques:Susceptible ;
+    dsim:hasTargetHealthState roques:Infectious ;
+    dsim:isGovernedBy roques:InfectionDeterminant .
+
+roques:InfectionDeterminant rdf:type owl:NamedIndividual , dsim:PopulationCoupledDeterminant ;
+    dsim:dependsOnCountIn roques:Infectious ;
+    dsim:determinantExpression "alpha * I / N" .
+
+roques:Recovery rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState roques:Infectious ;
+    dsim:hasTargetHealthState roques:Recovered ;
+    dsim:isGovernedBy roques:RecoveryDeterminant .
+
+roques:RecoveryDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:determinantExpression "beta" .
+
+roques:Death rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState roques:Infectious ;
+    dsim:hasTargetHealthState roques:Dead ;
+    dsim:isGovernedBy roques:DeathDeterminant .
+
+roques:DeathDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:determinantExpression "gamma" .
+
+
+#    Deux interventions de l'article : le confinement, qui agit sur l'infection,
+#    et le depistage par RT-PCR, qui sert seulement a observer l'epidemie.
+
+roques:Lockdown rdf:type owl:NamedIndividual , dsim:MovementRestriction ;
+    dsim:modifiesDeterminant roques:InfectionDeterminant ;
+    rdfs:comment "Confinement national en France depuis le 17 mars 2020. Le modèle ne le représente pas par une rupture dans le temps : alpha est déjà le taux de contact sous confinement, et l'effet se lit en comparant Re au R0 d'avant le confinement."@fr .
+
+roques:RtPcrTesting rdf:type owl:NamedIndividual , dsim:DetectionIntervention ;
+    dsim:detects roques:Covid19 ;
+    dsim:hasSensitivity roques:Sigma ;
+    rdfs:comment "Tests de dépistage, le plus souvent par RT-PCR d'après l'article. Dans ce modèle, ils ne changent pas l'épidémie : ils relient le modèle aux tests positifs déclarés. L'article ne donne pas la spécificité des tests."@fr .
+
+
+#################################################################
+#    2. Le contexte (CK) : la France, sa population et ses hopitaux
+#################################################################
+
+roques:France rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "France" .
+
+roques:FrancePopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion roques:France .
+
+roques:FranceHospitals rdf:type owl:NamedIndividual , dsim:Hospital ;
+    rdfs:comment "Les hôpitaux français. L'article n'en donne pas la capacité : ils sont là parce que le taux de décès est ajusté sur les décès à l'hôpital."@fr .
+
+roques:FranceContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion roques:France ;
+    dsim:hasPopulation roques:FrancePopulation ;
+    dsim:hasHealthInfrastructure roques:FranceHospitals .
+
+
+#################################################################
+#    3. La structure du modele (MSK)
+#################################################################
+
+roques:SIRDStructure rdf:type owl:NamedIndividual , dsim:ModelStructureKnowledge ;
+    dsim:hasParadigm dsim:DETERMINISTIC ;
+    dsim:hasTemporalType dsim:CONTINUOUS ;
+    dsim:hasSpatialType dsim:NON_SPATIAL ;
+    dsim:hasGranularityLevel dsim:GROUP ;
+    dsim:hasComponent roques:CompartmentS , roques:CompartmentI , roques:CompartmentR , roques:CompartmentD ,
+                      roques:FlowSI , roques:FlowIR , roques:FlowID ,
+                      roques:RateSI , roques:RateIR , roques:RateID ,
+                      roques:EquationS , roques:EquationI , roques:EquationR , roques:EquationD ;
+    rdfs:comment "Un modèle d'observation relie le modèle aux données. La probabilité qu'un test soit positif vaut p_t = sigma * I / (I + kappa * S). Les tests positifs du jour suivent une loi binomiale, les décès du jour une loi de Poisson de moyenne l'accroissement de D."@fr .
+
+
+#    Quatre compartiments, chacun represente un etat de sante
+
+roques:CompartmentS rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "S" ;
+    dsim:representsHealthState roques:Susceptible .
+
+roques:CompartmentI rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "I" ;
+    dsim:representsHealthState roques:Infectious .
+
+roques:CompartmentR rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "R" ;
+    dsim:representsHealthState roques:Recovered .
+
+roques:CompartmentD rdf:type owl:NamedIndividual , dsim:Compartment ;
+    dsim:compartmentSymbol "D" ;
+    dsim:representsHealthState roques:Dead .
+
+
+#    Trois flux, chacun represente une transition
+
+roques:FlowSI rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState roques:CompartmentS ;
+    dsim:hasTargetState roques:CompartmentI ;
+    dsim:hasRate roques:RateSI ;
+    dsim:representsStateTransition roques:Infection .
+
+roques:FlowIR rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState roques:CompartmentI ;
+    dsim:hasTargetState roques:CompartmentR ;
+    dsim:hasRate roques:RateIR ;
+    dsim:representsStateTransition roques:Recovery .
+
+roques:FlowID rdf:type owl:NamedIndividual , dsim:TransitionFlow ;
+    dsim:hasSourceState roques:CompartmentI ;
+    dsim:hasTargetState roques:CompartmentD ;
+    dsim:hasRate roques:RateID ;
+    dsim:representsStateTransition roques:Death .
+
+
+#    Trois taux. Ce sont des formules : elles se gardent quand le contexte change,
+#    ce sont leurs parametres qui changent.
+
+roques:RateSI rdf:type owl:NamedIndividual , dsim:CompartmentDependentRate ;
+    dsim:dependsOnCompartment roques:CompartmentI ;
+    dsim:rateExpression "alpha * I / N" ;
+    dsim:realisesDeterminant roques:InfectionDeterminant .
+
+roques:RateIR rdf:type owl:NamedIndividual , dsim:ConstantRate ;
+    dsim:rateExpression "beta" ;
+    dsim:realisesDeterminant roques:RecoveryDeterminant .
+
+roques:RateID rdf:type owl:NamedIndividual , dsim:ConstantRate ;
+    dsim:rateExpression "gamma" ;
+    dsim:realisesDeterminant roques:DeathDeterminant .
+
+
+#    Les equations de l'article
+
+roques:EquationS rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment roques:CompartmentS ;
+    dsim:involvesFlow roques:FlowSI ;
+    dsim:equationExpression "dS/dt = -(alpha / N) * S * I" .
+
+roques:EquationI rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment roques:CompartmentI ;
+    dsim:involvesFlow roques:FlowSI , roques:FlowIR , roques:FlowID ;
+    dsim:equationExpression "dI/dt = (alpha / N) * S * I - (beta + gamma) * I" .
+
+roques:EquationR rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment roques:CompartmentR ;
+    dsim:involvesFlow roques:FlowIR ;
+    dsim:equationExpression "dR/dt = beta * I" .
+
+roques:EquationD rdf:type owl:NamedIndividual , dsim:DifferentialEquation ;
+    dsim:governsCompartment roques:CompartmentD ;
+    dsim:involvesFlow roques:FlowID ;
+    dsim:equationExpression "dD/dt = gamma * I" .
+
+
+#################################################################
+#    4. L'execution (EK)
+#################################################################
+
+roques:BayesianFit rdf:type owl:NamedIndividual , dsim:ExecutionKnowledge ;
+    dsim:simulatorName "Matlab (fonctions ode45 et fmincon)" ;
+    rdfs:comment "Approche mécanistique-statistique bayésienne. Mode a posteriori par minimisation BFGS sous contraintes, à partir de 4 000 points de départ ; échantillonnage par Metropolis-Hastings, 5 chaînes de 10^6 itérations. Le code est dans le matériel supplémentaire de l'article."@fr .
+
+
+#################################################################
+#    5. Les parametres
+#################################################################
+
+#    Trois reglages estimes sur les donnees, dont l'article ne donne pas le chiffre
+
+roques:Alpha rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "alpha" ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement roques:France ;
+    rdfs:comment "Taux de contact pendant le confinement. Valeur non publiée : seul Re l'est. Loi a priori uniforme sur (0, 1)."@fr .
+
+roques:Gamma rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "gamma" ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement roques:France , roques:FranceHospitals ;
+    dcterms:source <https://doi.org/10.3390/biology9050097> ;
+    rdfs:comment "Taux de décès. Valeur non publiée. Loi a priori informative tirée d'une étude précédente des mêmes auteurs (Roques et al., 2020, Biology). Ajusté sur les décès à l'hôpital, sans les EHPAD : il dépend aussi des hôpitaux du pays."@fr .
+
+roques:Kappa rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "kappa" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement roques:France ;
+    rdfs:comment "Probabilité de tester une personne saine plutôt qu'une personne infectieuse, supposée constante. Valeur non publiée. Loi a priori uniforme sur (0, 1). Elle dépend de la politique de dépistage du pays."@fr .
+
+
+#    Deux valeurs supposees, propres a la maladie ou au test : elles se gardent
+
+roques:Beta rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.1"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dcterms:source <https://doi.org/10.1016/S0140-6736(20)30566-3> ,
+                   <https://doi.org/10.1038/s41591-020-0869-5> ;
+    rdfs:comment "Taux de guérison : 10 jours de contagiosité en moyenne, d'après Zhou et al. (2020) et He et al. (2020)."@fr .
+
+roques:Sigma rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "sigma" ;
+    dsim:parameterValue "0.7"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dcterms:source <https://doi.org/10.1001/jama.2020.3786> ;
+    rdfs:comment "Sensibilité des tests RT-PCR, choisie dans la fourchette de 63 à 72 % de Wang et al. (2020)."@fr .
+
+
+#    Deux valeurs mesurees en France, a remplacer dans un autre pays
+
+roques:N rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "N" ;
+    dsim:hasValueOrigin dsim:MEASURED ;
+    dsim:dependsOnContextElement roques:FrancePopulation ;
+    rdfs:comment "Population française, supposée constante. L'article n'en donne pas le nombre."@fr .
+
+roques:InitialDeaths rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "D(t0)" ;
+    dsim:parameterValue "3523"^^xsd:double ;
+    dsim:hasValueOrigin dsim:MEASURED ;
+    dsim:dependsOnContextElement roques:France ;
+    rdfs:comment "Décès à l'hôpital au 31 mars 2020, d'après Santé publique France. L'article donne aussi 3 123 (M0) pour l'ajustement des décès cumulés, sans relier les deux nombres."@fr .
+
+
+#    Les autres conditions au depart, le 1er avril 2020
+
+roques:InitialSusceptible rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "S(t0)" ;
+    dsim:parameterValue "66000000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    dsim:dependsOnContextElement roques:FrancePopulation ;
+    rdfs:comment "Environ 98,5 % de la population : borne tirée des décès à l'hôpital au 14 avril et d'une létalité hospitalière de 0,5 %."@fr .
+
+roques:InitialInfectious rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "I(t0)" ;
+    dsim:parameterValue "1400000"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement roques:France ;
+    rdfs:comment "IC à 95 % : 1,1 à 1,8 million. Loi a priori uniforme sur (1, 10^7)."@fr .
+
+roques:InitialRecovered rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "R(t0)" ;
+    dsim:parameterValue "0"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "Seuls les guéris après le 1er avril comptent."@fr .
+
+
+#    Une valeur calculee a partir de trois autres
+
+roques:Re rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "Re" ;
+    dsim:parameterValue "0.47"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "alpha / (beta + gamma)" ;
+    dsim:isDerivedFrom roques:Alpha , roques:Beta , roques:Gamma ;
+    rdfs:comment "Nombre de reproduction effectif pendant le confinement. IC à 95 % : 0,45 à 0,50. Vaut quand S reste proche de N."@fr .
+
+
+#################################################################
+#    6. Le scenario et le modele
+#################################################################
+
+roques:LockdownScenario rdf:type owl:NamedIndividual , dsim:InterventionScenario ;
+    dsim:startDate "2020-04-01T00:00:00"^^xsd:dateTime ;
+    dsim:endDate "2020-05-10T00:00:00"^^xsd:dateTime ;
+    rdfs:comment "La France confinée depuis le 17 mars 2020. Ajustement du 1er au 14 avril, puis projection jusqu'au 10 mai, à confinement inchangé."@fr .
+
+roques:ModelFrance rdf:type owl:NamedIndividual , dsim:CompartmentalModel ;
+    dsim:modelName "Roques 2020 - COVID-19 SIRD - France" ;
+    dsim:hasAuthor "Lionel Roques" , "Etienne K. Klein" , "Julien Papaïx" , "Antoine Sar" , "Samuel Soubeyrand" ;
+    dsim:modelDescription "Modèle SIRD du COVID-19 en France pendant le confinement du printemps 2020, ajusté aux tests positifs et aux décès à l'hôpital déclarés par Santé publique France du 31 mars au 14 avril 2020. Avant le confinement, R0 valait 3,2 (IC à 95 % : 3,1 à 3,3), d'après une étude précédente des mêmes auteurs (Roques et al., 2020, Biology, DOI 10.3390/biology9050097) : ce chiffre n'est pas un paramètre de ce modèle." ;
+    dsim:hasModelNature dsim:MECHANISTIC ;
+    dsim:hasModelScope dsim:SPECIFIC ;
+    dsim:hasModelPurpose dsim:RETROSPECTIVE_ANALYSIS ;
+    dsim:hasValidationMethod dsim:HISTORICAL_DATA ;
+    dsim:hasStructureKnowledge roques:SIRDStructure ;
+    dsim:hasExecutionKnowledge roques:BayesianFit ;
+    dsim:hasContextKnowledge roques:FranceContext ;
+    dsim:usesScenario roques:LockdownScenario ;
+    dsim:hasCompartment roques:CompartmentS , roques:CompartmentI , roques:CompartmentR , roques:CompartmentD ;
+    dsim:hasFlow roques:FlowSI , roques:FlowIR , roques:FlowID ;
+    dsim:hasEquation roques:EquationS , roques:EquationI , roques:EquationR , roques:EquationD ;
+    dsim:hasParameter roques:Alpha , roques:Beta , roques:Gamma , roques:Sigma , roques:Kappa ,
+                      roques:N , roques:InitialSusceptible , roques:InitialInfectious ,
+                      roques:InitialRecovered , roques:InitialDeaths , roques:Re ;
+    dcterms:source <https://doi.org/10.3389/fmed.2020.00274> .
+
+
+#
+#    Ce que le raisonneur doit trouver tout seul :
+#    - le modele est un CoupledCompartmentalModel, parce que le flux de S vers I a un taux qui depend
+#      d'un compartiment ;
+#    - la maladie est une InfectiousDiseaseKnowledge (elle declare un virus) et une CoupledDiseaseKnowledge ;
+#    - le confinement est une TransmissionReducingIntervention, parce qu'il agit sur l'infection ;
+#    - alpha, gamma, kappa et I(t0) : ParameterToReestimate ;
+#    - N, D(t0) et S(t0) : ParameterToReplace ;
+#    - Re : ParameterToRecalculate ;
+#    - beta, sigma et R(t0) : aucune des trois, ils se gardent.

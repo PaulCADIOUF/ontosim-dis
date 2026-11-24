@@ -199,6 +199,15 @@ chacun leurs valeurs. Sans qu'on le lui dise, le raisonneur trouve que les trois
 couplés, qu'Ebola est une maladie infectieuse couplée, et quels paramètres il faut réestimer,
 remplacer ou recalculer pour reprendre le modèle dans un autre pays.
 
+### `roques-2020-covid19.ttl` — COVID-19, France, 2020 (novembre 2026)
+Le modèle SIRD de Roques et al. (2020) : le COVID-19 en France pendant le confinement du
+printemps 2020, ajusté aux tests positifs et aux décès à l'hôpital. C'est ce cas qui a demandé
+la cinquième origine de 4-Transfer, « mesurée », pour la population et les décès relevés en
+France. Le taux de décès dépend aussi des hôpitaux du pays : c'est par lui que le système de
+santé entre dans le modèle. Sans qu'on le lui dise, le raisonneur trouve que le confinement est
+une intervention qui réduit la transmission, et quels paramètres il faut réestimer, remplacer
+ou recalculer pour reprendre le modèle dans un autre pays, par exemple au Sénégal.
+
 D'autres cas suivront, du modèle SIR le plus simple à la schistosomiase au Sénégal.
 
 ---

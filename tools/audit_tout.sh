@@ -45,6 +45,7 @@ K=$O/layer4-checks.ttl
 T=$O/layer4-transfer.ttl
 U=$O/ontosim-dis.ttl
 ALT=src/applications/althaus-2014-ebola.ttl
+ROQ=src/applications/roques-2020-covid19.ttl
 REF="tools/ref/ro.owl tools/ref/iao.owl tools/ref/bfo.owl tools/ref/ogms-edit.owl"
 
 # Options passees au script (par exemple --no-reasoner), transmises a chaque audit
@@ -69,7 +70,8 @@ audit "$K"  "$L1" "$L2" "$A" "$B" "$G" "$C" "$K"
 audit "$T"  "$L1" "$L2" "$X" "$T"
 audit "$U"  "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K" "$T"
 audit "$ALT" "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K" "$T" "$ALT"
+audit "$ROQ" "$U" "$L1" "$L2" "$A" "$B" "$G" "$C" "$I" "$X" "$K" "$T" "$ROQ"
 
 echo "======================================================================"
-echo "Fichiers avec au moins une erreur : $echecs sur 12"
+echo "Fichiers avec au moins une erreur : $echecs sur 13"
 [ "$echecs" -eq 0 ]
