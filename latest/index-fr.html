@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontosim-dis#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontosim-dis#","name":"OntoSim-Dis : une ontologie des modèles de simulation des maladies", "headline":"OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d'un noyau commun à toutes les maladies.", "dateReleased":"2026", "version":"1.2", "license":"https://creativecommons.org/licenses/by/4.0/", "author":[{"@type":"Person","name":"Paul Cheikh Anta DIOUF"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/ontosim-dis#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/ontosim-dis#","name":"OntoSim-Dis : une ontologie des modèles de simulation des maladies", "headline":"OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d'un noyau commun à toutes les maladies.", "dateReleased":"2026", "version":"1.3", "license":"https://creativecommons.org/licenses/by/4.0/", "author":[{"@type":"Person","name":"Paul Cheikh Anta DIOUF"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -71,16 +71,16 @@ $(function(){
 
 <dl>
 <dt>Cette version:</dt>
-<dd><a href="https://w3id.org/ontosim-dis/1.2">https://w3id.org/ontosim-dis/1.2</a></dd>
+<dd><a href="https://w3id.org/ontosim-dis/1.3">https://w3id.org/ontosim-dis/1.3</a></dd>
 <dt>R&eacute;vision:</dt>
-<dd>1.2</dd>
+<dd>1.3</dd>
 <dt>Auteurs:</dt>
 <dd>Paul Cheikh Anta DIOUF</dd>
 
 <dt>T&eacute;l&eacute;charger s&eacute;rialisation:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>Licence:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualisation:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
-<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Citer en tant que:</dt>
-<dd>Paul Cheikh Anta DIOUF. OntoSim-Dis : une ontologie des modèles de simulation des maladies. Revision: 1.2. Retrieved from: https://w3id.org/ontosim-dis/1.2</dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Citer en tant que:</dt>
+<dd>Paul Cheikh Anta DIOUF. OntoSim-Dis : une ontologie des modèles de simulation des maladies. Revision: 1.3. Retrieved from: https://w3id.org/ontosim-dis/1.3</dd>
 </dl>
 
 <a href="provenance/provenance-fr.html" target="_blank">Provenance de cette page</a><hr/>
@@ -1173,6 +1173,9 @@ Cette ontologie a les classes et propri&eacute;t&eacute;s suivantes.</span>
    </li>
    <li>
       <a href="#INDIVIDUAL" title="https://w3id.org/ontosim-dis#INDIVIDUAL">Individual</a>
+   </li>
+   <li>
+      <a href="#MEASURED" title="https://w3id.org/ontosim-dis#MEASURED">Measured</a>
    </li>
    <li>
       <a href="#MECHANISTIC" title="https://w3id.org/ontosim-dis#MECHANISTIC">Mechanistic</a>
@@ -3701,14 +3704,14 @@ Cette section donne les d&eacute;tails de chaque classe et propri&eacute;t&eacut
   <h3>ParameterToReplace<sup class="type-c" title="classe">c</sup> <span class="backlink"> Retour à <a href="#toc">Table des matières</a> ou <a href="#classes">Retour vers les classes</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontosim-dis#ParameterToReplace</p>
   <div class="comment">
-   <span class="markdown">Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur.</span>
+   <span class="markdown">Paramètre dépendant du contexte dont la valeur a été supposée, reprise d'une source ou mesurée dans le contexte. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur.</span>
   </div>
   <dl class="description">
    <dt>
     Est équivalent à
    </dt>
    <dd>
-    <a href="#ContextDependentParameter" title="https://w3id.org/ontosim-dis#ContextDependentParameter">ContextDependentParameter</a> <sup class="type-c" title="classe">c</sup> <span class="logic">and</span> (<a href="#hasValueOrigin" title="https://w3id.org/ontosim-dis#hasValueOrigin">hasValueOrigin</a> <sup class="type-op" title="Propriété d'objet">op</sup> <span class="logic">some</span> { <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup> })
+    <a href="#ContextDependentParameter" title="https://w3id.org/ontosim-dis#ContextDependentParameter">ContextDependentParameter</a> <sup class="type-c" title="classe">c</sup> <span class="logic">and</span> (<a href="#hasValueOrigin" title="https://w3id.org/ontosim-dis#hasValueOrigin">hasValueOrigin</a> <sup class="type-op" title="Propriété d'objet">op</sup> <span class="logic">some</span> { <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#MEASURED" title="https://w3id.org/ontosim-dis#MEASURED">Measured</a> <sup class="type-ni" title="Individu nommé">ni</sup> })
    </dd>
    <dt>
     a pour super-classes
@@ -5030,14 +5033,14 @@ Cette section donne les d&eacute;tails de chaque classe et propri&eacute;t&eacut
   <h3>ValueOrigin<sup class="type-c" title="classe">c</sup> <span class="backlink"> Retour à <a href="#toc">Table des matières</a> ou <a href="#classes">Retour vers les classes</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ontosim-dis#ValueOrigin</p>
   <div class="comment">
-   <span class="markdown">Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée ou reprise d'une source se remplace, une valeur calculée se recalcule.</span>
+   <span class="markdown">Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée, reprise d'une source ou mesurée dans le contexte se remplace, une valeur calculée se recalcule.</span>
   </div>
   <dl class="description">
    <dt>
     Est équivalent à
    </dt>
    <dd>
-    { <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#DERIVED" title="https://w3id.org/ontosim-dis#DERIVED">Derived</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#ESTIMATED_FROM_DATA" title="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA">Estimated from data</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup> }
+    { <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#DERIVED" title="https://w3id.org/ontosim-dis#DERIVED">Derived</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#ESTIMATED_FROM_DATA" title="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA">Estimated from data</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup> , <a href="#MEASURED" title="https://w3id.org/ontosim-dis#MEASURED">Measured</a> <sup class="type-ni" title="Individu nommé">ni</sup> }
    </dd>
    <dt>
     a pour super-classes
@@ -5055,7 +5058,7 @@ Cette section donne les d&eacute;tails de chaque classe et propri&eacute;t&eacut
     a pour membres
    </dt>
    <dd>
-    <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#DERIVED" title="https://w3id.org/ontosim-dis#DERIVED">Derived</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#ESTIMATED_FROM_DATA" title="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA">Estimated from data</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup>
+    <a href="#ASSUMED" title="https://w3id.org/ontosim-dis#ASSUMED">Assumed</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#DERIVED" title="https://w3id.org/ontosim-dis#DERIVED">Derived</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#ESTIMATED_FROM_DATA" title="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA">Estimated from data</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#FROM_LITERATURE" title="https://w3id.org/ontosim-dis#FROM_LITERATURE">From literature</a> <sup class="type-ni" title="Individu nommé">ni</sup>, <a href="#MEASURED" title="https://w3id.org/ontosim-dis#MEASURED">Measured</a> <sup class="type-ni" title="Individu nommé">ni</sup>
    </dd>
   </dl>
  </div>
@@ -8744,6 +8747,7 @@ Cette section donne les d&eacute;tails de chaque classe et propri&eacute;t&eacut
   <li><a href="#GROUP" title="https://w3id.org/ontosim-dis#GROUP">Group</a></li>
   <li><a href="#HISTORICAL_DATA" title="https://w3id.org/ontosim-dis#HISTORICAL_DATA">Historical data validation</a></li>
   <li><a href="#INDIVIDUAL" title="https://w3id.org/ontosim-dis#INDIVIDUAL">Individual</a></li>
+  <li><a href="#MEASURED" title="https://w3id.org/ontosim-dis#MEASURED">Measured</a></li>
   <li><a href="#MECHANISTIC" title="https://w3id.org/ontosim-dis#MECHANISTIC">Mechanistic</a></li>
   <li><a href="#METHODOLOGICAL_RESEARCH" title="https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH">Methodological research</a></li>
   <li><a href="#MULTISCALE" title="https://w3id.org/ontosim-dis#MULTISCALE">Multiscale</a></li>
@@ -9131,6 +9135,21 @@ Cette section donne les d&eacute;tails de chaque classe et propri&eacute;t&eacut
    </dt>
    <dd>
     <a href="#GranularityLevel" title="https://w3id.org/ontosim-dis#GranularityLevel">GranularityLevel</a> <sup class="type-c" title="classe">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MEASURED">
+  <h3>Measured<sup class="type-ni" title="Individu nommé">ni</sup> <span class="backlink"> Retour à <a href="#toc">Table des matières</a> ou <a href="#namedindividuals">Retour vers l'individu nommé</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ontosim-dis#MEASURED</p>
+  <div class="comment">
+   <span class="markdown">Valeur relevée dans le contexte du modèle, par un comptage ou une mesure : une population recensée, des cas ou des décès déclarés.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    appartient à
+   </dt>
+   <dd>
+    <a href="#ValueOrigin" title="https://w3id.org/ontosim-dis#ValueOrigin">ValueOrigin</a> <sup class="type-c" title="classe">c</sup>
    </dd>
   </dl>
  </div>

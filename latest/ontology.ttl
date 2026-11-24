@@ -7,7 +7,7 @@
 @base <https://w3id.org/ontosim-dis#> .
 
 <https://w3id.org/ontosim-dis> rdf:type owl:Ontology ;
-                                owl:versionIRI <https://w3id.org/ontosim-dis/1.2> ;
+                                owl:versionIRI <https://w3id.org/ontosim-dis/1.3> ;
                                 <http://purl.org/dc/terms/abstract> "OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built. It focuses on infectious diseases: a dedicated module covers pathogens, hosts, vectors, reservoirs and transmission routes, on top of a core common to all diseases."@en ,
                                                                     "OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d'un noyau commun à toutes les maladies."@fr ;
                                 <http://purl.org/dc/terms/created> "2026" ;
@@ -23,7 +23,7 @@ Sa distinction centrale porte sur le risque : le risque d'une transition dépend
 Its central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling."""@en ;
                                 rdfs:label "OntoSim-Dis - complete ontology"@en ,
                                            "OntoSim-Dis - ontologie complète"@fr ;
-                                owl:versionInfo "1.2" .
+                                owl:versionInfo "1.3" .
 
 #################################################################
 #    Annotation properties
@@ -2678,6 +2678,7 @@ tombent ; COVID, grippe et rougeole n'y tombent pas."""@fr ,
                                                                  owl:someValuesFrom [ rdf:type owl:Class ;
                                                                                       owl:oneOf ( :ASSUMED
                                                                                                   :FROM_LITERATURE
+                                                                                                  :MEASURED
                                                                                                 )
                                                                                     ]
                                                                ]
@@ -2685,8 +2686,8 @@ tombent ; COVID, grippe et rougeole n'y tombent pas."""@fr ,
                                           rdf:type owl:Class
                                         ] ;
                     rdfs:subClassOf :ContextDependentParameter ;
-                    rdfs:comment "A context-dependent parameter whose value was assumed or taken from a source. Changing context only requires taking the value of the new context. Inferred by the reasoner."@en ,
-                                 "Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur."@fr ;
+                    rdfs:comment "A context-dependent parameter whose value was assumed, taken from a source or measured in the context. Changing context only requires taking the value of the new context. Inferred by the reasoner."@en ,
+                                 "Paramètre dépendant du contexte dont la valeur a été supposée, reprise d'une source ou mesurée dans le contexte. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur."@fr ;
                     rdfs:label "ParameterToReplace"@en .
 
 
@@ -3246,11 +3247,12 @@ It is not an information artifact but a process, because it unfolds over time.""
                                                :DERIVED
                                                :ESTIMATED_FROM_DATA
                                                :FROM_LITERATURE
+                                               :MEASURED
                                              )
                                  ] ;
              rdfs:subClassOf :SimulationKnowledgeArtifact ;
-             rdfs:comment "Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée ou reprise d'une source se remplace, une valeur calculée se recalcule."@fr ,
-                          "How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed or taken from a source is replaced, a calculated value is recalculated."@en ;
+             rdfs:comment "Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée, reprise d'une source ou mesurée dans le contexte se remplace, une valeur calculée se recalcule."@fr ,
+                          "How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed, taken from a source or measured in the context is replaced, a calculated value is recalculated."@en ;
              rdfs:label "ValueOrigin"@en .
 
 
@@ -3473,6 +3475,14 @@ It is not an information artifact but a process, because it unfolds over time.""
             rdfs:comment "Chaque individu est représenté séparément."@fr ,
                          "Each individual is represented separately."@en ;
             rdfs:label "Individual"@en .
+
+
+###  https://w3id.org/ontosim-dis#MEASURED
+:MEASURED rdf:type owl:NamedIndividual ,
+                   :ValueOrigin ;
+          rdfs:comment "Valeur relevée dans le contexte du modèle, par un comptage ou une mesure : une population recensée, des cas ou des décès déclarés."@fr ,
+                       "Value recorded in the model's own context, by a count or a measurement: a census population, reported cases or deaths."@en ;
+          rdfs:label "Measured"@en .
 
 
 ###  https://w3id.org/ontosim-dis#MECHANISTIC
@@ -3715,6 +3725,7 @@ It is not an information artifact but a process, because it unfolds over time.""
                         :DERIVED
                         :ESTIMATED_FROM_DATA
                         :FROM_LITERATURE
+                        :MEASURED
                       )
 ] .
 

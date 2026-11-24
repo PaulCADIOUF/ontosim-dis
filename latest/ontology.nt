@@ -1,5 +1,5 @@
 <https://w3id.org/ontosim-dis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/ontosim-dis> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/ontosim-dis/1.2> .
+<https://w3id.org/ontosim-dis> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/ontosim-dis/1.3> .
 <https://w3id.org/ontosim-dis> <http://purl.org/dc/terms/abstract> "OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built. It focuses on infectious diseases: a dedicated module covers pathogens, hosts, vectors, reservoirs and transmission routes, on top of a core common to all diseases."@en .
 <https://w3id.org/ontosim-dis> <http://purl.org/dc/terms/abstract> "OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d'un noyau commun à toutes les maladies."@fr .
 <https://w3id.org/ontosim-dis> <http://purl.org/dc/terms/created> "2026" .
@@ -13,7 +13,7 @@
 <https://w3id.org/ontosim-dis> <http://www.w3.org/2000/01/rdf-schema#comment> "The complete OntoSim-Dis ontology, an ontology of disease simulation models. This file contains no term: it imports the ten modules and carries the metadata of the whole.\nIts central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling."@en .
 <https://w3id.org/ontosim-dis> <http://www.w3.org/2000/01/rdf-schema#label> "OntoSim-Dis - complete ontology"@en .
 <https://w3id.org/ontosim-dis> <http://www.w3.org/2000/01/rdf-schema#label> "OntoSim-Dis - ontologie complète"@fr .
-<https://w3id.org/ontosim-dis> <http://www.w3.org/2002/07/owl#versionInfo> "1.2" .
+<https://w3id.org/ontosim-dis> <http://www.w3.org/2002/07/owl#versionInfo> "1.3" .
 # 
 # 
 # #################################################################
@@ -2511,27 +2511,30 @@ _:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid131 .
 _:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid131 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid137 .
-_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid132 .
+_:genid131 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid138 .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid132 .
 _:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid133 .
 _:genid133 <http://www.w3.org/2002/07/owl#someValuesFrom> _:genid134 .
-_:genid134 <http://www.w3.org/2002/07/owl#oneOf> _:genid136 .
+_:genid134 <http://www.w3.org/2002/07/owl#oneOf> _:genid137 .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid136 .
 _:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid135 .
 _:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MEASURED> .
 _:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
+_:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
 _:genid136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
+_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 _:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 _:genid133 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasValueOrigin> .
 _:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ContextDependentParameter> .
-_:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ContextDependentParameter> .
+_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#ContextDependentParameter> .
-<https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#comment> "A context-dependent parameter whose value was assumed or taken from a source. Changing context only requires taking the value of the new context. Inferred by the reasoner."@en .
-<https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#comment> "Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur."@fr .
+<https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#comment> "A context-dependent parameter whose value was assumed, taken from a source or measured in the context. Changing context only requires taking the value of the new context. Inferred by the reasoner."@en .
+<https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#comment> "Paramètre dépendant du contexte dont la valeur a été supposée, reprise d'une source ou mesurée dans le contexte. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur."@fr .
 <https://w3id.org/ontosim-dis#ParameterToReplace> <http://www.w3.org/2000/01/rdf-schema#label> "ParameterToReplace"@en .
 # 
 # https://w3id.org/ontosim-dis#Parasite
@@ -2559,11 +2562,11 @@ _:genid137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#PoissonDistribution
 <https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#ProbabilityDistribution> .
-<https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid138 .
-_:genid138 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
-_:genid138 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid138 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#lambdaParameter> .
-_:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid139 .
+_:genid139 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+_:genid139 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid139 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#lambdaParameter> .
+_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#comment> "Law of the number of events occurring in a fixed interval."@en .
 <https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#comment> "Loi du nombre d'événements survenant dans un intervalle fixe."@fr .
 <https://w3id.org/ontosim-dis#PoissonDistribution> <http://www.w3.org/2000/01/rdf-schema#label> "PoissonDistribution"@en .
@@ -2572,11 +2575,11 @@ _:genid138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#Population
 <https://w3id.org/ontosim-dis#Population> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
-<https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid139 .
-_:genid139 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#GeographicRegion> .
-_:genid139 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid139 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#isLocatedInRegion> .
-_:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid140 .
+_:genid140 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#GeographicRegion> .
+_:genid140 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid140 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#isLocatedInRegion> .
+_:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#comment> "A group of individuals in a geographical context. Partial alignment with osdi:Population, which describes a clinical cohort by age, sex, life expectancy and size, here the population is situated, with its density, its households and its territory. The overlap is partial and must be documented as such."@en .
 <https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#comment> "Groupe d'individus dans un contexte géographique. Alignement partiel avec osdi:Population, qui décrit une cohorte clinique par âge, sexe, espérance de vie et effectif ; ici la population est située, avec sa densité, ses ménages et son territoire. Le recouvrement est partiel et doit être documenté comme tel."@fr .
 <https://w3id.org/ontosim-dis#Population> <http://www.w3.org/2000/01/rdf-schema#label> "Population"@en .
@@ -2586,11 +2589,11 @@ _:genid139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#PopulationCoupledDeterminant
 <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
-<https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid140 .
-_:genid140 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#CouplingSource> .
-_:genid140 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid140 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#dependsOnCountIn> .
-_:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid141 .
+_:genid141 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#CouplingSource> .
+_:genid141 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid141 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#dependsOnCountIn> .
+_:genid141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#comment> "A determinant whose value depends on how many individuals are currently in some category, human or not. Canonical example: the force of infection. Structural consequence: the system is non-linear and coupled, individual trajectories are not independent."@en .
 <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#comment> "Déterminant dont la valeur dépend du nombre d'individus se trouvant actuellement dans une catégorie donnée, humaine ou non. Exemple canonique : la force d'infection. Conséquence structurelle : le système est non linéaire et couplé, les trajectoires individuelles ne sont pas indépendantes."@fr .
 <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> <http://www.w3.org/2000/01/rdf-schema#label> "PopulationCoupledDeterminant"@en .
@@ -2605,18 +2608,18 @@ _:genid140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge
 <https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid141 .
-_:genid141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid141 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid144 .
-_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid142 .
-_:genid142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid143 .
-_:genid143 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.obolibrary.org/obo/OGMS_0000065> .
-_:genid143 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasDiseaseCourseShape> .
-_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
-_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid142 .
+_:genid142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid142 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid145 .
+_:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid143 .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid144 .
+_:genid144 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.obolibrary.org/obo/OGMS_0000065> .
+_:genid144 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasDiseaseCourseShape> .
+_:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
+_:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
 <https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#comment> "A disease with an increasing deviation from homeostasis. Requires an ordered progression through stages, without return."@en .
 <https://w3id.org/ontosim-dis#ProgressiveCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#comment> "Maladie à déviation croissante. Impose une progression ordonnée par stades, sans retour."@fr .
@@ -2646,11 +2649,11 @@ _:genid144 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#ReservoirState
 <https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#CouplingSource> .
-<https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid145 .
-_:genid145 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#EpidemiologicalRole> .
-_:genid145 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid145 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#isStateOfRole> .
-_:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid146 .
+_:genid146 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#EpidemiologicalRole> .
+_:genid146 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid146 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#isStateOfRole> .
+_:genid146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
 <https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2000/01/rdf-schema#comment> "A non-human category whose current head count may make a risk vary: infected snails, cercariae present in a water body, infectious mosquitoes. It is not a health state, because the entity counted is not the individual whose disease is being modelled. It is the other kind of CouplingSource, the one that makes schistosomiasis representable."@en .
 <https://w3id.org/ontosim-dis#ReservoirState> <http://www.w3.org/2000/01/rdf-schema#comment> "Catégorie non humaine dont l'effectif courant peut faire varier un risque : escargots infectés, cercaires présentes dans un point d'eau, moustiques infectieux. Ce n'est pas un état de santé, parce que l'entité comptée n'est pas l'individu dont on modélise la maladie. C'est l'autre sorte de CouplingSource, celle qui rend la schistosomiase représentable."@fr .
@@ -2696,16 +2699,16 @@ _:genid145 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#SimulationExecution
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/BFO_0000015> .
-<https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid146 .
-_:genid146 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ExecutionKnowledge> .
-_:genid146 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid146 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#appliesExecutionKnowledge> .
-_:genid146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid147 .
-_:genid147 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#SimulationModel> .
+_:genid147 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ExecutionKnowledge> .
 _:genid147 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid147 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#executesModel> .
+_:genid147 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#appliesExecutionKnowledge> .
 _:genid147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid148 .
+_:genid148 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#SimulationModel> .
+_:genid148 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid148 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#executesModel> .
+_:genid148 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#comment> "Ceci représente le processus d'exécution d'un modèle de simulation sur un simulateur.\nCe n'est pas un artefact d'information mais un processus car il se déroule dans le temps."@fr .
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#comment> "This represents the process of executing a simulation model on a simulator.\nIt is not an information artifact but a process, because it unfolds over time."@en .
 <https://w3id.org/ontosim-dis#SimulationExecution> <http://www.w3.org/2000/01/rdf-schema#label> "SimulationExecution"@en .
@@ -2720,26 +2723,26 @@ _:genid147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#SimulationModel
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
-<https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid148 .
-_:genid148 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ModelParameter> .
-_:genid148 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid148 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasParameter> .
-_:genid148 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid149 .
-_:genid149 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ValidationMethod> .
+_:genid149 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ModelParameter> .
 _:genid149 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid149 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasValidationMethod> .
+_:genid149 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasParameter> .
 _:genid149 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid150 .
-_:genid150 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#SimulationScenario> .
+_:genid150 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ValidationMethod> .
 _:genid150 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid150 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#usesScenario> .
+_:genid150 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasValidationMethod> .
 _:genid150 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid151 .
-_:genid151 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ModelStructureKnowledge> .
-_:genid151 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid151 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasStructureKnowledge> .
+_:genid151 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#SimulationScenario> .
+_:genid151 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid151 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#usesScenario> .
 _:genid151 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid152 .
+_:genid152 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#ModelStructureKnowledge> .
+_:genid152 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid152 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasStructureKnowledge> .
+_:genid152 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#comment> "A representation of a system whose behaviour is studied by simulation, independently of the paradigm used."@en .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#comment> "Représentation d'un système dont on étudie le comportement par simulation, indépendamment du paradigme employé."@fr .
 <https://w3id.org/ontosim-dis#SimulationModel> <http://www.w3.org/2000/01/rdf-schema#label> "SimulationModel"@en .
@@ -2775,21 +2778,21 @@ _:genid151 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#SpatialType
 <https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid152 .
-_:genid152 <http://www.w3.org/2002/07/owl#oneOf> _:genid156 .
+<https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid153 .
+_:genid153 <http://www.w3.org/2002/07/owl#oneOf> _:genid157 .
+_:genid157 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid156 .
 _:genid156 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid155 .
 _:genid155 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid154 .
-_:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid153 .
-_:genid153 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid153 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NON_SPATIAL> .
-_:genid153 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NETWORK> .
+_:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NON_SPATIAL> .
 _:genid154 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid155 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GRID> .
+_:genid155 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NETWORK> .
 _:genid155 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid156 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GIS> .
+_:genid156 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GRID> .
 _:genid156 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid152 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid157 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GIS> .
+_:genid157 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid153 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
 <https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/2000/01/rdf-schema#comment> "Façon dont l'espace est représenté dans le modèle. Liste fermée."@fr .
 <https://w3id.org/ontosim-dis#SpatialType> <http://www.w3.org/2000/01/rdf-schema#comment> "Way space is represented in the model. Closed list."@en .
@@ -2804,18 +2807,18 @@ _:genid152 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#StaticApproximationAgentTransition
 <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid157 .
-_:genid157 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid157 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid160 .
-_:genid160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid158 .
-_:genid158 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid158 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid159 .
-_:genid159 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#CoupledTransition> .
-_:genid159 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#representsStateTransition> .
-_:genid159 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid158 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AttributeDrivenTransition> .
-_:genid160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid158 .
+_:genid158 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid158 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid161 .
+_:genid161 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid159 .
+_:genid159 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid159 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid160 .
+_:genid160 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#CoupledTransition> .
+_:genid160 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#representsStateTransition> .
+_:genid160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid159 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid161 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AttributeDrivenTransition> .
+_:genid161 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#AttributeDrivenTransition> .
 <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "An agent transition that represents a coupled transition but is triggered by the agent's own attributes alone, not by an interaction. Agent-based form of the static approximation."@en .
 <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "Transition d'agent qui représente une transition couplée, mais qui est déclenchée par les seuls attributs de l'agent, et non par une interaction. Forme multi-agents de l'approximation statique."@fr .
@@ -2823,24 +2826,24 @@ _:genid160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#StaticApproximationFlow
 <https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid161 .
-_:genid161 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid161 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid166 .
-_:genid166 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid164 .
-_:genid164 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid162 .
-_:genid162 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid162 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid163 .
-_:genid163 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#CoupledTransition> .
-_:genid163 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#representsStateTransition> .
-_:genid163 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid162 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid164 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid165 .
-_:genid165 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#ConstantRate> .
-_:genid165 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasRate> .
-_:genid165 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid164 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid166 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionFlow> .
-_:genid166 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid162 .
+_:genid162 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid162 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid167 .
+_:genid167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid165 .
+_:genid165 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid163 .
+_:genid163 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid163 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid164 .
+_:genid164 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#CoupledTransition> .
+_:genid164 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#representsStateTransition> .
+_:genid164 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid163 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid165 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid166 .
+_:genid166 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#ConstantRate> .
+_:genid166 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasRate> .
+_:genid166 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid165 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionFlow> .
+_:genid167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#TransitionFlow> .
 <https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/2000/01/rdf-schema#comment> "A flow that represents a coupled transition but whose rate is constant: it does not read the head count on which the risk depends. Compartmental form of the static approximation."@en .
 <https://w3id.org/ontosim-dis#StaticApproximationFlow> <http://www.w3.org/2000/01/rdf-schema#comment> "Flux qui représente une transition couplée, mais dont le taux est constant : il ne lit pas l'effectif dont dépend le risque. Forme compartimentale de l'approximation statique."@fr .
@@ -2848,29 +2851,29 @@ _:genid166 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#StaticApproximationModel
 <https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid167 .
-_:genid167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid167 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid174 .
-_:genid174 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid168 .
-_:genid168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid169 .
-_:genid169 <http://www.w3.org/2002/07/owl#unionOf> _:genid172 .
-_:genid172 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid170 .
-_:genid170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid171 .
-_:genid171 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#StaticApproximationFlow> .
-_:genid171 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasFlow> .
-_:genid171 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid172 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid173 .
-_:genid173 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> .
-_:genid173 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasAgentTransition> .
-_:genid173 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid172 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid169 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid174 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SimulationModel> .
-_:genid174 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid168 .
+_:genid168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid168 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid175 .
+_:genid175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid169 .
+_:genid169 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid169 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid170 .
+_:genid170 <http://www.w3.org/2002/07/owl#unionOf> _:genid173 .
+_:genid173 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid171 .
+_:genid171 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid171 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid172 .
+_:genid172 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#StaticApproximationFlow> .
+_:genid172 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasFlow> .
+_:genid172 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid171 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid173 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid174 .
+_:genid174 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#StaticApproximationAgentTransition> .
+_:genid174 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasAgentTransition> .
+_:genid174 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid173 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid169 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SimulationModel> .
+_:genid175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationModel> .
 <https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/2000/01/rdf-schema#comment> "A model containing at least one static approximation: it represents a coupled transition without realising the coupling. It therefore ignores the indirect effects of an intervention, such as herd immunity. The approximation is acceptable when the intervention studied does not change transmission; otherwise, a dynamic model is needed. Inferred by the reasoner."@en .
 <https://w3id.org/ontosim-dis#StaticApproximationModel> <http://www.w3.org/2000/01/rdf-schema#comment> "Modèle comportant au moins une approximation statique : il représente une transition couplée sans en réaliser le couplage. Il ignore donc les effets indirects d'une intervention, comme l'immunité de groupe. L'approximation est acceptable lorsque l'intervention étudiée ne modifie pas la transmission ; sinon, un modèle dynamique est nécessaire. Inféré par le raisonneur."@fr .
@@ -2892,15 +2895,15 @@ _:genid174 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#TemporalType
 <https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid175 .
-_:genid175 <http://www.w3.org/2002/07/owl#oneOf> _:genid177 .
-_:genid177 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid176 .
-_:genid176 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid176 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DISCRETE> .
-_:genid176 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid177 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CONTINUOUS> .
+<https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid176 .
+_:genid176 <http://www.w3.org/2002/07/owl#oneOf> _:genid178 .
+_:genid178 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid177 .
+_:genid177 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid177 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DISCRETE> .
 _:genid177 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid178 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CONTINUOUS> .
+_:genid178 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid176 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
 <https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/2000/01/rdf-schema#comment> "Nature du temps dans le modèle. Liste fermée."@fr .
 <https://w3id.org/ontosim-dis#TemporalType> <http://www.w3.org/2000/01/rdf-schema#comment> "Nature of time in the model. Closed list."@en .
@@ -2908,18 +2911,18 @@ _:genid175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge
 <https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid178 .
-_:genid178 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid178 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid181 .
-_:genid181 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid179 .
-_:genid179 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid179 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid180 .
-_:genid180 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.obolibrary.org/obo/OGMS_0000066> .
-_:genid180 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasDiseaseCourseShape> .
-_:genid180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid179 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid181 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
-_:genid181 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid179 .
+_:genid179 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid179 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid182 .
+_:genid182 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid180 .
+_:genid180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid181 .
+_:genid181 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.obolibrary.org/obo/OGMS_0000066> .
+_:genid181 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasDiseaseCourseShape> .
+_:genid181 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid182 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
+_:genid182 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#DiseaseKnowledgeTemplate> .
 <https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#comment> "A disease whose course can end in a return to normal homeostasis. Allows a transition back to a healthy state."@en .
 <https://w3id.org/ontosim-dis#TransientCourseDiseaseKnowledge> <http://www.w3.org/2000/01/rdf-schema#comment> "Maladie dont le cours peut se terminer par un retour à l'homéostasie normale. Autorise une transition de retour vers un état sain."@fr .
@@ -2928,36 +2931,36 @@ _:genid181 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#TransitionComponent
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#ModelComponent> .
-<https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid182 .
-_:genid182 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#StateComponent> .
-_:genid182 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid182 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasSourceState> .
-_:genid182 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid183 .
 _:genid183 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#StateComponent> .
 _:genid183 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid183 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasTargetState> .
+_:genid183 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasSourceState> .
 _:genid183 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid184 .
+_:genid184 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#StateComponent> .
+_:genid184 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid184 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasTargetState> .
+_:genid184 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A passage from one state to another. Has exactly one source state and one target state, whatever the paradigm. A transition to several states is represented by several transitions."@en .
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "Passage d'un état à un autre. Possède exactement un état de départ et un état d'arrivée, quel que soit le paradigme. Une transition vers plusieurs états se représente par plusieurs transitions."@fr .
 <https://w3id.org/ontosim-dis#TransitionComponent> <http://www.w3.org/2000/01/rdf-schema#label> "TransitionComponent"@en .
 # 
 # https://w3id.org/ontosim-dis#TransitionDeterminant
 <https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid184 .
-_:genid184 <http://www.w3.org/2002/07/owl#unionOf> _:genid186 .
-_:genid186 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid185 .
-_:genid185 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid185 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> .
-_:genid185 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid186 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IndividualDeterminant> .
+<https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid185 .
+_:genid185 <http://www.w3.org/2002/07/owl#unionOf> _:genid187 .
+_:genid187 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid186 .
+_:genid186 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid186 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> .
 _:genid186 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid184 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid187 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IndividualDeterminant> .
+_:genid187 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid185 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
-<https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid187 .
-_:genid187 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontosim-dis#ModelParameter> .
-_:genid187 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#quantifiedBy> .
-_:genid187 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid188 .
+_:genid188 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/ontosim-dis#ModelParameter> .
+_:genid188 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#quantifiedBy> .
+_:genid188 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#TransitionDeterminant> <http://purl.obolibrary.org/obo/IAO_0000116> "No equivalent in OSDi. OSDi has no class for what governs a transition: it attaches risk to a clinical progression element through the property hasRiskCharacterization, whose value is a parameter (for instance a relative risk) or a pathway."@en .
 <https://w3id.org/ontosim-dis#TransitionDeterminant> <http://purl.obolibrary.org/obo/IAO_0000116> "Pas d'équivalent dans OSDi. OSDi n'a pas de classe pour ce qui gouverne une transition : il rattache le risque à un élément de progression clinique par la propriété hasRiskCharacterization, dont la valeur est un paramètre (un risque relatif, par exemple) ou un chemin (Pathway)."@fr .
 <https://w3id.org/ontosim-dis#TransitionDeterminant> <http://www.w3.org/2000/01/rdf-schema#comment> "Ce qui gouverne le taux ou la probabilité d'une transition. La distinction entre ses deux sous-classes N'EST PAS médicale mais structurelle : elle dit si le risque d'un individu dépend des autres. C'est elle, et non la taxonomie des maladies, qui détermine la famille de modèles utilisable."@fr .
@@ -2967,29 +2970,29 @@ _:genid187 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#TransitionFlow
 <https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#TransitionComponent> .
-<https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid188 .
-_:genid188 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#RateSpecification> .
-_:genid188 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid188 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasRate> .
-_:genid188 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid189 .
+_:genid189 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/ontosim-dis#RateSpecification> .
+_:genid189 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid189 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#hasRate> .
+_:genid189 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#comment> "A passage of individuals from one compartment to another, governed by a rate. Inherits from the layer 2 transition its source and target states."@en .
 <https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#comment> "Passage d'individus d'un compartiment à un autre, gouverné par un taux. Hérite de la transition de couche 2 ses états de départ et d'arrivée."@fr .
 <https://w3id.org/ontosim-dis#TransitionFlow> <http://www.w3.org/2000/01/rdf-schema#label> "TransitionFlow"@en .
 # 
 # https://w3id.org/ontosim-dis#TransmissionReducingIntervention
 <https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid189 .
-_:genid189 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid189 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid192 .
-_:genid192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid190 .
-_:genid190 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid190 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid191 .
-_:genid191 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> .
-_:genid191 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#modifiesDeterminant> .
-_:genid191 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid190 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Intervention> .
-_:genid192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid190 .
+_:genid190 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid190 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid193 .
+_:genid193 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid191 .
+_:genid191 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid191 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid192 .
+_:genid192 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/ontosim-dis#PopulationCoupledDeterminant> .
+_:genid192 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#modifiesDeterminant> .
+_:genid192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid191 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid193 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Intervention> .
+_:genid193 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#Intervention> .
 <https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/2000/01/rdf-schema#comment> "Classe DÉFINIE : intervention agissant sur un déterminant couplé à la population. N'a de sens que pour une maladie transmissible, puisque réduire les contacts ne change rien lorsque le risque ne dépend que de l'individu."@fr .
 <https://w3id.org/ontosim-dis#TransmissionReducingIntervention> <http://www.w3.org/2000/01/rdf-schema#comment> "DEFINED class: an intervention acting on a population-coupled determinant. Only makes sense for a transmissible disease, since reducing contacts changes nothing when the risk depends on the individual alone."@en .
@@ -2997,8 +3000,9 @@ _:genid192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#TransmissionRoute
 <https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid193 .
-_:genid193 <http://www.w3.org/2002/07/owl#oneOf> _:genid203 .
+<https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid194 .
+_:genid194 <http://www.w3.org/2002/07/owl#oneOf> _:genid204 .
+_:genid204 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid203 .
 _:genid203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid202 .
 _:genid202 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid201 .
 _:genid201 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid200 .
@@ -3007,29 +3011,28 @@ _:genid199 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid198 .
 _:genid198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid197 .
 _:genid197 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid196 .
 _:genid196 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid195 .
-_:genid195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid194 .
-_:genid194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#WATERBORNE> .
-_:genid194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VERTICAL> .
+_:genid195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#WATERBORNE> .
 _:genid195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid196 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VECTOR_BORNE> .
+_:genid196 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VERTICAL> .
 _:genid196 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid197 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SEXUAL> .
+_:genid197 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VECTOR_BORNE> .
 _:genid197 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FOODBORNE> .
+_:genid198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SEXUAL> .
 _:genid198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid199 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FECAL_ORAL> .
+_:genid199 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FOODBORNE> .
 _:genid199 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid200 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DROPLET> .
+_:genid200 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FECAL_ORAL> .
 _:genid200 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid201 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DIRECT_CONTACT> .
+_:genid201 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DROPLET> .
 _:genid201 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid202 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BLOODBORNE> .
+_:genid202 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DIRECT_CONTACT> .
 _:genid202 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AIRBORNE> .
+_:genid203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BLOODBORNE> .
 _:genid203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid193 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid204 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AIRBORNE> .
+_:genid204 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
 <https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/2000/01/rdf-schema#comment> "The biological route by which a communicable disease passes from one host to another. Closed list."@en .
 <https://w3id.org/ontosim-dis#TransmissionRoute> <http://www.w3.org/2000/01/rdf-schema#comment> "Voie biologique par laquelle une maladie transmissible passe d'un hôte à un autre. Liste fermée."@fr .
@@ -3052,16 +3055,16 @@ _:genid193 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/ontosim-dis#UniformDistribution
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#ProbabilityDistribution> .
-<https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid204 .
-_:genid204 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
-_:genid204 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid204 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#lowerLimitParameter> .
-_:genid204 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid205 .
 _:genid205 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
 _:genid205 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid205 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#upperLimitParameter> .
+_:genid205 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#lowerLimitParameter> .
 _:genid205 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid206 .
+_:genid206 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+_:genid206 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid206 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/ontosim-dis#upperLimitParameter> .
+_:genid206 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#comment> "Law giving the same weight to every value between two bounds."@en .
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#comment> "Loi donnant le même poids à toutes les valeurs entre deux bornes."@fr .
 <https://w3id.org/ontosim-dis#UniformDistribution> <http://www.w3.org/2000/01/rdf-schema#label> "UniformDistribution"@en .
@@ -3090,21 +3093,21 @@ _:genid205 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#ValidationMethod
 <https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid206 .
-_:genid206 <http://www.w3.org/2002/07/owl#oneOf> _:genid210 .
+<https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid207 .
+_:genid207 <http://www.w3.org/2002/07/owl#oneOf> _:genid211 .
+_:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid210 .
 _:genid210 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid209 .
 _:genid209 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid208 .
-_:genid208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid207 .
-_:genid207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STATISTICAL> .
-_:genid207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HISTORICAL_DATA> .
+_:genid208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STATISTICAL> .
 _:genid208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid209 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CROSS_MODEL> .
+_:genid209 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HISTORICAL_DATA> .
 _:genid209 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid210 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ADEQUACY> .
+_:genid210 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CROSS_MODEL> .
 _:genid210 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid206 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ADEQUACY> .
+_:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
 <https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Method by which the model is shown to be fit for its purpose. Closed list."@en .
 <https://w3id.org/ontosim-dis#ValidationMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Méthode par laquelle on montre que le modèle convient à son objectif. Liste fermée."@fr .
@@ -3112,24 +3115,27 @@ _:genid206 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/ontosim-dis#ValueOrigin
 <https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid211 .
-_:genid211 <http://www.w3.org/2002/07/owl#oneOf> _:genid215 .
+<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid212 .
+_:genid212 <http://www.w3.org/2002/07/owl#oneOf> _:genid217 .
+_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid216 .
+_:genid216 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid215 .
 _:genid215 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid214 .
 _:genid214 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid213 .
-_:genid213 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid212 .
-_:genid212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
-_:genid212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid213 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA> .
+_:genid213 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid213 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MEASURED> .
 _:genid213 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid214 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DERIVED> .
+_:genid214 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
 _:genid214 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid215 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
+_:genid215 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA> .
 _:genid215 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid216 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DERIVED> .
+_:genid216 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
+_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact> .
-<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée ou reprise d'une source se remplace, une valeur calculée se recalcule."@fr .
-<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed or taken from a source is replaced, a calculated value is recalculated."@en .
+<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "Façon dont la valeur d'un paramètre a été obtenue. Liste fermée. C'est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée, reprise d'une source ou mesurée dans le contexte se remplace, une valeur calculée se recalcule."@fr .
+<https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed, taken from a source or measured in the context is replaced, a calculated value is recalculated."@en .
 <https://w3id.org/ontosim-dis#ValueOrigin> <http://www.w3.org/2000/01/rdf-schema#label> "ValueOrigin"@en .
 # 
 # https://w3id.org/ontosim-dis#VectorRole
@@ -3330,6 +3336,13 @@ _:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/ontosim-dis#INDIVIDUAL> <http://www.w3.org/2000/01/rdf-schema#comment> "Each individual is represented separately."@en .
 <https://w3id.org/ontosim-dis#INDIVIDUAL> <http://www.w3.org/2000/01/rdf-schema#label> "Individual"@en .
 # 
+# https://w3id.org/ontosim-dis#MEASURED
+<https://w3id.org/ontosim-dis#MEASURED> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ontosim-dis#MEASURED> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ontosim-dis#ValueOrigin> .
+<https://w3id.org/ontosim-dis#MEASURED> <http://www.w3.org/2000/01/rdf-schema#comment> "Valeur relevée dans le contexte du modèle, par un comptage ou une mesure : une population recensée, des cas ou des décès déclarés."@fr .
+<https://w3id.org/ontosim-dis#MEASURED> <http://www.w3.org/2000/01/rdf-schema#comment> "Value recorded in the model's own context, by a count or a measurement: a census population, reported cases or deaths."@en .
+<https://w3id.org/ontosim-dis#MEASURED> <http://www.w3.org/2000/01/rdf-schema#label> "Measured"@en .
+# 
 # https://w3id.org/ontosim-dis#MECHANISTIC
 <https://w3id.org/ontosim-dis#MECHANISTIC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/ontosim-dis#MECHANISTIC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ontosim-dis#ModelNature> .
@@ -3437,149 +3450,151 @@ _:genid211 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # #################################################################
 # 
 # 
-_:genid216 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid216 <http://www.w3.org/2002/07/owl#members> _:genid220 .
+_:genid218 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid218 <http://www.w3.org/2002/07/owl#members> _:genid222 .
+_:genid222 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid221 .
+_:genid221 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid220 .
 _:genid220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid219 .
-_:genid219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid218 .
-_:genid218 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid217 .
-_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#District> .
-_:genid217 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid218 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Country> .
-_:genid218 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#City> .
+_:genid219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#District> .
 _:genid219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AdministrativeRegion> .
+_:genid220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Country> .
 _:genid220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid221 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid221 <http://www.w3.org/2002/07/owl#members> _:genid224 .
-_:genid224 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid223 .
-_:genid223 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid222 .
-_:genid222 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid222 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TropicalClimate> .
+_:genid221 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#City> .
+_:genid221 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid222 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AdministrativeRegion> .
 _:genid222 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid223 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TemperateClimate> .
-_:genid223 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid224 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AridClimate> .
+# 
+_:genid223 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid223 <http://www.w3.org/2002/07/owl#members> _:genid226 .
+_:genid226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid225 .
+_:genid225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid224 .
+_:genid224 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid224 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TropicalClimate> .
 _:genid224 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid225 <http://www.w3.org/2002/07/owl#members> _:genid229 .
-_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid228 .
-_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid227 .
-_:genid227 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid226 .
-_:genid226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Virus> .
+_:genid225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TemperateClimate> .
+_:genid225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AridClimate> .
 _:genid226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid227 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Parasite> .
-_:genid227 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Fungus> .
-_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Bacterium> .
-_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid230 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid230 <http://www.w3.org/2002/07/owl#members> _:genid237 .
+_:genid227 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid227 <http://www.w3.org/2002/07/owl#members> _:genid231 .
+_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid230 .
+_:genid230 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid229 .
+_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid228 .
+_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Virus> .
+_:genid228 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Parasite> .
+_:genid229 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid230 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Fungus> .
+_:genid230 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#Bacterium> .
+_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid232 <http://www.w3.org/2002/07/owl#members> _:genid239 .
+_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid238 .
+_:genid238 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid237 .
 _:genid237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid236 .
 _:genid236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid235 .
 _:genid235 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid234 .
 _:genid234 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid233 .
-_:genid233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid232 .
-_:genid232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid231 .
-_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#UniformDistribution> .
-_:genid231 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#PoissonDistribution> .
-_:genid232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NormalDistribution> .
+_:genid233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#UniformDistribution> .
 _:genid233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid234 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GammaDistribution> .
+_:genid234 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#PoissonDistribution> .
 _:genid234 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid235 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ExponentialDistribution> .
+_:genid235 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NormalDistribution> .
 _:genid235 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BetaDistribution> .
+_:genid236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GammaDistribution> .
 _:genid236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BernoulliDistribution> .
+_:genid237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ExponentialDistribution> .
 _:genid237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid238 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BetaDistribution> .
+_:genid238 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BernoulliDistribution> .
+_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid238 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid238 <http://www.w3.org/2002/07/owl#members> _:genid243 .
+_:genid240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid240 <http://www.w3.org/2002/07/owl#members> _:genid245 .
+_:genid245 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid244 .
+_:genid244 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid243 .
 _:genid243 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid242 .
 _:genid242 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid241 .
-_:genid241 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid240 .
-_:genid240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid239 .
-_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionComponent> .
-_:genid239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#StateComponent> .
-_:genid240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid241 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RuleComponent> .
+_:genid241 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid241 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionComponent> .
 _:genid241 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid242 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ModelParameter> .
+_:genid242 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#StateComponent> .
 _:genid242 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid243 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EnvironmentComponent> .
+_:genid243 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RuleComponent> .
 _:genid243 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid244 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid244 <http://www.w3.org/2002/07/owl#members> _:genid248 .
-_:genid248 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid247 .
-_:genid247 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid246 .
-_:genid246 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid245 .
-_:genid245 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid245 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
+_:genid244 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ModelParameter> .
+_:genid244 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid245 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EnvironmentComponent> .
 _:genid245 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid246 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IndividualAttribute> .
-_:genid246 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid247 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthStateTransition> .
+# 
+_:genid246 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid246 <http://www.w3.org/2002/07/owl#members> _:genid250 .
+_:genid250 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid249 .
+_:genid249 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid248 .
+_:genid248 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid247 .
+_:genid247 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid247 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
 _:genid247 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid248 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthState> .
+_:genid248 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IndividualAttribute> .
 _:genid248 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid249 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid249 <http://www.w3.org/2002/07/owl#members> _:genid253 .
-_:genid253 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid252 .
-_:genid252 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid251 .
-_:genid251 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid250 .
-_:genid250 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid250 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
+_:genid249 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthStateTransition> .
+_:genid249 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid250 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthState> .
 _:genid250 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid251 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RiskFactor> .
-_:genid251 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid252 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthStateTransition> .
+# 
+_:genid251 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid251 <http://www.w3.org/2002/07/owl#members> _:genid255 .
+_:genid255 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid254 .
+_:genid254 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid253 .
+_:genid253 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid252 .
+_:genid252 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid252 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#TransitionDeterminant> .
 _:genid252 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid253 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthState> .
+_:genid253 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RiskFactor> .
 _:genid253 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid254 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid254 <http://www.w3.org/2002/07/owl#members> _:genid258 .
-_:genid258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid257 .
-_:genid257 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid256 .
-_:genid256 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid255 .
-_:genid255 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid255 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VectorRole> .
+_:genid254 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthStateTransition> .
+_:genid254 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid255 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HealthState> .
 _:genid255 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid256 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ReservoirRole> .
-_:genid256 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid257 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IntermediateHostRole> .
+# 
+_:genid256 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid256 <http://www.w3.org/2002/07/owl#members> _:genid260 .
+_:genid260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid259 .
+_:genid259 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid258 .
+_:genid258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid257 .
+_:genid257 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid257 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VectorRole> .
 _:genid257 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HostRole> .
+_:genid258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ReservoirRole> .
 _:genid258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid259 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-_:genid259 <http://www.w3.org/2002/07/owl#members> _:genid262 .
-_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid261 .
-_:genid261 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid260 .
-_:genid260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#UrbanPopulation> .
+_:genid259 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#IntermediateHostRole> .
+_:genid259 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HostRole> .
 _:genid260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid261 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RuralPopulation> .
-_:genid261 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MixedPopulation> .
-_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid263 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-_:genid263 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid279 .
+_:genid261 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid261 <http://www.w3.org/2002/07/owl#members> _:genid264 .
+_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid263 .
+_:genid263 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid262 .
+_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#UrbanPopulation> .
+_:genid262 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid263 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RuralPopulation> .
+_:genid263 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MixedPopulation> .
+_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid265 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid265 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid281 .
+_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid280 .
+_:genid280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid279 .
 _:genid279 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid278 .
 _:genid278 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid277 .
 _:genid277 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid276 .
@@ -3593,44 +3608,44 @@ _:genid270 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid269 .
 _:genid269 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid268 .
 _:genid268 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid267 .
 _:genid267 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid266 .
-_:genid266 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid265 .
-_:genid265 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid264 .
-_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STOCHASTIC> .
-_:genid264 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid265 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STATISTICAL> .
-_:genid265 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid266 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#REGIONAL> .
+_:genid266 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid266 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STOCHASTIC> .
 _:genid266 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid267 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NON_SPATIAL> .
+_:genid267 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#STATISTICAL> .
 _:genid267 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid268 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NETWORK> .
+_:genid268 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#REGIONAL> .
 _:genid268 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid269 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MULTISCALE> .
+_:genid269 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NON_SPATIAL> .
 _:genid269 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid270 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#INDIVIDUAL> .
+_:genid270 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#NETWORK> .
 _:genid270 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid271 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HISTORICAL_DATA> .
+_:genid271 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MULTISCALE> .
 _:genid271 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid272 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GROUP> .
+_:genid272 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#INDIVIDUAL> .
 _:genid272 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid273 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GRID> .
+_:genid273 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#HISTORICAL_DATA> .
 _:genid273 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid274 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GIS> .
+_:genid274 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GROUP> .
 _:genid274 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid275 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DISCRETE> .
+_:genid275 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GRID> .
 _:genid275 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid276 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DETERMINISTIC> .
+_:genid276 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GIS> .
 _:genid276 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid277 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CROSS_MODEL> .
+_:genid277 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DISCRETE> .
 _:genid277 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid278 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CONTINUOUS> .
+_:genid278 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DETERMINISTIC> .
 _:genid278 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid279 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ADEQUACY> .
+_:genid279 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CROSS_MODEL> .
 _:genid279 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#CONTINUOUS> .
+_:genid280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ADEQUACY> .
+_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-_:genid280 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid290 .
+_:genid282 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid282 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid292 .
+_:genid292 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid291 .
+_:genid291 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid290 .
 _:genid290 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid289 .
 _:genid289 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid288 .
 _:genid288 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid287 .
@@ -3638,73 +3653,74 @@ _:genid287 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid286 .
 _:genid286 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid285 .
 _:genid285 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid284 .
 _:genid284 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid283 .
-_:genid283 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid282 .
-_:genid282 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid281 .
-_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#WATERBORNE> .
-_:genid281 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid282 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VERTICAL> .
-_:genid282 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid283 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VECTOR_BORNE> .
+_:genid283 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid283 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#WATERBORNE> .
 _:genid283 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid284 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SEXUAL> .
+_:genid284 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VERTICAL> .
 _:genid284 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid285 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FOODBORNE> .
+_:genid285 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#VECTOR_BORNE> .
 _:genid285 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid286 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FECAL_ORAL> .
+_:genid286 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SEXUAL> .
 _:genid286 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid287 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DROPLET> .
+_:genid287 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FOODBORNE> .
 _:genid287 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid288 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DIRECT_CONTACT> .
+_:genid288 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FECAL_ORAL> .
 _:genid288 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid289 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BLOODBORNE> .
+_:genid289 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DROPLET> .
 _:genid289 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid290 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AIRBORNE> .
+_:genid290 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DIRECT_CONTACT> .
 _:genid290 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-# 
-_:genid291 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-_:genid291 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid295 .
-_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid294 .
-_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid293 .
-_:genid293 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid292 .
-_:genid292 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid292 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
+_:genid291 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#BLOODBORNE> .
+_:genid291 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid292 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#AIRBORNE> .
 _:genid292 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid293 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA> .
-_:genid293 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DERIVED> .
-_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
-_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
-_:genid296 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-_:genid296 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid305 .
+_:genid293 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid293 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid298 .
+_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid297 .
+_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid296 .
+_:genid296 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid295 .
+_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid294 .
+_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MEASURED> .
+_:genid294 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#FROM_LITERATURE> .
+_:genid295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid296 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA> .
+_:genid296 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DERIVED> .
+_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#ASSUMED> .
+_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid299 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid299 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid308 .
+_:genid308 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid307 .
+_:genid307 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid306 .
+_:genid306 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid305 .
 _:genid305 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid304 .
 _:genid304 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid303 .
 _:genid303 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid302 .
 _:genid302 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid301 .
 _:genid301 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid300 .
-_:genid300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid299 .
-_:genid299 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid298 .
-_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid297 .
-_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SPECIFIC> .
-_:genid297 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RETROSPECTIVE_ANALYSIS> .
-_:genid298 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid299 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH> .
-_:genid299 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MECHANISTIC> .
+_:genid300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#SPECIFIC> .
 _:genid300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid301 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GREY_BOX> .
+_:genid301 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#RETROSPECTIVE_ANALYSIS> .
 _:genid301 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid302 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GENERAL> .
+_:genid302 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#METHODOLOGICAL_RESEARCH> .
 _:genid302 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid303 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EPIDEMIC_PLANNING> .
+_:genid303 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#MECHANISTIC> .
 _:genid303 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid304 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EMPIRICAL> .
+_:genid304 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GREY_BOX> .
 _:genid304 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid305 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DYNAMICS_RESEARCH> .
+_:genid305 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#GENERAL> .
 _:genid305 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid306 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EPIDEMIC_PLANNING> .
+_:genid306 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid307 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#EMPIRICAL> .
+_:genid307 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid308 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/ontosim-dis#DYNAMICS_RESEARCH> .
+_:genid308 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

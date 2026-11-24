@@ -12,7 +12,7 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/ontosim-dis">
-        <owl:versionIRI rdf:resource="https://w3id.org/ontosim-dis/1.2"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/ontosim-dis/1.3"/>
         <terms:abstract xml:lang="en">OntoSim-Dis represents disease simulation models: their structure, their paradigm, compartmental or agent-based, their parameters and their execution. It also describes what each model represents: the disease, with its health states, its transitions and what governs each transition, and the context for which the model was built. It focuses on infectious diseases: a dedicated module covers pathogens, hosts, vectors, reservoirs and transmission routes, on top of a core common to all diseases.</terms:abstract>
         <terms:abstract xml:lang="fr">OntoSim-Dis représente les modèles de simulation des maladies : leur structure, leur paradigme, à compartiments ou multi-agents, leurs paramètres et leur exécution. Elle décrit aussi ce que chaque modèle représente : la maladie, avec ses états de santé, ses transitions et ce qui gouverne chaque transition, et le contexte pour lequel le modèle a été construit. Elle est centrée sur les maladies infectieuses : un module leur est consacré (agents pathogènes, hôtes, vecteurs, réservoirs, voies de transmission), au-dessus d&apos;un noyau commun à toutes les maladies.</terms:abstract>
         <terms:created>2026</terms:created>
@@ -28,7 +28,7 @@ Sa distinction centrale porte sur le risque : le risque d&apos;une transition d�
 Its central distinction concerns risk: does the risk of a transition depend on the number of individuals in some category, as in a transmissible disease, or only on the individual? The modeller describes a model and the disease it represents; the reasoner infers whether the disease is coupled to the population, and whether the model realises that coupling.</rdfs:comment>
         <rdfs:label xml:lang="en">OntoSim-Dis - complete ontology</rdfs:label>
         <rdfs:label xml:lang="fr">OntoSim-Dis - ontologie complète</rdfs:label>
-        <owl:versionInfo>1.2</owl:versionInfo>
+        <owl:versionInfo>1.3</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -3915,6 +3915,7 @@ tombent ; COVID, grippe et rougeole n&apos;y tombent pas.</rdfs:comment>
                                 <owl:oneOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/ontosim-dis#ASSUMED"/>
                                     <rdf:Description rdf:about="https://w3id.org/ontosim-dis#FROM_LITERATURE"/>
+                                    <rdf:Description rdf:about="https://w3id.org/ontosim-dis#MEASURED"/>
                                 </owl:oneOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -3923,8 +3924,8 @@ tombent ; COVID, grippe et rougeole n&apos;y tombent pas.</rdfs:comment>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontosim-dis#ContextDependentParameter"/>
-        <rdfs:comment xml:lang="en">A context-dependent parameter whose value was assumed or taken from a source. Changing context only requires taking the value of the new context. Inferred by the reasoner.</rdfs:comment>
-        <rdfs:comment xml:lang="fr">Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d&apos;une source. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A context-dependent parameter whose value was assumed, taken from a source or measured in the context. Changing context only requires taking the value of the new context. Inferred by the reasoner.</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Paramètre dépendant du contexte dont la valeur a été supposée, reprise d&apos;une source ou mesurée dans le contexte. Changer de contexte demande seulement de prendre la valeur du nouveau contexte. Inféré par le raisonneur.</rdfs:comment>
         <rdfs:label xml:lang="en">ParameterToReplace</rdfs:label>
     </owl:Class>
     
@@ -4736,12 +4737,13 @@ It is not an information artifact but a process, because it unfolds over time.</
                     <rdf:Description rdf:about="https://w3id.org/ontosim-dis#DERIVED"/>
                     <rdf:Description rdf:about="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA"/>
                     <rdf:Description rdf:about="https://w3id.org/ontosim-dis#FROM_LITERATURE"/>
+                    <rdf:Description rdf:about="https://w3id.org/ontosim-dis#MEASURED"/>
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/ontosim-dis#SimulationKnowledgeArtifact"/>
-        <rdfs:comment xml:lang="fr">Façon dont la valeur d&apos;un paramètre a été obtenue. Liste fermée. C&apos;est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée ou reprise d&apos;une source se remplace, une valeur calculée se recalcule.</rdfs:comment>
-        <rdfs:comment xml:lang="en">How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed or taken from a source is replaced, a calculated value is recalculated.</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Façon dont la valeur d&apos;un paramètre a été obtenue. Liste fermée. C&apos;est ce qui décide de ce que coûte un changement de contexte : une valeur estimée demande de nouvelles données, une valeur supposée, reprise d&apos;une source ou mesurée dans le contexte se remplace, une valeur calculée se recalcule.</rdfs:comment>
+        <rdfs:comment xml:lang="en">How the value of a parameter was obtained. Closed list. This is what decides the cost of a change of context: an estimated value needs new data, a value that was assumed, taken from a source or measured in the context is replaced, a calculated value is recalculated.</rdfs:comment>
         <rdfs:label xml:lang="en">ValueOrigin</rdfs:label>
     </owl:Class>
     
@@ -5084,6 +5086,18 @@ It is not an information artifact but a process, because it unfolds over time.</
     
 
 
+    <!-- https://w3id.org/ontosim-dis#MEASURED -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ontosim-dis#MEASURED">
+        <rdf:type rdf:resource="https://w3id.org/ontosim-dis#ValueOrigin"/>
+        <rdfs:comment xml:lang="fr">Valeur relevée dans le contexte du modèle, par un comptage ou une mesure : une population recensée, des cas ou des décès déclarés.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Value recorded in the model&apos;s own context, by a count or a measurement: a census population, reported cases or deaths.</rdfs:comment>
+        <rdfs:label xml:lang="en">Measured</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/ontosim-dis#MECHANISTIC -->
 
 
@@ -5387,6 +5401,7 @@ It is not an information artifact but a process, because it unfolds over time.</
             <rdf:Description rdf:about="https://w3id.org/ontosim-dis#DERIVED"/>
             <rdf:Description rdf:about="https://w3id.org/ontosim-dis#ESTIMATED_FROM_DATA"/>
             <rdf:Description rdf:about="https://w3id.org/ontosim-dis#FROM_LITERATURE"/>
+            <rdf:Description rdf:about="https://w3id.org/ontosim-dis#MEASURED"/>
         </owl:distinctMembers>
     </rdf:Description>
     <rdf:Description>
