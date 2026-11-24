@@ -1,10 +1,10 @@
 # OntoSim-Dis, Couche 4-Core : noyau de la connaissance de la maladie
 
 **Fichier :** `src/ontology/layer4_core.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer4-core`, version `https://w3id.org/ontosim-dis/layer4-core/1.2`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.2` et `https://w3id.org/ontosim-dis/layer4-ogms/1.2`
+**IRI :** `https://w3id.org/ontosim-dis/layer4-core`, version `https://w3id.org/ontosim-dis/layer4-core/1.3`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.3` et `https://w3id.org/ontosim-dis/layer4-ogms/1.3`
 **Licence :** CC BY 4.0
-**Statut :** version 1.2, sans changement depuis la 1.1. Changé en octobre 2026 : une contrainte retirée sur
+**Statut :** version 1.3, sans changement depuis la 1.1. Changé en octobre 2026 : une contrainte retirée sur
 `IndividualDeterminant`, les disjonctions en deux groupes, un alignement remplacé par une
 note. Voir *Versionnement*.
 
@@ -300,7 +300,7 @@ Le module est en 1.1 depuis octobre 2026. Depuis la 1.0, il a reçu `CouplingSou
 `AcuteCourseDiseaseKnowledge` et les corrections 5, 6 et 7. Il est importé par 4-Infectious,
 par 4-Checks et par l'ombrelle, qui ont suivi. Le numéro suit l'empilement entier, en un seul
 geste : voir la fiche de la couche 2, *Versionnement*.
-L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté. Ce fichier n'a pas changé.
+L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté, puis en 1.3, quand ce module a reçu une cinquième origine. Ce fichier n'a pas changé.
 <br>
 
 <p align="center">

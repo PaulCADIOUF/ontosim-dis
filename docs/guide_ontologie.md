@@ -3,7 +3,7 @@
 Ce guide sert à une chose : quand on vous parle de population, de transmission, de
 compartiment ou de coût, vous devez savoir **dans quel fichier cela se trouve, et pourquoi**.
 
-Dix modules, 338 termes au 17 novembre 2026, et un fichier ombrelle qui les réunit. Voici la
+Dix modules, 339 termes au 24 novembre 2026, et un fichier ombrelle qui les réunit. Voici la
 carte. Les nombres de termes à jour
 sont en tête de `index_termes.md`, que le script `tools/index_termes.py` régénère.
 
@@ -168,14 +168,14 @@ couplage.
 paradigmes (3A, 3B). Mis en 4-Core, ces contrôles auraient fait dépendre la description de la
 maladie des paradigmes.
 
-### `layer4-transfer.ttl` — le changement de contexte (13 termes)
+### `layer4-transfer.ttl` — le changement de contexte (14 termes)
 **Ce qu'il faut refaire quand un modèle change de contexte.** Pour chaque paramètre, on
 déclare deux choses : l'élément du contexte dont sa valeur dépend (`dependsOnContextElement`)
 et l'origine de cette valeur (`hasValueOrigin`), qui est reprise de la littérature, supposée,
-estimée sur des données ou calculée. Le raisonneur range alors le paramètre :
+mesurée dans le contexte, estimée sur des données ou calculée. Le raisonneur range alors le paramètre :
 
 - `ParameterToReestimate` — sa valeur a été estimée sur les données du contexte d'origine
-- `ParameterToReplace` — sa valeur a été supposée ou reprise de la littérature pour ce contexte
+- `ParameterToReplace` — sa valeur a été supposée, reprise de la littérature ou mesurée pour ce contexte
 - `ParameterToRecalculate` — sa valeur est calculée à partir d'un paramètre qui dépend du
   contexte (`isDerivedFrom`)
 

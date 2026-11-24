@@ -1,0 +1,70 @@
+@prefix dsim: <https://w3id.org/ontosim-dis#> .
+@prefix test: <https://w3id.org/ontosim-dis/test-mesure#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+
+#    Les valeurs viennent d'un modele publie : Roques L. et al. (2020), Frontiers in Medicine 7:274,
+#    DOI 10.3389/fmed.2020.00274. C'est un modele SIRD du COVID-19 en France, pendant le confinement.
+
+<https://w3id.org/ontosim-dis/test-mesure> rdf:type owl:Ontology ;
+    rdfs:label "Test fonctionnel - valeur mesurée dans le contexte"@fr ;
+    owl:imports <https://w3id.org/ontosim-dis/layer4-transfer/1.3> ;
+    owl:versionInfo "1.0" .
+
+
+#    Le contexte : la France, sa population et ses hopitaux
+
+test:tFrance rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "France" .
+
+test:tFrancePopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion test:tFrance .
+
+test:tFranceHospitals rdf:type owl:NamedIndividual , dsim:Hospital .
+
+test:tFranceContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion test:tFrance ;
+    dsim:hasPopulation test:tFrancePopulation ;
+    dsim:hasHealthInfrastructure test:tFranceHospitals .
+
+
+#    Le modele, son contexte et trois de ses parametres
+
+test:tRoquesFrance rdf:type owl:NamedIndividual , dsim:SimulationModel ;
+    dsim:modelName "Roques 2020 - COVID-19 SIRD - France" ;
+    dsim:hasContextKnowledge test:tFranceContext ;
+    dsim:hasParameter test:tDeathsAtStart , test:tGamma , test:tRecoveryRate .
+
+
+#    Une valeur mesuree en France : les deces a l'hopital au 31 mars 2020
+
+test:tDeathsAtStart rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "D(t0)" ;
+    dsim:parameterValue "3523"^^xsd:double ;
+    dsim:hasValueOrigin dsim:MEASURED ;
+    dsim:dependsOnContextElement test:tFrance .
+
+
+#    Une valeur estimee sur les donnees, qui depend du pays et de ses hopitaux
+
+test:tGamma rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "gamma" ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement test:tFrance , test:tFranceHospitals .
+
+
+#    Une valeur supposee, propre a la maladie : aucun lien avec le contexte
+
+test:tRecoveryRate rdf:type owl:NamedIndividual , dsim:ModelParameter ;
+    dsim:parameterName "beta" ;
+    dsim:parameterValue "0.1"^^xsd:double ;
+    dsim:parameterUnit "day^-1" ;
+    dsim:hasValueOrigin dsim:ASSUMED .
+
+#
+# Ce que ce test demontre : une valeur mesuree se remplace, comme une valeur supposee ou reprise d'une source.
+# Le taux de deces se reestime, et il depend aussi des hopitaux du pays. Le taux de guerison se garde.

@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 4-Context : population, territoire, climat, infrastructure
 
 **Fichier :** `src/ontology/layer4-context.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer4-context` — version `https://w3id.org/ontosim-dis/layer4-context/1.2`
-**Importe :** `https://w3id.org/ontosim-dis/layer2/1.2`
+**IRI :** `https://w3id.org/ontosim-dis/layer4-context` — version `https://w3id.org/ontosim-dis/layer4-context/1.3`
+**Importe :** `https://w3id.org/ontosim-dis/layer2/1.3`
 **Licence :** CC BY 4.0
-**Statut :** version 1.2. Aucun axiome n'a changé depuis la 1.0 ; seuls l'en-tête et des
+**Statut :** version 1.3. Aucun axiome n'a changé depuis la 1.0 ; seuls l'en-tête et des
 textes ont été revus (octobre 2026 : guillemets d'en-tête corrigés, accents rétablis). Voir
 *Versionnement*.
 
@@ -162,7 +162,7 @@ pour les 7 propriétés d'objet, avec la même réponse qu'en couche 2. Le rappo
 
 Le numéro de version suit l'empilement entier, pas ce fichier seul. Même sans changement
 d'axiome, la couche est passée en 1.1 avec les autres, en un seul geste, et son import de la
-couche 2 a suivi. Elle est passée en 1.2 en novembre 2026, de la même façon, quand le module 4-Transfer a été ajouté. Voir la fiche de la couche 2, *Versionnement*.
+couche 2 a suivi. Elle est passée en 1.2 en novembre 2026, de la même façon, quand le module 4-Transfer a été ajouté, puis en 1.3, quand ce module a reçu une cinquième origine. Voir la fiche de la couche 2, *Versionnement*.
 
 <br>
 

@@ -1,10 +1,10 @@
 # OntoSim-Dis — Couche 2 : modélisation et simulation
 
 **Fichier :** `src/ontology/layer2_modsim.ttl`
-**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.2`
-**Importe :** `https://w3id.org/ontosim-dis/layer1/1.2`
+**IRI :** `https://w3id.org/ontosim-dis/layer2` — version `https://w3id.org/ontosim-dis/layer2/1.3`
+**Importe :** `https://w3id.org/ontosim-dis/layer1/1.3`
 **Licence :** CC BY 4.0
-**Statut :** version 1.2, sans changement depuis la 1.1. Voir *Versionnement*.
+**Statut :** version 1.3, sans changement depuis la 1.1. Voir *Versionnement*.
 
 
 ## Rôle
@@ -261,7 +261,7 @@ et les deux catalogues. Cette couche est importée par quatre modules — 3A, 3B
 4-Context — et par l'ombrelle. Un import qui pointe vers une version inexistante, c'est
 Protégé qui ne charge plus la couche.
 
-L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté. Ce
+L'empilement est passé en 1.2 en novembre 2026, quand le module 4-Transfer a été ajouté, puis en 1.3, quand ce module a reçu une cinquième origine. Ce
 fichier n'a pas changé.
 
 ---

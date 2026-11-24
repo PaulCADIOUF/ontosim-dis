@@ -1,6 +1,6 @@
 # OntoSim-Dis — Index alphabétique des termes
 
-**338 termes**, régénéré le 17 novembre 2026 à partir des 11 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
+**339 termes**, régénéré le 24 novembre 2026 à partir des 11 fichiers de `src/ontology`, par `tools/index_termes.py`. Ne pas modifier à la main : relancer le script.
 
 Pour chaque terme : le module où il se trouve, sa nature, et sa définition française (l'anglaise à défaut). Les **classes définies** sont celles que le raisonneur sait reconnaître seul ; les termes `importé` viennent de BFO, RO, IAO ou OGMS par MIREOT et portent leur libellé officiel en italique.
 
@@ -15,7 +15,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | 4-Infectious | 49 |
 | 4-Context | 34 |
 | 4-Checks | 3 |
-| 4-Transfer | 13 |
+| 4-Transfer | 14 |
 
 | Terme | Module | Nature | Définition |
 |---|---|---|---|
@@ -226,6 +226,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `lowerLimitParameter` | Couche 2 | donnée | Borne inférieure d'une loi uniforme. |
 | `MaskWearing` | 4-Infectious | classe | Réduction de la probabilité de transmission lors d'un contact. |
 | `meanParameter` | Couche 2 | donnée | Moyenne d'une loi normale. |
+| `MEASURED` | 4-Transfer | valeur | Valeur relevée dans le contexte du modèle, par un comptage ou une mesure : une population recensée, des cas ou des décès déclarés. |
 | `MECHANISTIC` | Couche 2 | valeur | Modèle dit à boîte blanche, construit sur la connaissance du fonctionnement du système, de ses éléments et de leurs interactions. Fournit des explications… |
 | `medianAge` | 4-Context | donnée | Âge médian de la population, en années. |
 | `METHODOLOGICAL_RESEARCH` | Couche 2 | valeur | Améliorer les approches de modélisation elles-mêmes, pour les rendre plus efficaces, plus rapides ou plus robustes. Objectif de compréhension. |
@@ -264,7 +265,7 @@ Pour chaque terme : le module où il se trouve, sa nature, et sa définition fra
 | `parameterName` | Couche 2 | donnée | Nom du paramètre, par exemple beta. |
 | `ParameterToRecalculate` | 4-Transfer | **classe définie** | Paramètre calculé à partir d'au moins un paramètre dépendant du contexte. Changer de contexte demande de refaire le calcul, sans nouvelles données. Il dépend… |
 | `ParameterToReestimate` | 4-Transfer | **classe définie** | Paramètre dépendant du contexte dont la valeur a été estimée sur des données. Changer de contexte demande de l'estimer de nouveau, sur des données du nouveau… |
-| `ParameterToReplace` | 4-Transfer | **classe définie** | Paramètre dépendant du contexte dont la valeur a été supposée ou reprise d'une source. Changer de contexte demande seulement de prendre la valeur du nouveau… |
+| `ParameterToReplace` | 4-Transfer | **classe définie** | Paramètre dépendant du contexte dont la valeur a été supposée, reprise d'une source ou mesurée dans le contexte. Changer de contexte demande seulement de… |
 | `parameterUnit` | Couche 2 | donnée | Unité du paramètre, par exemple jour^-1. |
 | `parameterValue` | Couche 2 | donnée | Valeur numérique du paramètre. |
 | `Parasite` | 4-Infectious | classe | Organisme vivant aux dépens d'un hôte, souvent avec un cycle de vie passant par plusieurs hôtes. |
