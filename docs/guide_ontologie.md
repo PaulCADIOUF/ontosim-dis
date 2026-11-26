@@ -208,6 +208,15 @@ santé entre dans le modèle. Sans qu'on le lui dise, le raisonneur trouve que l
 une intervention qui réduit la transmission, et quels paramètres il faut réestimer, remplacer
 ou recalculer pour reprendre le modèle dans un autre pays, par exemple au Sénégal.
 
+### `hunter-2018-measles.ttl` — rougeole, Schull (Irlande), 2018 (novembre 2026)
+Le modèle multi-agents de Hunter et al. (2018) : la rougeole dans la ville de Schull, dans l'ouest
+du comté de Cork, construit sur des données ouvertes irlandaises et comparé à l'épidémie de 2012.
+C'est la première application multi-agents : un agent par habitant, une grille, et une infection
+déclenchée par la rencontre de deux agents sur la même case. Sans qu'on le lui dise, le raisonneur
+trouve que cette transition est déclenchée par une interaction, que le modèle est donc couplé, et
+quels paramètres il faut réestimer, remplacer ou recalculer pour reprendre le modèle dans une autre
+ville : le nombre de contacts se réestime en faisant tourner le modèle dans la nouvelle ville.
+
 D'autres cas suivront, du modèle SIR le plus simple à la schistosomiase au Sénégal.
 
 ---

@@ -1,0 +1,349 @@
+@prefix dsim:    <https://w3id.org/ontosim-dis#> .
+@prefix hunter:  <https://w3id.org/ontosim-dis/applications/hunter-2018#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#    Couche 5, application : le modele multi-agents de Hunter et al. (2018), decrit avec le vocabulaire d'OntoSim-Dis.
+#    La rougeole dans la ville de Schull, dans l'ouest du comte de Cork, en Irlande. Une epidemie reelle, en 2012,
+#    sert a la comparaison.
+#    L'article simule aussi 32 autres villes irlandaises, 200 fois chacune, avec la couverture vaccinale de toute
+#    l'Irlande et une probabilite d'infection propre a chaque ville. On ne decrit ici que Schull : les villes ne sont
+#    pas ajustees une a une, et l'article ne publie pas leur nombre de contacts c. Les 32 autres villes : Arainn,
+#    Ardamine, Ardfert, Arranmore, Bagenalstown, Ballyjamesduff, Banagher, Blarney, Castlereagh, Clane, Croom,
+#    Donegal, Gort, Kenmare, Kilcock, Kildare, Kilkee, Killadysert, Kinsale, Lisdoonvarna, Louisburgh, Moate,
+#    Oranmore, Portmagee, Rathnew, Roscrea, Rosslare, Roundstone, Shanagolden, Stamullin, Strokestown, Tramore.
+#    Toutes les valeurs viennent de l'article, sauf quand une autre source est indiquee.
+#    Une valeur estimee n'est pas publiee (c) : elle est decrite sans chiffre.
+#    Les sources sans DOI (un livre, des donnees publiques) sont donnees en texte, par dcterms:bibliographicCitation.
+
+<https://w3id.org/ontosim-dis/applications/hunter-2018> rdf:type owl:Ontology ;
+    rdfs:label "Application - Hunter et al. (2018), rougeole, modèle multi-agents"@fr ,
+               "Application - Hunter et al. (2018), measles, agent-based model"@en ;
+    rdfs:comment "Le modèle multi-agents de la rougeole de Hunter et al., construit sur des données ouvertes irlandaises, pour la ville de Schull, comparé à l'épidémie de 2012."@fr ,
+                 "The agent-based measles model of Hunter et al., built on Irish open data, for the town of Schull, compared with the 2012 outbreak."@en ;
+    dcterms:bibliographicCitation "Hunter E., Mac Namee B., Kelleher J. (2018). An open-data-driven agent-based model to simulate infectious disease outbreaks. PLOS ONE, 13(12): e0208775. DOI 10.1371/journal.pone.0208775" ;
+    dcterms:source <https://doi.org/10.1371/journal.pone.0208775> ;
+    dcterms:creator "Paul Cheikh Anta DIOUF" ;
+    dcterms:created "2026" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <https://w3id.org/ontosim-dis/1.3> ;
+    owl:versionInfo "1.0" .
+
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    1. La maladie (DK)
+#################################################################
+
+hunter:Measles rdf:type owl:NamedIndividual , dsim:DiseaseKnowledgeTemplate ;
+    dsim:diseaseName "Measles" ;
+    dsim:hasPathogen hunter:MeaslesVirus ;
+    dsim:hasTransmissionRoute dsim:AIRBORNE ;
+    dsim:hasHealthState hunter:Susceptible , hunter:Exposed , hunter:Infectious , hunter:Recovered ;
+    dsim:hasStateTransition hunter:Infection , hunter:EndOfLatency , hunter:Recovery ;
+    dcterms:source <https://doi.org/10.1371/journal.pone.0208775> ;
+    rdfs:comment "La rougeole, maladie qui se transmet par l'air. Quatre états, sensible, exposé, infecté et guéri, sur la forme SEIR de Keeling et Rohani (2008), réf. 29 de l'article."@fr .
+
+hunter:MeaslesVirus rdf:type owl:NamedIndividual , dsim:Virus ;
+    dsim:pathogenName "Measles virus" .
+
+hunter:Susceptible rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Susceptible" .
+
+hunter:Exposed rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Exposed" .
+
+hunter:Infectious rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Infectious" .
+
+hunter:Recovered rdf:type owl:NamedIndividual , dsim:HealthState ;
+    dsim:healthStateName "Recovered" .
+
+hunter:Infection rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState hunter:Susceptible ;
+    dsim:hasTargetHealthState hunter:Exposed ;
+    dsim:isGovernedBy hunter:InfectionDeterminant .
+
+hunter:InfectionDeterminant rdf:type owl:NamedIndividual , dsim:PopulationCoupledDeterminant ;
+    dsim:dependsOnCountIn hunter:Infectious ;
+    dsim:quantifiedBy hunter:TransmissionProbability ;
+    dsim:determinantExpression "p par contact avec un infectieux sur la même case de la grille" .
+
+hunter:EndOfLatency rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState hunter:Exposed ;
+    dsim:hasTargetHealthState hunter:Infectious ;
+    dsim:isGovernedBy hunter:LatencyDeterminant .
+
+hunter:LatencyDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:quantifiedBy hunter:ExposedPeriod ;
+    dsim:determinantExpression "fin de la durée d'exposition tirée pour chaque agent" .
+
+hunter:Recovery rdf:type owl:NamedIndividual , dsim:HealthStateTransition ;
+    dsim:hasSourceHealthState hunter:Infectious ;
+    dsim:hasTargetHealthState hunter:Recovered ;
+    dsim:isGovernedBy hunter:RecoveryDeterminant .
+
+hunter:RecoveryDeterminant rdf:type owl:NamedIndividual , dsim:IndividualDeterminant ;
+    dsim:quantifiedBy hunter:InfectiousPeriod ;
+    dsim:determinantExpression "fin de la durée de contagiosité tirée pour chaque agent" .
+
+
+#################################################################
+#    2. Le contexte (CK) : Schull, dans l'ouest du comte de Cork, en Irlande
+#################################################################
+
+hunter:Ireland rdf:type owl:NamedIndividual , dsim:Country ;
+    dsim:regionName "Ireland" .
+
+hunter:WestCork rdf:type owl:NamedIndividual , dsim:GeographicRegion ;
+    dsim:regionName "West Cork" ;
+    dsim:isSubRegionOf hunter:Ireland ;
+    rdfs:comment "L'ouest du comté de Cork. L'article y prend la couverture vaccinale ROR du modèle de Schull, d'après le HSE."@fr .
+
+hunter:Schull rdf:type owl:NamedIndividual , dsim:City ;
+    dsim:regionName "Schull" ;
+    dsim:isSubRegionOf hunter:WestCork .
+
+hunter:SchullPopulation rdf:type owl:NamedIndividual , dsim:Population ;
+    dsim:isLocatedInRegion hunter:Schull ;
+    dsim:populationSize "987"^^xsd:integer ;
+    dsim:populationDensity "57.96"^^xsd:double ;
+    dcterms:bibliographicCitation "Central Statistics Office (Irlande). Census 2011. Réf. 16 et 17 de l'article." ;
+    rdfs:comment "Population construite à partir du recensement irlandais de 2011 : un agent par habitant. Densité du tableau 5 de l'article : 987 habitants sur 17,03 km², répartis en 7 petites zones du recensement."@fr .
+
+hunter:SchullContext rdf:type owl:NamedIndividual , dsim:ContextKnowledge ;
+    dsim:hasGeographicRegion hunter:Schull ;
+    dsim:hasPopulation hunter:SchullPopulation .
+
+
+#################################################################
+#    3. La structure du modele (MSK), multi-agents
+#################################################################
+
+hunter:ABMStructure rdf:type owl:NamedIndividual , dsim:ModelStructureKnowledge ;
+    dsim:hasParadigm dsim:STOCHASTIC ;
+    dsim:hasTemporalType dsim:DISCRETE ;
+    dsim:hasSpatialType dsim:GRID ;
+    dsim:hasGranularityLevel dsim:INDIVIDUAL ;
+    dsim:timeStepInDays "0.0833"^^xsd:double ;
+    dsim:hasComponent hunter:Person , hunter:StateS , hunter:StateE , hunter:StateI , hunter:StateR ,
+                      hunter:TransitionSE , hunter:TransitionEI , hunter:TransitionIR ,
+                      hunter:SamePatchContact , hunter:DailyMovement , hunter:StayHomeWhenSick ,
+                      hunter:SchullGrid ;
+    rdfs:comment "Un pas de temps vaut deux heures : douze pas par jour."@fr .
+
+hunter:Person rdf:type owl:NamedIndividual , dsim:AgentType ;
+    dsim:agentTypeName "Person" ;
+    dsim:initialAgentCount "987"^^xsd:integer ;
+    dsim:hasAgentState hunter:StateS , hunter:StateE , hunter:StateI , hunter:StateR ;
+    rdfs:comment "Le seul type d'agent. Chaque habitant a un âge, un sexe, un ménage avec son type et son rôle dans le ménage, une situation économique (élève, actif, retraité, chômeur, en recherche d'un premier emploi, malade ou handicapé, au foyer), une classe sociale et un statut d'immunité. Les actifs ont l'une de six classes sociales, les retraités la classe « retraité », les autres adultes la classe « autre », les moins de 18 ans aucune ; chaque ménage prend la classe d'un de ses adultes. La version 1.3 ne permet pas encore de déclarer ces attributs : ils restent en commentaire."@fr .
+
+hunter:StateS rdf:type owl:NamedIndividual , dsim:AgentState ;
+    dsim:representsHealthState hunter:Susceptible .
+
+hunter:StateE rdf:type owl:NamedIndividual , dsim:AgentState ;
+    dsim:representsHealthState hunter:Exposed .
+
+hunter:StateI rdf:type owl:NamedIndividual , dsim:AgentState ;
+    dsim:representsHealthState hunter:Infectious .
+
+hunter:StateR rdf:type owl:NamedIndividual , dsim:AgentState ;
+    dsim:representsHealthState hunter:Recovered .
+
+#    La transition d'infection est declenchee par une rencontre : on ne declare pas
+#    qu'elle est InteractionTriggeredTransition, le raisonneur doit le trouver.
+
+hunter:TransitionSE rdf:type owl:NamedIndividual , dsim:AgentTransition ;
+    dsim:hasSourceState hunter:StateS ;
+    dsim:hasTargetState hunter:StateE ;
+    dsim:triggeredBy hunter:SamePatchContact ;
+    dsim:representsStateTransition hunter:Infection ;
+    dsim:realisesDeterminant hunter:InfectionDeterminant .
+
+hunter:TransitionEI rdf:type owl:NamedIndividual , dsim:AttributeDrivenTransition ;
+    dsim:hasSourceState hunter:StateE ;
+    dsim:hasTargetState hunter:StateI ;
+    dsim:representsStateTransition hunter:EndOfLatency ;
+    dsim:realisesDeterminant hunter:LatencyDeterminant .
+
+hunter:TransitionIR rdf:type owl:NamedIndividual , dsim:AttributeDrivenTransition ;
+    dsim:hasSourceState hunter:StateI ;
+    dsim:hasTargetState hunter:StateR ;
+    dsim:representsStateTransition hunter:Recovery ;
+    dsim:realisesDeterminant hunter:RecoveryDeterminant .
+
+hunter:SamePatchContact rdf:type owl:NamedIndividual , dsim:InteractionType ;
+    dsim:involvesAgentType hunter:Person ;
+    rdfs:comment "Deux agents sur la même case de la grille sont en contact. À chaque contact avec un infectieux, un sensible devient exposé si un tirage entre 0 et 1 tombe sous p."@fr .
+
+hunter:DailyMovement rdf:type owl:NamedIndividual , dsim:Behavior ;
+    dsim:behaviorExpression "Un jour compte 12 pas. En semaine, les actifs partent au 4e pas et passent 4 pas (8 heures) au travail ; les élèves partent au 4e pas et passent 3 pas (6 heures) à l'école ; les chômeurs, les retraités, les malades et ceux qui cherchent un premier emploi se déplacent au hasard entre le 4e et le 10e pas. Le week-end, tous se déplacent au hasard ; pendant les semaines d'été, les élèves aussi." .
+
+hunter:StayHomeWhenSick rdf:type owl:NamedIndividual , dsim:Behavior ;
+    dsim:behaviorExpression "Un agent infectieux reste chez lui avec la probabilité du paramètre home sick probability." .
+
+hunter:SchullGrid rdf:type owl:NamedIndividual , dsim:EnvironmentModel ;
+    rdfs:comment "Grille de cases construite à partir des petites zones du recensement, du zonage (OpenStreetMap, Myplan.ie) et de l'emplacement des écoles."@fr .
+
+
+#################################################################
+#    4. L'execution (EK) et le scenario
+#################################################################
+
+hunter:NetLogoRuns rdf:type owl:NamedIndividual , dsim:ExecutionKnowledge ;
+    dsim:simulatorName "NetLogo" ;
+    dsim:numberOfRuns "400"^^xsd:integer ;
+    dcterms:bibliographicCitation "Wilensky U. (1999). NetLogo. Center for Connected Learning and Computer-Based Modeling, Northwestern University. Réf. 24 de l'article." ;
+    rdfs:comment "400 simulations pour Schull. Chaque simulation s'arrête quand il ne reste plus d'agent exposé ni infecté ; l'annexe de l'article écrit « exposé ou immunisé », sans doute une coquille. Le code est dans la bibliothèque des modèles de la communauté NetLogo, sous le nom town_model_burnin."@fr .
+
+hunter:SchullScenario rdf:type owl:NamedIndividual , dsim:SimulationScenario ;
+    rdfs:comment "Début à la 15e semaine de l'année, comme l'épidémie de 2012 ; la semaine de départ décide des vacances d'été. Un seul infecté au départ, un élève non vacciné. Aucune intervention pendant la simulation : la vaccination fixe seulement l'immunité de départ. La riposte réelle à Schull, une dose précoce de ROR pour les nourrissons et l'isolement des frères et sœurs, est décrite par l'article, mais pas simulée."@fr .
+
+
+#################################################################
+#    5. Les parametres
+#################################################################
+
+hunter:ExposedPeriod rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "exposed period" ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dsim:hasUncertaintyDistribution hunter:ExposedPeriodLaw ;
+    dcterms:bibliographicCitation "Nelson K.E., Williams C.M. (2007). Infectious Disease Epidemiology: Theory and Practice. Jones and Bartlett. Réf. 26 de l'article." ;
+    rdfs:comment "Moyenne de 10 jours, tirée de Nelson et Williams (2007) ; l'écart-type de 0,5 n'est attribué à aucune source."@fr .
+
+hunter:ExposedPeriodLaw rdf:type owl:NamedIndividual , dsim:NormalDistribution ;
+    dsim:meanParameter "10"^^xsd:double ;
+    dsim:standardDeviationParameter "0.5"^^xsd:double .
+
+hunter:InfectiousPeriod rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "infectious period" ;
+    dsim:parameterUnit "day" ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dsim:hasUncertaintyDistribution hunter:InfectiousPeriodLaw ;
+    dcterms:bibliographicCitation "Nelson K.E., Williams C.M. (2007). Infectious Disease Epidemiology: Theory and Practice. Jones and Bartlett. Réf. 26 de l'article." ;
+    rdfs:comment "Moyenne de 8 jours, même source ; écart-type de 0,5."@fr .
+
+hunter:InfectiousPeriodLaw rdf:type owl:NamedIndividual , dsim:NormalDistribution ;
+    dsim:meanParameter "8"^^xsd:double ;
+    dsim:standardDeviationParameter "0.5"^^xsd:double .
+
+hunter:R0 rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "R0" ;
+    dsim:parameterValue "12"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dcterms:bibliographicCitation "Nelson K.E., Williams C.M. (2007). Infectious Disease Epidemiology: Theory and Practice. Jones and Bartlett. Réf. 26 de l'article." ;
+    rdfs:comment "Pris dans la fourchette de 12 à 18 donnée par Nelson et Williams (2007), puis choisi parce qu'il reproduit le mieux l'épidémie de Schull. L'article garde le même R0 pour les 33 villes : il ne dépend pas du contexte dans ce modèle."@fr .
+
+hunter:ContactsPerTick rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "c" ;
+    dsim:hasValueOrigin dsim:ESTIMATED_FROM_DATA ;
+    dsim:dependsOnContextElement hunter:SchullPopulation ;
+    rdfs:comment "Nombre moyen de contacts d'un agent par pas, compté dans 20 simulations de la ville sans infection : moyenne sur les agents, puis sur les simulations. Valeur non publiée. Pour une autre ville, il faut refaire ces 20 simulations."@fr .
+
+hunter:InfectiousTicks rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "d" ;
+    dsim:parameterValue "96"^^xsd:double ;
+    dsim:parameterUnit "tick" ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "8 jours x 12 pas par jour" ;
+    dsim:isDerivedFrom hunter:InfectiousPeriod .
+
+hunter:TransmissionProbability rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "p" ;
+    dsim:parameterValue "0.008"^^xsd:double ;
+    dsim:hasValueOrigin dsim:DERIVED ;
+    dsim:parameterExpression "R0 / (c * d)" ;
+    dsim:isDerivedFrom hunter:R0 , hunter:ContactsPerTick , hunter:InfectiousTicks ;
+    rdfs:comment "Probabilité d'infection par contact, propre à chaque ville. Valeur du tableau 5 de l'article."@fr .
+
+hunter:N rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "N" ;
+    dsim:parameterValue "987"^^xsd:double ;
+    dsim:hasValueOrigin dsim:MEASURED ;
+    dsim:dependsOnContextElement hunter:SchullPopulation ;
+    rdfs:comment "Nombre d'habitants au recensement de 2011."@fr .
+
+hunter:VaccinationUptake rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "vaccination uptake by age" ;
+    dsim:hasValueOrigin dsim:MEASURED ;
+    dsim:dependsOnContextElement hunter:WestCork ;
+    dcterms:bibliographicCitation "Health Service Executive (HSE), couverture vaccinale ROR de l'ouest du comté de Cork ; Health Protection Surveillance Centre (HPSC), Immunisation Uptake Statistics, réf. 22 de l'article ; OCDE, Child Vaccination Rates, réf. 23." ;
+    rdfs:comment "Couverture ROR par année de naissance dans l'ouest du comté de Cork : 86 % à 2 ans, d'après le HSE. Chaque agent a la probabilité d'être vacciné de son année de naissance. Pour comparer les 33 villes, l'article prend la couverture de toute l'Irlande."@fr .
+
+hunter:VaccineEfficacy rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "vaccine efficacy" ;
+    dsim:parameterValue "0.97"^^xsd:double ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dcterms:bibliographicCitation "Nelson K.E., Williams C.M. (2007). Infectious Disease Epidemiology: Theory and Practice. Jones and Bartlett. Réf. 26 de l'article." ;
+    rdfs:comment "Un agent vacciné est immunisé avec une probabilité de 97 % : l'article compte ainsi les échecs du vaccin."@fr .
+
+hunter:PassiveImmunity rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "passive immunity under one year" ;
+    dsim:parameterValue "0.5"^^xsd:double ;
+    dsim:hasValueOrigin dsim:FROM_LITERATURE ;
+    dcterms:source <https://doi.org/10.1128/cdli.6.6.868-871.1999> ;
+    rdfs:comment "La moitié des agents de moins d'un an ont une immunité passive, d'après Nicoara et al. (1999), réf. 27 de l'article."@fr .
+
+hunter:ImmunityWithoutData rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "immunity without vaccination data" ;
+    dsim:parameterValue "0.99"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "Les agents dont l'année de naissance n'a pas de données de vaccination sont immunisés avec une probabilité de 99 % : la plupart avaient eu la rougeole ou y avaient été exposés avant la vaccination."@fr .
+
+hunter:HomeSickProbability rdf:type owl:NamedIndividual , dsim:StaticParameter ;
+    dsim:parameterName "home sick probability" ;
+    dsim:parameterValue "0.7"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "Probabilité qu'un agent infectieux reste chez lui : 70 % pour le modèle de Schull, dans le texte de l'article. L'annexe donne d'autres valeurs selon la situation : 30 % pour un actif, 70 % pour un élève, 75 % pour un chômeur."@fr .
+
+hunter:InitialInfected rdf:type owl:NamedIndividual , dsim:InitialCondition ;
+    dsim:parameterName "initial infected agents" ;
+    dsim:parameterValue "1"^^xsd:double ;
+    dsim:hasValueOrigin dsim:ASSUMED ;
+    rdfs:comment "Un seul infecté au départ, un élève non vacciné."@fr .
+
+
+#################################################################
+#    6. Le modele
+#################################################################
+
+hunter:ModelSchull rdf:type owl:NamedIndividual , dsim:AgentBasedModel ;
+    dsim:modelName "Hunter 2018 - Measles ABM - Schull" ;
+    dsim:hasAuthor "Elizabeth Hunter" , "Brian Mac Namee" , "John Kelleher" ;
+    dsim:modelDescription "Modèle multi-agents de la rougeole construit sur des données ouvertes irlandaises, pour la ville de Schull. L'épidémie de 2012 sert à la comparaison : 63 cas dans l'ouest du comté de Cork, dont une trentaine à Schull. Sur 400 simulations, 17 infectés en moyenne et 90 au plus ; le nombre réel tombe au 75e centile. L'article simule aussi 32 autres villes irlandaises, 200 fois chacune, avec la couverture vaccinale de toute l'Irlande et une probabilité d'infection propre à chaque ville." ;
+    dsim:hasModelNature dsim:MECHANISTIC ;
+    dsim:hasModelScope dsim:SPECIFIC ;
+    dsim:hasModelPurpose dsim:DYNAMICS_RESEARCH ;
+    dsim:hasValidationMethod dsim:HISTORICAL_DATA ;
+    dsim:hasStructureKnowledge hunter:ABMStructure ;
+    dsim:hasExecutionKnowledge hunter:NetLogoRuns ;
+    dsim:hasContextKnowledge hunter:SchullContext ;
+    dsim:usesScenario hunter:SchullScenario ;
+    dsim:hasAgentType hunter:Person ;
+    dsim:hasAgentTransition hunter:TransitionSE , hunter:TransitionEI , hunter:TransitionIR ;
+    dsim:hasBehavior hunter:DailyMovement , hunter:StayHomeWhenSick ;
+    dsim:hasEnvironmentModel hunter:SchullGrid ;
+    dsim:hasParameter hunter:ExposedPeriod , hunter:InfectiousPeriod , hunter:R0 , hunter:ContactsPerTick ,
+                      hunter:InfectiousTicks , hunter:TransmissionProbability , hunter:N ,
+                      hunter:VaccinationUptake , hunter:VaccineEfficacy , hunter:PassiveImmunity ,
+                      hunter:ImmunityWithoutData , hunter:HomeSickProbability , hunter:InitialInfected ;
+    dcterms:source <https://doi.org/10.1371/journal.pone.0208775> .
+
+
+#
+#    Ce que le raisonneur doit trouver tout seul :
+#    - la transition de S vers E est une InteractionTriggeredTransition, parce qu'une rencontre la declenche ;
+#    - le modele est donc un CoupledAgentBasedModel ;
+#    - la maladie est une InfectiousDiseaseKnowledge (elle declare un virus) et une CoupledDiseaseKnowledge ;
+#    - c : ParameterToReestimate ;
+#    - N et la couverture vaccinale par age : ParameterToReplace ;
+#    - p : ParameterToRecalculate ;
+#    - les deux durees, R0, d, l'efficacite du vaccin, l'immunite passive, l'immunite sans donnees,
+#      la probabilite de rester chez soi et l'infecte de depart : aucune des trois, ils se gardent.
